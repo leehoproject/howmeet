@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------------------ */
+/* ------------------------------------페이지 전체------------------------------- */
+/* ------------------------------------------------------------------------------ */
+html, body {width:100%; padding:0; margin:0;}
+
+/* 폰트 차후 수정(나눔고딕으로) */
+body {background: #ffffff; color: #333333;font-size: 16px; font-family: Arial, Helvetica, sans-serif}
+
+/* ---------------------------------------------------------------------------- */
+/* ------------------------------------구성 요소------------------------------- */
+/* ---------------------------------------------------------------------------- */
+html { -webkit-text-size-adjust: none;}
+.video embed,.video object,.video iframe { width: 100%;  height: auto;}
+img{max-width:100%;	height: auto;width: auto\9; /* ie8에서 */}
+
+a{color: #337AC6; text-decoration: none;}
+a:hover {opacity: 0.9; text-decoration: none; transition:1s ease;}
+
+h1 {font-size: 55px;}
+h2 {font-size: 45px;}
+h3 {font-size: 30px;}
+h4 {font-size: 25px;}
+h5 {font-size: 20px;}
+
+.clear{content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix:after, .clearfix:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
+
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------슬라이드 부분-------------------------- */
+/* ---------------------------------------------------------------------------- */
+header#intro {margin-top:20px;width: 100%;}
+
+/* Carousel Styles */
+.carousel-inner img {width: 100%;max-height: 500px;}
+
+.carousel-control {width: 0;}
+.carousel-control.left,
+.carousel-control.right {opacity: 1;filter: alpha(opacity=100);background-image: none;background-repeat: no-repeat;text-shadow: none;}
+.carousel-control .glyphicon-chevron-left, 
+.carousel-control .glyphicon-chevron-right, 
+.carousel-control .icon-prev, 
+.carousel-control .icon-next {position: absolute;top: 45%;z-index: 5;display: inline-block;}
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .icon-prev {left: 30px;}
+.carousel-control .glyphicon-chevron-right,
+.carousel-control .icon-next {right: 30px;}
+.carousel-control.left span:hover,
+.carousel-control.right span:hover {opacity: .7;filter: alpha(opacity=70);}
+
+.carousel-indicators .active {background-color: #eee;}
+.carousel-indicators {bottom: 30px;}
+
+.carousel-inner > .item {margin-left:0;margin-top:0;margin-bottom:0;padding-left: 0;width: 100%;height: auto;}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {display: block;max-width: 100%;height: auto;margin-left:0;padding-left: 0;}
+
+/* Carousel Header Styles */
+.header-text {position: absolute;top: 55%;left: 1.8%;right: auto;width: 96.66666666666666%;color: #fff;}
+.header-text h2 {font-size: 40px;padding: 10px;color: #fff;text-transform: uppercase;background-color: #eee;display:inline-block;color:#333;}
+.header-text h3 {color: #fff;}
+
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------Content-------------------------------- */
+/* ---------------------------------------------------------------------------- */
+#page-content {margin: 50px 0;}
+#page-content img {margin-bottom: 30px ;}
+#page-content .heading {border-bottom: 1px solid #eee;margin-bottom: 30px;}
+#page-content .heading h2 {display: inline-block;margin-top: 0;font-size: 38px;}
+#page-content .content {margin-bottom: 40px;}
+#page-content .item {border: 1px solid #ddd;border-radius: 7px;}
+#page-content .item .item-title{background:#eee;padding: 10px 20px;}
+#page-content .item .item-title h3{font-size: 25px;}
+#page-content .item .item-content {padding: 20px;}
+#page-content .well{margin-bottom: 40px;}
+/* ---------------------------------------------------------------------------- */
+/* -------------------------------------Footer--------------------------------- */
+/* ---------------------------------------------------------------------------- */
+footer {}
+footer .wrap-footer {padding-bottom: 50px;}
+
