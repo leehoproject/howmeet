@@ -34,4 +34,8 @@ public class HomeController {
 	public String login(Locale locale, Model model) {	
 		return "layout/login";
 	}
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Locale locale, Model model) {	
+		return "yong/test";
+	}	
 }
