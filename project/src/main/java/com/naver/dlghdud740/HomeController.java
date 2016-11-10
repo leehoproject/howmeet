@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
+
+
 @Controller
 public class HomeController {
 	
@@ -30,14 +32,19 @@ public class HomeController {
 	public String home2(Locale locale, Model model) {	
 		return "layout/body";
 	}
+	
+	//회원가입
 	@RequestMapping(value = "/member.html", method = RequestMethod.GET)
 	public String member(Locale locale, Model model) {	
 		return "main/member";
 	}
+	//동호회만들기
 	@RequestMapping(value = "/createmeeting.html", method = RequestMethod.GET)
 	public String creategr(Locale locale, Model model) {	
 		return "main/createmeeting";
 	}
+	
+	//모임리스트
 	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
 	public String searchgr(Locale locale, Model model) {	
 		return "main/searchmeeting";

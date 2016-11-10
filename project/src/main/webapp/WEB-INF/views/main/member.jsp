@@ -41,7 +41,7 @@
 						<div class="form-group">
 							<label for="m_id" class="col-md-3"><span class="labeltext">아이디</span></label>
 							<div class="input-group col-md-9">
-								<input type="text" size="20" id="m_id" name="m_id" class="form-control" placeholder="아이디">
+								<input type="text" size="20" id="m_id" name="m_id"  class="form-control" placeholder="아이디">
 								<span class="input-group-btn">
 									<button id="confirm" name="confirm" class="btn btn-default">중복확인</button>
 								</span>
