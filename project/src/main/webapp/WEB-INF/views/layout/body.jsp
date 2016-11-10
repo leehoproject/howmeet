@@ -8,7 +8,6 @@
 </head>
 <body>
 <!-- 슬라이드 시작 -->
-<header id="intro">
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<!-- 클릭해서 넘겨주는 부분 (색깔 제외한 수정 불필요) -->
 		<ol class="carousel-indicators">
@@ -58,7 +57,6 @@
 		   	<span class="glyphicon glyphicon-chevron-right"></span>
 		</a>
 	</div>
-</header>
 <!-- 슬라이드 종료 -->
 	
 <!-- 카테고리 혹은 모임보기 시작 -->

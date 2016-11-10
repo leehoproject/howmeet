@@ -30,12 +30,8 @@ public class HomeController {
 	public String home2(Locale locale, Model model) {	
 		return "layout/body";
 	}
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/member", method = RequestMethod.GET)
 	public String login(Locale locale, Model model) {	
-		return "layout/login";
-	}
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test(Locale locale, Model model) {	
-		return "yong/test";
+		return "main/member";
 	}	
 }

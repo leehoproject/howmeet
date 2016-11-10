@@ -39,6 +39,14 @@
 	<!-- Elegant Icons -->
 	<link rel="stylesheet" type="text/css" href="resources/fonts/eleganticons/et-icons.css">
 
+<!-- 회원가입 창 디자인(차후 외부CSS로) -->
+<style>
+.mainframe{padding:0; margin-top:50px; background:#f7f7f7;}
+.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;}
+.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
+.slogan{font-size:20px;}
+</style>
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -65,12 +73,11 @@
 				</a>
 			</div>
 			<div class="collapse navbar-collapse" id="mynavbar">
-				<ul class="nav navbar-nav navbar-right main-nav">
-					<li><a href="login">Intro</a></li>
+				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#services">Services</a></li>
 					<li><a href="#team">Team</a></li>
 					<li><a href="#pricing">Pricing</a></li>
-					<li><a href="test">test</a></li>
+					<li><a href="member">member</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
 				</ul>
 			</div>
