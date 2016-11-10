@@ -76,6 +76,8 @@
 					<li><a href="searchmeeting.html">Find group</a></li>
 					<li><a href="createmeeting.html">Create group</a></li>
 					<li><a href="member.html">Register</a></li>
+					<li><a href="calendar">calendar</a></li>
+					
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
 				</ul>
 			</div>
@@ -84,7 +86,7 @@
 
 	<!-- 상단 메뉴바 종료 -->
 	
-	<!-- 로그인창 -->
+	<!-- 회원가입창 -->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
