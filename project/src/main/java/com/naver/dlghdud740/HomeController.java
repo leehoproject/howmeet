@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.dlghdud740.entities.Member;
@@ -51,30 +53,46 @@ public class HomeController {
 	public String member(Locale locale, Model model) {	
 		return "main/member";
 	}
+	
 	//회원가입
 	@RequestMapping(value = "/memberInsert", method = RequestMethod.GET)
 	public ModelAndView memberInsert(@ModelAttribute("member") Member member) {	
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
-		String msg = "";
 		member.setM_phone(member.getM_phone1()+member.getM_phone2()+member.getM_phone3());
-		System.out.println(member.getM_phone());
 		int result = dao.insertRow(member);
+		String msg = "";
 		if(result==1){
-			msg="success! Insert your Info.";
+			msg=member.getM_id()+"님 회원가입을 완료 하였습니다.";
 		} else {
-			msg="fail! yout Info.";
+			msg="회원가입 실패";
 		}
 		ModelAndView mav = new ModelAndView("member/member_result");
-		
 		mav.addObject("msg",msg);
 		mav.addObject("result","ok");
 		
 		return mav;
 	}
+	//id 중복체크
+	@RequestMapping(value = "/idconfirm", method = RequestMethod.POST)
+	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {
+		int count = 0;
+		int find = 0;
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		try {
+			count = dao.selectCount(m_id);
+		} catch (Exception e) {
+			System.out.println("idconfirm err: "+e.getMessage());
+		}
+		if(count>0)
+			find=1;
+		else
+			find=0;
+		return find;
+	}	
 	//회원가입 결과창
 	@RequestMapping(value = "/member_result", method = RequestMethod.GET)
 	public String member_result(Locale locale, Model model) {	
-		return "/home";
+		return "redirect:/home";
 	}
 	//동호회만들기
 	@RequestMapping(value = "/createmeeting.html", method = RequestMethod.GET)

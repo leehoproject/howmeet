@@ -10,8 +10,6 @@
 			<id property="m_pw" column="m_pw" />
 			<id property="m_name" column="m_name" />
 			<id property="m_phone" column="m_phone" />
-			<id property="m_addr1" column="m_addr1" />
-			<id property="m_addr2" column="m_addr2" />
 			<id property="m_email" column="m_email" />
 			<id property="m_hobby1" column="m_hobby1" />
 			<id property="m_hobby2" column="m_hobby2" />
@@ -20,15 +18,19 @@
 			insert into member(m_id,m_pw,m_name,m_phone,m_addr1,m_addr2,m_email,m_hobby1,m_hobby2) 
 			values(#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_addr1},#{m_addr2},#{m_email},#{m_hobby1},#{m_hobby2})
 		</insert>		
+		<select id="selectCount" parameterType="String" resultType="int">
+			select count(*) from member where m_id=#{m_id}
+		</select>		
+		
+		
+		
 		<select id="selectOne" parameterType="String" resultMap="memberMap">
-			select * from member where id=#{id}
+			select * from member where m_id=#{m_id}
 		</select>
 		<select id="selectAll" resultMap="memberMap">
 			select * from member
 		</select>
-		<select id="selectCount" parameterType="String" resultType="int">
-			select count(*) from member where id=#{id}
-		</select>
+
 		<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
 			select * from member where id=#{id} and password=#{password}
 		</select>
