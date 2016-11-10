@@ -20,12 +20,12 @@
 	<script src="resources/js/bootstrap.min.js"></script>
 	
 	<!-- 회원가입 창 디자인(차후 외부CSS로) -->
-	<style>
-	.mainframe{padding:0; margin-top:50px; background:#f7f7f7;}
-	.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;}
-	.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
-	.slogan{font-size:20px;}
-	</style>	
+<style>
+ 	.mainframe{padding:0; margin-top:50px; background:#f7f7f7;} 
+ 	.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;} 
+ 	.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
+ 	.slogan{font-size:20px;}
+</style>	
 </content>
 <body>
 <!-- 회원가입 시작 -->
