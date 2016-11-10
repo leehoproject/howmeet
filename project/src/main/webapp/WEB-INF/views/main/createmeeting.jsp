@@ -9,7 +9,7 @@
 </head>
 <content tag="local_script">
 	<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
-	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/bootstrap.css" rel="stylesheet">
 	<link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	
 	<!-- 페이지 구성 CSS -->

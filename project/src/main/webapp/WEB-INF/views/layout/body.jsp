@@ -75,45 +75,107 @@
 <!-- 슬라이드 종료 -->
 	
 <!-- 카테고리 혹은 모임보기 시작 -->
-<div id="page-content" class="index-page">
-<div class="container">
-	<div class="row">
-		<div class="heading col-lg-12">
-			<h2>카테고리</h2>
-		</div>
-		<div class="content col-lg-12">
-			<div class="row">
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>				
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-			</div>			
-			<div class="row">
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>				
-				<div class="col-md-3">
-					<a href="#"><img src="resources/images/1.jpg" alt=""></a>
-				</div>
-			</div>
-		</div>
-	</div>
+<div id="works"  class=" clearfix grid"> 
+    <figure class="effect-oscar  wowload fadeInUp" style="border: 10px">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Cappuchino</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Latte</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Ambience</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Fruits</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Breakfast</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Kitchen</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Cappuchino</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Latte</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Ambience</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Fruits</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+     
+     <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Breakfast</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="resources/images/2.jpg" alt="img01"/>
+        <figcaption>
+            <h2>Kitchen</h2>
+            <p>Lily likes to play with crayons and pencils<br>
+            <a href="resources/images/2.jpg" title="1" data-gallery>View more</a></p>            
+        </figcaption>
+    </figure>
 </div>
-</div>
+
 <!-- 카테고리 혹은 모임보기 종료 -->
 
 </body>

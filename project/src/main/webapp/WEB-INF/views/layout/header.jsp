@@ -27,6 +27,8 @@
 <link rel="stylesheet" type="text/css" href="resources/fonts/eleganticons/et-icons.css">
 <!-- carousel video -->
 <link href="resources/css/responsive_bootstrap_carousel_mega_min.css" rel="stylesheet" media="all">
+<!-- set.css -->
+<link href="resources/css/set.css" rel="stylesheet" type="text/css">
 
 <!-- 제이쿼리 부분 -->
 <script src="resources/js/jquery-1.11.3.min.js"></script>
