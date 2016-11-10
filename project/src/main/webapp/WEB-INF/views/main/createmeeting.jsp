@@ -60,14 +60,14 @@
 					<label for="s_hobby"><span class="labeltext">관심사</span></label>
 					<div style="padding:0;">
 						<select class="form-control" name="s_hobby" id="s_hobby">
-							<option value="1">축구</option>
-							<option value="2">맛집탐방</option>
-							<option value="3">여행</option>
-							<option value="4">스터디</option>
-							<option value="5">영화</option>
-							<option value="6">헬스</option>
-							<option value="7">음악</option>
-							<option value="8">그림</option>
+							<option value=1>축구</option>
+							<option value=2>맛집탐방</option>
+							<option value=3>여행</option>
+							<option value=4>스터디</option>
+							<option value=5>영화</option>
+							<option value=6>헬스</option>
+							<option value=7>음악</option>
+							<option value=8>그림</option>
 						</select>
 					</div>
 				</div>	

@@ -19,6 +19,47 @@
 	<script src="resources/js/jquery.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	
+	<!-- 회원가입 페이지 제이쿼리 제어부 -->
+	<script type="text/javascript">
+		function doReset(){                         //페이지가 시작될때 input안에있는값들을 공백으로 바꿔줌
+			document.insert_form.m_id.value = "";
+			document.insert_form.m_pw.value = "";
+			document.insert_form.checkpassword.value = "";	
+		}
+		$(document).ready(function(){
+			$('#confirm').click(function(event) {
+				var id = $('#m_id').val();
+				$.ajax({
+					type : 'POST',
+					data : "m_id="+ m_id,
+					dataType : 'json',
+					url : 'idconfirm',
+					success : function(data){
+						if(m_id==""){
+							alert("id를 입력하세요");
+							return;
+						}
+						if(data==0){
+							alert("사용가능한 아이디 입니다.");
+							$('#check').attr('value','yes');
+						} else {
+							alert("중복");
+							return;
+						}
+						return false;
+					}
+				});
+			});
+			$('#save').click(function(event) {
+				if($('#check').val()=='no'){
+					alert("아이디 중복 체크를 하세요!")
+					return;
+				}
+				$('#insert_form').submit();
+			});
+		});
+		
+	</script>	
 	<!-- 회원가입 창 디자인(차후 외부CSS로) -->
 <style>
  	.mainframe{padding:0; margin-top:50px; background:#f7f7f7;} 
@@ -32,7 +73,7 @@
 <div id="page-content" class="index-page">
 	<div class="container">
 		<div class="row" >
-			<form class="form-horizontal" action="" method="POST" role="form" data-parsley-validate="true">
+			<form  id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="GET" role="form" data-parsley-validate="true">
 				<div class="col-md-offset-3 col-md-6 mainframe">
 					<div class="col-md-12 text-center logoframe">
 						<span class="slogan">사람을 만나는 방법, HowMeet!</span>
@@ -41,9 +82,9 @@
 						<div class="form-group">
 							<label for="m_id" class="col-md-3"><span class="labeltext">아이디</span></label>
 							<div class="input-group col-md-9">
-								<input type="text" size="20" id="m_id" name="m_id" class="form-control" placeholder="아이디">
+								<input type="text" size="20" id="m_id" name="m_id"  class="form-control" placeholder="아이디">
 								<span class="input-group-btn">
-									<button id="confirm" name="confirm" class="btn btn-default">중복확인</button>
+									<button id="confirm" name="confirm" type="button" class="btn btn-default">중복확인</button>
 								</span>
 							</div>
 						</div>
@@ -72,9 +113,9 @@
 							</div>
 						</div>				
 						<div class="form-group">
-							<label for="phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
+							<label for="m_phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
 							<div class="col-md-3" style="padding:0;">
-								<select class="form-control" name="phone1" id="phone1">
+								<select class="form-control" name="m_phone1" id="m_phone1">
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
@@ -83,13 +124,13 @@
 									<option value="019">019</option>
 								</select>
 							</div>
-							<label class="col-md-1 text-center" for="phone2"><span class="labeltext">-</span></label>
+							<label class="col-md-1 text-center" for="m_phone2"><span class="labeltext">-</span></label>
 							<div class="col-md-2" style="padding:0;">
-								<input type="text" size="20" name="phone2" id="phone2" class="form-control">
+								<input type="text" size="20" name="m_phone2" id="m_phone2" class="form-control">
 							</div>
-							<label class="col-md-1 text-center" for="phone3"><span class="labeltext">-</span></label>
+							<label class="col-md-1 text-center" for="m_phone3"><span class="labeltext">-</span></label>
 							<div class="col-md-2" style="padding:0;">
-								<input type="text" size="20" name="phone3" id="phone3" class="form-control">
+								<input type="text" size="20" name="m_phone3" id="m_phone3" class="form-control">
 							</div>
 						</div>				
 						<div class="form-group">
@@ -138,7 +179,7 @@
 					<div class="col-md-12 sendframe">
 						<div class="form-group">
 							<div class="col-md-12 text-center">
-								<button type="submit" class="btn btn-default">보내기</button>
+								<button id="save" type="submit" class="btn btn-default">보내기</button>
 								<button type="reset" class="btn btn-default">다시쓰기</button>
 							</div>
 						</div>

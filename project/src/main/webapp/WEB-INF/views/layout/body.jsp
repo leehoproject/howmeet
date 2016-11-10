@@ -7,53 +7,68 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 슬라이드 시작 -->
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		<!-- 클릭해서 넘겨주는 부분 (색깔 제외한 수정 불필요) -->
-		<ol class="carousel-indicators">
-		  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-		</ol>
-		<!-- 슬라이드 부분 wrapper 역할 -->
-		<div class="carousel-inner">
-		    <div class="item active">
-				<!-- 슬라이드 이미지 -->
-		    	<img src="resources/images/image1.jpg">
-				<div class="header-text hidden-xs">
-                    <div class="col-md-12 text-center">
-                        <h2>Welcome to Shuffle</h2>
-                        <br>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                    </div>
+		<!--*-*-*-*-*-*-*-*-*-*- BOOTSTRAP CAROUSEL *-*-*-*-*-*-*-*-*-*-->
+
+		<div id="video_carousel" class="carousel video_carousel_fade animate_text video_carousel_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
+
+			<!--======= Wrapper For Slides =======-->
+			<div class="carousel-inner" role="listbox">
+
+				<!--========= First Slide =========-->
+				<div class="item active">
+				
+					<img src="resources/images/carousel_video_img.png" alt="carousel video img" />
+					
+					<div class="carousel-caption video_carousel_caption">
+						
+						<div class="video_carousel_caption_text">
+							<h1>Video Carousel</h1>
+							<p>Bootstrap Video Carousel supports Self Hosted Video</p>
+							<a href="#" class="video_carousel_colored_button">Learn More</a>
+						</div>
+						
+						<!--========= Video =========-->
+						<video class="video_carousel_video" autoplay loop>
+							<source src="resources/images/carousel_video_01.mp4" type="video/mp4">
+							Your browser does not support HTML5 video.
+						</video>
+					
+					</div>
+
 				</div>
-		    </div>
-			<div class="item">
-			  	<img src="resources/images/image2.jpg">
-                <div class="header-text hidden-xs">
-                    <div class="col-md-12 text-center">
-                        <h2>Awesome Bootstrap template</h2>
-                        <br>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                    </div>
-                </div>
+				
+				<!--========= Second Slide =========-->
+				<div class="item">
+
+					<img src="resources/images/carousel_video_img.png" alt="carousel video img" />
+					
+					<div class="carousel-caption video_carousel_caption">
+						
+						<div class="video_carousel_caption_text">
+							<h1 data-animation="animated fadeInDown">Video Carousel</h1>
+							<p data-animation="animated fadeInUp">Bootstrap Video Carousel supports Self Hosted Video</p>
+							<a href="#" class="video_carousel_colored_button" data-animation="animated fadeInLeft">Learn More</a>
+						</div>
+						
+						<!--========= Video =========-->
+						<video class="video_carousel_video" autoplay loop>
+							<source src="resources/images/carousel_video_02.mp4" type="video/mp4">
+							Your browser does not support HTML5 video.
+						</video>
+					
+					</div>
+					
+				</div>
+
 			</div>
-			<div class="item">
-			  	<img src="resources/images/image3.jpg">
-                <div class="header-text hidden-xs">
-                    <div class="col-md-12 text-center">
-                        <h2>Use without any charge</h2>
-                        <br>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                    </div>
-                </div>
-			</div>
-		</div>
+
+			<!--======= Navigation Buttons =========-->
+
 		<!-- 양쪽 화살표 부분 -->
-		<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		<a class="left carousel-control video_carousel_control_left" href="#video_carousel" data-slide="prev">
 		   	<span class="glyphicon glyphicon-chevron-left"></span>
 		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		<a class="right carousel-control video_carousel_control_right" href="#video_carousel" data-slide="next">
 		   	<span class="glyphicon glyphicon-chevron-right"></span>
 		</a>
 	</div>
