@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -86,8 +87,14 @@
 				</div>	
 				<div class="form-group">
 					<label for="c_peoplenum"><span class="labeltext">모임 인원</span></label>
-					<div>
-						<input type="text" size="50" id="c_peoplenum" name="c_peoplenum" class="form-control" placeholder="모임 인원">
+					<div style="padding:0;">
+						<select class="form-control" id="c_peoplenum" name="c_peoplenum">
+							<c:forEach var="i" begin="1" end="20">
+								<option value="${i}">
+									<c:out value="${i}명"/>
+								</option>
+							</c:forEach>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
