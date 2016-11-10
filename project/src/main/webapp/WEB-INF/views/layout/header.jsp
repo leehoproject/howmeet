@@ -74,10 +74,9 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#services">Services</a></li>
-					<li><a href="#team">Team</a></li>
-					<li><a href="#pricing">Pricing</a></li>
-					<li><a href="member">회원가입</a></li>
+					<li><a href="searchmeeting.html">Find group</a></li>
+					<li><a href="createmeeting.html">Create group</a></li>
+					<li><a href="member.html">Register</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
 				</ul>
 			</div>

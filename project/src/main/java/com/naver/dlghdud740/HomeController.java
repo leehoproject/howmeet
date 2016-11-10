@@ -30,8 +30,16 @@ public class HomeController {
 	public String home2(Locale locale, Model model) {	
 		return "layout/body";
 	}
-	@RequestMapping(value = "/member", method = RequestMethod.GET)
-	public String login(Locale locale, Model model) {	
+	@RequestMapping(value = "/member.html", method = RequestMethod.GET)
+	public String member(Locale locale, Model model) {	
 		return "main/member";
-	}	
+	}
+	@RequestMapping(value = "/createmeeting.html", method = RequestMethod.GET)
+	public String creategr(Locale locale, Model model) {	
+		return "main/createmeeting";
+	}
+	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
+	public String searchgr(Locale locale, Model model) {	
+		return "main/searchmeeting";
+	}
 }
