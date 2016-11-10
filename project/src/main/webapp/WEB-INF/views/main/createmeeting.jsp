@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>사람을 만나는 방법, HowMeet?</title>
+<title>사람을 만나는 방법, HowMeet</title>
 </head>
 <content tag="local_script">
 	<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
