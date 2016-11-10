@@ -1,17 +1,17 @@
 /* ------------------------------------------------------------------------------ */
-/* ------------------------------------페이지 전체------------------------------- */
+/* ------------------------------------�럹�씠吏� �쟾泥�------------------------------- */
 /* ------------------------------------------------------------------------------ */
 html, body {width:100%; padding:0; margin:0;}
 
-/* 폰트 차후 수정(나눔고딕으로) */
+/* �룿�듃 李⑦썑 �닔�젙(�굹�닎怨좊뵓�쑝濡�) */
 body {background: #ffffff; color: #333333;font-size: 16px; font-family: Arial, Helvetica, sans-serif}
 
 /* ---------------------------------------------------------------------------- */
-/* ------------------------------------구성 요소------------------------------- */
+/* ------------------------------------援ъ꽦 �슂�냼------------------------------- */
 /* ---------------------------------------------------------------------------- */
-html { -webkit-text-size-adjust: none;}
-.video embed,.video object,.video iframe { width: 100%;  height: auto;}
-img{max-width:100%;	height: auto;width: auto\9; /* ie8에서 */}
+html {혻-webkit-text-size-adjust: none;}
+.video embed,.video object,.video iframe {혻width: 100%;혻혻height: auto;}
+img{max-width:100%;	height: auto;width: auto\9; /* ie8�뿉�꽌 */}
 
 a{color: #337AC6; text-decoration: none;}
 a:hover {opacity: 0.9; text-decoration: none; transition:1s ease;}
@@ -26,7 +26,7 @@ h5 {font-size: 20px;}
 .clearfix:after, .clearfix:before{clear: both; content: '\0020'; display: block; visibility: hidden; width: 0; height: 0;}
 
 /* ---------------------------------------------------------------------------- */
-/* -------------------------------------슬라이드 부분-------------------------- */
+/* -------------------------------------�뒳�씪�씠�뱶 遺�遺�-------------------------- */
 /* ---------------------------------------------------------------------------- */
 header#intro {margin-top:20px;width: 100%;}
 
@@ -63,7 +63,7 @@ header#intro {margin-top:20px;width: 100%;}
 /* -------------------------------------Content-------------------------------- */
 /* ---------------------------------------------------------------------------- */
 #page-content {margin: 50px 0;}
-#page-content img {margin-bottom: 30px ;}
+#page-content img {}
 #page-content .heading {border-bottom: 1px solid #eee;margin-bottom: 30px;}
 #page-content .heading h2 {display: inline-block;margin-top: 0;font-size: 38px;}
 #page-content .content {margin-bottom: 40px;}

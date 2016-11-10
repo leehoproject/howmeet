@@ -12,7 +12,7 @@
 <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <!-- 페이지 구성 CSS -->
-<link href="resources/css/style.css" rel="stylesheet">
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" >
 <!-- Main style -->
 <link rel="stylesheet" type="text/css" href="resources/css/cardio.css">
 <!-- Normalize -->
