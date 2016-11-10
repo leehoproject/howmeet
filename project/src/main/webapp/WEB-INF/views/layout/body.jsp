@@ -14,7 +14,7 @@
 			<!--======= Wrapper For Slides =======-->
 			<div class="carousel-inner" role="listbox">
 
-				<!--========= First Slide =========-->
+				<!--========= 첫번째슬라이드 =========-->
 				<div class="item active">
 				
 					<img src="resources/images/carousel_video_img.png" alt="carousel video img" />
@@ -27,7 +27,7 @@
 							<a href="#" class="video_carousel_colored_button">Learn More</a>
 						</div>
 						
-						<!--========= Video =========-->
+						<!--========= 1비디오 =========-->
 						<video class="video_carousel_video" autoplay loop>
 							<source src="resources/images/carousel_video_01.mp4" type="video/mp4">
 							Your browser does not support HTML5 video.
@@ -37,7 +37,7 @@
 
 				</div>
 				
-				<!--========= Second Slide =========-->
+				<!--========= 두번째 슬라이드 =========-->
 				<div class="item">
 
 					<img src="resources/images/carousel_video_img.png" alt="carousel video img" />
@@ -50,7 +50,7 @@
 							<a href="#" class="video_carousel_colored_button" data-animation="animated fadeInLeft">Learn More</a>
 						</div>
 						
-						<!--========= Video =========-->
+						<!--========= 2비디오 =========-->
 						<video class="video_carousel_video" autoplay loop>
 							<source src="resources/images/carousel_video_02.mp4" type="video/mp4">
 							Your browser does not support HTML5 video.
@@ -62,7 +62,7 @@
 
 			</div>
 
-			<!--======= Navigation Buttons =========-->
+			<!--======= 화살표 버튼 =========-->
 
 		<!-- 양쪽 화살표 부분 -->
 		<a class="left carousel-control video_carousel_control_left" href="#video_carousel" data-slide="prev">

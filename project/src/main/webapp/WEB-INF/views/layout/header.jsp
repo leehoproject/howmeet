@@ -84,7 +84,7 @@
 
 	<!-- 상단 메뉴바 종료 -->
 	
-	<!-- 회원가입창 -->
+	<!-- 로그인창 -->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">

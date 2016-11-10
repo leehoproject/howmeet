@@ -15,7 +15,7 @@
 <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form action="index" method="GET">
+<form action="home" method="GET">
 <div class="container">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4" style="border:3px solid #00C6ED; border-radius: 4px;">
