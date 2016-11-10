@@ -32,7 +32,7 @@
 <div id="page-content" class="index-page">
 	<div class="container">
 		<div class="row" >
-			<form class="form-horizontal" action="" method="POST" role="form" data-parsley-validate="true">
+			<form class="form-horizontal" action="memberInsert" method="GET" role="form" data-parsley-validate="true">
 				<div class="col-md-offset-3 col-md-6 mainframe">
 					<div class="col-md-12 text-center logoframe">
 						<span class="slogan">사람을 만나는 방법, HowMeet!</span>
@@ -72,9 +72,9 @@
 							</div>
 						</div>				
 						<div class="form-group">
-							<label for="phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
+							<label for="m_phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
 							<div class="col-md-3" style="padding:0;">
-								<select class="form-control" name="phone1" id="phone1">
+								<select class="form-control" name="m_phone1" id="m_phone1">
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
@@ -83,13 +83,13 @@
 									<option value="019">019</option>
 								</select>
 							</div>
-							<label class="col-md-1 text-center" for="phone2"><span class="labeltext">-</span></label>
+							<label class="col-md-1 text-center" for="m_phone2"><span class="labeltext">-</span></label>
 							<div class="col-md-2" style="padding:0;">
-								<input type="text" size="20" name="phone2" id="phone2" class="form-control">
+								<input type="text" size="20" name="m_phone2" id="m_phone2" class="form-control">
 							</div>
-							<label class="col-md-1 text-center" for="phone3"><span class="labeltext">-</span></label>
+							<label class="col-md-1 text-center" for="m_phone3"><span class="labeltext">-</span></label>
 							<div class="col-md-2" style="padding:0;">
-								<input type="text" size="20" name="phone3" id="phone3" class="form-control">
+								<input type="text" size="20" name="m_phone3" id="m_phone3" class="form-control">
 							</div>
 						</div>				
 						<div class="form-group">

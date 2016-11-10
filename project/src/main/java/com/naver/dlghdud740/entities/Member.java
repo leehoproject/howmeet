@@ -9,12 +9,17 @@ public class Member {
 	private String m_id;
 	private String m_pw;
 	private String m_name;
-	private int m_phone;
+	private String m_phone; 
+	private String m_phone1;
+	private String m_phone2;
+	private String m_phone3;
 	private String m_addr1;
 	private String m_addr2;
-	private String e_mail;
+	private String m_email;
 	private int m_hobby1;
 	private int m_hobby2;
+	
+	
 	public String getM_id() {
 		return m_id;
 	}
@@ -33,11 +38,29 @@ public class Member {
 	public void setM_name(String m_name) {
 		this.m_name = m_name;
 	}
-	public int getM_phone() {
+	public String getM_phone() {
 		return m_phone;
 	}
-	public void setM_phone(int m_phone) {
+	public void setM_phone(String m_phone) {
 		this.m_phone = m_phone;
+	}
+	public String getM_phone1() {
+		return m_phone1;
+	}
+	public void setM_phone1(String m_phone1) {
+		this.m_phone1 = m_phone1;
+	}
+	public String getM_phone2() {
+		return m_phone2;
+	}
+	public void setM_phone2(String m_phone2) {
+		this.m_phone2 = m_phone2;
+	}
+	public String getM_phone3() {
+		return m_phone3;
+	}
+	public void setM_phone3(String m_phone3) {
+		this.m_phone3 = m_phone3;
 	}
 	public String getM_addr1() {
 		return m_addr1;
@@ -51,11 +74,11 @@ public class Member {
 	public void setM_addr2(String m_addr2) {
 		this.m_addr2 = m_addr2;
 	}
-	public String getE_mail() {
-		return e_mail;
+	public String getM_email() {
+		return m_email;
 	}
-	public void setE_mail(String e_mail) {
-		this.e_mail = e_mail;
+	public void setM_email(String m_email) {
+		this.m_email = m_email;
 	}
 	public int getM_hobby1() {
 		return m_hobby1;
@@ -69,5 +92,6 @@ public class Member {
 	public void setM_hobby2(int m_hobby2) {
 		this.m_hobby2 = m_hobby2;
 	}
+	
 	
 }

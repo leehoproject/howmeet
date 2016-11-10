@@ -15,9 +15,11 @@
 			<id property="m_email" column="m_email" />
 			<id property="m_hobby1" column="m_hobby1" />
 			<id property="m_hobby2" column="m_hobby2" />
-			
 		</resultMap>
-		
+		<insert id="insertRow" parameterType="hashMap">
+			insert into member(m_id,m_pw,m_name,m_phone,m_addr1,m_addr2,m_email,m_hobby1,m_hobby2) 
+			values(#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_addr1},#{m_addr2},#{m_email},#{m_hobby1},#{m_hobby2})
+		</insert>		
 		<select id="selectOne" parameterType="String" resultMap="memberMap">
 			select * from member where id=#{id}
 		</select>
@@ -30,10 +32,7 @@
 		<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
 			select * from member where id=#{id} and password=#{password}
 		</select>
-		<insert id="insertRow" parameterType="hashMap">
-			insert into member(id,password,phone1,phone2,phone3,zipcode,addr1,addr2,cardno,name) 
-			values(#{id},#{password},#{phone1},#{phone2},#{phone3},#{zipcode},#{addr1},#{addr2},#{cardno},#{name})
-		</insert>
+
 		<update id="updateRow" parameterType="hashMap">
 			update member set password=#{password},phone1=#{phone1},phone2=#{phone2},phone3=#{phone3},zipcode=#{zipcode},addr1=#{addr1},addr2=#{addr2}
 			,cardno=#{cardno},name=#{name} where id=#{id}
