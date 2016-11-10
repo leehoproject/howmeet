@@ -13,9 +13,20 @@
 
 <!-- 페이지 구성 CSS -->
 <link href="resources/css/style.css" rel="stylesheet">
-
 <!-- Main style -->
 <link rel="stylesheet" type="text/css" href="resources/css/cardio.css">
+<!-- Normalize -->
+<link rel="stylesheet" type="text/css" href="resources/css/normalize.css">
+<!-- Owl -->
+<link rel="stylesheet" type="text/css" href="resources/css/owl.css">
+<!-- Animate.css -->
+<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.1.0/css/font-awesome.min.css">
+<!-- Elegant Icons -->
+<link rel="stylesheet" type="text/css" href="resources/fonts/eleganticons/et-icons.css">
+<!-- carousel video -->
+<link href="resources/css/responsive_bootstrap_carousel_mega_min.css" rel="stylesheet" media="all">
 
 <!-- 제이쿼리 부분 -->
 <script src="resources/js/jquery-1.11.3.min.js"></script>
@@ -26,18 +37,6 @@
 <script src="resources/js/typewriter.js"></script>
 <script src="resources/js/jquery.onepagenav.js"></script>
 <script src="resources/js/main.js"></script>
-
-
-	<!-- Normalize -->
-	<link rel="stylesheet" type="text/css" href="resources/css/normalize.css">
-	<!-- Owl -->
-	<link rel="stylesheet" type="text/css" href="resources/css/owl.css">
-	<!-- Animate.css -->
-	<link rel="stylesheet" type="text/css" href="resources/css/animate.css">
-	<!-- Font Awesome -->
-	<link rel="stylesheet" type="text/css" href="resources/fonts/font-awesome-4.1.0/css/font-awesome.min.css">
-	<!-- Elegant Icons -->
-	<link rel="stylesheet" type="text/css" href="resources/fonts/eleganticons/et-icons.css">
 
 <!-- 회원가입 창 디자인(차후 외부CSS로) -->
 <style>
