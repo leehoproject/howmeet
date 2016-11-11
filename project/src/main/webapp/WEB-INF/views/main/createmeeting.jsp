@@ -110,8 +110,8 @@
 									<option value="19">19명</option>
 									<option value="20">20명</option>
 								</select>
+						</div>
 					</div>
-				</div>
 				<div class="form-group">
 					<div class="col-md-12 text-center" style="padding:0;">
 						<button type="submit" class="btn btn-default col-md-12">보내기</button>

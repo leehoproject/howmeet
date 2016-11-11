@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 //동호회
 @Component
 public class Society {
-	private String s_area;
 	private int s_hobby;
 	private String s_name;
 	private String s_content;
+	private String s_area;
 	private String s_peoplenum;
 	
 	public String getS_area() {
