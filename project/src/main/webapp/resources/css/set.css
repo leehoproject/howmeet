@@ -14,19 +14,20 @@
 	width: 33.333333333%;
 	text-align: center;
 	cursor: pointer;
+	border:1px solid #fff;
+	padding:10px;
 }
 
 .grid figure img {
 	position: relative;
 	display: block;
-	max-width: 102%;
+	max-width: 100%;
 	opacity: 1;
 }
 
 .grid figure figcaption {
 	padding: 2em;
 	color: #fff;
-	text-transform: uppercase;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
@@ -647,10 +648,6 @@ figure.effect-oscar:hover p {
 	opacity: 1;
 	-webkit-transform: scale(1);
 	transform: scale(1);
-}
-
-figure.effect-oscar:hover figcaption {
-	background-color: rgba(0,0,0,0.8);
 }
 
 figure.effect-oscar:hover img {
