@@ -31,7 +31,7 @@
 <div id="page-content" class="index-page">
 <div class="container">
 	<div class="row">
-		<form class="form-horizontal" action="" method="POST" role="form" data-parsley-validate="true">
+		<form class="form-horizontal" action="SocietyCreate" method="POST" role="form" data-parsley-validate="true">
 			<div class="col-md-12 mainframe">
 				<div class="form-group">
 					<label for="s_area"><span class="labeltext">지역</span></label>
