@@ -3,7 +3,7 @@ package com.naver.dlghdud740.entities;
 
 import org.springframework.stereotype.Component;
 
-
+//회원
 @Component
 public class Member {
 	private String m_id;
