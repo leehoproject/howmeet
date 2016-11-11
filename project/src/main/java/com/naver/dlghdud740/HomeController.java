@@ -1,7 +1,5 @@
 package com.naver.dlghdud740;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -93,11 +91,6 @@ public class HomeController {
 	@RequestMapping(value = "/member_result", method = RequestMethod.GET)
 	public String member_result(Locale locale, Model model) {	
 		return "redirect:/home";
-	}
-	//동호회만들기
-	@RequestMapping(value = "/createmeeting.html", method = RequestMethod.GET)
-	public String creategr(Locale locale, Model model) {	
-		return "main/createmeeting";
 	}
 	//모임리스트
 	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)

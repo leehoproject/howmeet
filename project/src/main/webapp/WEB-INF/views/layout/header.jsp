@@ -76,7 +76,7 @@
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="searchmeeting.html">Find group</a></li>
-					<li><a href="createmeeting.html">Create group</a></li>
+					<li><a href="createmeeting">Create group</a></li>
 					<li><a href="member.html">Register</a></li>
 					<li><a href="calendar">calendar</a></li>
 					

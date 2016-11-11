@@ -16,9 +16,9 @@ public class DBConnectionManager {
 	
 	private Vector connections = new Vector(10);
 	private String _driver = "oracle.jdbc.driver.OracleDriver";
-	private String _user = "itschool";
+	private String _user = "howmeet";
     private String _url = "jdbc:oracle:thin:@localhost:1521:XE";    
-    private String _password = "oracle1024";
+    private String _password = "howmeet";
     
     private boolean _traceOn = false;
     private boolean initialized = false;

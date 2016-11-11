@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.naver.dlghdud740.service.SocietyDao">
+		<resultMap type="com.naver.dlghdud740.entities.Society" id="SocietyMap">
+			<id property="s_hobby" column="s_hobby" />
+			<id property="s_name" column="s_name" />
+			<id property="s_content" column="s_content" />
+			<id property="s_area" column="s_area" />
+			<id property="s_peoplenum" column="s_peoplenum" />
+		</resultMap>
+		<insert id="insertRow" parameterType="hashMap">
+			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum) 
+			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum})
+		</insert>		
+		
+	</mapper>
