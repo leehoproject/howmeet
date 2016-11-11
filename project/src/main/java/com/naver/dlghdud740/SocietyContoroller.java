@@ -45,7 +45,7 @@ public class SocietyContoroller {
 	}
 	//동호회모임 Insert
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
-	public ModelAndView SocietyCreate(@ModelAttribute("Society") Society society) {	
+	public ModelAndView SocietyCreate(@ModelAttribute("society") Society society) {	
 		SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
 		System.out.println(society.getS_area());
 		System.out.println(society.getS_name());

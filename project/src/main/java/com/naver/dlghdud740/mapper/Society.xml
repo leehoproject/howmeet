@@ -3,9 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.naver.dlghdud740.service.SocietyDao">
-		
 		<resultMap type="com.naver.dlghdud740.entities.Society" id="SocietyMap">
-		
 			<id property="s_hobby" column="s_hobby" />
 			<id property="s_name" column="s_name" />
 			<id property="s_content" column="s_content" />
