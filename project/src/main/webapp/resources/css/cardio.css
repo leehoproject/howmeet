@@ -737,33 +737,32 @@ footer .social-footer li:hover a {
 }
 
 .form-control.form-white {
-	color: #fff;
-	border: 2px solid white;
-	background: transparent;
+	color: #000;
+	border: 1px solid #cccccc;
 	-webkit-transition: background-color 0.3s;
 	transition: background-color 0.3s;
 }
 
 .form-control.form-white::-webkit-input-placeholder {
 	/* WebKit browsers */
-	color: #fff;
+	color: #999999;
 }
 
 .form-control.form-white:-moz-placeholder {
 	opacity: 1;
 	/* Mozilla Firefox 4 to 18 */
-	color: #fff;
+	color: #999999;
 }
 
 .form-control.form-white::-moz-placeholder {
 	opacity: 1;
 	/* Mozilla Firefox 19+ */
-	color: #fff;
+	color: #999999;
 }
 
 .form-control.form-white:-ms-input-placeholder {
 	/* Internet Explorer 10+ */
-	color: #fff;
+	color: #999999;
 }
 
 .form-control.form-white:focus {
@@ -785,7 +784,6 @@ footer .social-footer li:hover a {
 	position: relative;
 	padding: 45px 30px;
 	text-align: center;
-	background: url('../images/popup.jpg');
 	box-shadow: none;
 	border-radius: 2px;
 }
@@ -916,9 +914,9 @@ footer .social-footer li:hover a {
 .btn.btn-submit {
 	width: 100%;
 	margin-top: 30px;
-	color: #00a8ff;
-	border: 2px solid #fff;
-	background: #fff;
+	color: #333333;
+	border:1px solid #cccccc;
+	border-radius:5px;
 }
 
 .btn.btn-submit:focus {
@@ -927,7 +925,6 @@ footer .social-footer li:hover a {
 
 .btn.btn-submit:hover {
 	color: #00a8ff;
-	background: #fff;
 }
 
 /* Mobile Nav */
@@ -1001,7 +998,7 @@ footer .social-footer li:hover a {
 /* Colors */
 
 .white {
-	color: #000;
+	color: #333333;
 }
 
 .light-white {
