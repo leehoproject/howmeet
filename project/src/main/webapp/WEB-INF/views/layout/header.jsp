@@ -40,14 +40,6 @@
 <script src="resources/js/jquery.onepagenav.js"></script>
 <script src="resources/js/main.js"></script>
 
-<!-- 회원가입 창 디자인(차후 외부CSS로) -->
-<style>
-.mainframe{padding:0; margin-top:50px; background:#f7f7f7;}
-.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;}
-.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
-.slogan{font-size:20px;}
-</style>
-
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -88,22 +80,22 @@
 
 	<!-- 상단 메뉴바 종료 -->
 	
-	<!-- 회원가입창 -->
+	<!--  로그인창 -->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<h3 class="white">Sign Up</h3>
+				<h3 class="white">로그인</h3>
 				<form action="" class="popup-form">
-					<input type="text" class="form-control form-white" placeholder="Full Name">
-					<input type="text" class="form-control form-white" placeholder="Email Address">
-					<div class="checkbox-holder text-left">
+					<input type="text" class="form-control form-white" id="m_id" name="m_id" placeholder="아이디">
+					<input type="password" class="form-control form-white" id="m_pw" name="m_pw" placeholder="패스워드">
+					<!-- <div class="checkbox-holder text-left">
 						<div class="checkbox">
 							<input type="checkbox" value="None" id="squaredOne" name="check" />
 							<label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
 						</div>
-					</div>
-					<button type="submit" class="btn btn-submit">Submit</button>
+					</div> -->
+					<button type="submit" class="btn btn-submit">로그인</button>
 				</form>
 			</div>
 		</div>
