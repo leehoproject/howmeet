@@ -49,7 +49,7 @@ public class HomeController {
 	//회원가입페이지
 	@RequestMapping(value = "/member.html", method = RequestMethod.GET)
 	public String member(Locale locale, Model model) {	
-		return "main/member";
+		return "member/member_insert";
 	}
 	
 	//회원가입

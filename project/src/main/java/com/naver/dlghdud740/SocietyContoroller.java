@@ -41,7 +41,7 @@ public class SocietyContoroller {
 	//동호회만들기
 	@RequestMapping(value = "/createmeeting", method = RequestMethod.GET)
 	public String creategr(Locale locale, Model model) {	
-		return "main/createmeeting";
+		return "society/society_create";
 	}
 	//동호회모임 Insert
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
