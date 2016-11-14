@@ -6,12 +6,12 @@
 <meta charset='utf-8' />
 </head>
 <content tag="local_script">
-<link rel='stylesheet' href='resources/lib/cupertino/jquery-ui.min.css' />
-<link href='resources/fullcalendar.css' rel='stylesheet' />
-<link href='resources/fullcalendar.print.css' rel='stylesheet' media='print' />
-<script src='resources/lib/moment.min.js'></script>
-<script src='resources/lib/jquery.min.js'></script>
-<script src='resources/fullcalendar.min.js'></script>
+<link rel='stylesheet' href='resources/calendar/lib/cupertino/jquery-ui.min.css' />
+<link href='resources/calendar/fullcalendar.css' rel='stylesheet' />
+<link href='resources/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='resources/calendar/lib/moment.min.js'></script>
+<script src='resources/calendar/lib/jquery.min.js'></script>
+<script src='resources/calendar/fullcalendar.min.js'></script>
 <script>
 	$(document).ready(function() {
 		$('#calendar').fullCalendar({

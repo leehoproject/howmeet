@@ -71,6 +71,7 @@
 					<li><a href="createmeeting">모임만들기</a></li>
 					<li><a href="member.html">회원가입</a></li>
 					<li><a href="calendar">캘린더</a></li>
+					<li><a href="GoogleMap">지도</a></li>
 					
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a></li>
 				</ul>
