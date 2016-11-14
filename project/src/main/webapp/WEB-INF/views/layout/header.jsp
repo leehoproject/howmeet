@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>사람을 만나는 방법, HowMeet?</title>
+<title>사람을 만나는 방법, HowMeet!</title>
 
 <!-- 부트스트랩,font-awsome 부분 필요 CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
@@ -75,12 +75,12 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="searchmeeting.html">Find group</a></li>
-					<li><a href="createmeeting">Create group</a></li>
-					<li><a href="member.html">Register</a></li>
-					<li><a href="calendar">calendar</a></li>
+					<li><a href="searchmeeting.html">모임찾기</a></li>
+					<li><a href="createmeeting">모임만들기</a></li>
+					<li><a href="member.html">회원가입</a></li>
+					<li><a href="calendar">캘린더</a></li>
 					
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Sign Up</a></li>
+					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a></li>
 				</ul>
 			</div>
 		</div>
