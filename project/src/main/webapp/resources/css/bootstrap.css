@@ -1103,6 +1103,7 @@ a {
 }
 a:hover,
 a:focus {
+	color: #337ab7;
 }
 figure {
   margin: 0;
@@ -4014,12 +4015,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   display: block;
 }
 .nav > li > a {
+	color:#337ab7;
   position: relative;
   display: block;
   padding: 10px 15px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
+	
 }
 .nav > li.disabled > a {
   color: #777;
