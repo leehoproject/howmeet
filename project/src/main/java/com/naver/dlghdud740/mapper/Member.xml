@@ -32,7 +32,7 @@
 		</select>
 
 		<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
-			select * from member where id=#{id} and password=#{password}
+			select * from member where m_id=#{m_id} and m_pw=#{m_pw}
 		</select>
 
 		<update id="updateRow" parameterType="hashMap">
