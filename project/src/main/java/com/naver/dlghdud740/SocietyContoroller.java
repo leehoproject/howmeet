@@ -43,6 +43,11 @@ public class SocietyContoroller {
 	public String creategr(Locale locale, Model model) {	
 		return "society/society_create";
 	}
+	//동호회메인
+	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
+	public String societymain(Locale locale, Model model) {	
+		return "society/society_main";
+	}
 	//동호회모임 Insert
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
 	public ModelAndView SocietyCreate(@ModelAttribute("society") Society society) {	
