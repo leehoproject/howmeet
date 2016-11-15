@@ -1,8 +1,10 @@
 package com.naver.dlghdud740;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -123,6 +125,16 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		return "redirect:/home";
+	}
+	
+	//정보수정으로 이동
+	@RequestMapping(value = "/memberUpdateForm", method = RequestMethod.GET)
+	public ModelAndView memberUpdateForm(@RequestParam String m_id) {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		Member member = dao.selectOne(m_id);
+		ModelAndView mav = new ModelAndView("member/member_update");
+		mav.addObject("member",member);
+		return mav;
 	}
 	
 	//모임리스트

@@ -8,4 +8,5 @@ public interface MemberDao {
 	public int insertRow(Member member);
 	public int selectCount(String id);
 	public Member selectLogin(Member member);
+	public Member selectOne(String m_id);
 }

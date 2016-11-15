@@ -76,7 +76,7 @@
 								<a href="member.html">회원가입</a>
 							</c:when>
 							<c:otherwise>
-	                       		 	<a href="">내 정보</a>
+	                       		 	<a href="memberUpdateForm?m_id=${member.m_id}">내 정보</a>
 	                       	</c:otherwise>
 	                    </c:choose>
 					</li>
