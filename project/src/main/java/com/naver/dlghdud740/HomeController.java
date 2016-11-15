@@ -143,6 +143,7 @@ public class HomeController {
 		return "main/searchmeeting";
 	}
 	
+	//구글맵
 	@RequestMapping(value = "/GoogleMap", method = RequestMethod.GET)
 	public String GoogleMap(Locale locale, Model model) {	
 		return "main/GoogleMap";
