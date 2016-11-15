@@ -14,11 +14,6 @@
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
 	
-	<!-- 제이쿼리 부분 -->
-	<script src="resources/js/jquery-1.11.3.min.js"></script>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	
 <<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 <style>
 .mainframe{margin-top:10px; padding:20px; border-top:2px solid #ccc;}

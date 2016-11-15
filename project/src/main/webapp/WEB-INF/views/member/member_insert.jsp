@@ -14,11 +14,6 @@
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
 	
-	<!-- 제이쿼리 부분 -->
-	<script src="resources/js/jquery-1.11.3.min.js"></script>
-	<script src="resources/js/jquery.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	
 	<!-- 회원가입 페이지 제이쿼리 제어부 -->
 	<script type="text/javascript">
 		function doReset(){                         //페이지가 시작될때 input안에있는값들을 공백으로 바꿔줌
