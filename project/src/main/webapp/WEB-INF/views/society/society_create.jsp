@@ -14,11 +14,11 @@
 	
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
-	
-<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
-<style>
-.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
-</style>
+
+	<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
+	<style>
+	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
+	</style>
 	
 </content>
 <body>
