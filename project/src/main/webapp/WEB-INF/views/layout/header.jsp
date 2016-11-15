@@ -78,7 +78,7 @@
 							<c:otherwise>
 	                       		 	<a href="memberUpdateForm?m_id=${member.m_id}">내 정보</a>
 	                       	</c:otherwise>
-	                    </c:choose>
+		                </c:choose>
 					</li>
 					<li><a href="calendar">캘린더</a></li>
 					<li><a href="GoogleMap">지도</a></li>
