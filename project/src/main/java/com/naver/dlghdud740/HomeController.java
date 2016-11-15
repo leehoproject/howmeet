@@ -2,6 +2,9 @@ package com.naver.dlghdud740;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +44,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "redirect:/home";
 	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) {	
 		return "layout/body";
@@ -70,6 +74,7 @@ public class HomeController {
 		
 		return mav;
 	}
+	
 	//id 중복체크
 	@RequestMapping(value = "/idconfirm", method = RequestMethod.POST)
 	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {
@@ -86,12 +91,40 @@ public class HomeController {
 		else
 			find=0;
 		return find;
-	}	
+	}
+	
 	//회원가입 결과창
 	@RequestMapping(value = "/member_result", method = RequestMethod.GET)
 	public String member_result(Locale locale, Model model) {	
 		return "redirect:/home";
 	}
+	
+	//로그인 적용
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute("member") Member member,HttpSession session) {	
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		Member data = dao.selectLogin(member);
+		
+		if(data == null){
+			return "redirect:/loginfail";
+		} else {
+			session.setAttribute("sessionid", data.getM_id());
+			session.setAttribute("sessionpass", data.getM_pw());
+			session.setAttribute("sessionname", data.getM_name());
+			session.setAttribute("sessionemail", data.getM_email());
+			return "redirect:/home";
+		}
+		
+	}
+	
+	//로그아웃 적용
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {	
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/home";
+	}
+	
 	//모임리스트
 	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
 	public String searchgr(Locale locale, Model model) {	

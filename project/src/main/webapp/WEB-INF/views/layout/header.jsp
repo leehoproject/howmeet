@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
      pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -69,11 +70,28 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="searchmeeting.html">모임찾기</a></li>
 					<li><a href="createmeeting">모임만들기</a></li>
-					<li><a href="member.html">회원가입</a></li>
+					<li>
+						<c:choose>
+							<c:when test="${sessionid == null }">
+								<a href="member.html">회원가입</a>
+							</c:when>
+							<c:otherwise>
+	                       		 	<a href="">내 정보</a>
+	                       	</c:otherwise>
+	                    </c:choose>
+					</li>
 					<li><a href="calendar">캘린더</a></li>
 					<li><a href="GoogleMap">지도</a></li>
-					
-					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a></li>
+					<li>
+						<c:choose>
+						 	<c:when test="${sessionid == null }">
+								<a href="login" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a>
+							</c:when>
+							<c:otherwise>
+                       		 	<a href="logout" class="btn btn-blue">로그아웃</a>
+                       		</c:otherwise>
+						</c:choose>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -87,7 +105,7 @@
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<h3 class="white">로그인</h3>
-				<form action="" class="popup-form">
+				<form action="login" method="POST" class="popup-form">
 					<input type="text" class="form-control form-white" id="m_id" name="m_id" placeholder="아이디">
 					<input type="password" class="form-control form-white" id="m_pw" name="m_pw" placeholder="패스워드">
 					<!-- <div class="checkbox-holder text-left">
