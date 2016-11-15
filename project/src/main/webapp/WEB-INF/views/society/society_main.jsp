@@ -22,7 +22,7 @@
 </content>
 <body>
 	<div class="container">
-  		<img src="resources/images/1.jpg">
+  		<img src="resources/images/jelly.jpg">
 	</div>
 	<div id="page-content" class="index-page">
 		<div class="container">
@@ -37,40 +37,41 @@
 		
 		  <div class="tab-content">
 			<!-- HOME -->
-		    <div id="home" class="tab-pane fade" style="margin-top: 50px">
+		    <div id="home" class="tab-pane fade in active" style="margin-top: 50px">
 		      <div class="container">
 				  <div class="row">
 				    <div class="col-sm-3 well">
 				      <div class="well">
 				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="230" width="230" alt="Avatar">
 				         <p style="margin-top: 20px;"><a href="#">Member<b class="badge" style="margin-left: 10PX">20</b></a></p>
-				        
-				         <p style="margin-top: 10px;"><a href="#">Schedule<i class="fa fa-calendar" aria-hidden="true" style="text-align: right;"></i></a></p>
+				         <p style="margin-top: 10px;"><a href="#">Schedule<i class="fa fa-calendar" aria-hidden="true" style="margin-left: 5px"></i></a></p>
+				         <p style="margin-top: 10px;"><a href="#">Organizers:</a></p>
+				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">Hoyoung</b>
 				      </div>
 				      <div class="well">
-				        <p><a href="#">Interests</a></p>
+				        <p>Interest tags</p>
 				        <p>
-				          <span class="label label-default">News</span>
-				          <span class="label label-primary">W3Schools</span>
-				          <span class="label label-success">Labels</span>
-				          <span class="label label-info">Football</span>
-				          <span class="label label-warning">Gaming</span>
-				          <span class="label label-danger">Friends</span>
+				          <span class="label label-primary">game</span>
+				          <span class="label label-primary">IT</span>
+				          <span class="label label-primary">school</span>
+				          <span class="label label-primary">Football</span>
+				          <span class="label label-primary">play</span>
+				          <span class="label label-primary">study</span>
 				        </p>
 				      </div>
-				      <p><a href="#">Link</a></p>
-				      <p><a href="#">Link</a></p>
-				      <p><a href="#">Link</a></p>
+				      <div class="well">
+				      <p>with</p>
+				      </div>
 				    </div>
-				    <div class="col-sm-7">
+				    <div class="col-sm-6">
 				    
 				      <div class="row">
 				        <div class="col-sm-12">
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
-				              <p contenteditable="true">Status: Feeling Blue</p>
-				              <button type="button" class="btn btn-default btn-sm">
-				                <span class="glyphicon glyphicon-thumbs-up"></span> Like
+				              <p contenteditable="true">ITSCHOOL MEETS</p>
+				              <button type="button" class="btn btn-default">
+				                <span class="glyphicon glyphicon-thumbs-up"></span> Join Member
 				              </button>
 				            </div>
 				          </div>
@@ -80,69 +81,40 @@
 				      <div class="row">
 				        <div class="col-sm-3">
 				          <div class="well">
-				           <p>John</p>
-				           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
+				           <center>
+				           <p>hoyoung</p>
+				           <img src="resources/images/2.jpg" class="img-circle" height="100" width="100" alt="Avatar">
+				           </center>
 				          </div>
 				        </div>
 				        <div class="col-sm-9">
 				          <div class="well">
-				            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-				          </div>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="col-sm-3">
-				          <div class="well">
-				           <p>Bo</p>
-				           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-				          </div>
-				        </div>
-				        <div class="col-sm-9">
-				          <div class="well">
-				            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-				          </div>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="col-sm-3">
-				          <div class="well">
-				           <p>Jane</p>
-				           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-				          </div>
-				        </div>
-				        <div class="col-sm-9">
-				          <div class="well">
-				            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-				          </div>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="col-sm-3">
-				          <div class="well">
-				           <p>Anja</p>
-				           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-				          </div>
-				        </div>
-				        <div class="col-sm-9">
-				          <div class="well">
-				            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
+				            <p>하이</p>
 				          </div>
 				        </div>
 				      </div>
 				    </div>
-				    <div class="col-sm-2 well">
-				      <div class="thumbnail">
-				        <p>Upcoming Events:</p>
-				        <img src="paris.jpg" alt="Paris" width="400" height="300">
-				        <p><strong>Paris</strong></p>
-				        <p>Fri. 27 November 2015</p>
-				        <button class="btn btn-primary">Info</button>
+				    <div class="col-sm-3 well">
+				      <div class="well">
+				        <p>Upcoming meets</p>
+				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
+				        <p><strong>Itschool 3rd</strong></p>
+				        <p>Fri. 18 November 2016</p>
+				        <button class="btn btn-blue">Info</button>
 				      </div>
 				      <div class="well">
-				        <p>ADS</p>
+				        <p>Recent meets</p>
+				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
+				        <p><strong>Itschool 2st</strong></p>
+				        <p>Fri. 11 November 2016</p>
+				        <button class="btn btn-blue">Info</button>
 				      </div>
 				      <div class="well">
-				        <p>ADS</p>
+				        <p>Recent meets</p>
+				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
+				        <p><strong>Itschool party</strong></p>
+				        <p>Fri.4 November 2016</p>
+				        <button class="btn btn-blue">Info</button>
 				      </div>
 				    </div>
 				  </div>
