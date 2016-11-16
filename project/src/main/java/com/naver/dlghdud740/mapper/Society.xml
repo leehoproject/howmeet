@@ -14,5 +14,7 @@
 			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum) 
 			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum})
 		</insert>		
-		
+		<select id="selectAll" resultMap="SocietyMap">
+			select * from Society
+		</select>		
 	</mapper>

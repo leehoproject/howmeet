@@ -3,10 +3,11 @@ package com.naver.dlghdud740.entities;
 
 import org.springframework.stereotype.Component;
 
+
 //동호회
 @Component
 public class Society {
-	private int s_hobby;
+	private String s_hobby;
 	private String s_name;
 	private String s_content;
 	private String s_area;
@@ -18,10 +19,10 @@ public class Society {
 	public void setS_area(String s_area) {
 		this.s_area = s_area;
 	}
-	public int getS_hobby() {
+	public String getS_hobby() {
 		return s_hobby;
 	}
-	public void setS_hobby(int s_hobby) {
+	public void setS_hobby(String s_hobby) {
 		this.s_hobby = s_hobby;
 	}
 	public String getS_name() {

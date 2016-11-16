@@ -1,5 +1,6 @@
 package com.naver.dlghdud740;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -52,11 +53,6 @@ public class SocietyContoroller {
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
 	public ModelAndView SocietyCreate(@ModelAttribute("society") Society society) {	
 		SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
-		System.out.println(society.getS_area());
-		System.out.println(society.getS_name());
-		System.out.println(society.getS_content());
-		System.out.println(society.getS_peoplenum());
-		System.out.println(society.getS_hobby());
 		int result = dao.insertRow(society);
 		String msg = "";
 		if(result==1){
@@ -68,6 +64,15 @@ public class SocietyContoroller {
 		mav.addObject("msg",msg);
 		mav.addObject("result","ok");
 		
+		return mav;
+	}
+	//모임리스트
+	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
+	public ModelAndView searchgr(@ModelAttribute("society") Society society) {
+		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+		ArrayList<Society>societys= dao.selectAll();
+		ModelAndView mav = new ModelAndView("main/searchmeeting");
+		mav.addObject("societys",societys);
 		return mav;
 	}
 }

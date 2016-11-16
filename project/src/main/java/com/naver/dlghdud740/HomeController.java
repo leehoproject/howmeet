@@ -190,12 +190,6 @@ public class HomeController {
 		return mav;
 	}
 	
-	//모임리스트
-	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
-	public String searchgr(Locale locale, Model model) {	
-		return "main/searchmeeting";
-	}
-	
 	//구글맵
 	@RequestMapping(value = "/GoogleMap", method = RequestMethod.GET)
 	public String GoogleMap(Locale locale, Model model) {	
