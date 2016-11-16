@@ -65,9 +65,9 @@
 					</div>	
 					<!-- DB로 들어가는 부분, 페이지에서 입력하는 부분 다름으로 DB추가 반영 고려(By 이기범) -->			
 					<div class="form-group">
-						<label for="phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
+						<label for="m_phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
 						<div class="col-md-3" style="padding:0;">
-							<select class="form-control" name="phone1" id="phone1">
+							<select class="form-control" name="m_phone1" id="m_phone1">
 								<option value="010">010</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
@@ -76,13 +76,13 @@
 								<option value="019">019</option>
 							</select>
 						</div>
-						<label class="col-md-1 text-center" for="phone2"><span class="labeltext">-</span></label>
+						<label class="col-md-1 text-center" for="m_phone2"><span class="labeltext">-</span></label>
 						<div class="col-md-2" style="padding:0;">
-							<input type="text" size="20" name="phone2" id="phone2" class="form-control">
+							<input type="text" size="20" name="m_phone2" id="m_phone2" value="${member.getM_phone2()}" class="form-control">
 						</div>
-						<label class="col-md-1 text-center" for="phone3"><span class="labeltext">-</span></label>
+						<label class="col-md-1 text-center" for="m_phone3"><span class="labeltext">-</span></label>
 						<div class="col-md-2" style="padding:0;">
-							<input type="text" size="20" name="phone3" id="phone3" class="form-control">
+							<input type="text" size="20" name="m_phone3" id="m_phone3" class="form-control">
 						</div>
 					</div>				
 					<div class="form-group">

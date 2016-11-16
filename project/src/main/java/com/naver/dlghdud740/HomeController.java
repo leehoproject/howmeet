@@ -134,7 +134,7 @@ public class HomeController {
 		Member member = dao.selectOne(m_id);
 		ModelAndView mav = new ModelAndView("member/member_update");
 		mav.addObject("member",member);
-		System.out.println("------------->>>>"+m_id);
+		System.out.println("m_id is : "+m_id);
 		return mav;
 	}
 	
@@ -154,10 +154,7 @@ public class HomeController {
 		
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("msg",msg);
-		System.out.println("건드리지마---------------------");
-		return mav;
-		
-		
+		return mav;		
 	}
 	
 	//회원탈퇴 페이지로 이동 By 이기범

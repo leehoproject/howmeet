@@ -38,7 +38,7 @@
 		<!-- 휴대폰번호 입력부분 수정 필요 수정 By 이기범 -->
 		<update id="updateRow" parameterType="hashMap">
 			update member set m_pw=#{m_pw},m_name=#{m_name},m_email=#{m_email},m_addr1=#{m_addr1},m_addr2=#{m_addr2},
-			m_hobby1=#{m_hobby1},m_hobby2=#{m_hobby2} where m_id=#{m_id}
+			m_phone=#{m_phone},m_hobby1=#{m_hobby1},m_hobby2=#{m_hobby2} where m_id=#{m_id}
 		</update>
 		
 		<delete id="deleteRow" parameterType="String">
