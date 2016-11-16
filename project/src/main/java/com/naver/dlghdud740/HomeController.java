@@ -101,7 +101,7 @@ public class HomeController {
 		return "redirect:/home";
 	}
 	
-	//로그인 적용
+	//로그인 적용 By 이기범
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(@ModelAttribute("member") Member member,HttpSession session) {	
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
@@ -114,49 +114,71 @@ public class HomeController {
 			session.setAttribute("sessionpass", data.getM_pw());
 			session.setAttribute("sessionname", data.getM_name());
 			session.setAttribute("sessionemail", data.getM_email());
-			System.out.println("건드리지마-------");
 			return "redirect:/home";
 		}
 		
 	}
 	
-	//로그아웃 적용
+	//로그아웃 적용 By 이기범
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {	
 		HttpSession session = request.getSession();
 		session.invalidate();
-		System.out.println("건드리지마-------");
 		return "redirect:/home";
 	}
 	
-	//정보수정으로 이동
+	//정보수정으로 이동 (post방식으로 변경하는 방향 고려) By 이기범
 	@RequestMapping(value = "/memberUpdateForm", method = RequestMethod.GET)
 	public ModelAndView memberUpdateForm(@RequestParam String m_id) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		Member member = dao.selectOne(m_id);
 		ModelAndView mav = new ModelAndView("member/member_update");
 		mav.addObject("member",member);
-		System.out.println("건드리지마-------");
+		System.out.println("------------->>>>"+m_id);
 		return mav;
 	}
 	
-	//회원탈퇴 페이지로 이동
+	//정보수정 반영 By 이기범
+	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
+	public ModelAndView memberUpdate(@ModelAttribute("member") Member member) {	
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		member.setM_phone(member.getM_phone1()+member.getM_phone2()+member.getM_phone3());
+		int result = dao.updateRow(member);
+		
+		String msg = "";
+		if(result == 1){
+			msg += "성공적으로 수정되었습니다.";
+		} else {
+			msg += "수정에 실패했습니다.";
+		}
+		
+		ModelAndView mav = new ModelAndView("member/member_result");
+		mav.addObject("msg",msg);
+		System.out.println("건드리지마---------------------");
+		return mav;
+		
+		
+	}
+	
+	//회원탈퇴 페이지로 이동 By 이기범
 	@RequestMapping(value = "/memberDeleteForm", method = RequestMethod.GET)
 	public ModelAndView memberDeleteForm(@RequestParam String m_id) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		ModelAndView mav = new ModelAndView("member/member_delete_message");
 		mav.addObject("m_id",m_id);
-		System.out.println("건드리지마-------");
+		System.out.println("------------->>>>"+m_id);
 		return mav;
 	}
 	
-	//회원탈퇴 진행
+	//회원탈퇴 진행 By 이기범
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
 	public ModelAndView memberDelete(@ModelAttribute("m_id") String m_id) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("member",member);
 		int result = dao.deleteRow(m_id);
+		System.out.println("--------------->>"+result);
+		System.out.println("--------------->>"+m_id);
 		String msg = "";
 		
 		if (result == 1) {
