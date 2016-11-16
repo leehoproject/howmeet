@@ -177,7 +177,6 @@ public class HomeController {
 		System.out.println("--------------->>"+result);
 		System.out.println("--------------->>"+m_id);
 		String msg = "";
-		
 		if (result == 1) {
 			msg = "그 동안 HowMeet을 이용해주셔서 감사합니다.";
 		} else {
@@ -189,7 +188,6 @@ public class HomeController {
 		
 		return mav;
 	}
-	
 	//구글맵
 	@RequestMapping(value = "/GoogleMap", method = RequestMethod.GET)
 	public String GoogleMap(Locale locale, Model model) {	

@@ -13,6 +13,8 @@
 		<script src='resources/calendar/lib/moment.min.js'></script>
 		<script src='resources/calendar/lib/jquery.min.js'></script>
 		<script src='resources/calendar/fullcalendar.min.js'></script>
+		<!-- 제이슨 import? -->
+		
 	<script type="text/javascript">
 		
 		/*
@@ -20,7 +22,8 @@
 		*/
 		
 		$(document).ready(function()
-		{
+		{	
+			
 			/*
 				date store today date.
 				d store today date.
@@ -37,9 +40,10 @@
 				Why in variable?
 				Because doing so we can use it inside other function.
 				In order to modify its option later.
-			*/
+			*/		  
 				var calendar = $('#calendar').fullCalendar(
 				{
+				
 				/*
 					header option will define our calendar header.
 					left define what will be at left position in calendar
@@ -102,7 +106,6 @@
 					for demo we have added predefined events in json object.
 				*/
 				events: [
-
 					{
 						title: 'example Party',
 						start: new Date(y, m, d+1, 19, 0),
