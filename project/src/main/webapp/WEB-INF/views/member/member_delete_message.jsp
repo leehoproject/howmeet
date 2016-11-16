@@ -35,6 +35,7 @@
 				</div>
 				<div class="col-sm-12" style="height:150px; text-align:center; ">
 					<div style="margin-top: 50px;">
+						<input type="hidden" name="m_id" value="${sessionid}"/> 
 						<span class="message">
 							탈퇴하시겠습니까?
 						</span>
@@ -42,7 +43,7 @@
 				</div>
 				<div class="col-sm-12 text-center" style="margin-bottom:30px;">
 					<button Type="submit" class="btn btn-default">회원탈퇴</button>
-					<button Type="button" class="btn btn-default" onclick="location.href='home'">취소</button>
+					<button Type="button" class="btn btn-default" onclick="location.href='home?m_id=${sessionid}'">취소</button>
 				</div>
 			</div>
 		</form>
