@@ -38,9 +38,8 @@
 				Because doing so we can use it inside other function.
 				In order to modify its option later.
 			*/
-			
-			var calendar = $('#calendar').fullCalendar(
-			{
+				var calendar = $('#calendar').fullCalendar(
+				{
 				/*
 					header option will define our calendar header.
 					left define what will be at left position in calendar
