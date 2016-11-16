@@ -5,7 +5,7 @@
         <title>샘플코드</title>
 </head>
 <body>
-<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=xCVOPrXEukKJcwg9bY4W"></script>
+<script type="text/javascript" src="http://openapi.map.naver.com/openapi/v2/maps.js?clientId=h8RJ2MpqVTzT6BR1xr6b"></script>
 <div id="map" style="border:1px solid #000;"></div>
 <script type="text/javascript">
 				function init(){    
