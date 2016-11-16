@@ -131,8 +131,8 @@
 					<div class="form-group">
 						<div class="col-md-12 text-center">
 							<button type="submit" class="btn btn-default">수정하기</button>
-							<button type="button" class="btn btn-default">회원탈퇴</button>
-							<button type="button" class="btn btn-default">메인으로</button>
+							<button type="button" class="btn btn-default" onclick="location.href='memberDeleteForm?m_id=${member.m_id}'">회원탈퇴</button>
+							<button type="button" class="btn btn-default" onclick="location.href='home'">메인으로</button>
 						</div>
 					</div>
 				</div>

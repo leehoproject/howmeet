@@ -114,6 +114,7 @@ public class HomeController {
 			session.setAttribute("sessionpass", data.getM_pw());
 			session.setAttribute("sessionname", data.getM_name());
 			session.setAttribute("sessionemail", data.getM_email());
+			System.out.println("건드리지마-------");
 			return "redirect:/home";
 		}
 		
@@ -124,6 +125,7 @@ public class HomeController {
 	public String logout(HttpServletRequest request) {	
 		HttpSession session = request.getSession();
 		session.invalidate();
+		System.out.println("건드리지마-------");
 		return "redirect:/home";
 	}
 	
@@ -134,6 +136,38 @@ public class HomeController {
 		Member member = dao.selectOne(m_id);
 		ModelAndView mav = new ModelAndView("member/member_update");
 		mav.addObject("member",member);
+		System.out.println("건드리지마-------");
+		return mav;
+	}
+	
+	//회원탈퇴 페이지로 이동
+	@RequestMapping(value = "/memberDeleteForm", method = RequestMethod.GET)
+	public ModelAndView memberDeleteForm(@RequestParam String m_id) {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		ModelAndView mav = new ModelAndView("member/member_delete_message");
+		mav.addObject("m_id",m_id);
+		System.out.println("건드리지마-------");
+		return mav;
+	}
+	
+	//회원탈퇴 진행
+	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
+	public ModelAndView memberDelete(@ModelAttribute("m_id") String m_id) {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		ModelAndView mav = new ModelAndView("member/member_result");
+		mav.addObject("member",member);
+		int result = dao.deleteRow(m_id);
+		String msg = "";
+		
+		if (result == 1) {
+			msg = "그 동안 HowMeet을 이용해주셔서 감사합니다.";
+		} else {
+			msg = "탈퇴에 실패했습니다.";
+		}
+		
+		mav.addObject("msg",msg);
+		System.out.println("result is:"+result);
+		
 		return mav;
 	}
 	

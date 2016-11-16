@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.naver.dlghdud740">
-		<level value="info" />
+		<level value="DEBUG" />
 	</logger>
 	
 	<!-- 3rdparty Loggers -->

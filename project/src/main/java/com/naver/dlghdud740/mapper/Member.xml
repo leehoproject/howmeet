@@ -14,19 +14,20 @@
 			<id property="m_hobby1" column="m_hobby1" />
 			<id property="m_hobby2" column="m_hobby2" />
 		</resultMap>
+		
 		<insert id="insertRow" parameterType="hashMap">
 			insert into member(m_id,m_pw,m_name,m_phone,m_addr1,m_addr2,m_email,m_hobby1,m_hobby2) 
 			values(#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_addr1},#{m_addr2},#{m_email},#{m_hobby1},#{m_hobby2})
 		</insert>		
+		
 		<select id="selectCount" parameterType="String" resultType="int">
 			select count(*) from member where m_id=#{m_id}
 		</select>		
-		
-		
-		
+				
 		<select id="selectOne" parameterType="String" resultMap="memberMap">
 			select * from member where m_id=#{m_id}
 		</select>
+		
 		<select id="selectAll" resultMap="memberMap">
 			select * from member
 		</select>
@@ -39,7 +40,9 @@
 			update member set password=#{password},phone1=#{phone1},phone2=#{phone2},phone3=#{phone3},zipcode=#{zipcode},addr1=#{addr1},addr2=#{addr2}
 			,cardno=#{cardno},name=#{name} where id=#{id}
 		</update>
+		
 		<delete id="deleteRow" parameterType="String">
-			delete from member where id=#{id}
+			delete from member where m_id=#{m_id}
 		</delete>
+		
 	</mapper>
