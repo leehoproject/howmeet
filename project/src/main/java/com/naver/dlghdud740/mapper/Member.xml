@@ -5,7 +5,6 @@
 	<mapper namespace="com.naver.dlghdud740.service.MemberDao">
 		
 		<resultMap type="com.naver.dlghdud740.entities.Member" id="memberMap">
-		
 			<id property="m_id" column="m_id" />
 			<id property="m_pw" column="m_pw" />
 			<id property="m_name" column="m_name" />
@@ -35,10 +34,11 @@
 		<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
 			select * from member where m_id=#{m_id} and m_pw=#{m_pw}
 		</select>
-
+		
+		<!-- 휴대폰번호 입력부분 수정 필요 수정 By 이기범 -->
 		<update id="updateRow" parameterType="hashMap">
-			update member set password=#{password},phone1=#{phone1},phone2=#{phone2},phone3=#{phone3},zipcode=#{zipcode},addr1=#{addr1},addr2=#{addr2}
-			,cardno=#{cardno},name=#{name} where id=#{id}
+			update member set m_pw=#{m_pw},m_name=#{m_name},m_email=#{m_email},m_addr1=#{m_addr1},m_addr2=#{m_addr2},
+			m_phone=#{m_phone},m_hobby1=#{m_hobby1},m_hobby2=#{m_hobby2} where m_id=#{m_id}
 		</update>
 		
 		<delete id="deleteRow" parameterType="String">

@@ -27,7 +27,7 @@
 <div id="page-content" class="index-page">
 <div class="container">
 	<div class="row" >
-		<form class="form-horizontal" action="" method="POST" role="form" data-parsley-validate="true">
+		<form class="form-horizontal" action="memberUpdate" method="POST" role="form" data-parsley-validate="true">
 			<div class="col-md-offset-3 col-md-6 mainframe">
 				<div class="col-md-12 text-center logoframe">
 					<span class="slogan">사람을 만나는 방법, HowMeet!</span>
@@ -42,31 +42,32 @@
 					<div class="form-group">
 						<label for="m_pw" class="col-md-3"><span class="labeltext">비밀번호</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="password" size="20" name="m_pw" id="m_pw" class="form-control" placeholder="비밀번호">
+							<input type="password" size="20" name="m_pw" id="m_pw" class="form-control" value="${member.getM_pw()}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="checkpassword" class="col-md-3"><span class="labeltext">비밀번호 확인</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="password" size="20" name="checkpassword" id="checkpassword" class="form-control" placeholder="비밀번호 확인">
+							<input type="password" size="20" name="checkpassword" id="checkpassword" class="form-control" value="${member.getM_pw()}">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="m_name" class="col-md-3"><span class="labeltext">이름</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="text" size="20" name="m_name" id="m_name" class="form-control" placeholder="이름">
+							<input type="text" size="20" name="m_name" id="m_name" class="form-control" value="${member.getM_name()}">
 						</div>
 					</div>				
 					<div class="form-group">
 						<label for="m_email" class="col-md-3"><span class="labeltext">이메일</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="text" size="20" name="m_email" id="m_email" class="form-control" placeholder="이메일">
+							<input type="text" size="20" name="m_email" id="m_email" class="form-control" value="${member.getM_email()}">
 						</div>
-					</div>				
+					</div>	
+					<!-- DB로 들어가는 부분, 페이지에서 입력하는 부분 다름으로 DB추가 반영 고려(By 이기범) -->			
 					<div class="form-group">
-						<label for="phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
+						<label for="m_phone1" class="col-md-3"><span class="labeltext">휴대폰 번호</span></label>
 						<div class="col-md-3" style="padding:0;">
-							<select class="form-control" name="phone1" id="phone1">
+							<select class="form-control" name="m_phone1" id="m_phone1">
 								<option value="010">010</option>
 								<option value="011">011</option>
 								<option value="016">016</option>
@@ -75,27 +76,28 @@
 								<option value="019">019</option>
 							</select>
 						</div>
-						<label class="col-md-1 text-center" for="phone2"><span class="labeltext">-</span></label>
+						<label class="col-md-1 text-center" for="m_phone2"><span class="labeltext">-</span></label>
 						<div class="col-md-2" style="padding:0;">
-							<input type="text" size="20" name="phone2" id="phone2" class="form-control">
+							<input type="text" size="20" name="m_phone2" id="m_phone2" value="${member.getM_phone2()}" class="form-control">
 						</div>
-						<label class="col-md-1 text-center" for="phone3"><span class="labeltext">-</span></label>
+						<label class="col-md-1 text-center" for="m_phone3"><span class="labeltext">-</span></label>
 						<div class="col-md-2" style="padding:0;">
-							<input type="text" size="20" name="phone3" id="phone3" class="form-control">
+							<input type="text" size="20" name="m_phone3" id="m_phone3" class="form-control">
 						</div>
 					</div>				
 					<div class="form-group">
 						<label for="m_addr1" class="col-md-3"><span class="labeltext">주소</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="text" size="20" name="m_addr1" id="m_addr1" class="form-control" placeholder="주소">
+							<input type="text" size="20" name="m_addr1" id="m_addr1" class="form-control" value="${member.getM_addr1()}">
 						</div>
 					</div>				
 					<div class="form-group">
 						<label for="m_addr2" class="col-md-3"><span class="labeltext">상세주소</span></label>
 						<div class="col-md-9" style="padding:0;">
-							<input type="text" size="20" name="m_addr2" id="m_addr2" class="form-control" placeholder="상세주소">
+							<input type="text" size="20" name="m_addr2" id="m_addr2" class="form-control" value="${member.getM_addr2()}">
 						</div>
-					</div>				
+					</div>
+					<!-- DB에 숫자로 반영되어 있어서 출력시 시간, 검색 필요 By 이기범-->				
 					<div class="form-group">
 						<label for="m_hobby1" class="col-md-3"><span class="labeltext">관심사1</span></label>
 						<div class="col-md-9" style="padding:0;">
@@ -131,7 +133,7 @@
 					<div class="form-group">
 						<div class="col-md-12 text-center">
 							<button type="submit" class="btn btn-default">수정하기</button>
-							<button type="button" class="btn btn-default" onclick="location.href='memberDeleteForm?m_id=${member.m_id}'">회원탈퇴</button>
+							<button type="button" class="btn btn-default" onclick="location.href='memberDeleteForm?m_id=${sessionid}'">회원탈퇴</button>
 							<button type="button" class="btn btn-default" onclick="location.href='home'">메인으로</button>
 						</div>
 					</div>

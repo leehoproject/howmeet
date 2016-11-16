@@ -10,4 +10,6 @@ public interface MemberDao {
 	public Member selectLogin(Member member);
 	public Member selectOne(String m_id);
 	public int deleteRow(String m_id);
+	public int updateRow(Member member);
+	
 }
