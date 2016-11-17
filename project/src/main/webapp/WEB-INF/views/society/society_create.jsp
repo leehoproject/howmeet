@@ -14,6 +14,10 @@
 	
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
+	<!-- inputtags -->
+	<link href="resources/inputtag/inputTags.css" rel="stylesheet">
+	<script type="text/javascript" src="resources/inputtag/inputTags.jquery.js"></script>
+	<script type="text/javascript" src="resources/inputtag/app.js"></script>
 
 	<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 	<style>
@@ -67,12 +71,18 @@
 						</select>
 					</div>
 				</div>	
+				
+				<div class="form-group">
+					<label for="s_tag"><span class="labeltext">태그</span></label>
+					<input type="text" id="tags"/>
+				</div>
+				
 				<div class="form-group">
 					<label for="s_name"><span class="labeltext">모임 이름</span></label>
 					<div class="input-group">
 						<input type="text" size="50" id="s_name" name="s_name" class="form-control" placeholder="모임 이름">
 						<span class="input-group-btn">
-							<button id="confirm" name="confirm" class="btn btn-default">중복확인</button>
+							<button type="button" id="confirm" name="confirm" class="btn btn-default">중복확인</button>
 						</span>
 					</div>
 				</div>		
@@ -109,7 +119,7 @@
 					</div>
 				<div class="form-group">
 					<div class="col-md-12 text-center" style="padding:0;">
-						<button type="submit" class="btn btn-default col-md-12">보내기</button>
+						<button type="button" class="btn btn-default col-md-12">보내기</button>
 					</div>
 				</div>				
 			</div>
