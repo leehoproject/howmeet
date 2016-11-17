@@ -77,21 +77,28 @@ public class HomeController {
 		return mav;
 	}
 	
-	//id 중복체크
+	//id 중복체크 수정 중 By 이기범
 	@RequestMapping(value = "/idconfirm", method = RequestMethod.POST)
 	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {
-		int count = 0;
+		int count = 1;
 		int find = 0;
+		
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		
 		try {
 			count = dao.selectCount(m_id);
+			System.out.println("------------->>>"+m_id+count);
 		} catch (Exception e) {
 			System.out.println("idconfirm err: "+e.getMessage());
 		}
+		
 		if(count>0)
 			find=1;
 		else
 			find=0;
+		
+		System.out.println("---------------->>"+find);
+		
 		return find;
 	}
 	
@@ -174,8 +181,6 @@ public class HomeController {
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("member",member);
 		int result = dao.deleteRow(m_id);
-		System.out.println("--------------->>"+result);
-		System.out.println("--------------->>"+m_id);
 		String msg = "";
 		if (result == 1) {
 			msg = "그 동안 HowMeet을 이용해주셔서 감사합니다.";

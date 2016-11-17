@@ -7,21 +7,25 @@
 <title>사람을 만나는 방법, HowMeet</title>
 </head>
 <content tag="local_script">
-	<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
-	<link href="resources/css/bootstrap.css" rel="stylesheet">
-	<link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
+<link href="resources/css/bootstrap.css" rel="stylesheet">
+<link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	
-	<!-- 페이지 구성 CSS -->
-	<link href="resources/css/style.css" rel="stylesheet">
+<!-- 페이지 구성 CSS -->
+<link href="resources/css/style.css" rel="stylesheet">
+<script src="resources/js/jquery.min.js"></script>
 	
-	<!-- 회원가입 페이지 제이쿼리 제어부 -->
+<!-- 회원가입 페이지 제이쿼리 제어부 -->
 	<script type="text/javascript">
-		function doReset(){                         //페이지가 시작될때 input안에있는값들을 공백으로 바꿔줌
+		//페이지가 시작될때 input안에있는값들을 공백으로 바꿔줌
+		function doReset(){
 			document.insert_form.m_id.value = "";
 			document.insert_form.m_pw.value = "";
 			document.insert_form.checkpassword.value = "";	
 		}
+		
 		$(document).ready(function(){
+			//종복확인 전체 부분
 			$('#confirm').click(function(event) {
 				var id = $('#m_id').val();
 				$.ajax({
@@ -31,7 +35,7 @@
 					url : 'idconfirm',
 					success : function(data){
 						if(m_id==""){
-							alert("id를 입력하세요");
+							alert("아이디를 입력하세요.");
 							return;
 						}
 						if(data==0){
@@ -45,6 +49,7 @@
 					}
 				});
 			});
+			
 			$('#save').click(function(event) {
 				if($('#check').val()=='no'){
 					alert("아이디 중복 체크를 하세요!")
@@ -52,6 +57,7 @@
 				}
 				$('#insert_form').submit();
 			});
+			
 		});
 		
 	</script>	
@@ -77,7 +83,7 @@
 						<div class="form-group">
 							<label for="m_id" class="col-md-3"><span class="labeltext">아이디</span></label>
 							<div class="input-group col-md-9">
-								<input type="text" size="20" id="m_id" name="m_id"  class="form-control" placeholder="아이디">
+								<input type="text" size="20" name="m_id" id="m_id" class="form-control" placeholder="아이디">
 								<span class="input-group-btn">
 									<button id="confirm" name="confirm" type="button" class="btn btn-default">중복확인</button>
 								</span>
