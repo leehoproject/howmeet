@@ -10,106 +10,57 @@
 		<link rel='stylesheet' href='resources/calendar/lib/cupertino/jquery-ui.min.css' />
 		<link href='resources/calendar/fullcalendar.css' rel='stylesheet' />
 		<link href='resources/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-		<script src='resources/calendar/lib/moment.min.js'></script>
+		<script src='resources/calendar/lib/moment.min.js'></script> 
 		<script src='resources/calendar/lib/jquery.min.js'></script>
-		<script src='resources/calendar/fullcalendar.min.js'></script>
-		<!-- 제이슨 import? -->
-		
-	<script type="text/javascript">
-		
-		/*
-			jQuery document ready
-		*/
-		
+		<script src='resources/calendar/fullcalendar.min.js'></script> 
+	    <script src="https://code.jquery.com/jquery.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+	    <script src="resources/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
 		$(document).ready(function()
 		{	
-			
-			/*
-				date store today date.
-				d store today date.
-				m store current month.
-				y store current year.
-			*/
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
-			
-			/*
-				Initialize fullCalendar and store into variable.
-				Why in variable?
-				Because doing so we can use it inside other function.
-				In order to modify its option later.
-			*/		  
 				var calendar = $('#calendar').fullCalendar(
 				{
-				
-				/*
-					header option will define our calendar header.
-					left define what will be at left position in calendar
-					center define what will be at center position in calendar
-					right define what will be at right position in calendar
-				*/
 				header:
 				{
 					left: 'prev,next today',
 					center: 'title',
 					right: 'month,agendaWeek,agendaDay'
 				},
-				/*
-					defaultView option used to define which view to show by default,
-					for example we have used agendaWeek.
-				*/
+				  eventClick:  function(event, jsEvent, view) {
+			            $('#modalTitle').html(event.title);
+			            $('#modalBody').html(event.description);
+			            $('#eventUrl').attr('href',event.url);
+			            $('#fullCalModal').modal();
+			        },
+
 				defaultView: 'month',
-				/*
-					selectable:true will enable user to select datetime slot
-					selectHelper will add helpers for selectable.
-				*/
+
 				selectable: true,
 				selectHelper: true,
-				/*
-					when user select timeslot this option code will execute.
-					It has three arguments. Start,end and allDay.
-					Start means starting time of event.
-					End means ending time of event.
-					allDay means if events is for entire day or not.
-				*/
+
 				select: function(start, end, allDay)
 				{
-					/*
-						after selection user will be promted for enter title for event.
-					*/
-					var title = prompt('Event Title:');
-					/*
-						if title is enterd calendar will add title and event into fullCalendar.
-					*/
-					if (title)
-					{
-						calendar.fullCalendar('renderEvent',
-							{
-								title: title,
-								start: start,
-								end: end,
-								allDay: allDay
-							},
-							true // make the event "stick"
-						);
-					}
-					calendar.fullCalendar('unselect');
+// 			         endtime = $.fullCalendar.formatDate(end,'h:mm tt');
+// 			          starttime = $.fullCalendar.formatDate(start,'ddd, MMM d, h:mm tt');
+// 			          var mywhen = starttime + ' - ' + endtime;
+// 				      $('#createEventModal #apptStartTime').val(start);
+// 			          $('#createEventModal #apptEndTime').val(end);
+// 			          $('#createEventModal #apptAllDay').val(allDay);
+// 			          $('#createEventModal #when').text(mywhen);
+			          $('#createEventModal').modal();
 				},
-				/*
-					editable: true allow user to edit events.
-				*/
 				editable: true,
-				/*
-					events is the main option for calendar.
-					for demo we have added predefined events in json object.
-				*/
 				events: [
 					{
 						title: 'example Party',
 						start: new Date(y, m, d+1, 19, 0),
 						end: new Date(y, m, d+1, 22, 30),
+						description : '서울서울',
 						allDay: false
 					},
 					{
@@ -122,7 +73,6 @@
 			});
 			
 		});
-
 	</script>
 	<style type="text/css">
 		body
@@ -138,12 +88,62 @@
 			margin: 0 auto;
 		}
 	</style>
+<body>
+<div id="fullCalModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary"><a id="eventUrl" target="_blank">Event Page</a></button>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
 </content>
 </head>
-<body>
-
 	<!--FullCalendar container div-->
-	<div id='calendar'></div>
-	
+<div id="calendar"></div>
+<div id="createEventModal"class="modal fade" id="layerpop" >
+  <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form action="" class="form-horizontal">
+                <div class="modal-header">
+                    <h4>모임날짜지정</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="kontakt-name" class="col-lg-2 control-label">행사타이틀</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="kontakt-name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kontakt-email" class="col-lg-2 control-label">모임장</label>
+                        <div class="col-lg-10">
+                            <input type="email" class="form-control" id="kontakt-email" placeholder="Email-Address">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="kontakt-nachricht" class="col-lg-2 control-label">내용</label>
+                        <div class="col-lg-10">
+                            <textarea class="form-control" id="kontakt-nachricht" rows="8"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
