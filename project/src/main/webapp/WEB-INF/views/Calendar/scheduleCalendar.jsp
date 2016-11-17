@@ -19,6 +19,7 @@
 		<script type="text/javascript">
 		$(document).ready(function()
 		{	
+			
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
@@ -121,13 +122,13 @@
                     <div class="form-group">
                         <label for="kontakt-name" class="col-lg-2 control-label">행사타이틀</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="kontakt-name" placeholder="Name">
+                            <input type="text" class="form-control" id="kontakt-name" placeholder="제목">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="kontakt-email" class="col-lg-2 control-label">모임장</label>
                         <div class="col-lg-10">
-                            <input type="email" class="form-control" id="kontakt-email" placeholder="Email-Address">
+                            <input type="email" class="form-control" id="kontakt-email" placeholder="이름">
                         </div>
                     </div>
                     <div class="form-group">
