@@ -17,6 +17,7 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 	    <script src="resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
+		
 		$(document).ready(function()
 		{	
 			
@@ -55,14 +56,16 @@
 // 			          $('#createEventModal #when').text(mywhen);
 			          $('#createEventModal').modal();
 				},
+				
 				editable: true,
+				//
 				events: [
 					{
 						title: 'example Party',
 						start: new Date(y, m, d+1, 19, 0),
 						end: new Date(y, m, d+1, 22, 30),
 						description : '서울서울',
-						allDay: false
+						allDay: false,
 					},
 					{
 						title: 'example hoho',
@@ -70,9 +73,24 @@
 						end: new Date(y, m, 29),
 						url: 'http://google.com/'
 					}
-				]
+				],
+				// Home 컨트롤러이동,,,,,,,,,,
+			    eventSources: [
+			                   {
+			                       url: '홈컨트롤러명',
+			                       type: 'POST',
+			                       data: {
+			                           custom_param1: 'something',
+			                           custom_param2: 'somethingelse'
+			                       },
+			                       error: function() {
+			                           alert('there was an error while fetching events!');
+			                       },
+			                       color: 'yellow',   // a non-ajax option
+			                       textColor: 'black' // a non-ajax option
+			                   }
+			               ]
 			});
-			
 		});
 	</script>
 	<style type="text/css">
@@ -106,7 +124,6 @@
         </div>
     </div>
 </div>
-
 </content>
 </head>
 	<!--FullCalendar container div-->
@@ -120,19 +137,19 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="kontakt-name" class="col-lg-2 control-label">행사타이틀</label>
+                        <label for="event-title" class="col-lg-2 control-label">행사타이틀</label>
                         <div class="col-lg-10">
                             <input type="text" class="form-control" id="kontakt-name" placeholder="제목">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="kontakt-email" class="col-lg-2 control-label">모임장</label>
+                        <label for="event-host" class="col-lg-2 control-label">모임장</label>
                         <div class="col-lg-10">
                             <input type="email" class="form-control" id="kontakt-email" placeholder="이름">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="kontakt-nachricht" class="col-lg-2 control-label">내용</label>
+                        <label for="event-content" class="col-lg-2 control-label">내용</label>
                         <div class="col-lg-10">
                             <textarea class="form-control" id="kontakt-nachricht" rows="8"></textarea>
                         </div>
