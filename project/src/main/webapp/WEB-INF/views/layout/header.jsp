@@ -30,6 +30,10 @@
 <link href="resources/css/responsive_bootstrap_carousel_mega_min.css" rel="stylesheet" media="all">
 <!-- set.css -->
 <link href="resources/css/set.css" rel="stylesheet" type="text/css">
+<!-- cloud.css -->
+<link href="resources/css/bootstrap-tag-cloud.css" rel="stylesheet">
+
+
 
 <!-- 제이쿼리 부분 -->
 <script src="resources/js/jquery-1.11.3.min.js"></script>
@@ -40,6 +44,7 @@
 <script src="resources/js/typewriter.js"></script>
 <script src="resources/js/jquery.onepagenav.js"></script>
 <script src="resources/js/main.js"></script>
+<script src="resources/js/bootstrap-tag-cloud.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

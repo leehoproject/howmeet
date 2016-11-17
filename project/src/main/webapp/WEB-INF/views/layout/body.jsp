@@ -29,7 +29,7 @@
 						
 						<!--========= 1비디오 =========-->
 						<video class="video_carousel_video" autoplay loop>
-							<source src="resources/images/carousel_video_01.mp4" type="video/mp4">
+							<source src="resources/images/carousel_video_03.mp4" type="video/mp4">
 							Your browser does not support HTML5 video.
 						</video>
 					
@@ -84,87 +84,78 @@
 			<div class="content col-lg-12">
 				<div id="works"  class=" clearfix grid"> 
 				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/그림.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Cappuchino</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>그림</h2>
+				            <p>동호회<br>
+				            <img src="resources/images/category/1.jpg" alt="img01"/>
+				            <a href="resources/images/category/1.jpg" title="1" data-gallery>View more</a></p>            
+				        </figcaption>
+				    </figure>
+				     <figure class="effect-oscar  wowload fadeInUp">
+				        <img src="resources/images/category/축구.jpg" alt="img01"/>
+				        <figcaption>
+				            <h2>축구</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/밴드.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Latte</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>밴드</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/스터디.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Ambience</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>스터디</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/여행.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Fruits</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				     
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Breakfast</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>여행</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/영화.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Kitchen</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Cappuchino</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>영화</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/하키.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Latte</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>하키</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/농구.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Ambience</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>농구</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
+				        <img src="resources/images/category/야구.jpg" alt="img01"/>
 				        <figcaption>
-				            <h2>Fruits</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
+				            <h2>야구</h2>
+				            <p>동호회<br>
 				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
 				        </figcaption>
 				    </figure>
-				     
 				     <figure class="effect-oscar  wowload fadeInUp">
 				        <img src="resources/images/1.jpg" alt="img01"/>
 				        <figcaption>
