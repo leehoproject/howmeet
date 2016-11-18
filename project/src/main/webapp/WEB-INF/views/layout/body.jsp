@@ -22,15 +22,15 @@
 					<div class="carousel-caption video_carousel_caption">
 						
 						<div class="video_carousel_caption_text">
-							<h1>Video Carousel</h1>
-							<p>Bootstrap Video Carousel supports Self Hosted Video</p>
-							<a href="#" class="video_carousel_colored_button">Learn More</a>
+							<h1>누구와 어떻게 만날까요?</h1>
+							<p>그 방법은 howMeet입니다!</p>
+							<a href="member.html" class="video_carousel_colored_button">회원가입</a>
 						</div>
 						
 						<!--========= 1비디오 =========-->
-						<video class="video_carousel_video" autoplay loop>
+						<video class="video_carousel_video" autoplay loop muted>
 							<source src="resources/images/carousel_video_03.mp4" type="video/mp4">
-							Your browser does not support HTML5 video.
+							현재 브라우저에서 지원되지 않는 기능입니다.
 						</video>
 					
 					</div>
@@ -45,15 +45,15 @@
 					<div class="carousel-caption video_carousel_caption">
 						
 						<div class="video_carousel_caption_text">
-							<h1 data-animation="animated fadeInDown">Video Carousel</h1>
-							<p data-animation="animated fadeInUp">Bootstrap Video Carousel supports Self Hosted Video</p>
-							<a href="#" class="video_carousel_colored_button" data-animation="animated fadeInLeft">Learn More</a>
+							<h1 data-animation="animated fadeInDown">누구와 어떻게 만날까요?</h1>
+							<p data-animation="animated fadeInUp">그 방법은 howMeet입니다!</p>
+							<a href="member.html" class="video_carousel_colored_button" data-animation="animated fadeInLeft">회원가입</a>
 						</div>
 						
 						<!--========= 2비디오 =========-->
 						<video class="video_carousel_video" autoplay loop>
 							<source src="resources/images/carousel_video_02.mp4" type="video/mp4">
-							Your browser does not support HTML5 video.
+							현재 브라우저에서 지원되지 않는 기능입니다.
 						</video>
 					
 					</div>
