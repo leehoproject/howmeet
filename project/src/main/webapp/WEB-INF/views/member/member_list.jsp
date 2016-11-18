@@ -16,9 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 	<script type="text/javascript">
-			$(document).ready(function() {
-				$('#example').DataTable();
-			});
 	</script>
     <style>
         /* Move down content because we have a fixed navbar that is 50px tall */
@@ -82,7 +79,6 @@
             height: 0;
             opacity: 0;
         }
-
         /* Loading Animation: */
         .vuetable-wrapper {
             opacity: 1;
@@ -129,42 +125,19 @@
   </head>
 
   <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Project name</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div><!--/.navbar-collapse -->
-        </div>
-    </nav>
-
     <div id="app" class="container">
       <!-- Example row of columns -->
-        <h2 class="sub-header">List of Users</h2>
+        <h2 class="sub-header">전체 회원 리스트</h2>
         <hr>
         <div class="row">
             <div class="col-md-7 form-inline">
                 <div class="form-inline form-group">
                     <label>Search:</label>
-                    <input v-model="searchFor" class="form-control" @keyup.enter="setFilter">
+                     <!-- keyup.enter Event 엔터를 눌렀을시 Search 기능수행 -->
+                    <input v-model="searchFor" class="form-control" @keyup.enter="setFilter"> 
+                    <!-- click시 setFilter 찾기기능 수행 --> 
                     <button class="btn btn-primary" @click="setFilter">Go</button>
+                    <!-- click시 reset 메서드 수행 --> 
                     <button class="btn btn-default" @click="resetFilter">Reset</button>
                 </div>
             </div>
@@ -176,6 +149,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- 모달모달모달 -->
         <div class="modal fade" id="settingsModal" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -231,6 +206,9 @@
                 </div>
             </div>
         </div>
+        
+        
+        <!--  ajax 서버에서 데이터를 테이블로 response하는 부분 -->
         <div class="table-responsive">
             <vuetable v-ref:vuetable
                 api-url="http://vuetable.ratiw.net/api/users"
@@ -259,19 +237,22 @@
         </div>
         <hr>
     </div> <!-- /container -->
+    
+    
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment-with-locales.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.2/vue-resource.min.js"></script>
-<script src="resources/js/vue-table.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment-with-locales.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.2/vue-resource.min.js"></script>
+	<script src="resources/js/vue-table.js"></script>
     <script>
     var E_SERVER_ERROR = 'Error communicating with the server'
 
+    //ajax부분
     // fields definition
     var tableColumns = [
         {
@@ -311,14 +292,13 @@
             titleClass: 'center aligned',
             dataClass: 'custom-action center aligned',
         },
-        {
-            name: '__actions',
-            dataClass: 'text-center',
-        }
+//         {
+//             name: '__actions',
+//             dataClass: 'text-center',
+//         }
     ]
-
     Vue.config.debug = true
-
+	// 클릭시 컬럼을 가져오는 부분
     Vue.component('custom-action', {
         template: [
             '<div>',
@@ -345,7 +325,7 @@
             }
         }
     })
-
+    
     Vue.component('my-detail-row', {
         template: [
             '<div class="detail-row ui form" @click="onClick($event)">',
@@ -418,15 +398,18 @@
              * Callback functions
              */
             allCap: function(value) {
+            	//toUpperCase 문자열에있는 모든 소문자를 대문자로 반환 (이름이 소문자인데 대문자로반환해줌.)
                 return value.toUpperCase()
             },
             gender: function(value) {
+            	//서버로 부터 받은 성별 Object 값이 M 일시 Male 아닐시 Female 을 반환
               return value == 'M'
                 ? '<span class="label label-info"><i class="glyphicon glyphicon-star"></i> Male</span>'
                 : '<span class="label label-success"><i class="glyphicon glyphicon-heart"></i> Female</span>'
             },
             formatDate: function(value, fmt) {
                 if (value == null) return ''
+                // typeof 키워드는 변수의 데이터형을 알아내기 위해서 사용하는 예약어
                 fmt = (typeof fmt == 'undefined') ? 'D MMM YYYY' : fmt
                 return moment(value, 'YYYY-MM-DD').format(fmt)
             },
@@ -438,9 +421,7 @@
                     '</a>'
                 ].join('')
             },
-            /**
-             * Other functions
-             */
+			//search 기능
             setFilter: function() {
                 this.moreParams = [
                     'filter=' + this.searchFor
@@ -448,11 +429,13 @@
                 this.$nextTick(function() {
                     this.$broadcast('vuetable:refresh')
                 })
-            },
+            }, //reset 기능
             resetFilter: function() {
                 this.searchFor = ''
                 this.setFilter()
             },
+            
+            
             preg_quote: function( str ) {
                 // http://kevin.vanzonneveld.net
                 // +   original by: booeyOH
@@ -535,18 +518,22 @@
             // }
         },
         events: {
+        	
             'vuetable:row-changed': function(data) {
                 console.log('row-changed:', data.name)
             },
+            
             'vuetable:row-clicked': function(data, event) {
                 console.log('row-clicked:', data.name)
             },
+            
             'vuetable:cell-clicked': function(data, field, event) {
                 console.log('cell-clicked:', field.name)
                 if (field.name !== '__actions') {
                     this.$broadcast('vuetable:toggle-detail', data.id)
                 }
             },
+            
             'vuetable:action': function(action, data) {
                 console.log('vuetable:action', action, data)
                 if (action == 'view-item') {
@@ -557,6 +544,7 @@
                     sweetAlert(action, data.name)
                 }
             },
+            //로드 성공일시 처리
             'vuetable:load-success': function(response) {
                 var data = response.data.data
                 console.log(data)
@@ -567,6 +555,7 @@
                     }
                 }
             },
+            // 로드 오류일시 처리
             'vuetable:load-error': function(response) {
                 if (response.status == 400) {
                     sweetAlert('Something\'s Wrong!', response.data.message, 'error')
