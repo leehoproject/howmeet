@@ -112,7 +112,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <button type="button" class="close" data-dismiss="modal">
+                	<span aria-hidden="true">×</span> 
+                	<span class="sr-only">close</span>
+                </button>
                 <h4 id="modalTitle" class="modal-title"></h4>
             </div>
             <div id="modalBody" class="modal-body"></div>
@@ -120,7 +123,6 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button class="btn btn-primary"><a id="eventUrl" target="_blank">Event Page</a></button>
             </div>
-          
         </div>
     </div>
 </div>
