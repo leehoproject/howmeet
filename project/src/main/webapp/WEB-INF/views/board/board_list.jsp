@@ -3,11 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="resources/css/dataTables.bootstrap.min.css">
-jquery-1.12.3.js
-
-
+<content tag="local_script">
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/css/dataTables.bootstrap.min.css">
+	<script src="resources/js/jquery-1.11.3.min.js"></script>
+	<script src="resources/js/jquery.dataTables.min.js"></script>
+	<script src="resources/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">
 		$(document).ready(function() {
 			$('#example').DataTable();
@@ -16,17 +17,17 @@ jquery-1.12.3.js
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+</content>
 </head>
 <body>
 <table id="example" class="table table-striped table-bordered" width="100%" cellspacing="0">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
+                <th>글번호</th>
+                <th>글제목</th>
+                <th>이메일</th>
+                <th>날짜</th>
+                <th>첨부파일</th>
             </tr>
         </thead>
         <tfoot>
@@ -36,7 +37,6 @@ jquery-1.12.3.js
                 <th>Office</th>
                 <th>Age</th>
                 <th>Start date</th>
-                <th>Salary</th>
             </tr>
         </tfoot>
         <tbody>
@@ -46,15 +46,6 @@ jquery-1.12.3.js
                 <td>Edinburgh</td>
                 <td>61</td>
                 <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
             </tr>
         </tbody>
     </table>
