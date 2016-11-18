@@ -19,7 +19,7 @@
 <style>
 .mainframe{margin-top:10px; padding:20px; border-top:2px solid #ccc;}
 .listframe{height:80px; padding:0; margin-bottom:10px; border-bottom:1px solid #ccc;}
-.contentframe{height:30px; border:1px solid;}
+.contentframe{height:30px;}
 .profileframe1,.profileframe2,.profileframe3,.profileframe4{height:50px;}
 .paginationframe{padding:0; height:80px;}
 .titlefont{font-size:20px;}
