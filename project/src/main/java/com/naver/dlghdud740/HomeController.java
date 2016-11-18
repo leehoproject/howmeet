@@ -198,4 +198,10 @@ public class HomeController {
 	public String GoogleMap(Locale locale, Model model) {	
 		return "main/GoogleMap";
 	}
+	//회원 목록리스트
+	@RequestMapping(value = "/member_list", method = RequestMethod.GET)
+	public String member_list(Locale locale, Model model) {	
+		
+		return "member/member_list";
+	}
 }

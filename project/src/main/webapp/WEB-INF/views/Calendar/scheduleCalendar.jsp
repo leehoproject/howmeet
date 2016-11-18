@@ -147,7 +147,7 @@
                     <div class="form-group">
                         <label for="event-host" class="col-lg-2 control-label">모임장</label>
                         <div class="col-lg-10">
-                            <input type="email" class="form-control" id="kontakt-email" placeholder="이름">
+                            <input type="text" class="form-control" id="kontakt-email" placeholder="이름">
                         </div>
                     </div>
                     <div class="form-group">

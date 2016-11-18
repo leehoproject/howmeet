@@ -12,7 +12,7 @@
 				<div class="container">	
 					<div class="row">
 						<div class="col-sm-8 col-xs-9">
-							<p class="right-color">&copy; Copyright 2016. All rights reserved by <a href="board_list" target="_blank">gaeDak</a></p>
+							<p class="right-color">&copy; Copyright 2016. All rights reserved by <a href="member_list" target="_blank">gaeDak</a></p>
 						</div>
 						<div class="col-sm-4 col-xs-3" align="right">
 							<a href="#" id="back-to-top" class="top text-right" >TOP <i class="fa fa-angle-up" aria-hidden="true"></i> </a>
