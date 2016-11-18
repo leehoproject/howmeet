@@ -26,8 +26,6 @@ import com.naver.dlghdud740.service.MemberDao;
 /**
  * Handles requests for the application home page.
  */
-
-
 @Controller
 public class HomeController {
 	
