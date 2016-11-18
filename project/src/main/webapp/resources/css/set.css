@@ -26,7 +26,6 @@
 }
 
 .grid figure figcaption {
-	padding: 2em;
 	color: #fff;
 	font-size: 1.25em;
 	-webkit-backface-visibility: hidden;
@@ -69,7 +68,7 @@
 
 .grid figure p {
 	letter-spacing: 1px;
-	font-size: 68.5%;
+	font-size: 100%;
 }
 
 /* Individual effects */

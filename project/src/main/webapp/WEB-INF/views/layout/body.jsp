@@ -22,15 +22,15 @@
 					<div class="carousel-caption video_carousel_caption">
 						
 						<div class="video_carousel_caption_text">
-							<h1>Video Carousel</h1>
-							<p>Bootstrap Video Carousel supports Self Hosted Video</p>
-							<a href="#" class="video_carousel_colored_button">Learn More</a>
+							<h1>사람을 어떻게 만날까요?</h1>
+							<p>방법은 howmeet입니다!</p>
+							<a href="member.html" class="video_carousel_colored_button">회원가입</a>
 						</div>
 						
 						<!--========= 1비디오 =========-->
-						<video class="video_carousel_video" autoplay loop>
+						<video class="video_carousel_video" autoplay loop muted>
 							<source src="resources/images/carousel_video_03.mp4" type="video/mp4">
-							Your browser does not support HTML5 video.
+							현재 접속한 브라우저에서는 지원되지 않습니다.
 						</video>
 					
 					</div>
@@ -45,15 +45,15 @@
 					<div class="carousel-caption video_carousel_caption">
 						
 						<div class="video_carousel_caption_text">
-							<h1 data-animation="animated fadeInDown">Video Carousel</h1>
-							<p data-animation="animated fadeInUp">Bootstrap Video Carousel supports Self Hosted Video</p>
-							<a href="#" class="video_carousel_colored_button" data-animation="animated fadeInLeft">Learn More</a>
+							<h1 data-animation="animated fadeInDown">사람을 어떻게 만날까요?</h1>
+							<p data-animation="animated fadeInUp">방법은 howmeet입니다!</p>
+							<a href="member.html" class="video_carousel_colored_button" data-animation="animated fadeInLeft">회원가입</a>
 						</div>
 						
 						<!--========= 2비디오 =========-->
 						<video class="video_carousel_video" autoplay loop>
 							<source src="resources/images/carousel_video_02.mp4" type="video/mp4">
-							Your browser does not support HTML5 video.
+							현재 접속한 브라우저에서는 지원되지 않습니다.
 						</video>
 					
 					</div>
@@ -88,8 +88,7 @@
 				        <figcaption>
 				            <h2>그림</h2>
 				            <p>동호회<br>
-				            <img src="resources/images/category/1.jpg" alt="img01"/>
-				            <a href="resources/images/category/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/category/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -97,7 +96,7 @@
 				        <figcaption>
 				            <h2>축구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -105,7 +104,7 @@
 				        <figcaption>
 				            <h2>밴드</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -113,7 +112,7 @@
 				        <figcaption>
 				            <h2>스터디</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -121,7 +120,7 @@
 				        <figcaption>
 				            <h2>여행</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				    <figure class="effect-oscar  wowload fadeInUp">
@@ -129,7 +128,7 @@
 				        <figcaption>
 				            <h2>영화</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -137,7 +136,7 @@
 				        <figcaption>
 				            <h2>하키</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -145,7 +144,7 @@
 				        <figcaption>
 				            <h2>농구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -153,23 +152,7 @@
 				        <figcaption>
 				            <h2>야구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Breakfast</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Kitchen</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				</div>

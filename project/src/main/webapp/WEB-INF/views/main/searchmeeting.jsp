@@ -18,8 +18,8 @@
 <<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 <style>
 .mainframe{margin-top:10px; padding:20px; border-top:2px solid #ccc;}
-.listframe{height:100px; padding:0; margin-bottom:10px; border-bottom:1px solid #ccc;}
-.contentframe{height:50px;}
+.listframe{height:80px; padding:0; margin-bottom:10px; border-bottom:1px solid #ccc;}
+.contentframe{height:30px; border:1px solid;}
 .profileframe1,.profileframe2,.profileframe3,.profileframe4{height:50px;}
 .paginationframe{padding:0; height:80px;}
 .titlefont{font-size:20px;}
@@ -61,29 +61,31 @@
 				</span>
 			</div>
 		</div>
-	<c:forEach var="society" items="${societys}" >
+	
 		<div class="col-md-12 mainframe">
-			<div class="col-md-12 listframe">
-				<!-- 제목단 -->
-				<div class="col-md-12 contentframe">
-					<span class="titlefont"><a href="#" class="tomeet">${society.s_name}</a></span>
-				</div>
-				<!-- 관심사,날짜,인원,지역 -->
-				<div class="col-xs-3 profileframe1">
-					<span class="subfont">관심사 : ${society.s_hobby}</span>
-				</div>				
-				<div class="col-xs-3 profileframe2">
-					<span class="subfont">날짜 : </span>
-				</div>				
-				<div class="col-xs-3 profileframe3">
-					<span class="subfont">인원 : 0/${society.s_peoplenum} </span>
-				</div>				
-				<div class="col-xs-3 profileframe4">
-					<span class="subfont">지역 : ${society.s_area}</span>
-				</div>
-			</div>	
-			</div>
-	</c:forEach>					
+			<c:forEach var="society" items="${societys}" >
+				<div class="col-md-12 listframe">
+					<!-- 제목단 -->
+					<div class="col-md-12 contentframe">
+						<span class="titlefont"><a href="#" class="tomeet">${society.s_name}</a></span>
+					</div>
+					<!-- 관심사,날짜,인원,지역 -->
+					<div class="col-xs-3 profileframe1">
+						<span class="subfont">관심사 : ${society.s_hobby}</span>
+					</div>				
+					<div class="col-xs-3 profileframe2">
+						<span class="subfont">날짜 : </span>
+					</div>				
+					<div class="col-xs-3 profileframe3">
+						<span class="subfont">인원 : 0/${society.s_peoplenum} </span>
+					</div>				
+					<div class="col-xs-3 profileframe4">
+						<span class="subfont">지역 : ${society.s_area}</span>
+					</div>
+				</div>	
+			</c:forEach>
+		</div>
+						
 	<div class="row">
 		<div class="col-md-12 text-center paginationframe">
 			<ul class="pagination" style="padding:0;">

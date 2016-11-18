@@ -154,7 +154,6 @@ header .typed-cursor {
 a {
 	text-decoration: none;
 	color: #fff;
-	border: 1px solid #fff;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
