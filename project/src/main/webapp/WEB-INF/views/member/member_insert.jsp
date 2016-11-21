@@ -24,8 +24,7 @@
 	$(document).ready(function(){
 		
 		$('#confirm').click(function(event) {
-			var id = $('#m_id').val();
-			alert(id)
+			var id = $('#id').val();
 			$.ajax({
 				type : 'POST',
 				data : "m_id=" + id,
@@ -48,7 +47,6 @@
 				}
 			});
 		});
-		
 		$('#save').click(function(event){
 			if($('#check').val()=='no'){
 				alert("아이디 중복 체크를 하세요!")
@@ -69,7 +67,7 @@
 	</style>	
 	
 <body onload="doReset();">
-<form  id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
+<form id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
 <div id="page-content" class="index-page">
 	<div class="container">
 		<div class="row" style="padding-left:10px; padding-right:10px;">
@@ -224,17 +222,16 @@
 					<div class="col-md-12 sendframe">
 						<div class="form-group">
 							<div class="col-md-12 text-center">
-								<button id="save"  type="submit" class="btn btn-default">보내기</button>
+								<button id="save"  type="button" class="btn btn-default">보내기</button>
 								<button id="reset" type="button"  class="btn btn-default">다시쓰기</button>
 								<button id="temp" type="button"  class="btn btn-default">확인용</button>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 		</div>
 	</div>
-</div>
-<!-- 회원가입 종료 -->
-	</form>
+</form>
 </body>
 </html>
