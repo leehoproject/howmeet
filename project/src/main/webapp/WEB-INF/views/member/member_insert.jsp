@@ -21,48 +21,42 @@
       document.insert_form.id.value = "";
       document.insert_password.id.value = "";
    }
-   $(document).ready(function(){
-      $("#ulphone1 li").click(function(){
-         $('#phone1').attr('value',$(this).text());
-      });
-      $('#photo').change(function(event){
-         var tmppath = URL.createObjectURL(event.target.files[0]);
-         alert($(this).val());
-         $('#image').attr('src',tmppath);
-      });
-      $('#confirm').click(function(){
-         var id = $('#id').val();
-         if( id == ""){
-            alert("id 를 입력하세요!");
-            return;
-         }
-         $.ajax({
-            type : 'POST',
-            data:"m_id="+m_id,
-            dataType : 'json',
-            url : 'idconfirm',
-            success : function(data){
-               if(data==0){
-                  alert("사용가능한 ID 입니다.");
-                  $('#check').attr('value','yes');
-                  
-               }else{
-                  alert("중복된 ID 입니다");
-               }
-               return false;
-            }
-         });
-      });
-      $('#save').click(function(event){
-         var chk = $('#check').val();
-         //리턴을 안먹네~~~~
-         if($('#check').val() =='no'){
-            alert("id 중복체크 하세요")
-            return;
-         }
-         $('#insert_form').submit();
-      });
-   });
+	$(document).ready(function(){
+		
+		$('#confirm').click(function(event) {
+			var id = $('#m_id').val();
+			alert(id)
+			$.ajax({
+				type : 'POST',
+				data : "m_id=" + id,
+				dataType : 'json',
+				url : 'idconfirm',
+				success : function(data){
+					if(id==""){
+						alert("아이디를 입력하세요.");
+						return;
+					}
+					
+					if(data==0){
+						alert("사용가능한 아이디 입니다.");
+						$('#check').attr('value','yes');
+					} else {
+						alert("중복 입니다.");
+						return;
+					}
+					return false;
+				}
+			});
+		});
+		
+		$('#save').click(function(event){
+			if($('#check').val()=='no'){
+				alert("아이디 중복 체크를 하세요!")
+				return;
+			}
+			$('#insert_form').submit();
+		});
+	});
 </script>
 </content>
 	<style>
