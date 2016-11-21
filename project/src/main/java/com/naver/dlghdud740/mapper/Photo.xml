@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.naver.dlghdud740.service.PhotoDao">
+		<resultMap type="com.naver.dlghdud740.entities.Photo" id="PhotoMap">
+			<id property="p_seq" column="p_seq" />
+			<id property="p_id" column="p_id" />
+			<id property="p_content" column="p_content" />
+		</resultMap>
+		<insert id="insertPhoto" parameterType="hashMap">
+			insert into photo(p_seq,p_id,p_content) values((select coalesce(max(p_seq)+1,1) from photo),#{p_id},#{p_content})
+		</insert>	
+		<select id="selectPhoto" resultMap="PhotoMap">
+			select p_seq,p_id,p_content from photo
+		</select>		
+	</mapper>

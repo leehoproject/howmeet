@@ -11,8 +11,8 @@
 			<id property="s_peoplenum" column="s_peoplenum" />
 		</resultMap>
 		<insert id="insertRow" parameterType="hashMap">
-			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum) 
-			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum})
+			insert into Society(s_index,s_hobby,s_name,s_content,s_area,s_peoplenum) 
+			values((select coalesce(max(s_index)+1,1) from society),#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum})
 		</insert>		
 		<select id="selectAll" resultMap="SocietyMap">
 			select * from Society
