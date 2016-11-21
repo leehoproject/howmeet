@@ -119,7 +119,7 @@
 					</div>
 				<div class="form-group">
 					<div class="col-md-12 text-center" style="padding:0;">
-						<button type="button" class="btn btn-default col-md-12">보내기</button>
+						<button type="submit" class="btn btn-default col-md-12">보내기</button>
 					</div>
 				</div>				
 			</div>

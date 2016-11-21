@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.naver.dlghdud740.service.MemberlistDao">
+		
+		<resultMap type="com.naver.dlghdud740.entities.Memberlist" id="memberlistMap">
+			<id property="m_id" column="m_id" />
+			<id property="m_name" column="m_name" />
+			<id property="m_level" column="m_level" />
+		</resultMap>
+		
+		<select id="selectAll" resultMap="memberlistMap">
+			select * from memberlist
+		</select>
+	</mapper>

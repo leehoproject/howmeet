@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,12 +14,28 @@
 	
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
+	
+	<!-- 테이블리스트 -->
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/dataTables.uikit.min.css">
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/uikit.min.css">
+	<script src="resources/js/jquery-1.11.3.min.js"></script>
+	<script src="resources/bootstrap-3.3.7-dist/js/jquery.dataTables.min.js"></script>
+	<script src="resources/bootstrap-3.3.7-dist/js/dataTables.uikit.min.js"></script>
 
+	<!-- 사진리스트 -->
+	<link rel="stylesheet" href="resources/gallery/gallerymain.css">
+	<script src="resources/gallery/gallerymain.js"></script>
+	
 	<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 	<style>
 	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
 	</style>
 	
+	<script type="text/javascript">
+	$(document).ready(function() {
+    $('#example').DataTable();
+	} );
+	</script>
 </content>
 <body>
 	<div class="container">
@@ -28,8 +45,8 @@
 		<div class="container">
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-		    <li><a data-toggle="tab" href="#menu1">Member</a></li>
-		    <li><a data-toggle="tab" href="#menu2">Picture</a></li>
+		    <li><a data-toggle="tab" href="#menu2">Member</a></li>
+		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a data-toggle="tab" href="#menu3">Schedule</a></li>
 		    <li><a data-toggle="tab" href="#menu3">Board</a></li>
 		    <li><a data-toggle="tab" href="#menu3">adasd</a></li>
@@ -122,12 +139,84 @@
 		    </div>
 			<!-- menu1 end -->
 		    <div id="menu2" class="tab-pane fade">
-		      <h3>Menu 2</h3>
-		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+		      <table id="example" class="uk-table uk-table-hover uk-table-striped" cellspacing="0">
+			        <thead>
+			            <tr>
+			            	<th>photo</th>
+			                <th>user</th>
+			                <th>Date Joined</th>     
+			            </tr>
+			        </thead>
+			        <tfoot>
+			            <tr>
+			                <th>photo</th>
+			                <th>user</th>
+			                <th>Date Joined</th>     
+			            </tr>
+			        </tfoot>
+			        <tbody>
+			          <c:forEach var="memberlist" items="${memberlists}">
+			            <tr>
+			                <td><img src="resources/images/1.jpg" width="100" height="100"></td>
+			                <td>${memberlist.m_name}</td>
+			                <td>${memberlist.m_level}</td>
+			            </tr>
+			       	  </c:forEach>
+			        </tbody>
+			    </table>
 		    </div>
 		    <div id="menu3" class="tab-pane fade">
-		      <h3>Menu 3</h3>
-		      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+		       <button class="btn btn-blue" data-target="#myModal" data-toggle="modal">사진첨부</button>
+			   <div class="carouselGallery-grid hidden-xs" >
+			        <div class="row">
+			            <div class="carouselGallery-col-60">
+				            <c:forEach var="photo" items="${photos}">
+					                <div class="carouselGallery-col-1 carouselGallery-carousel" data-index="${photo.p_seq}" data-username="${photo.p_id}" 
+					                data-imagetext="${photo.p_content}" data-location="" data-imagepath="resources/images/popup.jpg"
+					                data-posturl="resources/images/popup.jpg" style="background-image:url(resources/images/popup.jpg);">
+						                <div class="carouselGallery-item">
+						                    <div class="carouselGallery-item-meta">
+						                        <span class="carouselGallery-item-meta-user">
+						                            ${photo.p_id}
+						                        </span>
+						                    </div>
+						                </div>
+						            </div>
+					        </c:forEach>
+					        <div class="carouselGallery-col-1 carouselGallery-carousel" data-index="11" data-username="visitsweden" data-imagetext="Photographer: @s_gustavsson
+					            Location: Gaperud, Värmland
+					            Tag your photos with #visitsweden and #swedishmoments to get featured. //@deskriptiv" data-location="" data-likes="5094" data-imagepath="https://scontent.cdninstagram.com/hphotos-xtp1/t51.2885-15/s640x640/sh0.08/e35/12063148_865400153574109_1616517572_n.jpg" data-posturl="https://instagram.com/p/96UTFPwVaN/" style="background-image:url(https://scontent.cdninstagram.com/hphotos-xtp1/t51.2885-15/s640x640/sh0.08/e35/12063148_865400153574109_1616517572_n.jpg);">
+					            <div class="carouselGallery-item">
+					                <div class="carouselGallery-item-meta">
+					                    <span class="carouselGallery-item-meta-user">
+					                        hoyoung
+					                    </span>
+					                </div>
+					            </div>
+					        </div>
+				        </div>
+				    </div>
+				</div>	
+			  <!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">Modal Header</h4>
+			        </div>
+			        <div class="modal-body">
+			          <p>Some text in the modal.</p>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
 		    </div>
 		  </div>
 		</div>

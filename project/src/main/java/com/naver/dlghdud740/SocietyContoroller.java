@@ -16,8 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.naver.dlghdud740.entities.Member;
+import com.naver.dlghdud740.entities.Memberlist;
+import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
 import com.naver.dlghdud740.service.MemberDao;
+import com.naver.dlghdud740.service.MemberlistDao;
+import com.naver.dlghdud740.service.PhotoDao;
 import com.naver.dlghdud740.service.SocietyDao;
 
 /**
@@ -46,8 +51,15 @@ public class SocietyContoroller {
 	}
 	//동호회메인
 	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
-	public String societymain(Locale locale, Model model) {	
-		return "society/society_main";
+	public ModelAndView societymain(Locale locale, Model model) {	
+		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
+		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
+		ArrayList<Memberlist> memberlists= mldao.selectAll();
+		ArrayList<Photo> photos= pdao.selectPhoto();
+		ModelAndView mav = new ModelAndView("society/society_main");
+		mav.addObject("memberlists",memberlists);
+		mav.addObject("photos",photos);
+		return mav;
 	}
 	//동호회모임 Insert
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
@@ -75,4 +87,19 @@ public class SocietyContoroller {
 		mav.addObject("societys",societys);
 		return mav;
 	}
+	
+	//사진입력
+	@RequestMapping(value = "/insertPhoto", method = RequestMethod.GET)
+	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo) {	
+		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
+		int result = dao.insertPhoto(photo);
+		if(result==1){
+		} else {
+		}
+		ModelAndView mav = new ModelAndView("society/society_main");
+		mav.addObject("result","ok");
+			
+		return mav;
+		}
+	
 }
