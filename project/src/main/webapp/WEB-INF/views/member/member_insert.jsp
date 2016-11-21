@@ -30,7 +30,7 @@
 			$('#confirm').click(function(event) {
 				$.ajax({
 					type : 'POST',
-					data : "m_id="+ m_id,
+					data : "m_id=" + id,
 					dataType : 'json',
 					url : 'idconfirm',
 					success : function(data){
@@ -56,6 +56,10 @@
 					return;
 				}
 				$('#insert_form').submit();
+			});
+			
+			$('#temp').click(function(){
+				alert("clicked");
 			});
 			
 		});
@@ -138,8 +142,9 @@
 							</label>
 							<div class="col-md-8" style="padding:0; padding-right:10px;">
 								<input type="text" size="20" name="m_email" id="m_email" class="form-control" placeholder="이메일"
-								required="" data-parsley-error-message="이메일을 입력하세요." data-parsley-errors-container="div[id='validateEmail']">
+								required="" data-parsley-error-message="이메일을 입력하세요." data-parsley-errors-container="div[id='m_email_error']">
 							</div>
+							<div id="m_email_error" style="color:red;"></div>
 						</div>			
 						<div class="form-group">
 							<label for="phone1" class="col-md-4">
@@ -228,6 +233,7 @@
 							<div class="col-md-12 text-center">
 								<button id="save" type="submit" class="btn btn-default">보내기</button>
 								<button type="reset" class="btn btn-default">다시쓰기</button>
+								<button type="button" id="temp" class="btn btn-default">확인용</button>
 							</div>
 						</div>
 					</div>

@@ -1,6 +1,7 @@
 package com.naver.dlghdud740;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.dlghdud740.entities.Member;
+import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.SocietyPage;
 import com.naver.dlghdud740.service.MemberDao;
+import com.naver.dlghdud740.service.SocietyDao;
 
 /**
  * Handles requests for the application home page.
@@ -31,6 +35,12 @@ public class HomeController {
 	
 	@Autowired
 	private Member member;
+	
+	//모임 페이지 리스트 출력하기 위해 임시로 잡았고 차후 Society 컨트롤러로 옮길 예정
+	private Society society;
+	private int selectedpage;
+	public static String selectbox;
+	public static String find;
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -80,12 +90,12 @@ public class HomeController {
 	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {
 		int count = 1;
 		int find = 0;
-		
+		System.out.println("--->>"+count+" "+find);
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		
 		try {
 			count = dao.selectCount(m_id);
-			System.out.println("------------->>>"+m_id+count);
+			System.out.println("------------->>>"+m_id+" "+count);
 		} catch (Exception e) {
 			System.out.println("idconfirm err: "+e.getMessage());
 		}
@@ -191,15 +201,82 @@ public class HomeController {
 		
 		return mav;
 	}
+	
 	//구글맵
 	@RequestMapping(value = "/GoogleMap", method = RequestMethod.GET)
 	public String GoogleMap(Locale locale, Model model) {	
 		return "main/GoogleMap";
 	}
+	
 	//회원 목록리스트
 	@RequestMapping(value = "/member_list", method = RequestMethod.GET)
 	public String member_list(Locale locale, Model model) {	
 		
 		return "member/member_list";
 	}
+	
+	//게시판 페이지 리스트(차후 모임 컨트롤러로 옮김) By 이기범
+	@RequestMapping(value = "/societyPageList", method = RequestMethod.POST)
+	public ModelAndView societyPageList(@ModelAttribute("societypage") SocietyPage societypage) {
+		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+		ModelAndView mav = new ModelAndView("main/searchmeeting");
+		
+		this.selectbox = societypage.getSelectbox();
+		this.find = societypage.getFind();
+		int rowcount = dao.selectCount(societypage);
+		int pageSize = 10;
+		int pageCount = 0;
+		int absPage = 0;
+		
+		if(selectedpage == 0)
+			selectedpage =1;
+		int startrow = (selectedpage - 1) *pageSize;
+		int endrow = startrow + 10;
+		societypage.setStartrow(startrow);
+		societypage.setEndrow(endrow);
+		
+		ArrayList<Society> societies = dao.selectPageList(societypage);
+		
+		if(rowcount>0 && rowcount%pageSize != 0)
+			absPage = 1;
+		pageCount = rowcount / pageSize + absPage;
+		int pages [] =new int[pageCount];
+		for(int i = 0 ; i< pageCount; i++){
+			pages[i] = i+1;
+		}
+		mav.addObject("selectedpage",selectedpage);
+		mav.addObject("societies",societies);
+		mav.addObject("pages",pages);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/societyPageSelect", method = RequestMethod.GET)
+	public ModelAndView societyPageSelect(@RequestParam int page,@ModelAttribute("societypage") SocietyPage societypage) {
+		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+		ModelAndView mav = new ModelAndView("main/searchmeeting");
+		societypage.setSelectbox(this.selectbox);
+		societypage.setFind(this.find);
+		int rowcount = dao.selectCount(societypage);
+		int pageSize = 10;
+		int absPage = 0;
+		int startrow = (page - 1) * pageSize;
+		int endrow = startrow + 10;
+		societypage.setStartrow(startrow);
+		societypage.setEndrow(endrow);
+		ArrayList<Society> societies = dao.selectPageList(societypage);
+		if(rowcount>0 && rowcount%pageSize != 0)
+			absPage = 1;
+		int pageCount = rowcount / pageSize + absPage;
+		int pages [] =new int[pageCount];
+		for(int i = 0 ; i< pageCount; i++){
+			pages[i] = i+1;
+		}
+		mav.addObject("societypage",societypage);
+		mav.addObject("societies",societies);
+		mav.addObject("pages",pages);
+		
+		return mav;
+	}
+	
 }

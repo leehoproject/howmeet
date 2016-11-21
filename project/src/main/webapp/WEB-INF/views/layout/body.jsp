@@ -88,8 +88,7 @@
 				        <figcaption>
 				            <h2>그림</h2>
 				            <p>동호회<br>
-				            <img src="resources/images/category/1.jpg" alt="img01"/>
-				            <a href="resources/images/category/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/category/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -97,7 +96,7 @@
 				        <figcaption>
 				            <h2>축구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -105,7 +104,7 @@
 				        <figcaption>
 				            <h2>밴드</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -113,7 +112,7 @@
 				        <figcaption>
 				            <h2>스터디</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -121,7 +120,7 @@
 				        <figcaption>
 				            <h2>여행</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				    <figure class="effect-oscar  wowload fadeInUp">
@@ -129,7 +128,7 @@
 				        <figcaption>
 				            <h2>영화</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -137,7 +136,7 @@
 				        <figcaption>
 				            <h2>하키</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -145,7 +144,7 @@
 				        <figcaption>
 				            <h2>농구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -153,23 +152,7 @@
 				        <figcaption>
 				            <h2>야구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Breakfast</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
-				        </figcaption>
-				    </figure>
-				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/1.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>Kitchen</h2>
-				            <p>Lily likes to play with crayons and pencils<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>View more</a></p>            
+				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				</div>
