@@ -296,12 +296,12 @@ public class HomeController {
 	
 	@RequestMapping(value = "/MemberPageList", method = RequestMethod.POST)
 	public ModelAndView MemberPageList(@ModelAttribute("MemberPaging") MemberPaging memberpaging) {
-		BoardDao dao =sqlSession.getMapper(BoardDao.class);
-		ModelAndView mav = new ModelAndView("jQuerytest/board_list");
+		MemberDao dao =sqlSession.getMapper(MemberDao.class);
+		ModelAndView mav = new ModelAndView("member/member_list");
 		
 		this.selectbox = memberpaging.getSelectbox();
 		this.find = memberpaging.getFind();
-		int rowcount = dao.selectCount(memberpaging);
+		int rowcount = dao.selectCountAll(memberpaging);
 		int pageSize = 10;
 		int pageCount = 0;
 		int absPage = 0;
@@ -313,7 +313,7 @@ public class HomeController {
 		memberpaging.setStartrow(startrow);
 		memberpaging.setEndrow(endrow);
 		
-		ArrayList<Board> members = dao.selectPageList(memberpaging);
+		ArrayList<Member> members = dao.selectPageList(memberpaging);
 		
 		if(rowcount>0 && rowcount%pageSize != 0)
 			absPage = 1;

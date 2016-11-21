@@ -64,8 +64,8 @@
 				<div class="col-md-offset-2 col-md-8 resultMessage text-center" style="margin-top:10px">
 					<span class="col-md-2">
 						<select name="Selectbox">
-							<option value="m_id" <c:if test="${memberpaging.getSelectbox() =='b_title'}">selected</c:if>>user Id</option>
-							<option value="m_name" <c:if test="${memberpaging.getSelectbox() =='b_name'}">selected</c:if>>user Name</option>
+							<option value="m_id" <c:if test="${memberpaging.getSelectbox() =='m_id'}">selected</c:if>>user Id</option>
+							<option value="m_name" <c:if test="${memberpaging.getSelectbox() =='m_name'}">selected</c:if>>user Name</option>
 						</select>
 					</span>
 					<span class="col-md-3">
@@ -74,10 +74,6 @@
 					<span class="col-md-3">
 						<i class="fa fa-search" aria-hidden="true"></i>
 						<button  type="submit" class="btn btn-success resultButton"> 검색</button>
-					</span>
-					<span class="col-md-offset-2 col-md-2">
-						<i class="fa fa-pencil" aria-hidden="true"></i>
-						<button  id="write" type="button" onclick="location.href='board_detail'"  class="btn btn-info resultButton"> 글쓰기</button>
 					</span>
 				</div>
 			</div>

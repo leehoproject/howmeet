@@ -47,7 +47,11 @@
 				<select id="selectPageList" resultMap="memberMap">
 			select * from 
 			(select rownum numrow, A.* from
-			(select * from member where ${selectbox} like '%'||#{find}||'%' order by b_ref desc , b_step asc) A )
+			(select * from member where ${selectbox} like '%'||#{find}||'%' order by m_id desc , m_name asc) A )
 			where numrow > #{startrow} and numrow<![CDATA[<=]]> #{endrow}			
 		</select>
+		<select id="selectCountAll" parameterType="hashMap" resultType="int">
+			select count(*) from member
+		</select>
+		
 	</mapper>
