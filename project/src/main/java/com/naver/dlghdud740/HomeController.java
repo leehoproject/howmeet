@@ -21,9 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.naver.dlghdud740.entities.Board;
+import com.naver.dlghdud740.entities.BoardPaging;
 import com.naver.dlghdud740.entities.Member;
+import com.naver.dlghdud740.entities.MemberPaging;
 import com.naver.dlghdud740.entities.Society;
 import com.naver.dlghdud740.entities.SocietyPage;
+import com.naver.dlghdud740.service.BoardDao;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.SocietyDao;
 
@@ -39,6 +43,7 @@ public class HomeController {
 	//모임 페이지 리스트 출력하기 위해 임시로 잡았고 차후 Society 컨트롤러로 옮길 예정
 	private Society society;
 	private int selectedpage;
+	private int selectedPage1;
 	public static String selectbox;
 	public static String find;
 	
@@ -278,6 +283,47 @@ public class HomeController {
 		}
 		mav.addObject("societypage",societypage);
 		mav.addObject("societies",societies);
+		mav.addObject("pages",pages);
+		
+		return mav;
+	}
+	@RequestMapping(value = "/member_detail_list", method = RequestMethod.GET)
+	public String board( ) {	
+		System.out.println(this.selectbox);
+		System.out.println(this.find);
+		return "member/member_list";
+	}
+	
+	@RequestMapping(value = "/MemberPageList", method = RequestMethod.POST)
+	public ModelAndView MemberPageList(@ModelAttribute("MemberPaging") MemberPaging memberpaging) {
+		BoardDao dao =sqlSession.getMapper(BoardDao.class);
+		ModelAndView mav = new ModelAndView("jQuerytest/board_list");
+		
+		this.selectbox = memberpaging.getSelectbox();
+		this.find = memberpaging.getFind();
+		int rowcount = dao.selectCount(memberpaging);
+		int pageSize = 10;
+		int pageCount = 0;
+		int absPage = 0;
+		
+		if(selectedPage1 == 0)
+			selectedPage1 =1;
+		int startrow = (selectedPage1 - 1) *pageSize;
+		int endrow = startrow + 10;
+		memberpaging.setStartrow(startrow);
+		memberpaging.setEndrow(endrow);
+		
+		ArrayList<Board> members = dao.selectPageList(memberpaging);
+		
+		if(rowcount>0 && rowcount%pageSize != 0)
+			absPage = 1;
+		pageCount = rowcount / pageSize + absPage;
+		int pages [] =new int[pageCount];
+		for(int i = 0 ; i< pageCount; i++){
+			pages[i] = i+1;
+		}
+		mav.addObject("memberpaging",memberpaging);
+		mav.addObject("members",members);
 		mav.addObject("pages",pages);
 		
 		return mav;

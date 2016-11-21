@@ -17,6 +17,7 @@
 		} );
 	</script>
 <body>
+<form class="form-horizontal" action="MemberPageList" method="post" enctype="multipart/form-data" role="form">
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -27,13 +28,6 @@
                   <div class="col col-xs-6">
                     <h3 class="panel-title">User List</h3>
                   </div>
-					<span class="col-md-3">
-						<input type="text" id="find" name="find" value="${boardpaging.getFind()}" />
-					</span>
-					<span class="col-md-3">
-						<i class="fa fa-search" aria-hidden="true"></i>
-						<button  type="submit" class="btn btn-success resultButton"> 검색</button>
-					</span>
                 </div>
               </div>
               <div class="panel-body">
@@ -66,27 +60,29 @@
                 </table>
             
               </div>
-              <div class="panel-footer">
-                <div class="row">
-                  <div class="col col-xs-4">Page 1 of 5
-                  </div>
-                  <div class="col col-xs-8">
-                    <ul class="pagination hidden-xs pull-right">
-                      <li><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">5</a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8 resultMessage text-center" style="margin-top:10px">
+					<span class="col-md-2">
+						<select name="Selectbox">
+							<option value="m_id" <c:if test="${memberpaging.getSelectbox() =='b_title'}">selected</c:if>>user Id</option>
+							<option value="m_name" <c:if test="${memberpaging.getSelectbox() =='b_name'}">selected</c:if>>user Name</option>
+						</select>
+					</span>
+					<span class="col-md-3">
+						<input type="text" id="find" name="find" value="${memberpaging.getFind()}" />
+					</span>
+					<span class="col-md-3">
+						<i class="fa fa-search" aria-hidden="true"></i>
+						<button  type="submit" class="btn btn-success resultButton"> 검색</button>
+					</span>
+					<span class="col-md-offset-2 col-md-2">
+						<i class="fa fa-pencil" aria-hidden="true"></i>
+						<button  id="write" type="button" onclick="location.href='board_detail'"  class="btn btn-info resultButton"> 글쓰기</button>
+					</span>
+				</div>
+			</div>
             </div>
 </div></div></div>
-
+</form>
 </body>
 </html>

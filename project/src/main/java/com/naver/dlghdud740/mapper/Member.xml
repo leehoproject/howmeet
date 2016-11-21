@@ -44,5 +44,10 @@
 		<delete id="deleteRow" parameterType="String">
 			delete from member where m_id=#{m_id}
 		</delete>
-		
+				<select id="selectPageList" resultMap="memberMap">
+			select * from 
+			(select rownum numrow, A.* from
+			(select * from member where ${selectbox} like '%'||#{find}||'%' order by b_ref desc , b_step asc) A )
+			where numrow > #{startrow} and numrow<![CDATA[<=]]> #{endrow}			
+		</select>
 	</mapper>
