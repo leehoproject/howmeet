@@ -183,20 +183,9 @@
 						                </div>
 						            </div>
 					        </c:forEach>
-					        <div class="carouselGallery-col-1 carouselGallery-carousel" data-index="11" data-username="visitsweden" data-imagetext="Photographer: @s_gustavsson
-					            Location: Gaperud, Värmland
-					            Tag your photos with #visitsweden and #swedishmoments to get featured. //@deskriptiv" data-location="" data-likes="5094" data-imagepath="https://scontent.cdninstagram.com/hphotos-xtp1/t51.2885-15/s640x640/sh0.08/e35/12063148_865400153574109_1616517572_n.jpg" data-posturl="https://instagram.com/p/96UTFPwVaN/" style="background-image:url(https://scontent.cdninstagram.com/hphotos-xtp1/t51.2885-15/s640x640/sh0.08/e35/12063148_865400153574109_1616517572_n.jpg);">
-					            <div class="carouselGallery-item">
-					                <div class="carouselGallery-item-meta">
-					                    <span class="carouselGallery-item-meta-user">
-					                        hoyoung
-					                    </span>
-					                </div>
-					            </div>
-					        </div>
 				        </div>
 				    </div>
-				</div>	
+				</div>
 			  <!-- Modal -->
 			  <div class="modal fade" id="myModal" role="dialog">
 			    <div class="modal-dialog">
@@ -213,8 +202,7 @@
 			        <div class="modal-footer">
 			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			        </div>
-			      </div>
-			      
+			      </div>   
 			    </div>
 			  </div>
 		    </div>
