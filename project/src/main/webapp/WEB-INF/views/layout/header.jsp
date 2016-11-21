@@ -33,8 +33,6 @@
 <!-- cloud.css -->
 <link href="resources/css/bootstrap-tag-cloud.css" rel="stylesheet">
 
-
-
 <!-- 제이쿼리 부분 -->
 <script src="resources/js/jquery-1.11.3.min.js"></script>
 <script src="resources/js/jquery.min.js"></script>

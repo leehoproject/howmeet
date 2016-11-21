@@ -11,5 +11,5 @@ public interface MemberDao {
 	public Member selectOne(String m_id);
 	public int deleteRow(String m_id);
 	public int updateRow(Member member);
-	
+	public ArrayList<Member> selectAll();
 }

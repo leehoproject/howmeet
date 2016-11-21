@@ -210,9 +210,13 @@ public class HomeController {
 	
 	//회원 목록리스트
 	@RequestMapping(value = "/member_list", method = RequestMethod.GET)
-	public String member_list(Locale locale, Model model) {	
+	public ModelAndView member_list(Locale locale, Model model) {	
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		ArrayList<Member> members= dao.selectAll();
+		ModelAndView mav = new ModelAndView("member/member_list");
+		mav.addObject("members",members);
 		
-		return "member/member_list";
+		return mav;
 	}
 	
 	//게시판 페이지 리스트(차후 모임 컨트롤러로 옮김) By 이기범
