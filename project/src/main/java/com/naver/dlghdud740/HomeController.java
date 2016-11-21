@@ -72,7 +72,7 @@ public class HomeController {
 	}
 	
 	//회원가입
-	@RequestMapping(value = "/memberInsert", method = RequestMethod.GET)
+	@RequestMapping(value = "/memberInsert", method = RequestMethod.POST)
 	public ModelAndView memberInsert(@ModelAttribute("member") Member member) {	
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		member.setM_phone(member.getM_phone1()+member.getM_phone2()+member.getM_phone3());
@@ -90,30 +90,32 @@ public class HomeController {
 		return mav;
 	}
 	
+	
+	
 	//id 중복체크 수정 중 By 이기범
 	@RequestMapping(value = "/idconfirm", method = RequestMethod.POST)
 	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {
-		int count = 1;
+		int count = 0;
 		int find = 0;
-		System.out.println("--->>"+count+" "+find);
+		System.out.println("id값 --->>"+count);
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
-		
 		try {
 			count = dao.selectCount(m_id);
-			System.out.println("------------->>>"+m_id+" "+count);
+			System.out.println("유효 아이디>>>>>"+count);
 		} catch (Exception e) {
 			System.out.println("idconfirm err: "+e.getMessage());
 		}
-		
+		System.out.println(">>>>>>>>>>>>>>>>>>>"+count);
 		if(count>0)
 			find=1;
 		else
 			find=0;
-		
-		System.out.println("---------------->>"+find);
+		System.out.println(">>>>>>>>>>>>>>>>>>>"+find);
 		
 		return find;
 	}
+	
+	
 	
 	//회원가입 결과창
 	@RequestMapping(value = "/member_result", method = RequestMethod.GET)

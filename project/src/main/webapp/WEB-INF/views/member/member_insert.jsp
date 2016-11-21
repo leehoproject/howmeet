@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사람을 만나는 방법, HowMeet</title>
+
 </head>
 <content tag="local_script">
 <!-- 부트스트랩,font-awsome 부분 필요 CSS -->
@@ -15,74 +16,70 @@
 <link href="resources/css/style.css" rel="stylesheet">
 <script src="resources/js/jquery.min.js"></script>
 <script src="resources/js/parsley.js"></script>
-	
-<!-- 회원가입 페이지 제이쿼리 제어부 -->
-	<script type="text/javascript">
-		//페이지가 시작될때 input안에있는값들을 공백으로 바꿔줌
-		function doReset(){
-			document.insert_form.m_id.value = "";
-			document.insert_form.m_pw.value = "";
-			document.insert_form.checkpassword.value = "";	
-		}
-		
-		$(document).ready(function(){
-			//종복확인 전체 부분
-			$('#confirm').click(function(event) {
-				$.ajax({
-					type : 'POST',
-					data : "m_id=" + id,
-					dataType : 'json',
-					url : 'idconfirm',
-					success : function(data){
-						if(id==""){
-							alert("아이디를 입력하세요.");
-							return;
-						}
-						
-						if(data==0){
-							alert("사용가능한 아이디 입니다.");
-							$('#check').attr('value','yes');
-						} else {
-							alert("중복된 아이디입니다.");
-							return;
-						}
-						
-						return false;
-					}
-				});
-			});
-			
-			$('#save').click(function(event) {
-				if($('#check').val()=='no'){
-					alert("아이디 중복 체크를 하세요!")
-					return;
-				}
-				$('#insert_form').submit();
-			});
-			
-			$('#temp').click(function(){
-				alert(data);
-			});
-			
-		});
-		
-	</script>	
-	<!-- 회원가입 창 디자인(차후 외부CSS로) -->
-<style>
-.mainframe{padding:0; margin-top:50px; background:#f7f7f7;}
-.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;}
-.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
-.slogan{font-size:20px;}
-.parsleypart{margin-top:5px; height:30px; border-left:3px solid;}
-.parsleytext{color:red;}
-</style>	
+<script type="text/javascript">
+   function doReset(){
+      document.insert_form.id.value = "";
+      document.insert_password.id.value = "";
+   }
+   $(document).ready(function(){
+      $("#ulphone1 li").click(function(){
+         $('#phone1').attr('value',$(this).text());
+      });
+      $('#photo').change(function(event){
+         var tmppath = URL.createObjectURL(event.target.files[0]);
+         alert($(this).val());
+         $('#image').attr('src',tmppath);
+      });
+      $('#confirm').click(function(){
+         var id = $('#id').val();
+         if( id == ""){
+            alert("id 를 입력하세요!");
+            return;
+         }
+         $.ajax({
+            type : 'POST',
+            data:"m_id="+m_id,
+            dataType : 'json',
+            url : 'idconfirm',
+            success : function(data){
+               if(data==0){
+                  alert("사용가능한 ID 입니다.");
+                  $('#check').attr('value','yes');
+                  
+               }else{
+                  alert("중복된 ID 입니다");
+               }
+               return false;
+            }
+         });
+      });
+      $('#save').click(function(event){
+         var chk = $('#check').val();
+         //리턴을 안먹네~~~~
+         if($('#check').val() =='no'){
+            alert("id 중복체크 하세요")
+            return;
+         }
+         $('#insert_form').submit();
+      });
+   });
+</script>
 </content>
-<body>
-<!-- 회원가입 시작 -->
+	<style>
+	.mainframe{padding:0; margin-top:50px; background:#f7f7f7;} 
+	.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;} 
+	.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
+	.slogan{font-size:20px;}
+	.parsleypart{margin-top:5px; height:30px; border-left:3px solid;}
+	.parsleytext{color:red;}
+	</style>	
+	
+<body onload="doReset();">
+<form  id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
 <div id="page-content" class="index-page">
 	<div class="container">
 		<div class="row" style="padding-left:10px; padding-right:10px;">
-			<form  id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="GET" role="form" data-parsley-validate="true">
+			
 				<div class="col-md-offset-3 col-md-6 mainframe">
 					<div class="col-md-12 text-center logoframe">
 						<span class="slogan">사람을 만나는 방법, HowMeet!</span>
@@ -94,15 +91,15 @@
 									<span class="labeltext">아이디</span>
 								</label>
 								<div class="input-group col-md-8" style="padding-right:10px;">
-									<input id="id" name="m_id" class="form-control" placeholder="아이디"
+									<input id=id name="m_id" class="form-control" placeholder="아이디"
 									required="" type="text"  data-parsley-type="text" data-parsley-error-message="아이디를 입력하세요."
-									data-parsley-errors-container="div[id='m_id_error']"/>
+									data-parsley-errors-container="div[id='validateId']"/>
 									<span class="input-group-btn">
 										<button id="confirm" type="button" class="btn btn-success">중복검사</button>
 										<input type="hidden" id="check" value="no"/>
 									</span>	
 								</div>
-								<div id="m_id_error" style="color:red;"></div>
+								<div id="validateId" style="color:red;"></div>
 						</div>
 						<div class="form-group">
 							<label for="pw" class="col-md-4">
@@ -233,17 +230,17 @@
 					<div class="col-md-12 sendframe">
 						<div class="form-group">
 							<div class="col-md-12 text-center">
-								<button id="save" type="submit" class="btn btn-default">보내기</button>
-								<button type="reset" class="btn btn-default">다시쓰기</button>
-								<button type="button" id="temp" class="btn btn-default">확인용</button>
+								<button id="save"  type="submit" class="btn btn-default">보내기</button>
+								<button id="reset" type="button"  class="btn btn-default">다시쓰기</button>
+								<button id="temp" type="button"  class="btn btn-default">확인용</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</form>
 		</div>
 	</div>
 </div>
 <!-- 회원가입 종료 -->
+	</form>
 </body>
 </html>
