@@ -46,7 +46,7 @@ public class CalendarController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
-//	//구글 API 연동 달력내용 가져오기
+	//구글 API 연동 달력내용 가져오기
 //	@RequestMapping(value = "/member_update_form", method = RequestMethod.GET)
 //	public ModelAndView calendarDetailAjax (HttpServletResponse response,
 //											HttpServletRequest request,

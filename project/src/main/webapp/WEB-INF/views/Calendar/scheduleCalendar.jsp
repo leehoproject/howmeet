@@ -7,6 +7,8 @@
         <title>캘린더</title>
   <title>How to add calendar using jQuery and fullCalendar</title>
 		<content tag="local_script">
+		<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 		<link rel='stylesheet' href='resources/calendar/lib/cupertino/jquery-ui.min.css' />
 		<link href='resources/calendar/fullcalendar.css' rel='stylesheet' />
 		<link href='resources/calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
