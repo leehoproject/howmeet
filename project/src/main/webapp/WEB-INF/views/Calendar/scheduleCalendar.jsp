@@ -19,14 +19,13 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 	    <script src="resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-		
 		$(document).ready(function()
 		{	
-			
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
+			
 				var calendar = $('#calendar').fullCalendar(
 				{
 				header:
@@ -46,10 +45,12 @@
 
 				selectable: true,
 				selectHelper: true,
-
+				
+				googleCalendarApiKey: 'AIzaSyCkqJjtX6BPPheay8M51tArChIydZUzd48',
+				
 				select: function(start, end, allDay)
 				{
-// 			         endtime = $.fullCalendar.formatDate(end,'h:mm tt');
+// 			          endtime = $.fullCalendar.formatDate(end,'h:mm tt');
 // 			          starttime = $.fullCalendar.formatDate(start,'ddd, MMM d, h:mm tt');
 // 			          var mywhen = starttime + ' - ' + endtime;
 // 				      $('#createEventModal #apptStartTime').val(start);
@@ -58,23 +59,25 @@
 // 			          $('#createEventModal #when').text(mywhen);
 			          $('#createEventModal').modal();
 				},
-				
 				editable: true,
 				//
-				events: [
-					{
-						title: 'example Party',
-						start: new Date(y, m, d+1, 19, 0),
-						end: new Date(y, m, d+1, 22, 30),
-						description : '서울서울',
-						allDay: false,
-					},
-					{
-						title: 'example hoho',
-						start: new Date(y, m, 28),
-						end: new Date(y, m, 29),
-						url: 'http://google.com/'
-					}
+					events: [{
+						googleCalendarId: ' vhguce79b21d93kuc1vn3nmk1g@group.calendar.google.com',
+				        url: '/myfeed.php',
+				        type: 'POST',
+				        data: {
+							title: 'example Party',
+							start: new Date(y, m, d+1, 19, 0),
+							end: new Date(y, m, d+1, 22, 30),
+							description : '서울서울',
+							allDay: false,
+				        },
+				        error: function() {
+				            alert('there was an error while fetching events!');
+				        },
+				        color: 'yellow',   // a non-ajax option
+				        textColor: 'black' // a non-ajax option
+				    }
 				],
 				// Home 컨트롤러이동,,,,,,,,,,
 			    eventSources: [
@@ -92,6 +95,7 @@
 			                       textColor: 'black' // a non-ajax option
 			                   }
 			               ]
+				
 			});
 		});
 	</script>
@@ -110,6 +114,7 @@
 		}
 	</style>
 <body>
+
 <div id="fullCalModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -143,19 +148,19 @@
                     <div class="form-group">
                         <label for="event-title" class="col-lg-2 control-label">행사타이틀</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="kontakt-name" placeholder="제목">
+                            <input id="eventtitle" name="eventtitle" type="text" class="form-control" id="kontakt-name" placeholder="제목">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="event-host" class="col-lg-2 control-label">모임장</label>
                         <div class="col-lg-10">
-                            <input type="text" class="form-control" id="kontakt-email" placeholder="이름">
+                            <input id="host" name="host" type="text" class="form-control" id="kontakt-email" placeholder="이름">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="event-content" class="col-lg-2 control-label">내용</label>
                         <div class="col-lg-10">
-                            <textarea class="form-control" id="kontakt-nachricht" rows="8"></textarea>
+                            <textarea id="eventcontent" name="eventcontent" class="form-control" id="kontakt-nachricht" rows="8"></textarea>
                         </div>
                     </div>
                 </div>
