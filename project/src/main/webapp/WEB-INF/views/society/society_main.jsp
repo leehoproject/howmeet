@@ -186,27 +186,28 @@
 				        </div>
 				    </div>
 				</div>
-			  <!-- Modal -->
-			  <div class="modal fade" id="myModal" role="dialog">
-			    <div class="modal-dialog">
-			    
-			      <!-- Modal content-->
-			      <div class="modal-content">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			          <h4 class="modal-title">Modal Header</h4>
-			        </div>
-			        <div class="modal-body">
-			          <p>Some text in the modal.</p>
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>   
-			    </div>
-			  </div>
 		    </div>
 		  </div>
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">	    
+			<!-- Modal content-->
+			<form class="popup-form" action="insertPhoto" method="GET">
+				<div class="modal-content">
+					<div class="modal-header">
+						<center><h1>photoinsert</h1></center>
+					</div>
+					<div class="modal-body">
+						<textarea class="form-control" rows="3" id="p_content" name="p_content" style="resize:none;"></textarea>
+						<input type="hidden" id="p_id" name="p_id" value="${sessionid}">
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-default">저장</button>
+					</div>
+				</div>
+			</form>		      
 		</div>
 	</div>
 </body>

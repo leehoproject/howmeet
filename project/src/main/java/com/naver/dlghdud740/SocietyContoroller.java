@@ -94,10 +94,11 @@ public class SocietyContoroller {
 		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
 		int result = dao.insertPhoto(photo);
 		if(result==1){
+			System.out.println("yyyyyyes");
 		} else {
+			System.out.println("nooooooooo");
 		}
-		ModelAndView mav = new ModelAndView("society/society_main");
-		mav.addObject("result","ok");
+		ModelAndView mav = new ModelAndView("redirect:/societymain");
 			
 		return mav;
 		}
