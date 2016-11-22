@@ -86,6 +86,7 @@
 					<li><a href="calendar">캘린더</a></li>
 					<li><a href="GoogleMap">지도</a></li>
 					<li><a href="societymain">모임메인</a></li>
+					<li><a href="member_list">회원목록</a></li>
 					<li>
 						<c:choose>
 						 	<c:when test="${sessionid == null }">

@@ -7,7 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-
+<content tag="local_script">
+<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
+<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    $('#write').click(function(){
@@ -16,6 +18,7 @@
 		    });
 		} );
 	</script>
+</content>
 <body>
 <form class="form-horizontal" action="MemberPageList" method="post" enctype="multipart/form-data" role="form">
 <div class="container">
@@ -81,4 +84,5 @@
 </div></div></div>
 </form>
 </body>
+
 </html>
