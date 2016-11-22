@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사람을 만나는 방법, HowMeet</title>
 </head>
-<content tag="local_script"> <!-- 부트스트랩,font-awsome 부분 필요 CSS -->
+<content tag="local_script"> 
+<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- 페이지 구성 CSS -->
@@ -14,43 +15,47 @@
 <script src="resources/js/jquery.min.js"></script> 
 <script src="resources/js/parsley.js"></script> 
 <script type="text/javascript">
-function doReset(){
-	document.insert_form.id.value = "";
-	document.insert_password.id.value = "";
-}
-			
-$(document).ready(function(){		
+$(document).ready(function(){	
+	$('#insert_form').parsley();
+	
+	//중복검사
 	$('#confirm').click(function(event) {
+		//input태그인 id의 id값 받아서 변수로 넘김(파라메터)
 		var m_id = $('#id').val();
+		
 		$.ajax({
 			type : 'POST',
 			data : "m_id=" + m_id,
 			dataType : 'json',
 			url : 'idconfirm',
 			success : function(data){
-				if(m_id == ""){
-					alert("아이디를 입력하세요.");
-					return;
-				}
-							
 				if(data == 0){
 					alert("사용가능한 아이디 입니다.");
 					$('#check').attr('value','yes');
 				} else {
 					alert("중복된 아이디입니다.");
+					$('#check').attr('value','no');
 					return;
 				}
 				
 				return false;
-						
 			}
 		});
 	});
-				
+	
+	//임시버튼
+	$('#temp').click(function() {
+		var chkvalue = $('#check').val();
+		alert(chkvalue);
+		return;
+	})
+	
+	//submit 전 유효성검사 부분
 	$('#save').click(function(event) {
-		if($('#check').val()=='no') {
+ 		if($('#check').val() == 'no') {
 			alert("아이디 중복 체크를 하세요!");
-			return;
+			//버튼태그 타입이 submit이기 때문에 false로 리턴
+			return false;
 		}
 	});				
 });
@@ -89,8 +94,8 @@ $(document).ready(function(){
 }
 </style>
 </content>
-<body onload="doReset();">
-<form class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
+<body>
+<form id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
 	<div class="container">
 		<div class="row" style="padding-left:10px; padding-right:10px;">
 				<div class="col-md-offset-3 col-md-6 mainframe">
@@ -243,8 +248,7 @@ $(document).ready(function(){
 					<div class="col-md-12 sendframe">
 						<div class="form-group">
 							<div class="col-md-12 text-center">
-								<button id="save" name="save" class="btn btn-default">저장</button>
-								<button id="submitform" name="submitform" type="submitform"  class="btn btn-default">ㄱㄱㄱㄱ</button>
+								<button id="save" name="save" type="submit" class="btn btn-default">저장</button>
 								<button id="temp" name="temp" type="button"  class="btn btn-default">확인용</button>
 							</div>
 						</div>
