@@ -6,34 +6,46 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/itschool.css">
+<content tag="local_script">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 <script src="resources/js/jquery-3.1.1.min.js"></script>
 <script src="resources/js/parsley.min.js"></script>
 <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<style>
+.messageframe{padding:0; margin-top:50px; background:#f7f7f7;}
+.logoframe{height:100px; padding-top:30px; padding-bottom:20px; border-bottom:2px solid #e9e9e9;} 
+.memberframe,.sendframe{padding:30px; border-bottom:2px solid #e9e9e9;}
+.message{font-size:20px; font-weight:600; color:#555555}
+.slogan{font-size:20px;}
+</style>
+</content>
 </head>
 <body>
 <form action="home" method="GET">
+<div id="page-content" class="index-page">
 <div class="container">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4" style="border:3px solid #00C6ED; border-radius: 4px;">
-		<div class="row" style="text-align:center; margin-top: 10px;">
-			<font size="6" color="#f0ad4e" style="font-family:inherit; font-weight:bold;">Result Page</font>
-		</div>
-		<div class="row" style="height:150px; text-align:center; ">
-			<div style="margin-top: 50px;">
-				<font size="4" style=" font-family:fantasy; font-weight:600; color:#555555">
-				${msg}
-				</font>
+	<div class="row" style="padding-left:15px; padding-right:15px;">
+		<form class="form-horizontal" action="" method="POST" role="form">
+			<div class="col-sm-12 messageframe">
+				<div class="col-md-12 text-center logoframe">
+					<span class="slogan">사람을 만나는 방법, HowMeet!</span>
+				</div>
+				<div class="col-sm-12" style="height:150px; text-align:center; ">
+					<div style="margin-top: 50px;">
+						<span class="message">
+							${msg}
+						</span>
+					</div>
+				</div>
+				<div class="col-sm-12 text-center" style="margin-bottom:30px;">
+					<button Type="submit" id="ok" class="btn btn-warning" >확인</button>
+				</div>
 			</div>
-		</div>
-		<div class="row" style="margin-bottom: 10px;">
-			<center><button Type="submit" id="ok" class="btn btn-warning" >확인</button></center>
-		</div>
+		</form>
 	</div>
-	<div class="col-sm-4"></div>
+</div>
 </div>
 </form>
 </body>

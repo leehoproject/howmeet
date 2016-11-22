@@ -19,9 +19,7 @@ function doReset(){
 	document.insert_password.id.value = "";
 }
 			
-$(document).ready(function(){	
-	$('#insert_form').parsley();
-	
+$(document).ready(function(){		
 	$('#confirm').click(function(event) {
 		var m_id = $('#id').val();
 		$.ajax({
@@ -53,12 +51,8 @@ $(document).ready(function(){
 		if($('#check').val()=='no') {
 			alert("아이디 중복 체크를 하세요!");
 			return;
-		} else {
-			alert("before submit");
 		}
-	});
-	
-				
+	});				
 });
 </script>
 <style>
