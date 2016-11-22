@@ -16,8 +16,6 @@
 <script src="resources/js/parsley.js"></script> 
 <script type="text/javascript">
 $(document).ready(function(){	
-	$('#insert_form').parsley();
-	
 	//중복검사
 	$('#confirm').click(function(event) {
 		//input태그인 id의 id값 받아서 변수로 넘김(파라메터)
@@ -34,6 +32,7 @@ $(document).ready(function(){
 					$('#check').attr('value','yes');
 				} else {
 					alert("중복된 아이디입니다.");
+					//중복된 아이디면 중복체크가 다시 필요하기 때문에 check의 값을 no로 다시 지정
 					$('#check').attr('value','no');
 					return;
 				}
@@ -45,19 +44,80 @@ $(document).ready(function(){
 	
 	//임시버튼
 	$('#temp').click(function() {
-		var chkvalue = $('#check').val();
+		var chkvalue = $('#m_hobby1 option:selected').val();
 		alert(chkvalue);
 		return;
 	})
 	
 	//submit 전 유효성검사 부분
 	$('#save').click(function(event) {
- 		if($('#check').val() == 'no') {
-			alert("아이디 중복 체크를 하세요!");
-			//버튼태그 타입이 submit이기 때문에 false로 리턴
+		var password = $('#pw').val();
+		var chkpassword = $('#checkpassword').val();
+		var hobby1 = $('#m_hobby1 option:selected').val();
+		var hobby2 = $('#m_hobby2 option:selected').val();
+		
+		if($('#id').val() == "") {
+			alert("아이디를 입력하세요.");
 			return false;
 		}
-	});				
+		
+		if($('#pw').val() == "") {
+			alert("비밀번호를 입력하세요.");
+			return false;
+		}
+		
+		if($('#checkpassword').val() == "") {
+			alert("비밀번호를 다시 한 번 입력하세요.");
+			return false;
+		}
+		
+		if($('#m_name').val() == "") {
+			alert("이름을 입력하세요.");
+			return false;
+		}
+		
+		if($('#m_email').val() == "") {
+			alert("이메일을 입력하세요.");
+			return false;
+		}
+		
+		if($('#phone2').val() == "") {
+			alert("휴대폰 가운데 번호를 입력하세요.");
+			return false;
+		}
+		
+		if($('#phone3').val() == "") {
+			alert("휴대폰 마지막 번호를 입력하세요.");
+			return false;
+		}
+		
+		if($('#m_addr1').val() == "") {
+			alert("주소를 입력하세요.");
+			return false;
+		}
+		
+		if($('#m_addr2').val() == "") {
+			alert("상세주소를 입력하세요.");
+			return false;
+		}
+		
+ 		if($('#check').val() == 'no') {
+			alert("아이디 중복 체크를 하세요!");
+			return false;
+		}
+ 		
+ 		if(password != chkpassword) {
+ 			alert("비밀번호를 확인하세요.");
+ 			return false;
+ 		}
+ 		
+ 		if(hobby1 == hobby2) {
+ 			alert("서로 다른 취미를 선택하세요.");
+ 			return false;
+ 		}
+ 				
+ 		return true;
+	});			
 });
 </script>
 <style>
