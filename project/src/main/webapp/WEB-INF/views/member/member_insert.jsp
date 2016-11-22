@@ -11,7 +11,6 @@
 <!-- 부트스트랩,font-awsome 부분 필요 CSS -->
 <link href="resources/css/bootstrap.css" rel="stylesheet">
 <link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-	
 <!-- 페이지 구성 CSS -->
 <link href="resources/css/style.css" rel="stylesheet">
 <script src="resources/js/jquery.min.js"></script>
@@ -47,14 +46,17 @@
 				}
 			});
 		});
-		$('#save').click(function(event){
+		$('#save').click(function(event) {
 			if($('#check').val()=='no'){
 				alert("아이디 중복 체크를 하세요!")
 				return;
 			}
-			$('#insert_form').submit();
+			$('#submitform').click(function(event){
+				
+			});
 		});
 	});
+	
 </script>
 </content>
 	<style>
@@ -68,10 +70,8 @@
 	
 <body onload="doReset();">
 <form id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" data-parsley-validate="true">
-<div id="page-content" class="index-page">
 	<div class="container">
 		<div class="row" style="padding-left:10px; padding-right:10px;">
-			
 				<div class="col-md-offset-3 col-md-6 mainframe">
 					<div class="col-md-12 text-center logoframe">
 						<span class="slogan">사람을 만나는 방법, HowMeet!</span>
@@ -222,9 +222,9 @@
 					<div class="col-md-12 sendframe">
 						<div class="form-group">
 							<div class="col-md-12 text-center">
-								<button id="save"  type="button" class="btn btn-default">보내기</button>
-								<button id="reset" type="button"  class="btn btn-default">다시쓰기</button>
-								<button id="temp" type="button"  class="btn btn-default">확인용</button>
+								<button id="save" name="save"  type="button" class="btn btn-default">저장</button>
+								<button id="submitform" name="submitform" type="submitform"  class="btn btn-default">ㄱㄱㄱㄱ</button>
+								<button id="temp" name="temp" type="button"  class="btn btn-default">확인용</button>
 							</div>
 						</div>
 					</div>
