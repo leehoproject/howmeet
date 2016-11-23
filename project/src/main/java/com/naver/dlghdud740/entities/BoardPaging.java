@@ -1,5 +1,6 @@
 package com.naver.dlghdud740.entities;
 
+
 public class BoardPaging {
 	private String find;
 	private String selectbox;

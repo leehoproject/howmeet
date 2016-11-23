@@ -21,58 +21,87 @@
 		<script type="text/javascript">
 		$(document).ready(function()
 		{	
+			//캘린더 날짜 생성
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
+			//캘린더 호출 부분
+			var myCalendar = $('#my-calendar-id'); 
+			myCalendar.fullCalendar();
+			var myEvent = {
+			  title : $('#eventtitle').val(),
+			  host : $('#host').val(),
+			  allDay: true,
+			  start: new Date(),
+			  end: new Date()
+			};
+			//모달 Send 버튼 클릭시
+			$('#Send').click(function(event) {
+				alert($('#eventtitle').val());
+				alert($('#host').val());
+				alert($('#eventcontent').val());
+			});
 			
+			//캘린더 생성
+			myCalendar.fullCalendar( 'renderEvent', myEvent );
 				var calendar = $('#calendar').fullCalendar(
 				{
-				header:
-				{
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-				  eventClick:  function(event, jsEvent, view) {
-			            $('#modalTitle').html(event.title);
-			            $('#modalBody').html(event.description);
-			            $('#eventUrl').attr('href',event.url);
-			            $('#fullCalModal').modal();
-			        },
-
-				defaultView: 'month',
-
-				selectable: true,
-				selectHelper: true,
-				
-				googleCalendarApiKey: 'AIzaSyCkqJjtX6BPPheay8M51tArChIydZUzd48',
-				
-				select: function(start, end, allDay)
-				{
-// 			          endtime = $.fullCalendar.formatDate(end,'h:mm tt');
-// 			          starttime = $.fullCalendar.formatDate(start,'ddd, MMM d, h:mm tt');
-// 			          var mywhen = starttime + ' - ' + endtime;
-// 				      $('#createEventModal #apptStartTime').val(start);
-// 			          $('#createEventModal #apptEndTime').val(end);
-// 			          $('#createEventModal #apptAllDay').val(allDay);
-// 			          $('#createEventModal #when').text(mywhen);
-			          $('#createEventModal').modal();
-				},
+					googleCalendarApiKey: 'AIzaSyCkqJjtX6BPPheay8M51tArChIydZUzd48',
+					
+					header:
+					{
+						left: 'prev,next today',
+						center: 'title',
+						right: 'month,agendaWeek,agendaDay'
+					},
+					
+					  eventClick:  function(event, jsEvent, view) {
+				            $('#modalTitle').html(event.title);
+				            $('#modalBody').html(event.description);
+				            $('#eventUrl').attr('href',event.url);
+				            $('#fullCalModal').modal();
+				            
+				        },
+					defaultView: 'month',
+					selectable: true,
+					selectHelper: true,
+					editable: true,
+					droppable: true,
+					select: function(start, end, allDay) {
+						
+					    var title = $('#createEventModal').modal('show');
+					    
+					        calendar.fullCalendar('renderEvent',
+					            {
+					                title:  $('#eventtitle').val(),
+					                host : $('#host').val(),
+					                eventcontent : $('#eventcontent').val(),
+					                start: start,
+					                end: end,
+					                allDay: allDay
+					            },
+					            
+					            true // make the event "stick"
+					        );
+					        /**
+					         * ajax call to store event in DB
+					         */
+					    calendar.fullCalendar('unselect');
+					} ,
 				editable: true,
-				//
+				//Google API 를 이용해서 캘린더 내용을 출력
 				events: [
 					{
 						googleCalendarId: ' vhguce79b21d93kuc1vn3nmk1g@group.calendar.google.com',
 						title: 'example Party',
 						start: new Date(y, m, d+1, 19, 0),
 						end: new Date(y, m, d+1, 22, 30),
-						description : '서울서울',
+						description : host,
 						allDay: false,
 					}
-					
-				],
-				// Home 컨트롤러이동,,,,,,,,,,
+				],	
+				// Home 컨트롤러이동,
 			    eventSources: [
 			                   {
 			                       url: '홈컨트롤러명',
@@ -89,7 +118,7 @@
 			                   }
 			               ]
 				
-			});
+				});
 		});
 	</script>
 	<style type="text/css">
@@ -106,8 +135,7 @@
 			margin: 0 auto;
 		}
 	</style>
-<body>
-
+<body onload="doReset();">
 <div id="fullCalModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -128,11 +156,17 @@
 </div>
 </content>
 </head>
+
+
 	<!--FullCalendar container div-->
 <div id="calendar"></div>
 <div id="createEventModal"class="modal fade" id="layerpop" >
   <div class="modal-dialog modal-lg">
         <div class="modal-content">
+         <input type="text" name="patientName" id="patientName" tyle="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Value 1&quot;,&quot;Value 2&quot;,&quot;Value 3&quot;]">
+             <input type="hidden" id="apptStartTime"/>
+             <input type="hidden" id="apptEndTime"/>
+             <input type="hidden" id="apptAllDay" />
             <form action="" class="form-horizontal">
                 <div class="modal-header">
                     <h4>모임날짜지정</h4>
@@ -159,7 +193,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                    <button class="btn btn-primary" type="submit">Send</button>
+                    <button class="btn btn-primary" id="Send" name="Send" type="Button">Send</button>
                 </div>
             </form>
         </div>

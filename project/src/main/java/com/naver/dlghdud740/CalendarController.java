@@ -45,19 +45,18 @@ public class CalendarController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	
-	//구글 API 연동 달력내용 가져오기
-//	@RequestMapping(value = "/member_update_form", method = RequestMethod.GET)
-//	public ModelAndView calendarDetailAjax (HttpServletResponse response,
-//											HttpServletRequest request,
-//											ModelMap modelMap,
-//											@ModelAttribute Calendar) throws Exeption {
-//		HashMap resultMap = new HashMap();
-//		ModelAndView mav = new ModelAndView("Calendar/scheduleCalendar");
+//	@RequestMapping(value = "/calendarDB", method = RequestMethod.POST)
+//	@ResponseBody public int idconfirm( @ModelAttribute("Calendar") Calendar calendar) {
+//		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+//		try {
+//		} catch (Exception e) {
+//			System.out.println("idconfirm err: "+e.getMessage());
+//		}
+//		if(count>0)
+//			find=1;
+//		else
+//			find=0;
 //		
-//
-//		mav.addObject("member",member);
-//		return mav;
+//		return find;
 //	}
-
 }

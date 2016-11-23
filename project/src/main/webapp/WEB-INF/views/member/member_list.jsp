@@ -58,8 +58,15 @@
                             <td>${member.m_hobby1}</td>
                             <td>${member.m_hobby2}</td>
                           </tr>
-                  </c:forEach>        
-                        </tbody>
+                  </c:forEach>      
+	    	 <tr>
+				<div class="col-md-offset-2 col-md-8 resultMessage text-center" style="margin-top:10px">
+				<c:forEach var="page" items="${pages}">
+					<span><a href="boardpageselect?page=${page}">[${page}]</a> </span>
+				</c:forEach>
+			</tr>
+				</div>                    
+                	</tbody>
                 </table>
             
               </div>

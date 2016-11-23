@@ -221,6 +221,7 @@ public class HomeController {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		ArrayList<Member> members= dao.selectAll();
 		ModelAndView mav = new ModelAndView("member/member_list");
+		
 		mav.addObject("members",members);
 		
 		return mav;
