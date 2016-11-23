@@ -5,12 +5,20 @@
 	<mapper namespace="com.naver.dlghdud740.service.MemberlistDao">
 		
 		<resultMap type="com.naver.dlghdud740.entities.Memberlist" id="memberlistMap">
-			<id property="m_id" column="m_id" />
 			<id property="m_name" column="m_name" />
 			<id property="m_level" column="m_level" />
+			<id property="m_joindate" column="m_joindate" />
 		</resultMap>
 		
 		<select id="selectAll" resultMap="memberlistMap">
-			select * from memberlist
+			select * from memberlist where m_societyname=#{societyname}
 		</select>
+		<select id="selectMember" parameterType="hashMap" resultType="int">
+			select count(*) from memberlist where m_id=#{sessionid} and m_societyname=#{societyname}
+		</select>
+		
+		<insert id="joinMember" parameterType="hashMap">
+			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
+			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),1,sysdate,#{societyname})
+		</insert>
 	</mapper>
