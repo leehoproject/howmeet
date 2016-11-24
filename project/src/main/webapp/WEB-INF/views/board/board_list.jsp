@@ -11,21 +11,20 @@
 <content tag="local_script">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
-	<script type="text/javascript">
-		$(document).ready(function() {
-		    $('#write').click(function(){
-			    var url = "board_detail";
-			    $(location).attr('href',url);	
-		    });
-		} );
-	</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#write').click(function(){
+		var url = "board_detail";
+		$(location).attr('href',url);	
+	});
+});
+</script>
 </content>
 <body>
 <form class="form-horizontal" action="boardPageList" method="POST" enctype="multipart/form-data" role="form">
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-
             <div class="panel panel-default panel-table">
               <div class="panel-heading">
                 <div class="row">

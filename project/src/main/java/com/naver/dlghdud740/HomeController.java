@@ -292,6 +292,8 @@ public class HomeController {
 		
 		return mav;
 	}
+	
+	//관리자 페이지 게시판 연결 By 이용빈
 	@RequestMapping(value = "/member_detail_list", method = RequestMethod.GET)
 	public String board( ) {	
 		System.out.println(this.selectbox);
