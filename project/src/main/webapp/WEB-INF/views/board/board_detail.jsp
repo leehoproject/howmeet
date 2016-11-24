@@ -54,6 +54,10 @@ $(document).ready(function() {
 	});
 } */
 </script>
+<style>
+.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
+.title{font-size:20px;}
+</style>
 </content>
 </head>
 <body>
@@ -61,18 +65,24 @@ $(document).ready(function() {
 <div id="page-content" class="index-page">
 <div class="container">
 	<div class="row" style="padding-left:20px; padding-right:20px;">
-		<div class="col-sm-12" style="text-align:center;" >
-			<font face="Arial Black" color="#000" size="6">게시판</font>
-		</div>
-		<div class="form-group">
-			<input type="text" class="form-control" id="subject" name="subject" placeholder="subject" required>
-		</div>
-		<div class="form-group">
-			<textarea class="form-control" id="summernote" name="content" placeholder="content" maxlength="140" rows="7"></textarea>
-		</div>
-		<div class="form-group">
-			<div class="col-md-12 text-center" style="padding:0;">
-				<button type="button" id="submit" name="submit" class="btn btn-default col-md-12">Submit Form</button>
+		<div class="col-md-12 mainframe">
+			<div class="form-group">
+				<span class="title">게시판</span>
+			</div>
+			<div class="form-group">
+				<label for="title"><span class="labeltext">제목</span></label>
+				<div class="col-md-12" style="padding:0;">
+					<input type="text" class="form-control" id="title" name="title" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="summernote"><span class="labeltext">모임 설명</span></label>
+				<textarea class="form-control" id="summernote" name="content" maxlength="140" rows="7"></textarea>
+			</div>
+			<div class="form-group">
+				<div class="col-md-12 text-center" style="padding:0;">
+					<button type="button" id="submit" name="submit" class="btn btn-default col-md-12">글쓰기</button>
+				</div>
 			</div>
 		</div>
 	</div>
