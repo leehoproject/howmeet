@@ -114,6 +114,7 @@ public class SocietyContoroller {
 		ModelAndView mav = new ModelAndView("redirect:/societymain");
 		mav.addObject("check","1");
 		mav.addObject("societyname",photo.getP_name());
+		mav.addObject("sessionid",photo.getP_id());
 		return mav;
 		}
 	
