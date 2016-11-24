@@ -191,7 +191,7 @@ public class HomeController {
 	
 	//회원탈퇴 진행 By 이기범
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
-	public ModelAndView memberDelete(@ModelAttribute("m_id") String m_id) {
+	public ModelAndView memberDelete(@ModelAttribute("m_id") String m_id, HttpServletRequest request) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("member",member);
@@ -204,7 +204,9 @@ public class HomeController {
 		}
 		
 		mav.addObject("msg",msg);
-		System.out.println("result is:"+result);
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
 		return mav;
 	}

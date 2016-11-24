@@ -82,7 +82,7 @@
 						</div>
 						<label class="col-md-1 text-center" for="m_phone3"><span class="labeltext">-</span></label>
 						<div class="col-md-2" style="padding:0;">
-							<input type="text" size="20" name="m_phone3" id="m_phone3" class="form-control">
+							<input type="text" size="20" name="m_phone3" id="m_phone3" value="${member.getM_phone3()}" class="form-control">
 						</div>
 					</div>				
 					<div class="form-group">
