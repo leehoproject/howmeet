@@ -2,8 +2,6 @@ package com.naver.dlghdud740.service;
 
 import java.util.ArrayList;
 
-import com.naver.dlghdud740.entities.Board;
-import com.naver.dlghdud740.entities.BoardPaging;
 import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.MemberPaging;
 

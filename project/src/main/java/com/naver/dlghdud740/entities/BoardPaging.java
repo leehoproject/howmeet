@@ -1,6 +1,8 @@
 package com.naver.dlghdud740.entities;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class BoardPaging {
 	private String find;
 	private String selectbox;
