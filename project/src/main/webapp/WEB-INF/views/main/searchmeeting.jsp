@@ -67,7 +67,7 @@
 				<div class="col-md-12 listframe">
 					<!-- 제목단 -->
 					<div class="col-md-12 contentframe">
-						<span class="titlefont"><a href="#" class="tomeet">${society.s_name}</a></span>
+						<span class="titlefont"><a href="societymain?check=1&societyname=${society.s_name}&sessionid=${sessionid}" class="tomeet">${society.s_name}</a></span>
 					</div>
 					<!-- 관심사,날짜,인원,지역 -->
 					<div class="col-xs-3 profileframe1">

@@ -7,10 +7,18 @@ import org.springframework.stereotype.Component;
 //동호회
 @Component
 public class Photo {
+	private String p_name;
 	private String p_seq;
 	private String p_content;
 	private String p_id;
 	
+	
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
 	public String getP_seq() {
 		return p_seq;
 	}

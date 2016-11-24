@@ -46,10 +46,12 @@
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
 		    <li><a data-toggle="tab" href="#menu2">Member</a></li>
+		    <c:if test="${sessionid!=null&&count!=0}">
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a data-toggle="tab" href="#menu3">Schedule</a></li>
-		    <li><a data-toggle="tab" href="#menu3">Board</a></li>
+		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
 		    <li><a data-toggle="tab" href="#menu3">adasd</a></li>
+		    </c:if>
 		  </ul>
 		
 		  <div class="tab-content">
@@ -86,10 +88,18 @@
 				        <div class="col-sm-12">
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
-				              <p contenteditable="true">ITSCHOOL MEETS</p>
-				              <button type="button" class="btn btn-default">
-				                <span class="glyphicon glyphicon-thumbs-up"></span> Join Member
-				              </button>
+				              <p >${societyname}</p>
+				              <c:if test="${sessionid!=null}">
+					              <button type="button" class="btn btn-default" onclick="location.href='selectMember?sessionid=${sessionid}&societyname=${societyname}'">
+					              <span class="glyphicon glyphicon-thumbs-up"></span> Join Member
+				             	  </button>
+								  <c:if test="${check==0}">
+									  <div class="alert alert-warning alert-dismissable fade in" style="margin-top: 5px">
+									    <a href="societymain?check=1&societyname=${societyname}&sessionid=${sessionid}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									    <strong>이미 가입하셨습니다</strong>
+									  </div>
+								  </c:if>
+				              </c:if>
 				            </div>
 				          </div>
 				        </div>
@@ -142,16 +152,18 @@
 		      <table id="example" class="uk-table uk-table-hover uk-table-striped" cellspacing="0">
 			        <thead>
 			            <tr>
-			            	<th>photo</th>
-			                <th>user</th>
-			                <th>Date Joined</th>     
+			            	<th>Photo</th>
+			                <th>Name</th>
+			                <th>Member Level</th>     
+			                <th>Date Joined</th>        
 			            </tr>
 			        </thead>
 			        <tfoot>
 			            <tr>
-			                <th>photo</th>
-			                <th>user</th>
-			                <th>Date Joined</th>     
+			            	<th>Photo</th>
+			                <th>Name</th>
+			                <th>Member Level</th>     
+			                <th>Date Joined</th>       
 			            </tr>
 			        </tfoot>
 			        <tbody>
@@ -160,6 +172,7 @@
 			                <td><img src="resources/images/1.jpg" width="100" height="100"></td>
 			                <td>${memberlist.m_name}</td>
 			                <td>${memberlist.m_level}</td>
+			                <td>${memberlist.m_joindate}</td>
 			            </tr>
 			       	  </c:forEach>
 			        </tbody>
@@ -170,6 +183,7 @@
 			   <div class="carouselGallery-grid hidden-xs" >
 			        <div class="row">
 			            <div class="carouselGallery-col-60">
+			            	<c:if test="${msg == '0'}"><h1>사진을 입력해주세요</h1></c:if>
 				            <c:forEach var="photo" items="${photos}">
 					                <div class="carouselGallery-col-1 carouselGallery-carousel" data-index="${photo.p_seq}" data-username="${photo.p_id}" 
 					                data-imagetext="${photo.p_content}" data-location="" data-imagepath="resources/images/popup.jpg"
@@ -187,6 +201,10 @@
 				    </div>
 				</div>
 		    </div>
+		    
+		    <div id="menu4" class="tab-pane fade">
+		    	
+		    </div>
 		  </div>
 		</div>
 	</div>
@@ -202,6 +220,7 @@
 					<div class="modal-body">
 						<textarea class="form-control" rows="3" id="p_content" name="p_content" style="resize:none;"></textarea>
 						<input type="hidden" id="p_id" name="p_id" value="${sessionid}">
+						<input type="hidden" id="p_name" name="p_name" value="${societyname}">
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-default">저장</button>

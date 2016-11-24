@@ -4,9 +4,9 @@ jQuery(function($) {
         $('.carouselGallery-right').removeClass('disabled');
         $('.carouselGallery-left').removeClass('disabled');
         var curIndex = $('.carouselGallery-carousel.active').data('index');
-        updateArrows.nbrOfItems = updateArrows.nbrOfItems || $('.carouselGallery-carousel').length -1;
+        updateArrows.nbrOfItems = updateArrows.nbrOfItems || $('.carouselGallery-carousel').length;
 
-        curIndex === updateArrows.nbrOfItems && $('.carouselGallery-right').addClass('disabled');
+        curIndex === updateArrows.nbrOfItems && $('.carouselGallery-right').addClass('disabled')-1;
         curIndex === 0 && $('.carouselGallery-left').addClass('disabled');
     }
     $('.carouselGallery-carousel').on('click', function(e){

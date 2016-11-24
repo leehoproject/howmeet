@@ -9,9 +9,9 @@
 			<id property="p_content" column="p_content" />
 		</resultMap>
 		<insert id="insertPhoto" parameterType="hashMap">
-			insert into photo(p_seq,p_id,p_content) values((select coalesce(max(p_seq)+1,1) from photo),#{p_id},#{p_content})
+			insert into photo (p_name,p_seq,p_id,p_content) values (#{p_name},(select coalesce((select max(p_seq) from photo where p_name=#{p_name})+1,0) from dual),#{p_id},#{p_content})
 		</insert>	
 		<select id="selectPhoto" resultMap="PhotoMap">
-			select p_seq,p_id,p_content from photo
+			select p_seq,p_id,p_content from photo where p_name=#{societyname} order by p_seq asc
 		</select>		
 	</mapper>

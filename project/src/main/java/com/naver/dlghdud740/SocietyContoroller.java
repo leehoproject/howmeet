@@ -20,6 +20,7 @@ import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.societylist;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.MemberlistDao;
 import com.naver.dlghdud740.service.PhotoDao;
@@ -51,14 +52,26 @@ public class SocietyContoroller {
 	}
 	//동호회메인
 	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
-	public ModelAndView societymain(Locale locale, Model model) {	
+	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {	
+		String msg ="";
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
-		ArrayList<Memberlist> memberlists= mldao.selectAll();
-		ArrayList<Photo> photos= pdao.selectPhoto();
+		societylist list = new societylist();
+		list.setSessionid(sessionid);
+		list.setSocietyname(societyname);
+		int count= mldao.selectMember(list);
+		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
+		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
+		if(photos.size()==0){
+			msg = "0" ;
+		}
 		ModelAndView mav = new ModelAndView("society/society_main");
 		mav.addObject("memberlists",memberlists);
-		mav.addObject("photos",photos);
+		mav.addObject("photos",photos);		
+		mav.addObject("msg",msg);
+		mav.addObject("check",check);
+		mav.addObject("societyname",societyname);
+		mav.addObject("count",count);
 		return mav;
 	}
 	//동호회모임 Insert
@@ -99,8 +112,51 @@ public class SocietyContoroller {
 			System.out.println("nooooooooo");
 		}
 		ModelAndView mav = new ModelAndView("redirect:/societymain");
-			
+		mav.addObject("check","1");
+		mav.addObject("societyname",photo.getP_name());
+		mav.addObject("sessionid",photo.getP_id());
 		return mav;
 		}
 	
+	//멤버확인
+	@RequestMapping(value = "selectMember", method = RequestMethod.GET)
+	public ModelAndView selectMember(@RequestParam("sessionid") String sessionid,@RequestParam("societyname") String societyname) {
+		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
+		societylist list = new societylist();
+		list.setSessionid(sessionid);
+		list.setSocietyname(societyname);
+		int count= dao.selectMember(list);
+		if(count==0){
+			ModelAndView mav = new ModelAndView("redirect:/societyJoin");
+			mav.addObject("sessionid",sessionid);
+			mav.addObject("societyname",societyname);
+			return mav;
+		} else {
+			ModelAndView mav = new ModelAndView("redirect:/societymain");
+			mav.addObject("check","0");
+			mav.addObject("societyname",societyname);
+			mav.addObject("sessionid",sessionid);
+			return mav;
+		}
+	}
+	
+	//모임가입
+	@RequestMapping(value = "/societyJoin", method = RequestMethod.GET)
+	public ModelAndView societyJoin(@RequestParam("sessionid") String sessionid,@RequestParam("societyname") String societyname) {
+		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
+		societylist list = new societylist();
+		list.setSessionid(sessionid);
+		list.setSocietyname(societyname);
+		int result= dao.joinMember(list);
+		if(result==1){
+			System.out.println("yyyyyyes");
+		} else {
+			System.out.println("nooooooooo");
+		}
+		ModelAndView mav = new ModelAndView("redirect:/societymain");
+		mav.addObject("check","1");
+		mav.addObject("societyname",societyname);
+		mav.addObject("sessionid",sessionid);
+		return mav;
+	}
 }
