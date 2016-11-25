@@ -7,7 +7,7 @@ import com.naver.dlghdud740.entities.SocietyPage;
 
 public interface SocietyDao {
 	public int insertRow(Society society);
-	public ArrayList<Society> selectAll();
+	public ArrayList<Society> selectAll(String category);
 	public int selectCount(SocietyPage societypage);
 	public ArrayList<Society> selectPageList(SocietyPage societypage);
 }

@@ -71,7 +71,6 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="searchmeeting.html">모임찾기</a></li>
 					<li><a href="createmeeting">모임만들기</a></li>
 					<li>
 						<c:choose>

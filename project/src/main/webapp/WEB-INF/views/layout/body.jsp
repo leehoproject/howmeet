@@ -88,7 +88,7 @@
 				        <figcaption>
 				            <h2>그림</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/category/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=그림" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -96,7 +96,7 @@
 				        <figcaption>
 				            <h2>축구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=축구" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -104,7 +104,7 @@
 				        <figcaption>
 				            <h2>밴드</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=밴드" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -112,7 +112,7 @@
 				        <figcaption>
 				            <h2>스터디</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFindl?category=스터디" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -120,7 +120,7 @@
 				        <figcaption>
 				            <h2>여행</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=여행" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				    <figure class="effect-oscar  wowload fadeInUp">
@@ -128,7 +128,7 @@
 				        <figcaption>
 				            <h2>영화</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=영화" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -136,7 +136,7 @@
 				        <figcaption>
 				            <h2>하키</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=하키" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -144,7 +144,7 @@
 				        <figcaption>
 				            <h2>농구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=농구" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
@@ -152,7 +152,7 @@
 				        <figcaption>
 				            <h2>야구</h2>
 				            <p>동호회<br>
-				            <a href="resources/images/1.jpg" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=야구" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				</div>

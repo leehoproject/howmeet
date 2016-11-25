@@ -92,12 +92,13 @@ public class SocietyContoroller {
 		return mav;
 	}
 	//모임리스트
-	@RequestMapping(value = "/searchmeeting.html", method = RequestMethod.GET)
-	public ModelAndView searchgr(@ModelAttribute("society") Society society) {
+	@RequestMapping(value = "/societyFind", method = RequestMethod.GET)
+	public ModelAndView searchgr(@RequestParam("category") String category) {
 		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
-		ArrayList<Society>societys= dao.selectAll();
-		ModelAndView mav = new ModelAndView("main/searchmeeting");
+		ArrayList<Society>societys= dao.selectAll(category);
+		ModelAndView mav = new ModelAndView("society/society_find");
 		mav.addObject("societys",societys);
+		mav.addObject("category",category);
 		return mav;
 	}
 	
