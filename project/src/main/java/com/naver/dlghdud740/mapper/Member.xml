@@ -2,56 +2,67 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	<mapper namespace="com.naver.dlghdud740.service.MemberDao">
-		
-		<resultMap type="com.naver.dlghdud740.entities.Member" id="memberMap">
-			<id property="m_id" column="m_id" />
-			<id property="m_pw" column="m_pw" />
-			<id property="m_name" column="m_name" />
-			<id property="m_phone" column="m_phone" />
-			<id property="m_email" column="m_email" />
-			<id property="m_hobby1" column="m_hobby1" />
-			<id property="m_hobby2" column="m_hobby2" />
-		</resultMap>
-		
-		<insert id="insertRow" parameterType="hashMap">
-			insert into member(m_id,m_pw,m_name,m_phone,m_addr1,m_addr2,m_email,m_hobby1,m_hobby2) 
-			values(#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_addr1},#{m_addr2},#{m_email},#{m_hobby1},#{m_hobby2})
-		</insert>		
-		
-		<select id="selectCount" parameterType="String" resultType="int">
-			select count(*) from member where m_id=#{m_id}
-		</select>		
-				
-		<select id="selectOne" parameterType="String" resultMap="memberMap">
-			select * from member where m_id=#{m_id}
-		</select>
-		
-		<select id="selectAll" resultMap="memberMap">
-			select * from member
-		</select>
+<mapper namespace="com.naver.dlghdud740.service.MemberDao">
 
-		<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
-			select * from member where m_id=#{m_id} and m_pw=#{m_pw}
-		</select>
-		
-		<!-- 휴대폰번호 입력부분 수정 필요 수정 By 이기범 -->
-		<update id="updateRow" parameterType="hashMap">
-			update member set m_pw=#{m_pw},m_name=#{m_name},m_email=#{m_email},m_addr1=#{m_addr1},m_addr2=#{m_addr2},
-			m_phone=#{m_phone},m_hobby1=#{m_hobby1},m_hobby2=#{m_hobby2} where m_id=#{m_id}
-		</update>
-		
-		<delete id="deleteRow" parameterType="String">
-			delete from member where m_id=#{m_id}
-		</delete>
-				<select id="selectPageList" resultMap="memberMap">
-			select * from 
-			(select rownum numrow, A.* from
-			(select * from member where ${selectbox} like '%'||#{find}||'%' order by m_id desc , m_name asc) A )
-			where numrow > #{startrow} and numrow<![CDATA[<=]]> #{endrow}			
-		</select>
-		<select id="selectCountAll" parameterType="hashMap" resultType="int">
-			select count(*) from member
-		</select>
-		
-	</mapper>
+	<resultMap type="com.naver.dlghdud740.entities.Member" id="memberMap">
+		<id property="m_id" column="m_id" />
+		<id property="m_pw" column="m_pw" />
+		<id property="m_name" column="m_name" />
+		<id property="m_phone" column="m_phone" />
+		<id property="m_phone1" column="m_phone1" />
+		<id property="m_phone2" column="m_phone2" />
+		<id property="m_phone3" column="m_phone3" />
+		<id property="m_addr1" column="m_addr1" />
+		<id property="m_addr2" column="m_addr2" />
+		<id property="m_zipcode" column="m_zipcode" />
+		<id property="m_email" column="m_email" />
+		<id property="m_hobby1" column="m_hobby1" />
+		<id property="m_hobby2" column="m_hobby2" />
+	</resultMap>
+
+	<insert id="insertRow" parameterType="hashMap">
+		insert into
+		member(m_id,m_pw,m_name,m_phone,m_phone1,m_phone2,m_phone3,m_addr1,m_addr2,m_zipcode,m_email,m_hobby1,m_hobby2)
+		values(#{m_id},#{m_pw},#{m_name},#{m_phone},#{m_phone1},#{m_phone2},#{m_phone3},#{m_addr1},#{m_addr2},#{m_zipcode},#{m_email},#{m_hobby1},#{m_hobby2})
+	</insert>
+
+	<select id="selectCount" parameterType="String" resultType="int">
+		select count(*) from member where m_id=#{m_id}
+	</select>
+
+	<select id="selectOne" parameterType="String" resultMap="memberMap">
+		select * from member where m_id=#{m_id}
+	</select>
+
+	<select id="selectAll" resultMap="memberMap">
+		select * from member
+	</select>
+
+	<select id="selectLogin" parameterType="hashMap" resultMap="memberMap">
+		select * from member where m_id=#{m_id} and m_pw=#{m_pw}
+	</select>
+
+	<!-- 휴대폰번호 입력부분 수정 필요 수정 By 이기범 -->
+	<update id="updateRow" parameterType="hashMap">
+		update member set
+		m_pw=#{m_pw},m_name=#{m_name},m_email=#{m_email},m_addr1=#{m_addr1},m_addr2=#{m_addr2},
+		m_phone=#{m_phone},m_phone1=#{m_phone1},m_phone2=#{m_phone2},m_phone3=#{m_phone3},m_zipcode=#{m_zipcode},m_hobby1=#{m_hobby1},m_hobby2=#{m_hobby2}
+		where m_id=#{m_id}
+	</update>
+
+	<delete id="deleteRow" parameterType="String">
+		delete from member where m_id=#{m_id}
+	</delete>
+	<select id="selectPageList" resultMap="memberMap">
+		select * from
+		(select rownum numrow, A.* from
+		(select * from member where ${selectbox} like '%'||#{find}||'%' order by m_id
+		desc , m_name asc) A )
+		where numrow > #{startrow} and numrow<![CDATA[<=]]>
+		#{endrow}
+	</select>
+	<select id="selectCountAll" parameterType="hashMap" resultType="int">
+		select count(*) from member
+	</select>
+
+</mapper>
