@@ -102,6 +102,16 @@ public class SocietyContoroller {
 		return mav;
 	}
 	
+	//모임리스트
+	@RequestMapping(value = "/findGroup", method = RequestMethod.GET)
+	public ModelAndView findGroup(@RequestParam("namefind") String namefind) {
+		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+		ArrayList<Society>societys= dao.findGroup(namefind);
+		ModelAndView mav = new ModelAndView("society/society_find");
+		mav.addObject("societys",societys);
+		return mav;
+	}
+	
 	//사진입력
 	@RequestMapping(value = "/insertPhoto", method = RequestMethod.GET)
 	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo) {	

@@ -15,6 +15,8 @@
 	<!-- 페이지 구성 CSS -->
 	<link href="resources/css/style.css" rel="stylesheet">
 	
+	
+	
 <<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 <style>
 .mainframe{margin-top:10px; padding:20px; border-top:2px solid #ccc;}
@@ -33,7 +35,16 @@
 .subfont{font-size:12px;}
 }
 </style>
-	
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#find').click(function(){
+		    	var namefind = $('#namefind').val();
+			    var url = "findGroup?namefind="+namefind;
+			    $(location).attr('href',url);	
+		    });
+		} );
+	</script>
 </content>
 <body>
 <!-- 모임 검색 시작 -->
@@ -41,23 +52,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 searchframe">
-			<div class="col-xs-2" style="padding:0;">
-				<select class="form-control" name="m_hobby1" id="m_hobby1">
-					<option value="1" <c:if test="${category=='그림'}">selected</c:if>>그림</option>
-					<option value="2" <c:if test="${category=='축구'}">selected</c:if>>축구</option>
-					<option value="3" <c:if test="${category=='밴드'}">selected</c:if>>밴드</option>
-					<option value="4" <c:if test="${category=='스터디'}">selected</c:if>>스터디</option>
-					<option value="5" <c:if test="${category=='여행'}">selected</c:if>>여행</option>
-					<option value="6" <c:if test="${category=='영화'}">selected</c:if>>영화</option>
-					<option value="7" <c:if test="${category=='하키'}">selected</c:if>>하키</option>
-					<option value="8" <c:if test="${category=='농구'}">selected</c:if>>농구</option>
-					<option value="9" <c:if test="${category=='야구'}">selected</c:if>>야구</option>
-				</select>
-			</div>
-			<div class="input-group col-xs-10">
-				<input type="text" size="20" class="form-control">
+			<div class="input-group col-xs-12">
+				<input id="namefind" type="text" size="20" class="form-control" placeholder="모임이름,관심사,지역,태그">
 				<span class="input-group-btn">
-					<button id="confirm" name="confirm" class="btn btn-default">검색</button>
+					<button type="button" id="find" name="find" class="btn btn-default">검색</button>
 				</span>
 			</div>
 		</div>

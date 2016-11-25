@@ -112,7 +112,7 @@
 				        <figcaption>
 				            <h2>스터디</h2>
 				            <p>동호회<br>
-				            <a href="societyFindl?category=스터디" title="1" data-gallery>찾기</a></p>            
+				            <a href="societyFind?category=스터디" title="1" data-gallery>찾기</a></p>            
 				        </figcaption>
 				    </figure>
 				     <figure class="effect-oscar  wowload fadeInUp">
