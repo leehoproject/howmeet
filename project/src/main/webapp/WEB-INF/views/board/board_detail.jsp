@@ -55,8 +55,8 @@ $(document).ready(function() {
 } */
 </script>
 <style>
-.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
-.title{font-size:20px;}
+	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
+	.title{font-size:20px;}
 </style>
 </content>
 </head>
@@ -68,8 +68,8 @@ $(document).ready(function() {
 		<div class="col-md-12 mainframe">
 			<div class="form-group">
 				<span class="title">Q&A 게시판</span>
-				<input type="text" class="form-control" id="b_email" name="b_email" value="${1}" placeholder="아이디" style="display:none" required>
-				<input type="text" class="form-control" id="b_name" name="b_name" value="${1}" placeholder="아이디" style="display:none" required>
+				<input type="text" class="form-control" id="b_email" name="b_email" value="${sessionemail}" placeholder="아이디" style="display:none" required>
+				<input type="text" class="form-control" id="b_name" name="b_name" value="${sessionname}" placeholder="아이디" style="display:none" required>
 			</div>
 			<div class="form-group">
 				<label for="title"><span class="labeltext">아이디 </span></label>
@@ -77,11 +77,17 @@ $(document).ready(function() {
 					<input type="text" class="form-control" id="b_id" name="b_id" value="${sessionid}" placeholder="아이디"  required>
 				</div>
 			</div>
-			<div class="col-md-2" style="padding:0; padding-top:20px; padding-bottom:20px;">
+			<div class="form-group">
+				<label for="QAtype"><span class="QAtype">문의종류 </span></label>
+				<div class="col-md-12" style="padding:0;">
 				<select class="form-control" name="b_QAtype" id="b_QAtype">
 					<option value="에러">에러</option>
 					<option value="기타">기타</option>
 				</select>
+				</div>
+			</div>			
+			<div class="col-md-2" style="padding:0; padding-top:20px; padding-bottom:20px;">
+
 			</div>	
 			<div class="form-group">
 				<label for="title"><span class="labeltext">제목</span></label>
@@ -93,6 +99,7 @@ $(document).ready(function() {
 				<label for="summernote"><span class="labeltext">내용</span></label>
 				<textarea class="form-control" id="summernote" name="b_content" maxlength="140" rows="7"></textarea>
 			</div>
+			<input type="file" id="file" name="file"/>
 			<div class="form-group">
 				<div class="col-md-12 text-center" style="padding:0;">
 					<button type="submit" id="submit" name="submit" class="btn btn-default col-md-12">글쓰기</button>
