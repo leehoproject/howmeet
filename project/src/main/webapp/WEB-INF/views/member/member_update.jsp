@@ -221,12 +221,12 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-2" style="padding: 0; padding-right: 10px;">
 								<select class="form-control" name="m_phone1" id="m_phone1">
-									<option value="010">010</option>
-									<option value="011">011</option>
-									<option value="016">016</option>
-									<option value="017">017</option>
-									<option value="018">018</option>
-									<option value="019">019</option>
+									<option value="010" <c:if test="${member.m_phone1=='010'}">selected</c:if> >010</option>
+									<option value="011" <c:if test="${member.m_phone1=='011'}">selected</c:if> >011</option>
+									<option value="016" <c:if test="${member.m_phone1=='016'}">selected</c:if> >016</option>
+									<option value="017" <c:if test="${member.m_phone1=='017'}">selected</c:if> >017</option>
+									<option value="018" <c:if test="${member.m_phone1=='018'}">selected</c:if> >018</option>
+									<option value="019" <c:if test="${member.m_phone1=='019'}">selected</c:if> >019</option>
 								</select>
 							</div>
 							<label class="col-md-1 text-center" for="m_phone2" id="dash1"><span
@@ -278,14 +278,14 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding: 0; padding-right: 10px;">
 								<select class="form-control" name="m_hobby1" id="m_hobby1">
-									<option value="1">축구</option>
-									<option value="2">맛집탐방</option>
-									<option value="3">여행</option>
-									<option value="4">스터디</option>
-									<option value="5">영화</option>
-									<option value="6">헬스</option>
-									<option value="7">음악</option>
-									<option value="8">그림</option>
+									<option value="1" <c:if test="${member.m_hobby1=='1'}">selected</c:if>>축구</option>
+									<option value="2" <c:if test="${member.m_hobby1=='2'}">selected</c:if>>맛집탐방</option>
+									<option value="3" <c:if test="${member.m_hobby1=='3'}">selected</c:if>>여행</option>
+									<option value="4" <c:if test="${member.m_hobby1=='4'}">selected</c:if>>스터디</option>
+									<option value="5" <c:if test="${member.m_hobby1=='5'}">selected</c:if>>영화</option>
+									<option value="6" <c:if test="${member.m_hobby1=='6'}">selected</c:if>>헬스</option>
+									<option value="7" <c:if test="${member.m_hobby1=='7'}">selected</c:if>>음악</option>
+									<option value="8" <c:if test="${member.m_hobby1=='8'}">selected</c:if>>그림</option>
 								</select>
 							</div>
 						</div>
@@ -296,14 +296,14 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding: 0; padding-right: 10px;">
 								<select class="form-control" name="m_hobby2" id="m_hobby2">
-									<option value="1">축구</option>
-									<option value="2">맛집탐방</option>
-									<option value="3">여행</option>
-									<option value="4">스터디</option>
-									<option value="5">영화</option>
-									<option value="6">헬스</option>
-									<option value="7">음악</option>
-									<option value="8">그림</option>
+									<option value="1" <c:if test="${member.m_hobby2=='1'}">selected</c:if>>축구</option>
+									<option value="2" <c:if test="${member.m_hobby2=='2'}">selected</c:if>>맛집탐방</option>
+									<option value="3" <c:if test="${member.m_hobby2=='3'}">selected</c:if>>여행</option>
+									<option value="4" <c:if test="${member.m_hobby2=='4'}">selected</c:if>>스터디</option>
+									<option value="5" <c:if test="${member.m_hobby2=='5'}">selected</c:if>>영화</option>
+									<option value="6" <c:if test="${member.m_hobby2=='6'}">selected</c:if>>헬스</option>
+									<option value="7" <c:if test="${member.m_hobby2=='7'}">selected</c:if>>음악</option>
+									<option value="8" <c:if test="${member.m_hobby2=='8'}">selected</c:if>>그림</option>
 								</select>
 							</div>
 						</div>
