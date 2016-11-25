@@ -18,15 +18,16 @@
 			<id property="b_hit" column="b_hit" />
 			<id property="b_level" column="b_level" />
 			<id property="b_attach" column="b_attach" />
+			<id property="b_QAtype" column="b_QAtype" />
 		</resultMap>
 		
 		<insert id="insertcontent" parameterType="hashMap">
-			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_attach) 
-			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},(select coalesce(max(b_seq)+1,1) from board),#{b_step},#{b_hit},#{b_level},#{b_attach})
+			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_attach,b_QAtype) 
+			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},(select coalesce(max(b_seq)+1,1) from board),#{b_step},#{b_hit},#{b_level},#{b_attach},#{b_QAtype})
 		</insert>
 		<insert id="insertreply" parameterType="hashMap">
-			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level) 
-			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},#{b_ref},1,#{b_hit},#{b_level})
+			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_QAtype) 
+			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},#{b_ref},1,#{b_hit},#{b_level},#{b_QAtype})
 		</insert>
 		<select id="selectCount" parameterType="hashMap" resultType="int">
 			select count(*) from board where ${selectbox} like '%'||#{find}||'%'
@@ -52,7 +53,7 @@
 		</select>
 		
 		<update id="updateRow" parameterType="hashMap">
-			update board set b_id=#{b_id},b_name=#{b_name},b_title=#{b_title},b_content=#{b_content},b_ip=#{b_ip},b_date=#{b_date} where b_seq=#{b_seq}
+			update board set b_id=#{b_id},b_name=#{b_name},b_title=#{b_title},b_content=#{b_content},b_ip=#{b_ip},b_date=#{b_date},b_QAtype=#{b_QAtype} where b_seq=#{b_seq}
 		</update>
 		<update id="updateHit" parameterType="int">
 			update board set b_hit=b_hit + 1 where b_seq=#{b_seq}

@@ -180,6 +180,7 @@ public class BoardController implements ApplicationContextAware{
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
 		Date currentdate = new Date();
 		String b_date = simple.format(currentdate);
+		board.setB_QAtype(board.getB_QAtype());
 		board.setB_ip(b_ip);
 		board.setB_date(b_date);
 		board.setB_step(0);

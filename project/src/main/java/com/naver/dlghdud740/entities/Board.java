@@ -21,7 +21,14 @@ public class Board {
 	private int b_hit;
 	private int b_level;
 	private String b_attach;
+	private String b_QAtype;
 	
+	public String getB_QAtype() {
+		return b_QAtype;
+	}
+	public void setB_QAtype(String b_QAtype) {
+		this.b_QAtype = b_QAtype;
+	}
 	public int getB_seq() {
 		return b_seq;
 	}
