@@ -72,10 +72,10 @@
 						<span class="subfont">관심사 : ${society.s_hobby}</span>
 					</div>				
 					<div class="col-xs-3 profileframe2">
-						<span class="subfont">날짜 : </span>
+						<span class="subfont">날짜 : ${society.s_createdate} </span>
 					</div>				
 					<div class="col-xs-3 profileframe3">
-						<span class="subfont">인원 : 0/${society.s_peoplenum} </span>
+						<span class="subfont">인원 : ${society.s_joinpeople}/${society.s_peoplenum} </span>
 					</div>				
 					<div class="col-xs-3 profileframe4">
 						<span class="subfont">지역 : ${society.s_area}</span>

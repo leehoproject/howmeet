@@ -9,10 +9,12 @@
 			<id property="s_content" column="s_content" />
 			<id property="s_area" column="s_area" />
 			<id property="s_peoplenum" column="s_peoplenum" />
+			<id property="s_createdate" column="s_createdate" />
+			<id property="s_joinpeople" column="s_joinpeople" />
 		</resultMap>
 		<insert id="insertRow" parameterType="hashMap">
-			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum) 
-			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum})
+			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum,s_createdate,s_joinpeople) 
+			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum},sysdate,0)
 		</insert>		
 		<select id="selectAll" parameterType="hashMap" resultMap="SocietyMap">
 			select * from Society where s_hobby=#{category}

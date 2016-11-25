@@ -10,4 +10,5 @@ public interface MemberlistDao {
 	public ArrayList<Memberlist> selectAll(String societyname);
 	public int joinMember(societylist list);
 	public int selectMember(societylist list);
+	public int memberCount(String societyname);
 }

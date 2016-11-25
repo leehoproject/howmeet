@@ -12,6 +12,8 @@ public class Society {
 	private String s_content;
 	private String s_area;
 	private String s_peoplenum;
+	private String s_createdate;
+	private int s_joinpeople;
 	
 	public String getS_area() {
 		return s_area;
@@ -42,6 +44,18 @@ public class Society {
 	}
 	public void setS_peoplenum(String s_peoplenum) {
 		this.s_peoplenum = s_peoplenum;
+	}
+	public String getS_createdate() {
+		return s_createdate;
+	}
+	public void setS_createdate(String s_createdate) {
+		this.s_createdate = s_createdate;
+	}
+	public int getS_joinpeople() {
+		return s_joinpeople;
+	}
+	public void setS_joinpeople(int s_joinpeople) {
+		this.s_joinpeople = s_joinpeople;
 	}
 	
 }

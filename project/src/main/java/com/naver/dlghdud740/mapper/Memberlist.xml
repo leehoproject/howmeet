@@ -21,4 +21,7 @@
 			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
 			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),1,sysdate,#{societyname})
 		</insert>
+		<update id="memberCount" parameterType="hashMap">
+			update society set s_joinpeople = s_joinpeople+1 where s_name=#{societyname}
+		</update>
 	</mapper>

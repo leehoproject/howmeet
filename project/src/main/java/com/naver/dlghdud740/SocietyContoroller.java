@@ -159,6 +159,7 @@ public class SocietyContoroller {
 		list.setSessionid(sessionid);
 		list.setSocietyname(societyname);
 		int result= dao.joinMember(list);
+		dao.memberCount(societyname);
 		if(result==1){
 			System.out.println("yyyyyyes");
 		} else {
