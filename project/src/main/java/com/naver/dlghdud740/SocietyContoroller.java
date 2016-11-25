@@ -56,12 +56,14 @@ public class SocietyContoroller {
 		String msg ="";
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
+		SocietyDao sdao = sqlSession.getMapper(SocietyDao.class);
 		societylist list = new societylist();
 		list.setSessionid(sessionid);
 		list.setSocietyname(societyname);
 		int count= mldao.selectMember(list);
 		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
 		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
+		int membercount=sdao.memberCount(societyname);
 		if(photos.size()==0){
 			msg = "0" ;
 		}
@@ -72,6 +74,7 @@ public class SocietyContoroller {
 		mav.addObject("check",check);
 		mav.addObject("societyname",societyname);
 		mav.addObject("count",count);
+		mav.addObject("membercount",membercount);
 		return mav;
 	}
 	//동호회모임 Insert

@@ -11,4 +11,5 @@ public interface SocietyDao {
 	public ArrayList<Society> findGroup(String namefind);
 	public int selectCount(SocietyPage societypage);
 	public ArrayList<Society> selectPageList(SocietyPage societypage);
+	public int memberCount(String societyname);
 }

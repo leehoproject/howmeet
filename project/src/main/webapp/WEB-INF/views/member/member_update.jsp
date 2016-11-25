@@ -278,14 +278,15 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding: 0; padding-right: 10px;">
 								<select class="form-control" name="m_hobby1" id="m_hobby1">
-									<option value="1" <c:if test="${member.m_hobby1=='1'}">selected</c:if>>축구</option>
-									<option value="2" <c:if test="${member.m_hobby1=='2'}">selected</c:if>>맛집탐방</option>
-									<option value="3" <c:if test="${member.m_hobby1=='3'}">selected</c:if>>여행</option>
+									<option value="1" <c:if test="${member.m_hobby1=='1'}">selected</c:if>>그림</option>
+									<option value="2" <c:if test="${member.m_hobby1=='2'}">selected</c:if>>축구</option>
+									<option value="3" <c:if test="${member.m_hobby1=='3'}">selected</c:if>>밴드</option>
 									<option value="4" <c:if test="${member.m_hobby1=='4'}">selected</c:if>>스터디</option>
-									<option value="5" <c:if test="${member.m_hobby1=='5'}">selected</c:if>>영화</option>
-									<option value="6" <c:if test="${member.m_hobby1=='6'}">selected</c:if>>헬스</option>
-									<option value="7" <c:if test="${member.m_hobby1=='7'}">selected</c:if>>음악</option>
-									<option value="8" <c:if test="${member.m_hobby1=='8'}">selected</c:if>>그림</option>
+									<option value="5" <c:if test="${member.m_hobby1=='5'}">selected</c:if>>여행</option>
+									<option value="6" <c:if test="${member.m_hobby1=='6'}">selected</c:if>>영화</option>
+									<option value="7" <c:if test="${member.m_hobby1=='7'}">selected</c:if>>하키</option>
+									<option value="8" <c:if test="${member.m_hobby1=='8'}">selected</c:if>>농구</option>
+									<option value="9" <c:if test="${member.m_hobby1=='9'}">selected</c:if>>야구</option>
 								</select>
 							</div>
 						</div>
@@ -296,14 +297,15 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding: 0; padding-right: 10px;">
 								<select class="form-control" name="m_hobby2" id="m_hobby2">
-									<option value="1" <c:if test="${member.m_hobby2=='1'}">selected</c:if>>축구</option>
-									<option value="2" <c:if test="${member.m_hobby2=='2'}">selected</c:if>>맛집탐방</option>
-									<option value="3" <c:if test="${member.m_hobby2=='3'}">selected</c:if>>여행</option>
+									<option value="1" <c:if test="${member.m_hobby2=='1'}">selected</c:if>>그림</option>
+									<option value="2" <c:if test="${member.m_hobby2=='2'}">selected</c:if>>축구</option>
+									<option value="3" <c:if test="${member.m_hobby2=='3'}">selected</c:if>>밴드</option>
 									<option value="4" <c:if test="${member.m_hobby2=='4'}">selected</c:if>>스터디</option>
-									<option value="5" <c:if test="${member.m_hobby2=='5'}">selected</c:if>>영화</option>
-									<option value="6" <c:if test="${member.m_hobby2=='6'}">selected</c:if>>헬스</option>
-									<option value="7" <c:if test="${member.m_hobby2=='7'}">selected</c:if>>음악</option>
-									<option value="8" <c:if test="${member.m_hobby2=='8'}">selected</c:if>>그림</option>
+									<option value="5" <c:if test="${member.m_hobby2=='5'}">selected</c:if>>여행</option>
+									<option value="6" <c:if test="${member.m_hobby2=='6'}">selected</c:if>>영화</option>
+									<option value="7" <c:if test="${member.m_hobby2=='7'}">selected</c:if>>하키</option>
+									<option value="8" <c:if test="${member.m_hobby2=='8'}">selected</c:if>>농구</option>
+									<option value="9" <c:if test="${member.m_hobby2=='9'}">selected</c:if>>야구</option>
 								</select>
 							</div>
 						</div>

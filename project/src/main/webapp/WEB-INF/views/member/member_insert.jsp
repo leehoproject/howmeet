@@ -312,14 +312,15 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding:0; padding-right:10px;">
 								<select class="form-control" name="m_hobby1" id="m_hobby1">
-									<option value="1">축구</option>
-									<option value="2">맛집탐방</option>
-									<option value="3">여행</option>
+									<option value="1">그림</option>
+									<option value="2">축구</option>
+									<option value="3">밴드</option>
 									<option value="4">스터디</option>
-									<option value="5">영화</option>
-									<option value="6">헬스</option>
-									<option value="7">음악</option>
-									<option value="8">그림</option>
+									<option value="5">여행</option>
+									<option value="6">영화</option>
+									<option value="7">하키</option>
+									<option value="8">농구</option>
+									<option value="9">야구</option>
 								</select>
 							</div>
 						</div>		
@@ -330,14 +331,15 @@ $(document).ready(function(){
 							</label>
 							<div class="col-md-8" style="padding:0; padding-right:10px;">
 								<select class="form-control" name="m_hobby2" id="m_hobby2">
-									<option value="1">축구</option>
-									<option value="2">맛집탐방</option>
-									<option value="3">여행</option>
+									<option value="1">그림</option>
+									<option value="2">축구</option>
+									<option value="3">밴드</option>
 									<option value="4">스터디</option>
-									<option value="5">영화</option>
-									<option value="6">헬스</option>
-									<option value="7">음악</option>
-									<option value="8">그림</option>
+									<option value="5">여행</option>
+									<option value="6">영화</option>
+									<option value="7">하키</option>
+									<option value="8">농구</option>
+									<option value="9">야구</option>
 								</select>
 							</div>
 						</div>
