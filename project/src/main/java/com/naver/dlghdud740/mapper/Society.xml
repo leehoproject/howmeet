@@ -21,5 +21,8 @@
 		</select>
 		<select id="findGroup" parameterType="hashMap" resultMap="SocietyMap">
 			select * from Society where s_name like '%'||#{namefind}||'%' or s_hobby like '%'||#{namefind}||'%' or s_area like '%'||#{namefind}||'%'
-		</select>		
+		</select>	
+		<select id="memberCount" parameterType="hashMap" resultType="int">
+			select count(*) from society where s_name=#{societyname}
+		</select>	
 	</mapper>

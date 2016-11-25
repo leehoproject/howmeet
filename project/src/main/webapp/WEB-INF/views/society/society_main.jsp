@@ -62,8 +62,7 @@
 				    <div class="col-sm-3 well">
 				      <div class="well">
 				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="230" width="230" alt="Avatar">
-				         <p style="margin-top: 20px;"><a href="#">Member<b class="badge" style="margin-left: 10PX">20</b></a></p>
-				         <p style="margin-top: 10px;"><a href="#">Schedule<i class="fa fa-calendar" aria-hidden="true" style="margin-left: 5px"></i></a></p>
+				         <p style="margin-top: 20px;">Member<b class="badge" style="margin-left: 10PX">${membercount}</b></p>
 				         <p style="margin-top: 10px;"><a href="#">Organizers:</a></p>
 				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">Hoyoung</b>
 				      </div>
