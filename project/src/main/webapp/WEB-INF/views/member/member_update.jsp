@@ -128,7 +128,15 @@ $(document).ready(function(){
  		}
  				
  		return true;
-	});			
+	});
+});
+
+//이미지 삽입 후 바뀜
+$(document).ready(function(){
+	$('#photo').change(function(event){
+		var tmppath=URL.createObjectURL(event.target.files[0]);
+		$('#profile').attr('src',tmppath);
+	});
 });
 </script>
 <!-- 회원가입 창 디자인(차후 외부CSS로) -->
@@ -173,6 +181,18 @@ $(document).ready(function(){
 						<span class="slogan">사람을 만나는 방법, HowMeet!</span>
 					</div>
 					<div class="col-md-12 memberframe">
+						<div class="form-group" style="margin:0; padding:0; margin-bottom:30px;">
+							<div class="col-xs-3" style="height:200px;"></div>
+							<div class="col-xs-6" style="height:200px; margin:0; padding:0; border:1px solid;">
+								<img class="img-responsive" id="profile" name="profile" src="resources/images/profile.png">
+							</div>
+							<div class="col-xs-3" style="height:200px;"></div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-12 text-center">
+								<input type="file" class="file" id="photo" name="photo" value="찾기">
+							</div>
+						</div>
 						<div class="form-group">
 							<label for="id" class="col-md-4"> <i class="fa fa-user"></i>
 								<span class="labeltext">아이디</span>
