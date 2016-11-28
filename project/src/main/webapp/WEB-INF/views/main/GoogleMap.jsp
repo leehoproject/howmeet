@@ -5,15 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>샘플코드</title>
-    <content tag="local_script">
-	<!-- 부트스트랩,font-awsome 부분 필요 CSS -->
-	<link href="resources/css/bootstrap.css" rel="stylesheet">
-	<link href="resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-	
-	<!-- 페이지 구성 CSS -->
-	<link href="resources/css/style.css" rel="stylesheet">
-	
-	</content>
 </head>
 <body>
 <script type="text/javascript" src="http://openapi.map.naver.com/openapi/v2/maps.js?clientId=h8RJ2MpqVTzT6BR1xr6b"></script>
