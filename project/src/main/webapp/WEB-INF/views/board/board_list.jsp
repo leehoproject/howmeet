@@ -52,7 +52,7 @@
                   <c:forEach var="board" items="${boards}" >
                           <tr>
                             <td class="hidden-xs" width="50" align="center">${board.b_QAtype}</td>
-                            <td width="100" align="center"><a href="board_update_form?b_seq=${board.b_seq}">${board.b_title}</td></a>
+                            <td width="100" align="center"><a href="boardreadform?b_seq=${board.b_seq}">${board.b_title}</td></a>
                             <td width="80" align="center">${board.b_id}</td>
                             <td width="80" align="center">${board.b_date}</td>
                             <td width="80" align="center">${board.b_hit}</td>

@@ -328,6 +328,14 @@ public class BoardController implements ApplicationContextAware{
 		mav.addObject("result","ok");
 		return mav;
 	}
-
+	@RequestMapping(value = "/boardreadform", method = RequestMethod.GET)
+	public ModelAndView boardreadform(@RequestParam("b_seq") int b_seq ) {
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		Board board = dao.selectOne(b_seq);
+		dao.updateHit(b_seq);
+		ModelAndView mav = new ModelAndView("board/board_read_form.jsp");
+		mav.addObject("board",board);
+		return mav;
+	}
 
 }
