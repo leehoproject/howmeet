@@ -13,5 +13,8 @@
 		</insert>	
 		<select id="selectPhoto" resultMap="PhotoMap">
 			select p_seq,p_id,p_content from photo where p_name=#{societyname} order by p_seq asc
-		</select>		
+		</select>	
+		<delete id="deletePhoto" parameterType="hashMap">
+			delete from photo where p_seq=#{p_seq} and p_name=#{societyname}
+		</delete>	
 	</mapper>

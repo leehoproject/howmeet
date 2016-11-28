@@ -33,8 +33,19 @@
 	
 	<script type="text/javascript">
 	$(document).ready(function() {
-    $('#example').DataTable();
-	} );
+	    $('#example').DataTable();
+	    $('#joinmember').click(function(){
+	    	var joinpeople = ${society.getS_joinpeople()};
+	    	var peoplenum = ${society.getS_peoplenum()};
+			if(peoplenum==joinpeople){
+				alert("FULL MEMBER!");
+				return;
+			}
+			var sessionid = ${sessionid};
+			var societyname = $('#societyname').val();
+		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname);	
+		});
+	});
 	</script>
 </content>
 <body>
@@ -48,9 +59,9 @@
 		    <li><a data-toggle="tab" href="#menu2">Member</a></li>
 		    <c:if test="${sessionid!=null&&count!=0}">
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
-		    <li><a data-toggle="tab" href="#menu3">Schedule</a></li>
+		    <li><a data-toggle="tab" href="">Schedule</a></li>
 		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
-		    <li><a data-toggle="tab" href="#menu3">adasd</a></li>
+		    <li><a href="societyadmin">모임관리</a></li>
 		    </c:if>
 		  </ul>
 		
@@ -62,7 +73,7 @@
 				    <div class="col-sm-3 well">
 				      <div class="well">
 				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="230" width="230" alt="Avatar">
-				         <p style="margin-top: 20px;">Member<b class="badge" style="margin-left: 10PX">${membercount}</b></p>
+				         <p style="margin-top: 20px;">Member<b class="badge" style="margin-left: 10PX">${society.getS_joinpeople()}</b></p>
 				         <p style="margin-top: 10px;"><a href="#">Organizers:</a></p>
 				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">Hoyoung</b>
 				      </div>
@@ -88,8 +99,9 @@
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
 				              <p >${societyname}</p>
+<%-- 				              <input type="hidden" id="societyname" name="societyname" value="${societyname}"> --%>
 				              <c:if test="${sessionid!=null}">
-					              <button type="button" class="btn btn-default" onclick="location.href='selectMember?sessionid=${sessionid}&societyname=${societyname}'">
+					              <button id="joinmember" name="joinmember" type="button" class="btn btn-default">
 					              <span class="glyphicon glyphicon-thumbs-up"></span> Join Member
 				             	  </button>
 								  <c:if test="${check==0}">
