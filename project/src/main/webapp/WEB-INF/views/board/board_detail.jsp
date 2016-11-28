@@ -32,7 +32,6 @@ $(document).ready(function() {
 	}
 	});
 });
-
 //이미지 미적용으로 주석처리
 /* function sendFile(file, el) {
 	var form_data = new FormData();
@@ -87,10 +86,9 @@ $(document).ready(function() {
 				</div>
 			</div>			
 			<div class="col-md-2" style="padding:0; padding-top:20px; padding-bottom:20px;">
-
 			</div>	
 			<div class="form-group">
-				<label for="title"><span class="labeltext">제목</span></label>
+				<label for="title"><span class="labeltext" >제목</span></label>
 				<div class="col-md-12" style="padding:0;">
 					<input type="text" class="form-control" id="b_title" name="b_title" required>
 				</div>
