@@ -62,18 +62,11 @@ $(document).ready(function() {
 </head>
 <body>
 <input type="file" id="file" name="file" style="display:none"/>
-<form id="insert_form" name="insert_form" class="form-horizontal" action="boardinsert" method="post" enctype="multipart/form-data" role="form" data-parsley-validate="true">
+<form id="insert_form" name="insert_form" class="form-horizontal" action="boardupdate" method="post" enctype="multipart/form-data" role="form" data-parsley-validate="true">
 <div id="page-content" class="index-page">
 <div class="container">
-		
-
-
-
-		
 	<div class="row" style="padding-left:20px; padding-right:20px;">
 		<div class="col-md-12 mainframe">
-		
-	
 			<div class="form-group">
 				<span class="title">Q&A 게시판</span>
 				<input type="text" class="form-control" id="b_email" name="b_email" value="${sessionemail}" placeholder="아이디" style="display:none" required>
@@ -93,7 +86,7 @@ $(document).ready(function() {
 			</div>	
 			<div class="form-group">
 				<label for="summernote"><span class="labeltext">내용</span></label>
-				<textarea class="form-control" id="summernote1" disabled="disabled" name="b_content" value="${board.getB_content()}" maxlength="140"  rows="30" ></textarea>
+				<textarea class="form-control" id="summernote1" disabled="disabled" name="b_content"  maxlength="140"  rows="30" >${board.getB_content()}</textarea>
 			</div>
 			<div class="row">
 				<div class="col-sm-5"></div>

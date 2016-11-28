@@ -98,7 +98,7 @@ $(document).ready(function() {
 			</div>
 			<div class="form-group">
 				<label for="summernote"><span class="labeltext">내용</span></label>
-				<textarea class="form-control" id="summernote1" disabled="disabled" name="b_content" value="${board.getB_content()}" maxlength="140"  rows="7" ></textarea>
+				<textarea class="form-control" id="summernote1"  name="b_content"  disabled="disabled" maxlength="140"  rows="7" >${board.getB_content()}</textarea>
 			</div>
 			<div class="row">
 				<div class="col-sm-5"></div>

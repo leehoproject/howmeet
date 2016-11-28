@@ -5,7 +5,7 @@
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>캘린더</title>
-  <title>How to add calendar using jQuery and fullCalendar</title>
+  	<title>How to add calendar using jQuery and fullCalendar</title>
 		<content tag="local_script">
 		<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 		<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
@@ -21,34 +21,35 @@
 		<script type="text/javascript">
 		$(document).ready(function()
 		{	
+			
+			
+			
+			
+			
+			
+			
 			//캘린더 날짜 생성
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
-			//캘린더 호출 부분
+			//캘린더 생성
 			var myCalendar = $('#my-calendar-id'); 
 			myCalendar.fullCalendar();
+			//날짜 객체 담기
 			var myEvent = {
-			  title : $('#eventtitle').val(),
-			  host : $('#host').val(),
 			  allDay: true,
 			  start: new Date(),
 			  end: new Date()
 			};
-			//모달 Send 버튼 클릭시
-			$('#Send').click(function(event) {
-				alert($('#eventtitle').val());
-				alert($('#host').val());
-				alert($('#eventcontent').val());
-			});
 			
-			//캘린더 생성
+			//캘린더 생성 myEvent를 가져온다.
 			myCalendar.fullCalendar( 'renderEvent', myEvent );
 				var calendar = $('#calendar').fullCalendar(
 				{
+					//구글 API Key
 					googleCalendarApiKey: 'AIzaSyCkqJjtX6BPPheay8M51tArChIydZUzd48',
-					
+					//상단 메뉴바 
 					header:
 					{
 						left: 'prev,next today',
@@ -56,68 +57,73 @@
 						right: 'month,agendaWeek,agendaDay'
 					},
 					
-					  eventClick:  function(event, jsEvent, view) {
-				            $('#modalTitle').html(event.title);
-				            $('#modalBody').html(event.description);
-				            $('#eventUrl').attr('href',event.url);
-				            $('#fullCalModal').modal();
-				            
-				        },
 					defaultView: 'month',
 					selectable: true,
 					selectHelper: true,
 					editable: true,
 					droppable: true,
-					select: function(start, end, allDay) {
+					loading: function(bool) {
+						if (bool) {
+							$('#loading').show();
+						}else{
+							$('#loading').hide();
+						}
 						
-					    var title = $('#createEventModal').modal('show');
-					    
-					        calendar.fullCalendar('renderEvent',
+					},
+				events: [
+					{
+		                title:  "Title "+ $('#eventtitle').val(),
+		                host :  "모임장 "+ $('#host').val(),
+		                eventcontent :"내용 "+ $('#eventcontent').val(),
+						start: new Date(y, m, d+1, 19, 0),
+						end: new Date(y, m, d+1, 22, 30),
+						description : host,
+						allDay: false,
+					}
+				],				
+				//캘린더 클릭시 발생하는 이벤트 (나타내려는 객체 선언)
+				  eventClick:  function(event, jsEvent, view) {
+						$('#fullCalModal').modal();
+			            $('#modalTitle').html(event.title);
+			            $('#modalBody').html(event.host + "<br>" + event.eventcontent);
+			            $('#eventUrl').attr('href',event.url);
+			        },
+			    //캘린더 일정클릭시 모달에 뿌려주는 부분
+					select: function(start, end, allDay) {
+						$('#createEventModal').modal('show');
+					    	calendar.fullCalendar('renderEvent',
 					            {
-					                title:  $('#eventtitle').val(),
-					                host : $('#host').val(),
-					                eventcontent : $('#eventcontent').val(),
+					                title:  "Title "+ $('#eventtitle').val(),
+					                host :  "모임장 "+ $('#host').val(),
+					                eventcontent :"내용 "+ $('#eventcontent').val(),
 					                start: start,
 					                end: end,
 					                allDay: allDay
 					            },
-					            
+ 
 					            true // make the event "stick"
 					        );
 					        /**
 					         * ajax call to store event in DB
 					         */
 					    calendar.fullCalendar('unselect');
-					} ,
-				editable: true,
-				//Google API 를 이용해서 캘린더 내용을 출력
-				events: [
-					{
-						googleCalendarId: ' vhguce79b21d93kuc1vn3nmk1g@group.calendar.google.com',
-						title: 'example Party',
-						start: new Date(y, m, d+1, 19, 0),
-						end: new Date(y, m, d+1, 22, 30),
-						description : host,
-						allDay: false,
-					}
-				],	
+					} ,  
 				// Home 컨트롤러이동,
-			    eventSources: [
-			                   {
-			                       url: '홈컨트롤러명',
-			                       type: 'POST',
-			                       data: {
-			                           custom_param1: 'something',
-			                           custom_param2: 'somethingelse'
-			                       },
-			                       error: function() {
-			                           alert('there was an error while fetching events!');
-			                       },
-			                       color: 'yellow',   // a non-ajax option
-			                       textColor: 'black' // a non-ajax option
-			                   }
-			               ]
-				
+// 			    eventSources: [
+// 			                   {
+// 			                       url: '홈컨트롤러명',
+// 			                       type: 'POST',
+// 			                       data: {
+// 			                           custom_param1: 'something',
+// 			                           custom_param2: 'somethingelse'
+// 			                       },
+// 			                       error: function() {
+// 			                           alert('there was an error while fetching events!');
+// 			                       },
+// 			                       color: 'yellow',   // a non-ajax option
+// 			                       textColor: 'black' // a non-ajax option
+// 			                   }
+// 			               ]
 				});
 		});
 	</script>
@@ -135,6 +141,7 @@
 			margin: 0 auto;
 		}
 	</style>
+<!-- 일정 클릭시 보여주는 모달 -->	
 <body onload="doReset();">
 <div id="fullCalModal" class="modal fade">
     <div class="modal-dialog">
@@ -156,9 +163,7 @@
 </div>
 </content>
 </head>
-
-
-	<!--FullCalendar container div-->
+<!--일정 등록시 모달-->
 <div id="calendar"></div>
 <div id="createEventModal"class="modal fade" id="layerpop" >
   <div class="modal-dialog modal-lg">
