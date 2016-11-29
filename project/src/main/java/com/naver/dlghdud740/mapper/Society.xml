@@ -24,5 +24,8 @@
 		</select>	
 		<select id="selectSociety" parameterType="hashMap" resultMap="SocietyMap">
 			select * from society where s_name=#{societyname}
-		</select>	
+		</select>
+		<update id="updatesociety" parameterType="hashMap">
+			update society set s_content=#{s_content},s_peoplenum=#{s_peoplenum} where s_name=#{s_name}	
+		</update>	
 	</mapper>

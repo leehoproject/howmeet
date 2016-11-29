@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -178,14 +179,20 @@ public class SocietyContoroller {
 	
 	//모임간리페이지
 	@RequestMapping(value = "/societyadmin", method = RequestMethod.GET)
-	public String societyadmin() {	
-		return "society/society_admin";
+	public ModelAndView societyadmin(@RequestParam("societyname") String societyname) {	
+		SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+		Society society= dao.selectSociety(societyname);
+		ModelAndView mav = new ModelAndView("society/society_admin");
+		mav.addObject("society",society);
+		return mav;
 	}
 	
 	//사진삭제
 	@RequestMapping(value = "/photodelete", method = RequestMethod.GET)
 	public ModelAndView photodelete(@RequestParam("p_seq") String p_seq,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {
 		PhotoDao dao =sqlSession.getMapper(PhotoDao.class);
+		System.out.println(p_seq);
+		System.out.println(societyname);
 		deletelist list = new deletelist();
 		list.setP_seq(p_seq);
 		list.setSocietyname(societyname);
@@ -200,5 +207,23 @@ public class SocietyContoroller {
 		mav.addObject("societyname",societyname);
 		mav.addObject("sessionid",sessionid);
 		return mav;
+	}
+	
+	//모임수정
+	@RequestMapping(value = "/SocietyUpdate", method = RequestMethod.POST)
+	public ModelAndView memberUpdate(@ModelAttribute("society") Society society) {	
+		SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
+		int result = dao.updatesociety(society);
+		
+		String msg = "";
+		if(result == 1){
+			msg += "성공적으로 수정되었습니다.";
+		} else {
+			msg += "수정에 실패했습니다.";
+		}
+		
+		ModelAndView mav = new ModelAndView("member/member_result");
+		mav.addObject("msg",msg);
+		return mav;		
 	}
 }

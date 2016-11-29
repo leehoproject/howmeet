@@ -61,7 +61,7 @@
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a data-toggle="tab" href="">Schedule</a></li>
 		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
-		    <li><a href="societyadmin">모임관리</a></li>
+		    <li><a href="societyadmin?societyname=${societyname}">모임관리</a></li>
 		    </c:if>
 		  </ul>
 		
@@ -99,7 +99,7 @@
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
 				              <p >${societyname}</p>
-<%-- 				              <input type="hidden" id="societyname" name="societyname" value="${societyname}"> --%>
+				              <input type="hidden" id="societyname" name="societyname" value="${societyname}">
 				              <c:if test="${sessionid!=null}">
 					              <button id="joinmember" name="joinmember" type="button" class="btn btn-default">
 					              <span class="glyphicon glyphicon-thumbs-up"></span> Join Member
@@ -205,6 +205,7 @@
 						                            ${photo.p_id}
 						                        </span>
 						                    </div>
+						              		<i class="fa fa-times-circle fa-2x" aria-hidden="true" onclick="location.href='photodelete?p_seq=${photo.p_seq}&sessionid=${sessionid}&societyname=${societyname}'"></i>
 						                </div>
 						            </div>
 					        </c:forEach>

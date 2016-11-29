@@ -12,4 +12,5 @@ public interface SocietyDao {
 	public int selectCount(SocietyPage societypage);
 	public ArrayList<Society> selectPageList(SocietyPage societypage);
 	public Society selectSociety(String societyname);
+	public int updatesociety(Society society);
 }
