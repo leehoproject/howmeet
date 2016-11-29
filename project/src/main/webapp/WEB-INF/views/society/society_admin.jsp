@@ -26,7 +26,7 @@
                             <h5><i class="fa fa-users fa-fw"></i>기본정보</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="morris.html">모임 정보 수정</a>
+                                    <a href="societyupdate">모임 정보 수정</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -35,19 +35,19 @@
                             <h5><i class="fa fa-table fa-fw"></i>게시판관리</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">멤버관리</a>
+                                    <a href="membermanage">멤버관리</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">사진게시판</a>
+                                    <a href="photomanage">사진게시판</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">일정관리</a>
+                                    <a href="schedulemanage">일정관리</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">글게시판</a>
+                                    <a href="boardmanage">글게시판</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">공지</a>
+                                    <a href="noticemanage">공지</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -56,7 +56,7 @@
                             <h5><i class="fa fa-picture-o fa-fw"></i>꾸미기</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">사진넣기</a>
+                                    <a href="photomanage">사진넣기</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -65,7 +65,7 @@
                             <h5><i class="fa fa-bar-chart-o fa-fw"></i>기타</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">초대보내기</a>
+                                    <a href="invitemember">초대보내기</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -186,6 +186,8 @@ public class SocietyContoroller {
 	@RequestMapping(value = "/photodelete", method = RequestMethod.GET)
 	public ModelAndView photodelete(@RequestParam("p_seq") String p_seq,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {
 		PhotoDao dao =sqlSession.getMapper(PhotoDao.class);
+		System.out.println(p_seq);
+		System.out.println(societyname);
 		deletelist list = new deletelist();
 		list.setP_seq(p_seq);
 		list.setSocietyname(societyname);

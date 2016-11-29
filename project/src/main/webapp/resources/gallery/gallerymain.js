@@ -60,7 +60,7 @@ jQuery(function($) {
                 modalHtml += "<img src='"+imagepath+"' alt='carouselGallery image'>";
                 modalHtml += "</div>";
                 modalHtml += "<div class='carouselGallery-modal-text'>";
-                modalHtml += "<span class='carouselGallery-modal-username'><a href='"+postURL+"'>"+username+"</a> </span>"
+                modalHtml += "<span class='carouselGallery-modal-username'><a href=''>"+username+"</a> </span>"
                 modalHtml += "<span class='carouselGallery-modal-location' style='margin-top:10px'>"+location+"</span>";
                 modalHtml += "<span class='carouselGallery-modal-imagetext'>";
                 modalHtml += "<p>"+imagetext+"</p>";
