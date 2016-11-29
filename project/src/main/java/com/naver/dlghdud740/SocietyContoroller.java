@@ -20,6 +20,7 @@ import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.deletelist;
 import com.naver.dlghdud740.entities.societylist;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.MemberlistDao;
@@ -63,7 +64,7 @@ public class SocietyContoroller {
 		int count= mldao.selectMember(list);
 		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
 		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
-		int membercount=sdao.memberCount(societyname);
+		Society society =sdao.selectSociety(societyname);
 		if(photos.size()==0){
 			msg = "0" ;
 		}
@@ -74,7 +75,7 @@ public class SocietyContoroller {
 		mav.addObject("check",check);
 		mav.addObject("societyname",societyname);
 		mav.addObject("count",count);
-		mav.addObject("membercount",membercount);
+		mav.addObject("society",society);
 		return mav;
 	}
 	//동호회모임 Insert
@@ -163,6 +164,32 @@ public class SocietyContoroller {
 		list.setSocietyname(societyname);
 		int result= dao.joinMember(list);
 		dao.memberCount(societyname);
+		if(result==1){
+			System.out.println("yyyyyyes");
+		} else {
+			System.out.println("nooooooooo");
+		}
+		ModelAndView mav = new ModelAndView("redirect:/societymain");
+		mav.addObject("check","1");
+		mav.addObject("societyname",societyname);
+		mav.addObject("sessionid",sessionid);
+		return mav;
+	}
+	
+	//모임간리페이지
+	@RequestMapping(value = "/societyadmin", method = RequestMethod.GET)
+	public String societyadmin() {	
+		return "society/society_admin";
+	}
+	
+	//사진삭제
+	@RequestMapping(value = "/photodelete", method = RequestMethod.GET)
+	public ModelAndView photodelete(@RequestParam("p_seq") String p_seq,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {
+		PhotoDao dao =sqlSession.getMapper(PhotoDao.class);
+		deletelist list = new deletelist();
+		list.setP_seq(p_seq);
+		list.setSocietyname(societyname);
+		int result= dao.deletePhoto(list);
 		if(result==1){
 			System.out.println("yyyyyyes");
 		} else {

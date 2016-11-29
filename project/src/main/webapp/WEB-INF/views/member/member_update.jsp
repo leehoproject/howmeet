@@ -261,6 +261,20 @@ $(document).ready(function(){
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="m_zipcode" class="col-md-4"> <i
+								class="fa fa-map-marker"></i> <span class="labeltext">우편번호</span>
+							</label>
+							<div class="input-group col-md-8" style="padding-right: 10px;">
+								<input id="m_zipcode" name="m_zipcode" class="form-control"
+									value="${member.getM_zipcode()}" required="" type="text"> <span
+									class="input-group-btn">
+									<button id="zipcode_search" type="button"
+										class="btn btn-success">우편번호찾기</button> <input type="hidden"
+									id="zipcodesearch" value="no" />
+								</span>
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="m_addr1" class="col-md-4"> <i
 								class="fa fa-map-marker"></i> <span class="labeltext">주소</span>
 							</label>
@@ -275,20 +289,6 @@ $(document).ready(function(){
 							<div class="col-md-8" style="padding: 0; padding-right: 10px;">
 								<input type="text" size="20" name="m_addr2" id="m_addr2"
 									class="form-control" value="${member.getM_addr2()}">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="m_zipcode" class="col-md-4"> <i
-								class="fa fa-map-marker"></i> <span class="labeltext">우편번호</span>
-							</label>
-							<div class="input-group col-md-8" style="padding-right: 10px;">
-								<input id="m_zipcode" name="m_zipcode" class="form-control"
-									value="${member.getM_zipcode()}" required="" type="text"> <span
-									class="input-group-btn">
-									<button id="zipcode_search" type="button"
-										class="btn btn-success">우편번호찾기</button> <input type="hidden"
-									id="zipcodesearch" value="no" />
-								</span>
 							</div>
 						</div>
 						<div class="form-group">
