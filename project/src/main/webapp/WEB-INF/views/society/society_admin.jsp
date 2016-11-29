@@ -37,7 +37,7 @@
                             <h5><i class="fa fa-users fa-fw"></i>기본정보</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="societyupdate">모임 정보 수정</a>
+                                    <a href="societyadmin">모임 정보 수정</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
