@@ -23,13 +23,58 @@
 	<script type="text/javascript" src="resources/inputtag/inputTags.jquery.js"></script>
 	<script type="text/javascript" src="resources/inputtag/app.js"></script>
 
+	<!-- 테이블리스트 -->
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/dataTables.uikit.min.css">
+	<link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/uikit.min.css">
+	<script src="resources/js/jquery-1.11.3.min.js"></script>
+	<script src="resources/bootstrap-3.3.7-dist/js/jquery.dataTables.min.js"></script>
+	<script src="resources/bootstrap-3.3.7-dist/js/dataTables.uikit.min.js"></script>
+	
 	<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 	<style>
 	.mainframe{margin-top:30px;}
 	</style>
 	
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#example').DataTable();
+	    button = "<div style='margin-left:20px'><button Type='button' id='selectdel' class='btn btn-danger''><i class='fa fa-trash' aria-hidden='true'></i></button>";
+	    button += "<button Type='button' id='selectdel' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-up' aria-hidden='true'></i></button>";
+	    button += "<button Type='button' id='selectdel' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></button></div>";
+	    $("#example_filter").append(button); 
+	    $('#allchk').click(function(){
+	    	if($(this).is(':checked')){
+	    		$("input[name=unitchk]").prop("checked",true);
+	    	} else {
+	    		$("input[name=unitchk]").prop("checked",false);
+	    	}
+	    });
+	    $('#selectdel').click(function(){
+	    	var checked = $("input[name=unitchk]:checked").length;
+	    	var saveids = new Array();
+	    	if(checked==0){
+	    		alert("삭제 항목을 선택해주세요.");
+	    		return;
+	    	} else {
+	    		var returnValue = confirm("삭제하시겠습니까?");
+	    		if(returnValue){
+	    			$('#unitchk:checked').each(function(index){
+		    			saveids[index] = $(this).val(); 
+		    		});
+	    			var societyname = $('#societyname').val();
+		    		var url = "memberselectdelete?saveids="+saveids+"&societyname="+societyname;
+		    		$(location).attr('href',url);	
+	    		} else {
+	    			return;
+	    		}
+	    	}
+	    });
+	});
+	</script>
+	
 </content>
 <body>
+	<input type="hidden" id="societyname" name="societyname" value="${societyname}">
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -37,7 +82,7 @@
                             <h5><i class="fa fa-users fa-fw"></i>기본정보</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="societyadmin?societyname=${society.getS_name()}">모임 정보 수정</a>
+                                    <a href="societyadmin?societyname=${societyname}">모임 정보 수정</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -46,7 +91,7 @@
                             <h5><i class="fa fa-table fa-fw"></i>게시판관리</h5>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="membermanage?societyname=${society.getS_name()}">멤버관리</a>
+                                    <a href="membermanage?societyname=${societyname}">멤버관리</a>
                                 </li>
                                 <li>
                                     <a href="photomanage">사진게시판</a>
@@ -87,56 +132,39 @@
             </div>
             <!-- /.navbar-static-side -->
 
-        <div id="page-wrapper">		
-			<!-- 모임수정시작 -->
-			<div id="page-content" class="index-page">
-			<div class="container">
-				<div class="row">
-					<form class="form-horizontal" action="SocietyUpdate" method="POST" role="form" data-parsley-validate="true">
-						<div class="col-md-12 mainframe">
-							<div class="form-group">
-								<label for="s_area"><span class="labeltext">지역</span></label>
-								<input type="text" size="50" id="s_area" name="s_area" class="form-control" value="${society.getS_area()}" readonly>
-							</div>	
-							<div class="form-group">
-								<label for="s_hobby"><span class="labeltext">관심사</span></label>
-								<input type="text" size="50" id="s_hobby" name="s_hobby" class="form-control" value="${society.getS_hobby()}" readonly>
-							</div>	
-							
-							<div class="form-group">
-								<label for="s_tag"><span class="labeltext">태그</span></label>
-								<input type="text" id="tags"/>
-							</div>
-							
-							<div class="form-group">
-								<label for="s_name"><span class="labeltext">모임 이름</span></label>
-								<input type="text" size="50" id="s_name" name="s_name" class="form-control" value="${society.getS_name()}" readonly>
-							</div>		
-							<div class="form-group">
-								<label for="s_content"><span class="labeltext">모임 설명</span></label>
-								<textarea class="form-control" rows="5" id="s_content" name="s_content">${society.getS_content()}</textarea>
-							</div>	
-							<div class="form-group">
-								<label for="s_peoplenum"><span class="labeltext">모임 인원</span></label>
-								<div style="padding:0;">
-										<select class="form-control" id="s_peoplenum" name="s_peoplenum">
-											<c:forEach var="a" begin="1" end="20" step="1">
-												<option  <c:if test="${society.getS_peoplenum()==a}">selected</c:if>>${a}</option>
-											</c:forEach>
-										</select>
-									</div>
-								</div>
-							<div class="form-group">
-								<div class="col-md-12 text-center" style="padding:0;">
-									<button type="submit" class="btn btn-default col-md-12">수정</button>
-								</div>
-							</div>				
-						</div>
-					</form>
-				</div>
-			</div>
-			</div>
-		<!-- 모임수정 종료 -->
+        <div id="page-wrapper">
+        	<div class="container" style="margin-top:80px">		
+		      <table id="example" class="uk-table uk-table-hover uk-table-striped" cellspacing="0">
+			        <thead>
+			            <tr>
+			            	<th>Photo</th>
+			                <th>Name</th>
+			                <th>Member Level</th>     
+			                <th>Date Joined</th>  
+			                <th style="text-align: center !important"><input Type="checkbox" id="allchk"></th>      
+			            </tr>
+			        </thead>
+			        <tfoot>
+			            <tr>
+			            	<th>Photo</th>
+			                <th>Name</th>
+			                <th>Member Level</th>     
+			                <th>Date Joined</th>       
+			            </tr>
+			        </tfoot>
+			        <tbody>
+			          <c:forEach var="memberlist" items="${memberlists}">
+			            <tr>
+			                <td><img src="resources/images/1.jpg" width="100" height="100"></td>
+			                <td>${memberlist.m_name}</td>
+			                <td>${memberlist.m_level}</td>
+			                <td>${memberlist.m_joindate}</td>
+			                <th style="text-align: center !important"><input Type="checkbox" id="unitchk" name="unitchk" value="${memberlist.m_id}"></th>
+			            </tr>
+			       	  </c:forEach>
+			        </tbody>
+			    </table>
+			 </div>
         </div>
         <!-- /#page-wrapper -->           
 </body>

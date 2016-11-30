@@ -3,6 +3,8 @@ package com.naver.dlghdud740;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,16 +56,17 @@ public class SocietyContoroller {
 	}
 	//동호회메인
 	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
-	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {	
+	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,HttpSession session) {	
 		String msg ="";
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
 		SocietyDao sdao = sqlSession.getMapper(SocietyDao.class);
 		societylist list = new societylist();
-		list.setSessionid(sessionid);
+		list.setSessionid((String)session.getAttribute("sessionid"));
 		list.setSocietyname(societyname);
 		int count= mldao.selectMember(list);
 		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
+		String mastername= mldao.selectMaster(societyname);
 		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
 		Society society =sdao.selectSociety(societyname);
 		if(photos.size()==0){
@@ -77,16 +80,26 @@ public class SocietyContoroller {
 		mav.addObject("societyname",societyname);
 		mav.addObject("count",count);
 		mav.addObject("society",society);
+		mav.addObject("mastername",mastername);
+		mav.addObject("sessionid",(String)session.getAttribute("sessionid"));		
 		return mav;
 	}
 	//동호회모임 Insert
 	@RequestMapping(value = "/SocietyCreate", method = RequestMethod.GET)
-	public ModelAndView SocietyCreate(@ModelAttribute("society") Society society) {	
+	public ModelAndView SocietyCreate(@ModelAttribute("society") Society society,HttpSession session) {	
 		SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
+		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		int result = dao.insertRow(society);
+		String societyname =society.getS_name();
+		String sessionid = (String) session.getAttribute("sessionid");
 		String msg = "";
 		if(result==1){
 			msg=society.getS_name()+"이름으로 동호회를 설립하였습니다.";
+			societylist list = new societylist();
+			list.setSessionid(sessionid);
+			list.setSocietyname(societyname);
+			mldao.joinMaster(list);
+			mldao.memberCount(societyname);
 		} else {
 			msg="동호회 설립 실패";
 		}
@@ -226,4 +239,29 @@ public class SocietyContoroller {
 		mav.addObject("msg",msg);
 		return mav;		
 	}
+	
+	//모임멤버간리페이지
+	@RequestMapping(value = "/membermanage", method = RequestMethod.GET)
+	public ModelAndView membermanage(@RequestParam("societyname") String societyname) {	
+		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
+		ArrayList<Memberlist> memberlists= dao.selectAll(societyname);
+		ModelAndView mav = new ModelAndView("society/society_admin_membermanage");
+		mav.addObject("memberlists",memberlists);
+		mav.addObject("societyname",societyname);
+		return mav;
+	}
+	
+	//멤버 강제탈퇴
+	@RequestMapping(value = "/memberselectdelete", method = RequestMethod.GET)
+	public ModelAndView memberselectdelete(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
+		
+		MemberlistDao dao = sqlSession.getMapper(MemberlistDao.class);
+		for (String ids:saveids){
+			dao.deleteRow(ids);
+			dao.memberDown(societyname);
+		}
+		ModelAndView mav = new ModelAndView("redirect:/membermanage");
+		mav.addObject("societyname",societyname);
+		return mav;
+	}	
 }

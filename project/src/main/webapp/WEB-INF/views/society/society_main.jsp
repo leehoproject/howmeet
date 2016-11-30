@@ -41,8 +41,10 @@
 				alert("FULL MEMBER!");
 				return;
 			}
-			var sessionid = ${sessionid};
+			var sessionid = $('#sessionid').val();
 			var societyname = $('#societyname').val();
+			alert(sessionid);
+			alert(societyname);
 		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname);	
 		});
 	});
@@ -74,8 +76,8 @@
 				      <div class="well">
 				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="230" width="230" alt="Avatar">
 				         <p style="margin-top: 20px;">Member<b class="badge" style="margin-left: 10PX">${society.getS_joinpeople()}</b></p>
-				         <p style="margin-top: 10px;"><a href="#">Organizers:</a></p>
-				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">Hoyoung</b>
+				         <p style="margin-top: 10px;">Organizers:</p>
+				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">${mastername}</b>
 				      </div>
 				      <div class="well">
 				        <p>Interest tags</p>
@@ -99,6 +101,7 @@
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
 				              <p >${societyname}</p>
+				              <input type="hidden" id="sessionid" name="sessionid" value="${sessionid}">
 				              <input type="hidden" id="societyname" name="societyname" value="${societyname}">
 				              <c:if test="${sessionid!=null}">
 					              <button id="joinmember" name="joinmember" type="button" class="btn btn-default">

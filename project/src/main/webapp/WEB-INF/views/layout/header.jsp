@@ -71,17 +71,15 @@
 			</div>
 			<div class="collapse navbar-collapse" id="mynavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="createmeeting">모임만들기</a></li>
-					<li>
 						<c:choose>
 							<c:when test="${sessionid == null }">
-								<a href="member.html">회원가입</a>
+								<li><a href="member.html">회원가입</a></li>
 							</c:when>
 							<c:otherwise>
-	                       		<a href="memberUpdateForm?m_id=${sessionid}">내 정보</a>
+								<li><a href="createmeeting">모임만들기</a></li>
+	                       		<li><a href="memberUpdateForm?m_id=${sessionid}">내 정보</a></li>
 	                       	</c:otherwise>
 		                </c:choose>
-					</li>
 					<li><a href="calendar">캘린더</a></li>
 					<li><a href="GoogleMap">지도</a></li>
 					<li><a href="member_list">회원목록</a></li>
