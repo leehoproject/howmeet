@@ -344,11 +344,9 @@ public class HomeController {
 	@RequestMapping(value = "/memberSelectDelete", method = RequestMethod.GET)
 	public ModelAndView memberSelectDelete(@RequestParam String saveids[]) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
-		
 		for(String ids: saveids){
 			System.out.printf(ids);
 		}
-		
 		ModelAndView mav = new ModelAndView("redirect:member_list");
 		for(String ids: saveids){
 			dao.deleteRow(ids);

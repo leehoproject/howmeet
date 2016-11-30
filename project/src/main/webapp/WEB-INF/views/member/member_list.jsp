@@ -11,10 +11,8 @@
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 	<script type="text/javascript">
-	
 	$(document).ready(function() {
-		$('#example').DataTable();
-		
+
 		$("#allchk").click(function(){
 			if($(this).is(':checked')){
 				$("input[name=unitchk]").prop("checked",true);
@@ -22,7 +20,6 @@
 				$("input[name=unitchk]").prop("checked",false);
 			}
 		});
-		
 		   $('#selectdel').click(function(){
 			   var checked = $("input[name=unitchk]:checked").length;
 			   var saveids = new Array();
@@ -75,7 +72,7 @@
                   <tbody>
                   <c:forEach var="member" items="${members}" >
                           <tr>
-							<td style="text-align:center !important"><input type="checkbox" name="unitchk" id="unitchk"/></td>    
+							<td style="text-align:center !important"><input type="checkbox" name="unitchk" id="unitchk" value="${member.m_id}"/></td>    
                             <td class="hidden-xs" align="center"><a href="memberUpdateForm?m_id=${member.m_id}">${member.m_id}</td></a>
                             <td align="center">${member.m_name}</td>
                             <td align="center">${member.m_email}</td>

@@ -19,15 +19,9 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
 	    <script src="resources/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
+		
 		$(document).ready(function()
 		{	
-			
-			
-			
-			
-			
-			
-			
 			//캘린더 날짜 생성
 			var date = new Date();
 			var d = date.getDate();
@@ -42,7 +36,6 @@
 			  start: new Date(),
 			  end: new Date()
 			};
-			
 			//캘린더 생성 myEvent를 가져온다.
 			myCalendar.fullCalendar( 'renderEvent', myEvent );
 				var calendar = $('#calendar').fullCalendar(
@@ -56,7 +49,6 @@
 						center: 'title',
 						right: 'month,agendaWeek,agendaDay'
 					},
-					
 					defaultView: 'month',
 					selectable: true,
 					selectHelper: true,
@@ -68,9 +60,8 @@
 						}else{
 							$('#loading').hide();
 						}
-						
 					},
-				events: [
+					events: [
 					{
 		                title:  "Title "+ $('#eventtitle').val(),
 		                host :  "모임장 "+ $('#host').val(),
@@ -125,6 +116,10 @@
 // 			                   }
 // 			               ]
 				});
+				$("#Send").click(function(){
+					
+					alert("haha");
+				});
 		});
 	</script>
 	<style type="text/css">
@@ -172,7 +167,9 @@
              <input type="hidden" id="apptStartTime"/>
              <input type="hidden" id="apptEndTime"/>
              <input type="hidden" id="apptAllDay" />
-            <form action="" class="form-horizontal">
+            <form action="calendarDB" class="form-horizontal">
+                <input type="hidden" id="check" value="no"/>
+                <input type="hidden" id="check" value="no"/>
                 <div class="modal-header">
                     <h4>모임날짜지정</h4>
                 </div>
@@ -198,7 +195,7 @@
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
-                    <button class="btn btn-primary" id="Send" name="Send" type="Button">Send</button>
+                    <button class="btn btn-primary" id="Send" name="Send" type="submit">Send</button>
                 </div>
             </form>
         </div>

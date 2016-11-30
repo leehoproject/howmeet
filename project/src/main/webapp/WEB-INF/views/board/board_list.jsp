@@ -11,12 +11,36 @@
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('#write').click(function(){
-		var url = "board_detail"
-		$(location).attr('href',url);
-		});
+$(document).ready(function() {
+	$("#allchk").click(function(){
+		if($(this).is(':checked')){
+			$("input[name=unitchk]").prop("checked",true);
+		}else{
+			$("input[name=unitchk]").prop("checked",false);
+		}
 	});
+   $('#selectdel').click(function(){
+	   var checked = $("input[name=unitchk]:checked").length;
+	   var saveseq = new Array();
+	   if(checked ==0){
+		   alert("삭제할 할목을 체크하세요!");
+		   return;
+	   }else{
+		   var returnValue = confirm("삭제 하시겠습니까?");
+		   if(returnValue){
+		   $('#unitchk:checked').each(function(index){
+			   saveseq[index] = $(this).val();
+		   });
+		   var url = "boardSelectDelete?saveseq="+saveseq;
+		   $(location).attr('href',url);
+	       }else{
+	    	   return;
+	       }
+	   }
+   });
+
+} );
+
 </script>
 </content>
 <body>
@@ -74,14 +98,16 @@
 		<option value="b_content" <c:if test="${boardpaging.getSelectbox() =='b_content'}">selected</c:if>>내용</option>
 		</select>
 	</span>
-	<span class="col-md-3">
+	<span class="col-md-5">
 		<input type="text" id="find" name="find" value="${boardpaging.getFind()}" />
 	</span>
-	<span class="col-md-3">
-		<i class="fa fa-search" aria-hidden="true"></i>
-		<button  type="submit" class="btn btn-success resultButton"> 검색</button>
+	<span class="col-md-2">
+		<button  type="submit"> 검색</button>
 	</span>
-</div>
+	<span class="col-md-2">
+		<button  type="button" id="selectdel" name="selectdel" > 삭제</button>
+	</span>
+		</div>
           <div class="col col-xs-8">
                 <ul class="pagination hidden-xs pull-right">
 				<c:forEach var="page" items="${pages}">

@@ -340,5 +340,16 @@ public class BoardController implements ApplicationContextAware{
 		mav.addObject("board",board);
 		return mav;
 	}
-
+	@RequestMapping(value = "/boardSelectDelete", method = RequestMethod.GET)
+	public ModelAndView boardSelectDelete(@RequestParam int saveseq[]) {
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		for(int seqs: saveseq){
+		}
+		ModelAndView mav = new ModelAndView("redirect:board_list");
+		for(int seqs: saveseq){
+			dao.deleteRow(seqs);
+		}
+		return mav;
+		
+	}
 }
