@@ -5,18 +5,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>유저 리스트</title>
 </head>
 <content tag="local_script">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/bootstrap.css">
 <link rel="stylesheet" href="resources/bootstrap-3.3.7-dist/css/font-awesome.min.css">
 	<script type="text/javascript">
-		$(document).ready(function() {
-		    $('#write').click(function(){
-			    var url = "board_detail";
-			    $(location).attr('href',url);	
-		    });
-		} );
+	
+	$(document).ready(function() {
+		$('#example').DataTable();
+		
+		$("#allchk").click(function(){
+			if($(this).is(':checked')){
+				$("input[name=unitchk]").prop("checked",true);
+			}else{
+				$("input[name=unitchk]").prop("checked",false);
+			}
+		});
+		
+		   $('#selectdel').click(function(){
+			   var checked = $("input[name=unitchk]:checked").length;
+			   var saveids = new Array();
+			   if(checked ==0){
+				   alert("삭제할 할목을 체크하세요!");
+				   return;
+			   }else{
+				   var returnValue = confirm("삭제 하시겠습니까?");
+				   if(returnValue){
+				   $('#unitchk:checked').each(function(index){
+					   saveids[index] = $(this).val();
+				   });
+				   var url = "memberSelectDelete?saveids="+saveids;
+				   $(location).attr('href',url);
+			       }else{
+			    	   return;
+			       }
+			   }
+		   });
+		});
+	
 	</script>
 </content>
 <body>
@@ -37,26 +64,23 @@
                 <table class="table table-striped table-bordered table-list">
                   <thead>
                     <tr>
-                        <th><em class="fa fa-cog"></em></th>
-                        <th class="hidden-xs">User ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>hobby1</th>
-                        <th>hobby2</th>
+                        <th style="text-align:center !important"><input type="checkbox" name="allchk" id="allchk"/></th>
+                        <th style="text-align:center !important">User ID</th>
+                        <th style="text-align:center !important">Name</th>
+                        <th style="text-align:center !important">Email</th>
+                        <th style="text-align:center !important">hobby1</th>
+                        <th style="text-align:center !important">hobby2</th>
                     </tr> 
                   </thead>
                   <tbody>
                   <c:forEach var="member" items="${members}" >
                           <tr>
-                            <td align="center">
-                              <a class="btn btn-default" onclick="location.href='memberUpdate?m_id=${member.m_id}'"><em class="fa fa-pencil"></em></a>
-                              <a class="btn btn-danger" onclick="location.href='memberDelete?m_id=${member.m_id}'" ><em class="fa fa-trash"></em></a>
-                            </td>
-                            <td class="hidden-xs">${member.m_id}</td>
-                            <td>${member.m_name}</td>
-                            <td>${member.m_email}</td>
-                            <td>${member.m_hobby1}</td>
-                            <td>${member.m_hobby2}</td>
+							<td style="text-align:center !important"><input type="checkbox" name="unitchk" id="unitchk"/></td>    
+                            <td class="hidden-xs" align="center"><a href="memberUpdateForm?m_id=${member.m_id}">${member.m_id}</td></a>
+                            <td align="center">${member.m_name}</td>
+                            <td align="center">${member.m_email}</td>
+                            <td align="center">${member.m_hobby1}</td>
+                            <td align="center">${member.m_hobby2}</td>
                           </tr>
                   </c:forEach>      
 	    	 <tr>
@@ -68,7 +92,6 @@
 				</div>                    
                 	</tbody>
                 </table>
-            
               </div>
 			<div class="row">
 				<div class="col-md-offset-2 col-md-8 resultMessage text-center" style="margin-top:10px">
@@ -78,12 +101,14 @@
 							<option value="m_name" <c:if test="${memberpaging.getSelectbox() =='m_name'}">selected</c:if>>user Name</option>
 						</select>
 					</span>
-					<span class="col-md-3">
+					<span class="col-md-5">
 						<input type="text" id="find" name="find" value="${memberpaging.getFind()}" />
 					</span>
-					<span class="col-md-3">
-						<i class="fa fa-search" aria-hidden="true"></i>
-						<button  type="submit" class="btn btn-success resultButton"> 검색</button>
+					<span class="col-md-2">
+						<button  type="submit"> 검색</button>
+					</span>
+					<span class="col-md-2">
+						<button  type="button" id="selectdel" name="selectdel" > 삭제</button>
 					</span>
 				</div>
 			</div>

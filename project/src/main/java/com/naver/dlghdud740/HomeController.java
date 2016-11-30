@@ -193,6 +193,11 @@ public class HomeController {
 	@RequestMapping(value = "/memberDelete", method = RequestMethod.GET)
 	public ModelAndView memberDelete(@ModelAttribute("m_id") String m_id, HttpServletRequest request) {
 		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		System.out.printf("m_id>>>>>>>>>>>>>>>>>>>>>>>"+m_id);
+		System.out.printf("m_id>>>>>>>>>>>>>>>>>>>>>>>"+m_id);
+		System.out.printf("m_id>>>>>>>>>>>>>>>>>>>>>>>"+m_id);
+		System.out.printf("m_id>>>>>>>>>>>>>>>>>>>>>>>"+m_id);
+		
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("member",member);
 		int result = dao.deleteRow(m_id);
@@ -336,4 +341,19 @@ public class HomeController {
 		return mav;
 	}
 	
+	@RequestMapping(value = "/memberSelectDelete", method = RequestMethod.GET)
+	public ModelAndView memberSelectDelete(@RequestParam String saveids[]) {
+		MemberDao dao = sqlSession.getMapper(MemberDao.class);
+		
+		for(String ids: saveids){
+			System.out.printf(ids);
+		}
+		
+		ModelAndView mav = new ModelAndView("redirect:member_list");
+		for(String ids: saveids){
+			dao.deleteRow(ids);
+		}
+		
+		return mav;
+	}
 }

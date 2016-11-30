@@ -32,7 +32,7 @@
                     <h3 class="panel-title">Q & A 게시판</h3>
                   </span>
                   <div class="col col-xs-6 text-right">
-                    <button type="button" class="btn btn-sm btn-primary btn-create" onclick="location.href='board_detail'">글쓰기</button>
+                    <button type="button" onclick="location.href='board_detail'">글쓰기</button>
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@
                         <td width="100" align="center">UserID</td>
                         <td width="80" align="center">작성일</td>
                         <td width="80" align="center">조회수</td>
-                        <td width="50" align="center"><em class="fa fa-cog"></em></th>
+                        <th style="text-align:center !important"><input type="checkbox" id="allchk"/></th>
                     </tr> 
                   </thead>
                   <tbody>
@@ -56,8 +56,8 @@
                             <td width="80" align="center">${board.b_id}</td>
                             <td width="80" align="center">${board.b_date}</td>
                             <td width="80" align="center">${board.b_hit}</td>
-                            <td align="center" width="50" align="center">
-                            <a class="btn btn-danger" onclick="location.href='boarddelete?b_seq=${board.b_seq}'"><em class="fa fa-trash" ></em></a>
+                            <td style="text-align:center !important" width="50" align="center"><input type="checkbox" name="unitchk" 
+ 							id="unitchk" value="${board.b_seq}"/></td>
                             </td>
                           </tr>
                           </c:forEach>
