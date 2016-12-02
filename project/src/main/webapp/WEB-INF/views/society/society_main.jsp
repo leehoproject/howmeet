@@ -43,8 +43,6 @@
 			}
 			var sessionid = $('#sessionid').val();
 			var societyname = $('#societyname').val();
-			alert(sessionid);
-			alert(societyname);
 		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname);	
 		});
 	});

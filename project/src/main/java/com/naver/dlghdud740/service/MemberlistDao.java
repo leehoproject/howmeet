@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.ids;
 import com.naver.dlghdud740.entities.societylist;
 
 public interface MemberlistDao {
@@ -13,7 +14,9 @@ public interface MemberlistDao {
 	public int selectMember(societylist list);
 	public int memberCount(String societyname);
 	public int memberDown(String societyname);
-	public int deleteRow(String id);
+	public int deleteRow(ids list);
+	public int memberlevelup(ids list);
+	public int memberleveldown(ids list);
 	public int joinMaster(societylist list);
 	
 }

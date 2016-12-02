@@ -24,6 +24,7 @@ import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
 import com.naver.dlghdud740.entities.deletelist;
+import com.naver.dlghdud740.entities.ids;
 import com.naver.dlghdud740.entities.societylist;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.MemberlistDao;
@@ -56,13 +57,13 @@ public class SocietyContoroller {
 	}
 	//동호회메인
 	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
-	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,HttpSession session) {	
+	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {	
 		String msg ="";
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
 		SocietyDao sdao = sqlSession.getMapper(SocietyDao.class);
 		societylist list = new societylist();
-		list.setSessionid((String)session.getAttribute("sessionid"));
+		list.setSessionid(sessionid);
 		list.setSocietyname(societyname);
 		int count= mldao.selectMember(list);
 		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
@@ -81,7 +82,6 @@ public class SocietyContoroller {
 		mav.addObject("count",count);
 		mav.addObject("society",society);
 		mav.addObject("mastername",mastername);
-		mav.addObject("sessionid",(String)session.getAttribute("sessionid"));		
 		return mav;
 	}
 	//동호회모임 Insert
@@ -204,8 +204,6 @@ public class SocietyContoroller {
 	@RequestMapping(value = "/photodelete", method = RequestMethod.GET)
 	public ModelAndView photodelete(@RequestParam("p_seq") String p_seq,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {
 		PhotoDao dao =sqlSession.getMapper(PhotoDao.class);
-		System.out.println(p_seq);
-		System.out.println(societyname);
 		deletelist list = new deletelist();
 		list.setP_seq(p_seq);
 		list.setSocietyname(societyname);
@@ -257,11 +255,44 @@ public class SocietyContoroller {
 		
 		MemberlistDao dao = sqlSession.getMapper(MemberlistDao.class);
 		for (String ids:saveids){
-			dao.deleteRow(ids);
+			ids list = new ids();
+			list.setIds(ids);
+			list.setSocietyname(societyname);
+			dao.deleteRow(list);
 			dao.memberDown(societyname);
 		}
 		ModelAndView mav = new ModelAndView("redirect:/membermanage");
 		mav.addObject("societyname",societyname);
 		return mav;
-	}	
+	}
+	//멤버 강제탈퇴
+		@RequestMapping(value = "/memberlevelup", method = RequestMethod.GET)
+		public ModelAndView memberlevelup(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
+			
+			MemberlistDao dao = sqlSession.getMapper(MemberlistDao.class);
+			for (String ids:saveids){
+				ids list = new ids();
+				list.setIds(ids);
+				list.setSocietyname(societyname);
+				dao.memberlevelup(list);
+			}
+			ModelAndView mav = new ModelAndView("redirect:/membermanage");
+			mav.addObject("societyname",societyname);
+			return mav;
+		}	
+		//멤버 강제탈퇴
+		@RequestMapping(value = "/memberleveldown", method = RequestMethod.GET)
+		public ModelAndView memberleveldown(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
+			
+			MemberlistDao dao = sqlSession.getMapper(MemberlistDao.class);
+			for (String ids:saveids){
+				ids list = new ids();
+				list.setIds(ids);
+				list.setSocietyname(societyname);
+				dao.memberleveldown(list);
+			}
+			ModelAndView mav = new ModelAndView("redirect:/membermanage");
+			mav.addObject("societyname",societyname);
+			return mav;
+		}	
 }

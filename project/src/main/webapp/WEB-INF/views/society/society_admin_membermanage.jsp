@@ -39,8 +39,8 @@
 	$(document).ready(function() {
 	    $('#example').DataTable();
 	    button = "<div style='margin-left:20px'><button Type='button' id='selectdel' class='btn btn-danger''><i class='fa fa-trash' aria-hidden='true'></i></button>";
-	    button += "<button Type='button' id='selectdel' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-up' aria-hidden='true'></i></button>";
-	    button += "<button Type='button' id='selectdel' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></button></div>";
+	    button += "<button Type='button' id='memberlevelup' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-up' aria-hidden='true'></i></button>";
+	    button += "<button Type='button' id='memberleveldown' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></button></div>";
 	    $("#example_filter").append(button); 
 	    $('#allchk').click(function(){
 	    	if($(this).is(':checked')){
@@ -61,8 +61,49 @@
 	    			$('#unitchk:checked').each(function(index){
 		    			saveids[index] = $(this).val(); 
 		    		});
+	    			alert(saveids);
 	    			var societyname = $('#societyname').val();
 		    		var url = "memberselectdelete?saveids="+saveids+"&societyname="+societyname;
+		    		$(location).attr('href',url);	
+	    		} else {
+	    			return;
+	    		}
+	    	}
+	    });
+	    $('#memberlevelup').click(function(){
+	    	var checked = $("input[name=unitchk]:checked").length;
+	    	var saveids = new Array();
+	    	if(checked==0){
+	    		alert("수정 항목을 선택해주세요.");
+	    		return;
+	    	} else {
+	    		var returnValue = confirm("수정하시겠습니까? [1단계 up]");
+	    		if(returnValue){
+	    			$('#unitchk:checked').each(function(index){
+		    			saveids[index] = $(this).val(); 
+		    		});
+	    			var societyname = $('#societyname').val();
+		    		var url = "memberlevelup?saveids="+saveids+"&societyname="+societyname;
+		    		$(location).attr('href',url);	
+	    		} else {
+	    			return;
+	    		}
+	    	}
+	    });
+	    $('#memberleveldown').click(function(){
+	    	var checked = $("input[name=unitchk]:checked").length;
+	    	var saveids = new Array();
+	    	if(checked==0){
+	    		alert("수정 항목을 선택해주세요.");
+	    		return;
+	    	} else {
+	    		var returnValue = confirm("수정하시겠습니까? [1단계 down]");
+	    		if(returnValue){
+	    			$('#unitchk:checked').each(function(index){
+		    			saveids[index] = $(this).val(); 
+		    		});
+	    			var societyname = $('#societyname').val();
+		    		var url = "memberleveldown?saveids="+saveids+"&societyname="+societyname;
 		    		$(location).attr('href',url);	
 	    		} else {
 	    			return;
