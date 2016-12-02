@@ -43,8 +43,6 @@
 			}
 			var sessionid = $('#sessionid').val();
 			var societyname = $('#societyname').val();
-			alert(sessionid);
-			alert(societyname);
 		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname);	
 		});
 	});
@@ -100,7 +98,8 @@
 				        <div class="col-sm-12">
 				          <div class="panel panel-default text-left">
 				            <div class="panel-body">
-				              <p >${societyname}</p>
+				              <p>${societyname}</p>
+				              <p>${society.getS_content()}</p>
 				              <input type="hidden" id="sessionid" name="sessionid" value="${sessionid}">
 				              <input type="hidden" id="societyname" name="societyname" value="${societyname}">
 				              <c:if test="${sessionid!=null}">

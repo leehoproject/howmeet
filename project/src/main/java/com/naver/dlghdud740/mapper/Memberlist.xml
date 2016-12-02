@@ -30,8 +30,14 @@
 			update society set s_joinpeople = s_joinpeople-1 where s_name=#{societyname}
 		</update>
 		<delete id="deleteRow" parameterType="String">
-			delete from memberlist where m_id=#{id}
+			delete from memberlist where m_id=#{ids} and m_societyname=#{societyname}
 		</delete>
+		<update id="memberlevelup" parameterType="hashMap">
+			update memberlist set m_level = m_level+1 where m_societyname=#{societyname} and m_id=#{ids}
+		</update>
+		<update id="memberleveldown" parameterType="hashMap">
+			update memberlist set m_level = m_level-1 where m_societyname=#{societyname} and m_id=#{ids}
+		</update>
 		<insert id="joinMaster" parameterType="hashMap">
 			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
 			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),3,sysdate,#{societyname})
