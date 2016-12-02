@@ -13,10 +13,12 @@
 		<select id="selectAll" resultMap="memberlistMap">
 			select * from memberlist where m_societyname=#{societyname}
 		</select>
+		<select id="selectMaster" resultType="String">
+			select m_name from memberlist where m_societyname=#{societyname} and m_level='3'
+		</select>
 		<select id="selectMember" parameterType="hashMap" resultType="int">
 			select count(*) from memberlist where m_id=#{sessionid} and m_societyname=#{societyname}
-		</select>
-		
+		</select>		
 		<insert id="joinMember" parameterType="hashMap">
 			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
 			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),1,sysdate,#{societyname})
@@ -24,4 +26,14 @@
 		<update id="memberCount" parameterType="hashMap">
 			update society set s_joinpeople = s_joinpeople+1 where s_name=#{societyname}
 		</update>
+		<update id="memberDown" parameterType="hashMap">
+			update society set s_joinpeople = s_joinpeople-1 where s_name=#{societyname}
+		</update>
+		<delete id="deleteRow" parameterType="String">
+			delete from memberlist where m_id=#{id}
+		</delete>
+		<insert id="joinMaster" parameterType="hashMap">
+			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
+			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),3,sysdate,#{societyname})
+		</insert>
 	</mapper>

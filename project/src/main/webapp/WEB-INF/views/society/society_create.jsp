@@ -33,6 +33,7 @@
 		<form class="form-horizontal" action="SocietyCreate" method="GET" role="form" data-parsley-validate="true">
 			<div class="col-md-12 mainframe">
 				<div class="form-group">
+					<input type="hidden" id="sessionid" value="${sessionid}"> 
 					<label for="s_area"><span class="labeltext">지역</span></label>
 					<div style="padding:0;">
 						<select class="form-control" name="s_area" id="s_area">
