@@ -1,6 +1,7 @@
 package com.naver.dlghdud740;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -265,7 +266,7 @@ public class SocietyContoroller {
 		mav.addObject("societyname",societyname);
 		return mav;
 	}
-	//멤버 강제탈퇴
+	//멤버 레벨상승
 		@RequestMapping(value = "/memberlevelup", method = RequestMethod.GET)
 		public ModelAndView memberlevelup(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
 			
@@ -280,7 +281,7 @@ public class SocietyContoroller {
 			mav.addObject("societyname",societyname);
 			return mav;
 		}	
-		//멤버 강제탈퇴
+		//멤버 레벨감소
 		@RequestMapping(value = "/memberleveldown", method = RequestMethod.GET)
 		public ModelAndView memberleveldown(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
 			
@@ -295,4 +296,22 @@ public class SocietyContoroller {
 			mav.addObject("societyname",societyname);
 			return mav;
 		}	
+		//모임삭제
+		@RequestMapping(value = "/deletesociety", method = RequestMethod.GET)
+		public ModelAndView deletesociety(@RequestParam("societyname") String societyname) {
+			
+			SocietyDao dao= sqlSession.getMapper(SocietyDao.class);
+			dao.deletesociety(societyname);
+			ModelAndView mav = new ModelAndView("layout/body");
+			return mav;
+		}
+		
+		//모임공지페이지
+		@RequestMapping(value = "/noticemanage", method = RequestMethod.GET)
+		public ModelAndView noticemanage(@RequestParam("societyname") String societyname) {	
+			ModelAndView mav = new ModelAndView("society/society_admin_notice");
+			mav.addObject("societyname",societyname);
+			return mav;
+		}
+		
 }

@@ -143,9 +143,6 @@
                                 <li>
                                     <a href="boardmanage">글게시판</a>
                                 </li>
-                                <li>
-                                    <a href="noticemanage">공지</a>
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

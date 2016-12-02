@@ -27,5 +27,8 @@
 		</select>
 		<update id="updatesociety" parameterType="hashMap">
 			update society set s_content=#{s_content},s_peoplenum=#{s_peoplenum} where s_name=#{s_name}	
-		</update>		
+		</update>	
+		<delete id="deletesociety" parameterType="hashMap">
+			delete from society where s_name=#{societyname}
+		</delete>
 	</mapper>

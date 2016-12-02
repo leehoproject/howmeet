@@ -28,6 +28,16 @@
 	.mainframe{margin-top:30px;}
 	</style>
 	
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('#deletesociety').click(function(){
+	    	var societyname = $('#s_name').val();
+		    var url = "deletesociety?societyname="+societyname;
+		    $(location).attr('href',url);	
+	    });
+	});
+	</script>
+	
 </content>
 <body>
             <div class="navbar-default sidebar" role="navigation">
@@ -56,9 +66,6 @@
                                 </li>
                                 <li>
                                     <a href="boardmanage">글게시판</a>
-                                </li>
-                                <li>
-                                    <a href="noticemanage">공지</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -129,6 +136,9 @@
 							<div class="form-group">
 								<div class="col-md-12 text-center" style="padding:0;">
 									<button type="submit" class="btn btn-default col-md-12">수정</button>
+								</div>
+								<div class="col-md-12 text-center" style="padding:0;">
+									<button id="deletesociety" type="button" class="btn btn-default col-md-12">모임 삭제</button>
 								</div>
 							</div>				
 						</div>
