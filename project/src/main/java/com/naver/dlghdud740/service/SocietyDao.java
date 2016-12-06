@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import com.naver.dlghdud740.entities.Society;
 import com.naver.dlghdud740.entities.SocietyPage;
+import com.naver.dlghdud740.entities.Societyphoto;
 import com.naver.dlghdud740.entities.deletelist;
 
 public interface SocietyDao {
@@ -16,4 +17,5 @@ public interface SocietyDao {
 	public Society selectSociety(String societyname);
 	public int updatesociety(Society society);
 	public int deletesociety(String societyname);
+	public int updatecontent(HashMap<String, String> map);
 }

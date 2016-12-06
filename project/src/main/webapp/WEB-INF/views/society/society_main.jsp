@@ -50,7 +50,14 @@
 </content>
 <body>
 	<div class="container">
-  		<img src="resources/images/jelly.jpg">
+		<c:choose>
+			<c:when test="${society.getS_photo()==null}">
+			<img src="resources/images/image2.jpg" style="height: 300px; width: 1170px;" alt="noimage">
+			</c:when>
+			<c:otherwise>
+			<img src="resources/uploadFolder/${society.getS_photo()}" style="height: 300px; width: 1170px;" alt="image">
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<div id="page-content" class="index-page">
 		<div class="container">
