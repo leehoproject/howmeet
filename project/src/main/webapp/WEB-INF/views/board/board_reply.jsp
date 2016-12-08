@@ -32,26 +32,6 @@ $(document).ready(function() {
 	}
 	});
 });
-//이미지 미적용으로 주석처리
-/* function sendFile(file, el) {
-	var form_data = new FormData();
-	form_data.append('file', file);
-	$('#submit').click(function(event) {
-		$.ajax({
-		data: "board" +  insert_form,
-		type: "POST",
-		url: '/boardinsert',
-		cache: false,
-		contentType: false,
-		enctype: 'multipart/form-data',
-		processData: false,
-		success: function(url) {
-			$(el).summernote('editor.insertImage', url);
-			$('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
-		}
-		});
-	});
-} */
 </script>
 <style>
 	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}

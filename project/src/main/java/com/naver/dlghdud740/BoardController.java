@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -30,9 +31,9 @@ import com.naver.dlghdud740.entities.Board;
 import com.naver.dlghdud740.entities.BoardPage;
 import com.naver.dlghdud740.entities.BoardPaging;
 import com.naver.dlghdud740.entities.Member;
+import com.naver.dlghdud740.entities.Reply;
 import com.naver.dlghdud740.service.BoardDao;
 import com.naver.dlghdud740.service.MemberDao;
-
 /**
  * Handles requests for the application home page.
  */
@@ -40,6 +41,8 @@ import com.naver.dlghdud740.service.MemberDao;
 public class BoardController implements ApplicationContextAware{
 	@Autowired
 	private Board board;
+	@Autowired
+	private Reply reply;
 	@Autowired
 	private SqlSession sqlSession;
 	private WebApplicationContext context =null;
@@ -51,7 +54,7 @@ public class BoardController implements ApplicationContextAware{
 	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
 		this.context = (WebApplicationContext) arg0;
 	}
-	
+
 	@RequestMapping(value = "/boardPageList", method = RequestMethod.POST)
 	public ModelAndView boardpagelist(@ModelAttribute("boardpaging") BoardPaging boardpaging) {
 		BoardDao dao =sqlSession.getMapper(BoardDao.class);
@@ -216,8 +219,6 @@ public class BoardController implements ApplicationContextAware{
 		mav.addObject("result","ok");
 		return mav;
 	}
-	
-
 	@RequestMapping(value = "/board_list", method = RequestMethod.GET)
 	public ModelAndView boardlist(HttpServletRequest request,@ModelAttribute("boardpaging") BoardPaging boardpaging) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
@@ -252,7 +253,23 @@ public class BoardController implements ApplicationContextAware{
 		System.out.println(this.selectbox);
 		System.out.println(this.find);
 		return "board/board_detail";
+		
 	}
+	
+	
+	@RequestMapping(value = "/boardDetail", method = RequestMethod.GET)
+	public ModelAndView boardDetail(@RequestParam int b_seq, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		dao.updateHit(b_seq);
+		Board board = dao.selectOne(b_seq);
+		ArrayList<Reply> reply = dao.replySelectAll(b_seq);
+		ModelAndView mav = new ModelAndView("board/board_detail");
+		mav.addObject("board", board);
+		mav.addObject("replys", reply);
+		
+		return mav;
+	}
+	
 	@RequestMapping(value = "/board_update_form", method = RequestMethod.GET)
 	public ModelAndView boardupdateform(@RequestParam("b_seq") int b_seq ) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
@@ -304,40 +321,33 @@ public class BoardController implements ApplicationContextAware{
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		Board board = dao.selectOne(b_seq);
 		dao.updateHit(b_seq);
-		ModelAndView mav = new ModelAndView("board/board_reply");
+		
+		ModelAndView mav = new ModelAndView("board/board_read_form.jsp");
 		mav.addObject("board",board);
+		
 		return mav;
 	}
-	@RequestMapping(value = "/boardreplysave", method = RequestMethod.POST)
-	public ModelAndView boardreplysave(@ModelAttribute("board") Board board,HttpServletRequest request) {
-		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		String b_ip = request.getRemoteAddr();
-		SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
-		Date currentdate = new Date();
-		String b_date = simple.format(currentdate);
-		board.setB_ip(b_ip);
-		board.setB_date(b_date);
-		board.setB_hit(0);
-		board.setB_level(0);
-		String msg = "";
-		int result = dao.insertreply(board);
-		if(result==1){
-			msg="success! Insert your reply.";
-		} else {
-			msg="fail! yout Info.";
-		}
-		ModelAndView mav = new ModelAndView("board/board_result");
-		mav.addObject("msg",msg);
-		mav.addObject("result","ok");
-		return mav;
-	}
+
 	@RequestMapping(value = "/boardreadform", method = RequestMethod.GET)
 	public ModelAndView boardreadform(@RequestParam("b_seq") int b_seq ) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
-		Board board = dao.selectOne(b_seq);
 		dao.updateHit(b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		System.out.println("------------------------>"+b_seq);
+		Board board = dao.selectOne(b_seq);
+		ArrayList<Reply> replys = dao.replySelectAll(b_seq);
 		ModelAndView mav = new ModelAndView("board/board_read_form.jsp");
 		mav.addObject("board",board);
+		mav.addObject("replys",replys);
+		
+		
 		return mav;
 	}
 	@RequestMapping(value = "/boardSelectDelete", method = RequestMethod.GET)
@@ -351,5 +361,30 @@ public class BoardController implements ApplicationContextAware{
 		}
 		return mav;
 		
+	}
+	
+	@RequestMapping(value = "/replyInsert", method = RequestMethod.GET)
+	public String replyInsert(@RequestParam int b_seq, @ModelAttribute("reply") Reply reply,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("sessionid");
+		String name = (String) session.getAttribute("sessionname");
+		SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
+		Date currentdate = new Date();
+		String date = simple.format(currentdate);
+		System.out.println("---  ====  >>>"+b_seq);
+		System.out.println("---  ====  >>>"+id);
+		System.out.println("---  ====  >>>"+date);
+		System.out.println("---  ====  >>>"+name);
+		System.out.println("---  ====  >>>"+reply.getR_content());
+		
+		reply.setR_seq(b_seq);
+		reply.setR_date(date);
+		reply.setR_id(id);
+		reply.setR_name(name);
+		reply.setR_content(reply.getR_content());
+		BoardDao dao = sqlSession.getMapper(BoardDao.class);
+		int result = dao.insertReply(reply);
+		
+		return "redirect:board_list";
 	}
 }

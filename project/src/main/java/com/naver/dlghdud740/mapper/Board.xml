@@ -13,6 +13,7 @@
 			<id property="b_content" column="b_content" />
 			<id property="b_date" column="b_date" />
 			<id property="b_ip" column="b_ip" />
+			
 			<id property="b_ref" column="b_ref" />
 			<id property="b_step" column="b_step" />
 			<id property="b_hit" column="b_hit" />
@@ -21,13 +22,17 @@
 			<id property="b_QAtype" column="b_QAtype" />
 		</resultMap>
 		
+		<resultMap type="com.naver.dlghdud740.entities.Reply" id="replyMap">
+			<id property="r_seq" column="r_seq" />
+			<id property="r_id" column="r_id" />
+			<id property="r_name" column="r_name" />
+			<id property="r_date" column="r_date" />
+			<id property="r_content" column="r_content" />
+		</resultMap>	
+			
 		<insert id="insertcontent" parameterType="hashMap">
 			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_attach,b_QAtype) 
 			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},(select coalesce(max(b_seq)+1,1) from board),#{b_step},#{b_hit},#{b_level},#{b_attach},#{b_QAtype})
-		</insert>
-		<insert id="insertreply" parameterType="hashMap">
-			insert into board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_QAtype) 
-			values((select coalesce(max(b_seq)+1,1) from board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},#{b_ref},1,#{b_hit},#{b_level},#{b_QAtype})
 		</insert>
 		<select id="selectCount" parameterType="hashMap" resultType="int">
 			select count(*) from board where ${selectbox} like '%'||#{find}||'%'
@@ -61,4 +66,13 @@
 		<delete id="deleteRow" parameterType="int">
 			delete from board where b_seq=#{b_seq}
 		</delete>
+
+		<insert id="insertReply" parameterType="hashMap">
+		insert into r_board(r_seq,r_id,r_name,r_date,r_content,r_no) values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} 
+		                  ,(select coalesce(max(r_no)+1,1) from r_board))
+		</insert>
+		<select id="replySelectAll" resultMap="replyMap">
+		select*from
+		(select rownum numrow, A.* from (select * from r_board order by r_no desc)A) where r_seq=#{b_seq}
+		</select>
 	</mapper>

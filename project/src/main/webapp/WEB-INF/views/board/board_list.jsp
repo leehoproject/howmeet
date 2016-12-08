@@ -84,7 +84,7 @@ $(document).ready(function() {
  							id="unitchk" value="${board.b_seq}"/></td>
                             </td>
                           </tr>
-                          </c:forEach>
+                  </c:forEach>
                         </tbody>
                 </table>
               </div>

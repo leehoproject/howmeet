@@ -32,27 +32,6 @@ $(document).ready(function() {
 	}
 	});
 });
-
-//이미지 미적용으로 주석처리
-/* function sendFile(file, el) {
-	var form_data = new FormData();
-	form_data.append('file', file);
-	$('#submit').click(function(event) {
-		$.ajax({
-		data: "board" +  insert_form,
-		type: "POST",
-		url: '/boardinsert',
-		cache: false,
-		contentType: false,
-		enctype: 'multipart/form-data',
-		processData: false,
-		success: function(url) {
-			$(el).summernote('editor.insertImage', url);
-			$('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
-		}
-		});
-	});
-} */
 </script>
 <style>
 	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
@@ -62,12 +41,13 @@ $(document).ready(function() {
 </head>
 <body>
 <input type="file" id="file" name="file" style="display:none"/>
-<form id="insert_form" name="insert_form" class="form-horizontal" action="boardupdate" method="post" enctype="multipart/form-data" role="form" data-parsley-validate="true">
+<form id="insert_form" name="insert_form" class="form-horizontal" action="replyInsert" method="GET" enctype="multipart/form-data" role="form" data-parsley-validate="true">
 <div id="page-content" class="index-page">
 <div class="container">
 	<div class="row" style="padding-left:20px; padding-right:20px;">
 		<div class="col-md-12 mainframe">
 			<div class="form-group">
+				<input Type="hidden" id="b_seq" name="b_seq" value="${board.getB_seq()}"/>
 				<span class="title">Q&A 게시판</span>
 				<input type="text" class="form-control" id="b_email" name="b_email" value="${sessionemail}" placeholder="아이디" style="display:none" required>
 				<input type="text" class="form-control" id="b_name" name="b_name" value="${sessionname}" placeholder="아이디" style="display:none" required>
@@ -88,22 +68,45 @@ $(document).ready(function() {
 				<label for="summernote"><span class="labeltext">내용</span></label>
 				<textarea class="form-control" id="summernote1" disabled="disabled" name="b_content"  maxlength="140"  rows="30" >${board.getB_content()}</textarea>
 			</div>
+			<div class="form-group">
+				<label for="writrlabel"><div class="labeltext">아이디  </div></label>
+				<label for="writr"><span class="labeltext">${board.b_id} </span></label>
+			</div>				
+			<div class="form-group">
+				<label for="summernote"><span class="labeltext">댓글</span></label>
+				<textarea class="form-control" id="r_content"  name="r_content"  maxlength="140"  rows="5" ></textarea>
+			</div>	
 			<div class="row">
 				<div class="col-sm-5"></div>
 				<div class="col-sm-4" style="margin-top: 5px; margin-bottom: 3px">
 					<c:if test="${sessionid==board.getB_id() || sessionid == 'admin'}">
 					<div class="col-sm-4" >
-						<button Type="submit" id="save"  class="btn btn-default" style="width:100%;">수정</button>
+						<button Type="button" id="update"  class="btn btn-default" style="width:100%;">수정</button>
 					</div>
 					<div class="col-sm-4">
 						<button Type="button" id="cancel" onclick="location.href='boarddeleteyn?b_seq='+${board.getB_seq()}" class="btn btn-default" style="width:100%;">삭제</button>
 					</div>
 					</c:if>
 					<div class="col-sm-4">	
-						<button Type="button" id="reply" onclick="location.href='boardreply?b_seq='+${board.getB_seq()}" class="btn btn-default" style="width:100%;">답글</button>
+						<button Type="submit" id="reply" onclick="location.href='replyInsert?b_seq='+${board.getB_seq()}" class="btn btn-default" style="width:100%;">댓글</button>
 					</div>
 				</div>	
-			</div>
+			</div>		
+	
+	
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                  </thead>
+                  <tbody>
+                  <c:forEach var="replys" items="${replys}" >
+                          <tr>
+                          	 <td class="hidden-xs" width="50" align="left">${sessionname}                            ${replys.r_content}</td>
+                            </td>
+                          </tr>
+                  </c:forEach>
+                        </tbody>
+                </table>	
+			
 		</div>
 	</div>
 </div>

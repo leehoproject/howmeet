@@ -3,6 +3,7 @@ package com.naver.dlghdud740;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,18 +46,31 @@ public class CalendarController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-//	@RequestMapping(value = "/calendarDB", method = RequestMethod.POST)
-//	@ResponseBody public int idconfirm( @ModelAttribute("Calendar") Calendar calendar) {
-//		MemberDao dao = sqlSession.getMapper(MemberDao.class);
-//		try {
-//		} catch (Exception e) {
-//			System.out.println("idconfirm err: "+e.getMessage());
-//		}
-//		if(count>0)
-//			find=1;
-//		else
-//			find=0;
+
+//	@RequestMapping(value="/shows/calendarDetailAjax.do")
+//	public ModelAndView calendarDetailAjax(HttpServletRequest request,
+//												ModelMap modelMap,
+//												@ModelAttribute ShowsVo vo) throws Exeption{
 //		
-//		return find;
+//		HashMap resultMap = new HashMap();
+//		ModelAndView mav = new ModelAndView();
+//		ShowsVO result = showsDAO.selectShowsInfo(vo);
+//		Calendar c = Calendar.getInstance(TimeZone.getTimeZone("Asia/seoul"));
+//		String saveFilePath = "SHOWS/"+c.get(c.YEAR)+"/"+(c.get(c.MONTH)+1 );
+//		try{
+//			if(result != null){
+//				resultMap.put(arg0, arg1)
+//				resultMap.put(arg0, arg1)
+//				resultMap.put(arg0, arg1)
+//				resultMap.put(arg0, arg1)
+//				resultMap.put("start", result.getStartdate());
+//				resultMap.put("end", result.getEnddate());
+//				
+//				mav.addObject("data",resultMap);
+//				mav.setViewName("jsonView");
+//			}
+//		
+//		}
+//		
 //	}
 }
