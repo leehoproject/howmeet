@@ -149,9 +149,24 @@ public class SocietyContoroller{
 	}
 	
 	//사진입력
-	@RequestMapping(value = "/insertPhoto", method = RequestMethod.GET)
-	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo) {	
+	@RequestMapping(value = "/insertPhoto", method = RequestMethod.POST)
+	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo,HttpServletRequest request,
+            @RequestParam CommonsMultipartFile file,HttpSession session) {	
 		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
+		String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/photogallery/";
+		String filename = file.getOriginalFilename();
+		try{
+			byte fileData[] = file.getBytes();
+			BufferedOutputStream fos = new BufferedOutputStream(
+					new FileOutputStream(path+filename));
+			fos.write(fileData);
+			fos.flush();
+			fos.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		photo.setP_photo(filename);
 		int result = dao.insertPhoto(photo);
 		if(result==1){
 			System.out.println("yyyyyyes");
@@ -367,7 +382,6 @@ public class SocietyContoroller{
 		@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 		public ModelAndView uploadFile(HttpServletRequest request,@RequestParam("societyname") String societyname,
 		                            @RequestParam CommonsMultipartFile file,HttpSession session) {
-			System.out.println(societyname);
 			String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/uploadFolder/";
 			String filename = file.getOriginalFilename();
 			try{

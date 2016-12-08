@@ -11,6 +11,7 @@ public class Photo {
 	private String p_seq;
 	private String p_content;
 	private String p_id;
+	private String p_photo;
 	
 	
 	public String getP_name() {
@@ -36,6 +37,12 @@ public class Photo {
 	}
 	public void setP_id(String p_id) {
 		this.p_id = p_id;
+	}
+	public String getP_photo() {
+		return p_photo;
+	}
+	public void setP_photo(String p_photo) {
+		this.p_photo = p_photo;
 	}
 	
 	

@@ -7,12 +7,13 @@
 			<id property="p_seq" column="p_seq" />
 			<id property="p_id" column="p_id" />
 			<id property="p_content" column="p_content" />
+			<id property="p_photo" column="p_photo" />
 		</resultMap>
 		<insert id="insertPhoto" parameterType="hashMap">
-			insert into photo (p_name,p_seq,p_id,p_content) values (#{p_name},(select coalesce((select max(p_seq) from photo where p_name=#{p_name})+1,0) from dual),#{p_id},#{p_content})
+			insert into photo (p_name,p_seq,p_id,p_content,p_photo) values (#{p_name},(select coalesce((select max(p_seq) from photo where p_name=#{p_name})+1,0) from dual),#{p_id},#{p_content},#{p_photo})
 		</insert>	
 		<select id="selectPhoto" resultMap="PhotoMap">
-			select p_seq,p_id,p_content from photo where p_name=#{societyname} order by p_seq asc
+			select * from photo where p_name=#{societyname} order by p_seq asc
 		</select>	
 		<delete id="deletePhoto" parameterType="hashMap">
 			delete from photo where p_seq=#{p_seq} and p_name=#{societyname}
