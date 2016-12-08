@@ -92,19 +92,16 @@ $(document).ready(function() {
 					</div>
 				</div>	
 			</div>		
-	
-	
                 <table class="table table-striped table-bordered table-list">
-                  <thead>
-                  </thead>
                   <tbody>
-                  <c:forEach var="replys" items="${replys}" >
-                          <tr>
-                          	 <td class="hidden-xs" width="50" align="left">${sessionname}                            ${replys.r_content}</td>
-                            </td>
-                          </tr>
-                  </c:forEach>
-                        </tbody>
+	                  <c:forEach var="replys" items="${replys}" >
+	                          <tr>
+	                          	 <td style="border:1x; border-style:solid; border-color:#000000; padding: 2em;" class="hidden-xs" width="50" align="left" >
+	                          	 ${sessionid} <br><br> ${replys.r_content} <br><br>  ${replys.r_date}
+	                          	  </td>
+	                          </tr>
+	                  </c:forEach>
+                 </tbody>
                 </table>	
 			
 		</div>

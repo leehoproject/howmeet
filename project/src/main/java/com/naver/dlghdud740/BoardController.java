@@ -332,22 +332,11 @@ public class BoardController implements ApplicationContextAware{
 	public ModelAndView boardreadform(@RequestParam("b_seq") int b_seq ) {
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		dao.updateHit(b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
-		System.out.println("------------------------>"+b_seq);
 		Board board = dao.selectOne(b_seq);
 		ArrayList<Reply> replys = dao.replySelectAll(b_seq);
-		ModelAndView mav = new ModelAndView("board/board_read_form.jsp");
+		ModelAndView mav = new ModelAndView("board/board_read_form");
 		mav.addObject("board",board);
 		mav.addObject("replys",replys);
-		
-		
 		return mav;
 	}
 	@RequestMapping(value = "/boardSelectDelete", method = RequestMethod.GET)
@@ -371,12 +360,6 @@ public class BoardController implements ApplicationContextAware{
 		SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
 		Date currentdate = new Date();
 		String date = simple.format(currentdate);
-		System.out.println("---  ====  >>>"+b_seq);
-		System.out.println("---  ====  >>>"+id);
-		System.out.println("---  ====  >>>"+date);
-		System.out.println("---  ====  >>>"+name);
-		System.out.println("---  ====  >>>"+reply.getR_content());
-		
 		reply.setR_seq(b_seq);
 		reply.setR_date(date);
 		reply.setR_id(id);
@@ -385,6 +368,6 @@ public class BoardController implements ApplicationContextAware{
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		int result = dao.insertReply(reply);
 		
-		return "redirect:board_list";
+		return "redirect:board_read_form";
 	}
 }
