@@ -4,8 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>사람을 만나는 방법, HowMeet</title>
 </head>
+<content tag="local_script">
+<!-- 	<link rel="stylesheet" href="resources/filter/css/reset.css"> -->
+	<link rel="stylesheet" href="resources/filter/css/style.css">
+	<script src="resources/filter/js/modernizr.js"></script>
+	<script src="resources/filter/js/jquery.mixitup.min.js"></script>
+	<script src="resources/filter/js/main.js"></script>
+</content>
 <body>
 		<!--*-*-*-*-*-*-*-*-*-*- BOOTSTRAP CAROUSEL *-*-*-*-*-*-*-*-*-*-->
 
@@ -82,80 +89,105 @@
 				<h2>카테고리</h2>
 			</div>
 			<div class="content col-lg-12">
-				<div id="works"  class=" clearfix grid"> 
-				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/그림.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>그림</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=그림" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/축구.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>축구</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=축구" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/밴드.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>밴드</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=밴드" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/스터디.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>스터디</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=스터디" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/여행.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>여행</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=여행" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				    <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/영화.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>영화</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=영화" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/하키.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>하키</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=하키" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/농구.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>농구</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=농구" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				     <figure class="effect-oscar  wowload fadeInUp">
-				        <img src="resources/images/category/야구.jpg" alt="img01"/>
-				        <figcaption>
-				            <h2>야구</h2>
-				            <p>동호회<br>
-				            <a href="societyFind?category=야구" title="1" data-gallery>찾기</a></p>            
-				        </figcaption>
-				    </figure>
-				</div>
+				<main class="cd-main-content">
+					<div class="cd-filter-block">
+						<h4>Search</h4>
+						<div class="cd-filter-content">
+							<input type="search" placeholder="Try search...">
+						</div> <!-- cd-filter-content -->
+					</div> <!-- cd-filter-block -->
+					<section class="cd-gallery">
+						<div id="works"  class=" clearfix grid"> 
+						<ul>
+							<li class="mix 그림">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/그림.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=그림'">
+							            <h2>그림</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 축구">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/축구.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=축구'">
+							            <h2>축구</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 밴드">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/밴드.jpg" alt="img01" />
+							        <figcaption onclick="location.href='societyFind?category=밴드'">
+							            <h2>밴드</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 스터디">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/스터디.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=스터디'">
+							            <h2>스터디</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 여행">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/여행.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=여행'">
+							            <h2>여행</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 영화">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/영화.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=영화'">
+							            <h2>영화</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 하키">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/하키.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=하키'">
+							            <h2>하키</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 농구">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/농구.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=농구'">
+							            <h2>농구</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="mix 야구">
+			 					<figure class="effect-oscar  wowload fadeInUp">
+							        <img src="resources/images/category/야구.jpg" alt="img01"/>
+							        <figcaption onclick="location.href='societyFind?category=야구'">
+							            <h2>야구</h2>
+							            <p>동호회<br>
+							        </figcaption>
+							    </figure>
+							</li>
+							<li class="gap"></li>
+							<li class="gap"></li>
+							<li class="gap"></li>
+						</ul>
+						</div>
+						<div class="cd-fail-message">No results found</div>
+					</section> <!-- cd-gallery -->
+				</main> <!-- cd-main-content -->
 			</div>
 		</div>
 	</div>

@@ -11,6 +11,7 @@
 			<id property="s_peoplenum" column="s_peoplenum" />
 			<id property="s_createdate" column="s_createdate" />
 			<id property="s_joinpeople" column="s_joinpeople" />
+			<id property="s_photo" column="s_photo" />
 		</resultMap>
 		<insert id="insertRow" parameterType="hashMap">
 			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum,s_createdate,s_joinpeople) 
@@ -31,4 +32,7 @@
 		<delete id="deletesociety" parameterType="hashMap">
 			delete from society where s_name=#{societyname}
 		</delete>
+		<update id="updatecontent" parameterType="hashMap">
+			update society set s_photo=#{path} where s_name=#{societyname}	
+		</update>
 	</mapper>

@@ -1,15 +1,23 @@
 package com.naver.dlghdud740;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream.PutField;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,16 +25,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.SimpleFormController;
 
+import com.naver.dlghdud740.entities.Board;
+import com.naver.dlghdud740.entities.ItemBean;
 import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.Societyphoto;
 import com.naver.dlghdud740.entities.deletelist;
 import com.naver.dlghdud740.entities.ids;
 import com.naver.dlghdud740.entities.societylist;
+import com.naver.dlghdud740.service.BoardDao;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.MemberlistDao;
 import com.naver.dlghdud740.service.PhotoDao;
@@ -38,7 +55,7 @@ import com.naver.dlghdud740.service.SocietyDao;
 
 
 @Controller
-public class SocietyContoroller {
+public class SocietyContoroller{
 	
 	@Autowired
 	private Society society;
@@ -132,9 +149,24 @@ public class SocietyContoroller {
 	}
 	
 	//사진입력
-	@RequestMapping(value = "/insertPhoto", method = RequestMethod.GET)
-	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo) {	
+	@RequestMapping(value = "/insertPhoto", method = RequestMethod.POST)
+	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo,HttpServletRequest request,
+            @RequestParam CommonsMultipartFile file,HttpSession session) {	
 		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
+		String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/photogallery/";
+		String filename = file.getOriginalFilename();
+		try{
+			byte fileData[] = file.getBytes();
+			BufferedOutputStream fos = new BufferedOutputStream(
+					new FileOutputStream(path+filename));
+			fos.write(fileData);
+			fos.flush();
+			fos.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		photo.setP_photo(filename);
 		int result = dao.insertPhoto(photo);
 		if(result==1){
 			System.out.println("yyyyyyes");
@@ -312,6 +344,72 @@ public class SocietyContoroller {
 			ModelAndView mav = new ModelAndView("society/society_admin_notice");
 			mav.addObject("societyname",societyname);
 			return mav;
+		}
+		
+		//모임사진관리페이지
+		@RequestMapping(value = "/photomanage", method = RequestMethod.GET)
+		public ModelAndView photomanage(@RequestParam("societyname") String societyname) {	
+			PhotoDao dao =sqlSession.getMapper(PhotoDao.class);
+			ArrayList<Photo> photolists= dao.selectPhoto(societyname);
+			ModelAndView mav = new ModelAndView("society/society_admin_photomanage");
+			mav.addObject("photolists",photolists);
+			mav.addObject("societyname",societyname);
+			return mav;
+		}
+		
+		//사진 삭제
+		@RequestMapping(value = "/photoselectdelete", method = RequestMethod.GET)
+		public ModelAndView photoselectdelete(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
+			PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
+			for (String ids:saveids){
+				deletelist list = new deletelist();
+				list.setP_seq(ids);
+				list.setSocietyname(societyname);
+				dao.deletePhoto(list);
+			}
+			ModelAndView mav = new ModelAndView("redirect:/photomanage");
+			mav.addObject("societyname",societyname);
+			return mav;
+		}
+		
+		//모임사진관리페이지
+		@RequestMapping(value = "/photodeco", method = RequestMethod.GET)
+		public ModelAndView photodeco(@RequestParam("societyname") String societyname) {	
+			ModelAndView mav = new ModelAndView("society/society_admin_photodeco");
+			mav.addObject("societyname",societyname);
+			return mav;
+		}
+		@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+		public ModelAndView uploadFile(HttpServletRequest request,@RequestParam("societyname") String societyname,
+		                            @RequestParam CommonsMultipartFile file,HttpSession session) {
+			String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/uploadFolder/";
+			String filename = file.getOriginalFilename();
+			try{
+				byte fileData[] = file.getBytes();
+				BufferedOutputStream fos = new BufferedOutputStream(
+						new FileOutputStream(path+filename));
+				fos.write(fileData);
+				fos.flush();
+				fos.close();
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("societyname", societyname);
+			map.put("path", filename);
+			
+			SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
+			int result= dao.updatecontent(map);
+			if(result==1){
+				System.out.println("yyyyyyes");
+			} else {
+				System.out.println("nooooooooo");
+			}
+			ModelAndView mav = new ModelAndView("society/society_result");
+			return mav;
+		
 		}
 		
 }

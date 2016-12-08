@@ -38,9 +38,7 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 	    $('#example').DataTable();
-	    button = "<div style='margin-left:20px'><button Type='button' id='selectdel' class='btn btn-danger''><i class='fa fa-trash' aria-hidden='true'></i></button>";
-	    button += "<button Type='button' id='memberlevelup' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-up' aria-hidden='true'></i></button>";
-	    button += "<button Type='button' id='memberleveldown' class='btn btn-default' style='margin-left:10px'><i class='fa fa-caret-square-o-down' aria-hidden='true'></i></button></div>";
+	    button = "<div style='margin-left:20px'><button Type='button' id='selectdel' class='btn btn-danger''><i class='fa fa-trash' aria-hidden='true'></i></button></div>";
 	    $("#example_filter").append(button); 
 	    $('#allchk').click(function(){
 	    	if($(this).is(':checked')){
@@ -61,49 +59,8 @@
 	    			$('#unitchk:checked').each(function(index){
 		    			saveids[index] = $(this).val(); 
 		    		});
-	    			alert(saveids);
 	    			var societyname = $('#societyname').val();
-		    		var url = "memberselectdelete?saveids="+saveids+"&societyname="+societyname;
-		    		$(location).attr('href',url);	
-	    		} else {
-	    			return;
-	    		}
-	    	}
-	    });
-	    $('#memberlevelup').click(function(){
-	    	var checked = $("input[name=unitchk]:checked").length;
-	    	var saveids = new Array();
-	    	if(checked==0){
-	    		alert("수정 항목을 선택해주세요.");
-	    		return;
-	    	} else {
-	    		var returnValue = confirm("수정하시겠습니까? [1단계 up]");
-	    		if(returnValue){
-	    			$('#unitchk:checked').each(function(index){
-		    			saveids[index] = $(this).val(); 
-		    		});
-	    			var societyname = $('#societyname').val();
-		    		var url = "memberlevelup?saveids="+saveids+"&societyname="+societyname;
-		    		$(location).attr('href',url);	
-	    		} else {
-	    			return;
-	    		}
-	    	}
-	    });
-	    $('#memberleveldown').click(function(){
-	    	var checked = $("input[name=unitchk]:checked").length;
-	    	var saveids = new Array();
-	    	if(checked==0){
-	    		alert("수정 항목을 선택해주세요.");
-	    		return;
-	    	} else {
-	    		var returnValue = confirm("수정하시겠습니까? [1단계 down]");
-	    		if(returnValue){
-	    			$('#unitchk:checked').each(function(index){
-		    			saveids[index] = $(this).val(); 
-		    		});
-	    			var societyname = $('#societyname').val();
-		    		var url = "memberleveldown?saveids="+saveids+"&societyname="+societyname;
+		    		var url = "photoselectdelete?saveids="+saveids+"&societyname="+societyname;
 		    		$(location).attr('href',url);	
 	    		} else {
 	    			return;
@@ -177,8 +134,7 @@
 			            <tr>
 			            	<th>Photo</th>
 			                <th>Name</th>
-			                <th>Member Level</th>     
-			                <th>Date Joined</th>  
+			                <th>Comment</th>     
 			                <th style="text-align: center !important"><input Type="checkbox" id="allchk"></th>      
 			            </tr>
 			        </thead>
@@ -186,18 +142,17 @@
 			            <tr>
 			            	<th>Photo</th>
 			                <th>Name</th>
-			                <th>Member Level</th>     
-			                <th>Date Joined</th>       
+			                <th>Comment</th>     
 			            </tr>
 			        </tfoot>
 			        <tbody>
-			          <c:forEach var="memberlist" items="${memberlists}">
+			          <c:forEach var="photolist" items="${photolists}">
+			          <input type="hidden" id="p_seq" name="p_seq" value="${photolist.p_seq}">
 			            <tr>
 			                <td><img src="resources/images/1.jpg" width="100" height="100"></td>
-			                <td>${memberlist.m_name}</td>
-			                <td>${memberlist.m_level}</td>
-			                <td>${memberlist.m_joindate}</td>
-			                <th style="text-align: center !important"><input Type="checkbox" id="unitchk" name="unitchk" value="${memberlist.m_id}"></th>
+			                <td>${photolist.p_id}</td>
+			                <td>${photolist.p_content}</td>
+			                <th style="text-align: center !important"><input Type="checkbox" id="unitchk" name="unitchk" value="${photolist.p_seq}"></th>
 			            </tr>
 			       	  </c:forEach>
 			        </tbody>

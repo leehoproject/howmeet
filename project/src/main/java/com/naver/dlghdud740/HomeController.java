@@ -64,11 +64,17 @@ public class HomeController {
 	public String home2(Locale locale, Model model) {	
 		return "layout/body";
 	}
+
 	
 	//회원가입페이지
 	@RequestMapping(value = "/member.html", method = RequestMethod.GET)
 	public String member(Locale locale, Model model) {	
 		return "member/member_insert";
+	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Locale locale, Model model) {	
+		return "member/test";
 	}
 	
 	//회원가입
@@ -90,8 +96,12 @@ public class HomeController {
 		return mav;
 	}
 	
-	
-	
+	//회원가입페이지
+	@RequestMapping(value = "/member_test", method = RequestMethod.GET)
+	public String member_test(Locale locale, Model model) {	
+		return "member/member_test";
+	}
+
 	//id 중복체크 수정 중 By 이기범
 	@RequestMapping(value = "/idconfirm", method = RequestMethod.POST)
 	@ResponseBody public int idconfirm( @RequestParam("m_id") String m_id) {

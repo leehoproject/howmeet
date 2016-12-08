@@ -11,11 +11,10 @@
 	float: left;
 	overflow: hidden;
 	margin: 0;	/*change here for spacing*/	
-	width: 33.333333333%;
 	text-align: center;
 	cursor: pointer;
 	border:1px solid #fff;
-	padding:10px;
+	background: black;
 }
 
 .grid figure img {
@@ -603,7 +602,7 @@ figure.effect-oscar {
 }
 */
 figure.effect-oscar figcaption {
-	padding: 15%;
+	padding: 10%;
 /*	background-color: rgba(58,52,42,0.7);
 	-webkit-transition: background-color 0.35s;
 	transition: background-color 0.35s;*/

@@ -34,6 +34,10 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 	    $('#example').DataTable();
+		$('#file').change(function(event){
+			var tmppath=URL.createObjectURL(event.target.files[0]);
+			$('#profile').attr('src',tmppath);
+		});
 	    $('#joinmember').click(function(){
 	    	var joinpeople = ${society.getS_joinpeople()};
 	    	var peoplenum = ${society.getS_peoplenum()};
@@ -50,7 +54,16 @@
 </content>
 <body>
 	<div class="container">
-  		<img src="resources/images/jelly.jpg">
+		<c:choose>
+			<c:when test="${society.getS_photo()==null}">
+			<img src="resources/images/image2.jpg" style="height: 300px; width: 1170px;" alt="noimage">
+			</c:when>
+			<c:otherwise>
+			<div style="height: 300px; width: 1170px; background-repeat: repeat;">
+				<img src="resources/uploadFolder/${society.getS_photo()}" style="background-repeat: repeat;" alt="image">
+			</div>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<div id="page-content" class="index-page">
 		<div class="container">
@@ -199,8 +212,8 @@
 			            	<c:if test="${msg == '0'}"><h1>사진을 입력해주세요</h1></c:if>
 				            <c:forEach var="photo" items="${photos}">
 					                <div class="carouselGallery-col-1 carouselGallery-carousel" data-index="${photo.p_seq}" data-username="${photo.p_id}" 
-					                data-imagetext="${photo.p_content}" data-location="" data-imagepath="resources/images/popup.jpg"
-					                data-posturl="resources/images/popup.jpg" style="background-image:url(resources/images/popup.jpg);">
+					                data-imagetext="${photo.p_content}" data-location="" data-imagepath="resources/photogallery/${photo.p_photo}"
+					                data-posturl="resources/photogallery/${photo.p_photo}" style="background-image:url(resources/photogallery/${photo.p_photo});">
 						                <div class="carouselGallery-item">
 						                    <div class="carouselGallery-item-meta">
 						                        <span class="carouselGallery-item-meta-user">
@@ -226,12 +239,14 @@
 	<div class="modal fade" id="myModal" role="dialog" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">	    
 			<!-- Modal content-->
-			<form class="popup-form" action="insertPhoto" method="GET">
+			<form class="popup-form" action="insertPhoto" enctype="multipart/form-data" method="POST">
 				<div class="modal-content">
 					<div class="modal-header">
 						<center><h1>photoinsert</h1></center>
 					</div>
 					<div class="modal-body">
+						<img class="img-responsive" id="profile" name="profile" src="resources/images/profile.png">
+						<input type="file" name="file" id="file">
 						<textarea class="form-control" rows="3" id="p_content" name="p_content" style="resize:none;"></textarea>
 						<input type="hidden" id="p_id" name="p_id" value="${sessionid}">
 						<input type="hidden" id="p_name" name="p_name" value="${societyname}">
