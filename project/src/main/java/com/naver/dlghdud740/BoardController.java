@@ -368,6 +368,6 @@ public class BoardController implements ApplicationContextAware{
 		BoardDao dao = sqlSession.getMapper(BoardDao.class);
 		int result = dao.insertReply(reply);
 		
-		return "redirect:board_read_form";
+		return "redirect:boardreadform?b_seq="+reply.getR_seq();
 	}
 }

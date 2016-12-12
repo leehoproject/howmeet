@@ -16,6 +16,24 @@
 	</properties>
 	
 	<dependencies>
+			<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.5.3</version>
+		</dependency>
+		
 		<!-- JACKSON- MAPPER -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
@@ -46,6 +64,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/servlets.com/cos -->
+		<dependency>
+		    <groupId>servlets.com</groupId>
+		    <artifactId>cos</artifactId>
+		    <version>05Nov2002</version>
+		</dependency>
 				
 		<!-- AspectJ -->
 		<dependency>
@@ -64,6 +88,11 @@
 			<artifactId>jcl-over-slf4j</artifactId>
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-context-support</artifactId>
+		            <version>4.1.6.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
