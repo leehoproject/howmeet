@@ -14,44 +14,27 @@
 <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <!-- include libraries(jQuery, bootstrap) -->
 <!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+<script type="text/javascript" src="resources/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#summernote').summernote({
-	height: 300,
-	minHeight: null,
-	maxHeight: null,
-	focus: true,
-	callbacks: {
-		onImageUpload: function(files, editor, welEditable) {
-			for (var i = files.length - 1; i >= 0; i--) {
-			sendFile(files[i], this);
-			}
-		}
-	}
-	});
+$(function(){
+     
+    CKEDITOR.replace( 'b_content', {//해당 이름으로 된 textarea에 에디터를 적용
+    	filebrowserImageUploadUrl: 'imageUpload' //여기 경로로 파일을 전달하여 업로드 시킨다.
+    });
+     
+     
+    CKEDITOR.on('dialogDefinition', function( ev ){
+        var dialogName = ev.data.name;
+        var dialogDefinition = ev.data.definition;
+      
+        switch (dialogName) {
+            case 'image': //Image Properties dialog
+                dialogDefinition.removeContents('Link');
+                dialogDefinition.removeContents('advanced');
+                break;
+        }
+    });
 });
-//이미지 미적용으로 주석처리
-/* function sendFile(file, el) {
-	var form_data = new FormData();
-	form_data.append('file', file);
-	$('#submit').click(function(event) {
-		$.ajax({
-		data: "board" +  insert_form,
-		type: "POST",
-		url: '/boardinsert',
-		cache: false,
-		contentType: false,
-		enctype: 'multipart/form-data',
-		processData: false,
-		success: function(url) {
-			$(el).summernote('editor.insertImage', url);
-			$('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
-		}
-		});
-	});
-} */
 </script>
 <style>
 	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
@@ -95,7 +78,7 @@ $(document).ready(function() {
 			</div>
 			<div class="form-group">
 				<label for="summernote"><span class="labeltext">내용</span></label>
-				<textarea class="form-control" id="summernote" name="b_content" maxlength="140" rows="7"></textarea>
+				<textarea class="form-control" id="b_content" name="b_content" maxlength="140" rows="7"></textarea>
 			</div>
 			<input type="file" id="file" name="file"/>
 			<div class="form-group">

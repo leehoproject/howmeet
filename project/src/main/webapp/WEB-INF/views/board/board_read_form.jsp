@@ -14,23 +14,26 @@
 <script src="resources/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <!-- include libraries(jQuery, bootstrap) -->
 <!-- include summernote css/js-->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+<script type="text/javascript" src="resources/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	$('#summernote').summernote({
-	height: 300,
-	minHeight: null,
-	maxHeight: null,
-	focus: true,
-	callbacks: {
-		onImageUpload: function(files, editor, welEditable) {
-			for (var i = files.length - 1; i >= 0; i--) {
-			sendFile(files[i], this);
-			}
-		}
-	}
-	});
+$(function(){
+     
+    CKEDITOR.replace( 'b_content', {//해당 이름으로 된 textarea에 에디터를 적용
+    	filebrowserImageUploadUrl: 'imageUpload' //여기 경로로 파일을 전달하여 업로드 시킨다.
+    });
+     
+     
+    CKEDITOR.on('dialogDefinition', function( ev ){
+        var dialogName = ev.data.name;
+        var dialogDefinition = ev.data.definition;
+      
+        switch (dialogName) {
+            case 'image': //Image Properties dialog
+                dialogDefinition.removeContents('Link');
+                dialogDefinition.removeContents('advanced');
+                break;
+        }
+    });
 });
 </script>
 <style>
@@ -66,7 +69,7 @@ $(document).ready(function() {
 			</div>	
 			<div class="form-group">
 				<label for="summernote"><span class="labeltext">내용</span></label>
-				<textarea class="form-control" id="summernote1" disabled="disabled" name="b_content"  maxlength="140"  rows="30" >${board.getB_content()}</textarea>
+				<textarea class="form-control" id="b_content" disabled="disabled" name="b_content"  maxlength="140"  rows="80" >${board.getB_content()}</textarea>
 			</div>
 			<div class="form-group">
 				<label for="writrlabel"><div class="labeltext">아이디  </div></label>
