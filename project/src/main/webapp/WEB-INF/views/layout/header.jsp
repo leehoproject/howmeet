@@ -44,6 +44,7 @@
 <script src="resources/js/main.js"></script>
 <script src="resources/js/bootstrap-tag-cloud.js"></script>
 
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -57,43 +58,44 @@
 	</div>
 	<!-- 상단 메뉴바 시작 -->
 	<nav class="navbar">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="home">
-				<img src="resources/images/logo.jpg" data-active-url="resources/images/logo.jpg" alt="">
-				</a>
-			</div>
-			<div class="collapse navbar-collapse" id="mynavbar">
-				<ul class="nav navbar-nav navbar-right">
-						<c:choose>
-							<c:when test="${sessionid == null }">
-								<li><a href="member.html">회원가입</a></li>
-							</c:when>
-							<c:otherwise>
-								<li><a href="createmeeting">모임만들기</a></li>
-	                       		<li><a href="memberUpdateForm?m_id=${sessionid}">내 정보</a></li>
-	                       	</c:otherwise>
-		                </c:choose>
-					<li><a href="calendar">캘린더</a></li>
-					<li><a href="GoogleMap">지도</a></li>
-					<li><a href="member_list">회원목록</a></li>
-					<li>
-						<c:choose>
-						 	<c:when test="${sessionid == null }">
-								<a href="login" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a>
-							</c:when>
-							<c:otherwise>
-                       		 	<a href="logout" class="btn btn-blue">로그아웃</a>
-                       		</c:otherwise>
-						</c:choose>
-					</li>
-				</ul>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="home">
+					<img src="resources/images/logo.jpg" data-active-url="resources/images/logo.jpg" alt="">
+					</a>
+				</div>
+				<div class="collapse navbar-collapse" id="mynavbar">
+					<ul class="nav navbar-nav navbar-right">
+							<c:choose>
+								<c:when test="${sessionid == null }">
+									<li><a href="member.html">회원가입</a></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="createmeeting">모임만들기</a></li>
+		                       		<li><a href="memberUpdateForm?m_id=${sessionid}">내 정보</a></li>
+		                       	</c:otherwise>
+			                </c:choose>
+						<li><a href="calendar">캘린더</a></li>
+						<li><a href="GoogleMap">지도</a></li>
+						<li><a href="member_list">회원목록</a></li>
+						<li>
+							<c:choose>
+							 	<c:when test="${sessionid == null }">
+									<a href="login" data-toggle="modal" data-target="#modal1" class="btn btn-blue">로그인</a>
+								</c:when>
+								<c:otherwise>
+	                       		 	<a href="logout" class="btn btn-blue">로그아웃</a>
+	                       		</c:otherwise>
+							</c:choose>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</nav>

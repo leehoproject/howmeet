@@ -95,10 +95,7 @@
                                     <a href="photomanage?societyname=${societyname}">사진게시판</a>
                                 </li>
                                 <li>
-                                    <a href="schedulemanage">일정관리</a>
-                                </li>
-                                <li>
-                                    <a href="boardmanage">글게시판</a>
+                                    <a href="schedulemanage?societyname=${societyname}">일정관리</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -108,15 +105,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="photodeco?societyname=${societyname}">사진넣기</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <h5><i class="fa fa-bar-chart-o fa-fw"></i>기타</h5>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="invitemember">초대보내기</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -149,7 +137,7 @@
 			          <c:forEach var="photolist" items="${photolists}">
 			          <input type="hidden" id="p_seq" name="p_seq" value="${photolist.p_seq}">
 			            <tr>
-			                <td><img src="resources/images/1.jpg" width="100" height="100"></td>
+			                <td><img src="resources/photogallery/${photolist.p_photo}" width="100" height="100"></td>
 			                <td>${photolist.p_id}</td>
 			                <td>${photolist.p_content}</td>
 			                <th style="text-align: center !important"><input Type="checkbox" id="unitchk" name="unitchk" value="${photolist.p_seq}"></th>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.naver.dlghdud740.service.CalendarDao">
+		<resultMap type="com.naver.dlghdud740.entities.Calendar" id="CalendarMap">
+			<id property="c_date" column="c_date" />
+			<id property="c_peoplenum" column="c_peoplenum" />
+			<id property="c_content" column="c_content" />
+			<id property="c_spot" column="c_spot" />
+			<id property="c_societyname" column="c_societyname" />
+			<id property="c_name" column="c_name" />
+			<id property="c_photo" column="c_photo" />
+		</resultMap>
+		<insert id="insertSchedule" parameterType="hashMap">
+			insert into Calendar (c_date,c_peoplenum,c_content,c_spot1,c_spot2,c_societyname,c_name,c_photo,c_zipcode) values (#{c_date},0,#{c_content},#{c_spot1},#{c_spot2},#{c_societyname},#{c_name},#{c_photo},#{c_zipcode})
+		</insert>	
+		<select id="selectSchedule" resultMap="CalendarMap">
+			select * from Calendar where c_societyname=#{c_societyname}
+		</select>	
+		<delete id="deleteSchedule" parameterType="hashMap">
+			delete from Calendar where c_name=#{c_name} and c_societyname=#{societyname}
+		</delete>	
+	</mapper>

@@ -57,7 +57,7 @@ $(document).ready(function(){
             // 커서를 상세주소 필드로 이동한다.
             document.getElementById('m_addr2').focus();
         }
-    }).open();
+    	}).open();
 	});
 	
 	//submit 전 유효성검사 부분

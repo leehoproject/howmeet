@@ -56,12 +56,10 @@
 	<div class="container">
 		<c:choose>
 			<c:when test="${society.getS_photo()==null}">
-			<img src="resources/images/image2.jpg" style="height: 300px; width: 1170px;" alt="noimage">
+			<div style="height: 300px; width: 1170px; background-image: url(resources/images/jelly.jpg);"></div>
 			</c:when>
 			<c:otherwise>
-			<div style="height: 300px; width: 1170px; background-repeat: repeat;">
-				<img src="resources/uploadFolder/${society.getS_photo()}" style="background-repeat: repeat;" alt="image">
-			</div>
+			<div style="height: 300px; width: 1170px; background-image: url(resources/uploadFolder/${society.getS_photo()}); background-repeat: repeat;"></div>
 			</c:otherwise>
 		</c:choose>
 	</div>

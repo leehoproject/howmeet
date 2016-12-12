@@ -33,6 +33,6 @@
 			delete from society where s_name=#{societyname}
 		</delete>
 		<update id="updatecontent" parameterType="hashMap">
-			update society set s_photo=#{path} where s_name=#{societyname}	
+			update society set s_photo=#{path},s_photoname=#{name} where s_name=#{societyname}	
 		</update>
 	</mapper>

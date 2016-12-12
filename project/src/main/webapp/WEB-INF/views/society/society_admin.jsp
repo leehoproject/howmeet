@@ -62,10 +62,7 @@
                                     <a href="photomanage?societyname=${society.getS_name()}">사진게시판</a>
                                 </li>
                                 <li>
-                                    <a href="schedulemanage">일정관리</a>
-                                </li>
-                                <li>
-                                    <a href="boardmanage">글게시판</a>
+                                    <a href="schedulemanage?societyname=${society.getS_name()}">일정관리</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -75,15 +72,6 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="photodeco?societyname=${society.getS_name()}">사진넣기</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <h5><i class="fa fa-bar-chart-o fa-fw"></i>기타</h5>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="invitemember">초대보내기</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -4022,7 +4022,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
-	
+	color:black;
 }
 .nav > li.disabled > a {
   color: #777;

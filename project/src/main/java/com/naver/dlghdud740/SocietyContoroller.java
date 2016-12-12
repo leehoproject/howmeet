@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -34,6 +35,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import com.naver.dlghdud740.entities.Board;
+import com.naver.dlghdud740.entities.Calendar;
 import com.naver.dlghdud740.entities.ItemBean;
 import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.Memberlist;
@@ -44,6 +46,7 @@ import com.naver.dlghdud740.entities.deletelist;
 import com.naver.dlghdud740.entities.ids;
 import com.naver.dlghdud740.entities.societylist;
 import com.naver.dlghdud740.service.BoardDao;
+import com.naver.dlghdud740.service.CalendarDao;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.MemberlistDao;
 import com.naver.dlghdud740.service.PhotoDao;
@@ -80,6 +83,7 @@ public class SocietyContoroller{
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
 		SocietyDao sdao = sqlSession.getMapper(SocietyDao.class);
+		CalendarDao cdao = sqlSession.getMapper(CalendarDao.class);
 		societylist list = new societylist();
 		list.setSessionid(sessionid);
 		list.setSocietyname(societyname);
@@ -155,10 +159,11 @@ public class SocietyContoroller{
 		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
 		String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/photogallery/";
 		String filename = file.getOriginalFilename();
+		String subname = UUID.randomUUID().toString().replaceAll("-","");
 		try{
 			byte fileData[] = file.getBytes();
 			BufferedOutputStream fos = new BufferedOutputStream(
-					new FileOutputStream(path+filename));
+					new FileOutputStream(path+subname+filename));
 			fos.write(fileData);
 			fos.flush();
 			fos.close();
@@ -166,7 +171,11 @@ public class SocietyContoroller{
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		photo.setP_photo(filename);
+		if(filename.equals("")){
+			photo.setP_photo(filename);
+		} else {
+			photo.setP_photo(subname+filename);
+		}
 		int result = dao.insertPhoto(photo);
 		if(result==1){
 			System.out.println("yyyyyyes");
@@ -379,15 +388,18 @@ public class SocietyContoroller{
 			mav.addObject("societyname",societyname);
 			return mav;
 		}
+		
+		//대문사진바꾸기
 		@RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
 		public ModelAndView uploadFile(HttpServletRequest request,@RequestParam("societyname") String societyname,
 		                            @RequestParam CommonsMultipartFile file,HttpSession session) {
 			String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/uploadFolder/";
 			String filename = file.getOriginalFilename();
+			String subname = UUID.randomUUID().toString().replaceAll("-","");
 			try{
 				byte fileData[] = file.getBytes();
 				BufferedOutputStream fos = new BufferedOutputStream(
-						new FileOutputStream(path+filename));
+						new FileOutputStream(path+subname+filename));
 				fos.write(fileData);
 				fos.flush();
 				fos.close();
@@ -398,7 +410,12 @@ public class SocietyContoroller{
 			
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("societyname", societyname);
-			map.put("path", filename);
+			if(filename.equals("")){
+				map.put("path", filename);
+			} else {
+				map.put("path", subname+filename);
+			}
+			map.put("name", filename);
 			
 			SocietyDao dao = sqlSession.getMapper(SocietyDao.class);
 			int result= dao.updatecontent(map);
@@ -411,5 +428,70 @@ public class SocietyContoroller{
 			return mav;
 		
 		}
+		
+		//일정관리페이지
+		@RequestMapping(value = "/schedulemanage", method = RequestMethod.GET)
+		public ModelAndView schedulemanage(@RequestParam("societyname") String societyname) {	
+			ModelAndView mav = new ModelAndView("society/society_admin_schedulemanage");
+			CalendarDao dao =sqlSession.getMapper(CalendarDao.class);
+			ArrayList<Calendar> calendarlists= dao.selectSchedule(societyname);
+			mav.addObject("calendarlists",calendarlists);
+			mav.addObject("societyname",societyname);
+			return mav;
+		}
+		
+		//일정입력
+		@RequestMapping(value = "/insertschedule", method = RequestMethod.POST)
+		public ModelAndView insertschedule(@ModelAttribute("Calendar") Calendar calendar,HttpServletRequest request,
+	            @RequestParam CommonsMultipartFile file,HttpSession session) {	
+
+			
+			CalendarDao dao = sqlSession.getMapper(CalendarDao.class);
+			String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/schedulegallery/";
+			String filename = file.getOriginalFilename();
+			String subname = UUID.randomUUID().toString().replaceAll("-","");
+			try{
+				byte fileData[] = file.getBytes();
+				BufferedOutputStream fos = new BufferedOutputStream(
+						new FileOutputStream(path+subname+filename));
+				fos.write(fileData);
+				fos.flush();
+				fos.close();
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			calendar.setC_date(calendar.getC_date1()+"/"+calendar.getC_date2()+"/"+calendar.getC_date3());
+			if(filename.equals("")){
+				calendar.setC_photo(filename);
+			} else {
+				calendar.setC_photo(subname+filename);
+			}
+			int result = dao.insertSchedule(calendar);
+			if(result==1){
+				System.out.println("yyyyyyes");
+			} else {
+				System.out.println("nooooooooo");
+			}
+			System.out.println(calendar.getC_societyname());
+			ModelAndView mav = new ModelAndView("redirect:/schedulemanage");
+			mav.addObject("societyname", calendar.getC_societyname());
+			return mav;
+			}
+		
+			//사진 삭제
+				@RequestMapping(value = "/scheduleselectdelete", method = RequestMethod.GET)
+				public ModelAndView scheduleselectdelete(@RequestParam String saveids[],@RequestParam("societyname") String societyname) {
+					CalendarDao dao = sqlSession.getMapper(CalendarDao.class);
+					for (String ids:saveids){
+						HashMap<String, String> map = new HashMap<String, String>();
+						map.put("societyname", societyname);
+						map.put("c_name", ids);
+						dao.deleteSchedule(map);
+					}
+					ModelAndView mav = new ModelAndView("society/society_admin_schedulemanage");
+					mav.addObject("societyname",societyname);
+					return mav;
+				}
 		
 }

@@ -15,6 +15,7 @@ public class Society {
 	private String s_createdate;
 	private int s_joinpeople;
 	private String s_photo;
+	private String s_photoname;
 	
 	public String getS_area() {
 		return s_area;
@@ -63,6 +64,12 @@ public class Society {
 	}
 	public void setS_photo(String s_photo) {
 		this.s_photo = s_photo;
+	}
+	public String getS_photoname() {
+		return s_photoname;
+	}
+	public void setS_photoname(String s_photoname) {
+		this.s_photoname = s_photoname;
 	}
 	
 }
