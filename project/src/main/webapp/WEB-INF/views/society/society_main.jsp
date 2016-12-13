@@ -71,7 +71,7 @@
 		    <c:if test="${sessionid!=null&&count!=0}">
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a data-toggle="tab" href="">Schedule</a></li>
-		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
+		    <li><a data-toggle="tab" href="society_board">Board</a></li>
 		    <li><a href="societyadmin?societyname=${societyname}">모임관리</a></li>
 		    </c:if>
 		  </ul>

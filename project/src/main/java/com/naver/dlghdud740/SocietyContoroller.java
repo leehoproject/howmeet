@@ -495,4 +495,14 @@ public class SocietyContoroller{
 					mav.addObject("societyname",societyname);
 					return mav;
 				}
+				//모임리스트
+				@RequestMapping(value = "/society_board", method = RequestMethod.GET)
+				public ModelAndView society_board(@RequestParam("category") String category) {
+					SocietyDao dao =sqlSession.getMapper(SocietyDao.class);
+					ArrayList<Society>societys= dao.selectAll(category);
+					ModelAndView mav = new ModelAndView("society/test");
+					mav.addObject("societys",societys);
+					mav.addObject("category",category);
+					return mav;
+				}	
 }
