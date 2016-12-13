@@ -463,7 +463,7 @@ public class SocietyContoroller{
 			catch(Exception e){
 				e.printStackTrace();
 			}
-			calendar.setC_date(calendar.getC_date1()+"/"+calendar.getC_date2()+"/"+calendar.getC_date3());
+			calendar.setC_date(calendar.getC_date1()+"-"+calendar.getC_date2()+"-"+calendar.getC_date3());
 			if(filename.equals("")){
 				calendar.setC_photo(filename);
 			} else {

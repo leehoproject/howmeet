@@ -1,5 +1,7 @@
 package com.naver.dlghdud740;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.naver.dlghdud740.entities.Calendar;
 import com.naver.dlghdud740.entities.Member;
+import com.naver.dlghdud740.service.CalendarDao;
 import com.naver.dlghdud740.service.MemberDao;
 
 /**
@@ -39,8 +43,15 @@ public class scheduleCalendarController {
 	 */
 	
 	@RequestMapping(value = "calendar", method = RequestMethod.GET)
-	public String calendar(Locale locale, Model model) {
-		return "Calendar/scheduleCalendar";
+	public ModelAndView calendar(@RequestParam("societyname") String societyname) {
+		CalendarDao dao =sqlSession.getMapper(CalendarDao.class);
+		ModelAndView mav = new ModelAndView("Calendar/scheduleCalendar");
+		ArrayList<Calendar> calendarlists= dao.selectSchedule(societyname);
+		int size = calendarlists.size();
+		mav.addObject("calendarlists",calendarlists);
+		mav.addObject("societyname",societyname);
+		mav.addObject("size",size);
+		return mav;
 	}
 	
 }

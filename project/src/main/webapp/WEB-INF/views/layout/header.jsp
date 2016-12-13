@@ -81,7 +81,6 @@
 		                       		<li><a href="memberUpdateForm?m_id=${sessionid}">내 정보</a></li>
 		                       	</c:otherwise>
 			                </c:choose>
-						<li><a href="calendar">캘린더</a></li>
 						<li><a href="member_list">회원목록</a></li>
 						<li>
 							<c:choose>
