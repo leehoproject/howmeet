@@ -23,11 +23,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.naver.dlghdud740.entities.Board;
 import com.naver.dlghdud740.entities.BoardPaging;
+import com.naver.dlghdud740.entities.Calendar;
 import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.MemberPaging;
 import com.naver.dlghdud740.entities.Society;
 import com.naver.dlghdud740.entities.SocietyPage;
 import com.naver.dlghdud740.service.BoardDao;
+import com.naver.dlghdud740.service.CalendarDao;
 import com.naver.dlghdud740.service.MemberDao;
 import com.naver.dlghdud740.service.SocietyDao;
 
@@ -228,8 +230,12 @@ public class HomeController {
 	
 	//구글맵
 	@RequestMapping(value = "/GoogleMap", method = RequestMethod.GET)
-	public String GoogleMap(Locale locale, Model model) {	
-		return "main/GoogleMap";
+	public ModelAndView GoogleMap(@RequestParam ("c_seq") int c_seq) {
+		CalendarDao dao = sqlSession.getMapper(CalendarDao.class);
+		 Calendar juso =dao.searchjuso(c_seq);
+		ModelAndView mav = new ModelAndView("main/GoogleMap");
+		mav.addObject("juso",juso);	
+		return mav;
 	}
 	
 	//회원 목록리스트

@@ -14,4 +14,6 @@ public interface CalendarDao {
 	public int insertSchedule(Calendar calendar);
 	public int deleteSchedule(HashMap<String, String> map);
 	public ArrayList<Calendar> selectSchedules(String societyname);
+	public ArrayList<Calendar> upcomming(String societyname);
+	public Calendar searchjuso(int c_seq);
 }

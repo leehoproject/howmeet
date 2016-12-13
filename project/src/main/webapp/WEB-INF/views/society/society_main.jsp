@@ -83,8 +83,7 @@
 				  <div class="row">
 				    <div class="col-sm-3 well">
 				      <div class="well">
-				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="230" width="230" alt="Avatar">
-				         <p style="margin-top: 20px;">Member<b class="badge" style="margin-left: 10PX">${society.getS_joinpeople()}</b></p>
+				         <p>Member<b class="badge" style="margin-left: 10PX">${society.getS_joinpeople()}</b></p>
 				         <p style="margin-top: 10px;">Organizers:</p>
 				         <img src="resources/images/2.jpg" class="img-circle" height="50" width="50" alt="Avatar"><b style="margin-left: 5px">${mastername}</b>
 				      </div>
@@ -145,29 +144,17 @@
 				        </div>
 				      </div>
 				    </div>
-				    <div class="col-sm-3 well">
-				      <div class="well">
-				        <p>Upcoming meets</p>
-				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
-				        <p><strong>Itschool 3rd</strong></p>
-				        <p>Fri. 18 November 2016</p>
-				        <button class="btn btn-blue">Info</button>
-				      </div>
-				      <div class="well">
-				        <p>Recent meets</p>
-				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
-				        <p><strong>Itschool 2st</strong></p>
-				        <p>Fri. 11 November 2016</p>
-				        <button class="btn btn-blue">Info</button>
-				      </div>
-				      <div class="well">
-				        <p>Recent meets</p>
-				        <img src="resources/images/2.jpg" class="img-RoundedCorners" height="180" width="180">
-				        <p><strong>Itschool party</strong></p>
-				        <p>Fri.4 November 2016</p>
-				        <button class="btn btn-blue">Info</button>
-				      </div>
-				    </div>
+				     <c:forEach var="upcomming" items="${upcommings}">
+					    <div class="col-sm-3 well">
+					      <div class="well">
+					           <p>Upcoming meets</p>
+						        <img src="resources/schedulegallery/${upcomming.c_photo}" class="img-RoundedCorners" height="180" width="180">
+						        <p><strong>${upcomming.c_name}</strong></p>
+						        <p>${upcomming.c_date}</p>
+						        <button class="btn btn-blue" onclick="location.href='GoogleMap?c_seq=${upcomming.c_seq}'">Info</button>
+					      </div>
+					    </div>
+				   	</c:forEach>  
 				  </div>
 				</div>
 		    </div>

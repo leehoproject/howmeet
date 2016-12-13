@@ -92,6 +92,7 @@ public class SocietyContoroller{
 		String mastername= mldao.selectMaster(societyname);
 		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
 		Society society =sdao.selectSociety(societyname);
+		ArrayList<Calendar> upcommings= cdao.upcomming(societyname);
 		if(photos.size()==0){
 			msg = "0" ;
 		}
@@ -104,6 +105,7 @@ public class SocietyContoroller{
 		mav.addObject("count",count);
 		mav.addObject("society",society);
 		mav.addObject("mastername",mastername);
+		mav.addObject("upcommings",upcommings);
 		return mav;
 	}
 	//동호회모임 Insert
@@ -489,9 +491,8 @@ public class SocietyContoroller{
 						map.put("c_name", ids);
 						dao.deleteSchedule(map);
 					}
-					ModelAndView mav = new ModelAndView("society/society_admin_schedulemanage");
+					ModelAndView mav = new ModelAndView("redirect:/schedulemanage");
 					mav.addObject("societyname",societyname);
 					return mav;
 				}
-		
 }

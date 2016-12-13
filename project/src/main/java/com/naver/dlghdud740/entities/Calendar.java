@@ -19,6 +19,7 @@ public class Calendar {
 	private String c_name;
 	private String c_photo;
 	private String c_zipcode;
+	private String c_seq;
 	public String getC_date() {
 		return c_date;
 	}
@@ -90,6 +91,12 @@ public class Calendar {
 	}
 	public void setC_zipcode(String c_zipcode) {
 		this.c_zipcode = c_zipcode;
+	}
+	public String getC_seq() {
+		return c_seq;
+	}
+	public void setC_seq(String c_seq) {
+		this.c_seq = c_seq;
 	}
 	
 }
