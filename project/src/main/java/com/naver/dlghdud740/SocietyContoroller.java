@@ -495,6 +495,9 @@ public class SocietyContoroller{
 					mav.addObject("societyname",societyname);
 					return mav;
 				}
+				
+				
+				
 				//모임리스트
 				@RequestMapping(value = "/society_board", method = RequestMethod.GET)
 				public ModelAndView society_board(@RequestParam("category") String category) {
@@ -505,4 +508,6 @@ public class SocietyContoroller{
 					mav.addObject("category",category);
 					return mav;
 				}	
+				
+		
 }
