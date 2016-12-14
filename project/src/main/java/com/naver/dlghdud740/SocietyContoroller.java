@@ -88,6 +88,7 @@ public class SocietyContoroller{
 		list.setSessionid(sessionid);
 		list.setSocietyname(societyname);
 		int count= mldao.selectMember(list);
+		String masterid= mldao.selectmasterid(societyname);
 		ArrayList<Memberlist> memberlists= mldao.selectAll(societyname);
 		String mastername= mldao.selectMaster(societyname);
 		ArrayList<Photo> photos= pdao.selectPhoto(societyname);
@@ -106,6 +107,7 @@ public class SocietyContoroller{
 		mav.addObject("society",society);
 		mav.addObject("mastername",mastername);
 		mav.addObject("upcommings",upcommings);
+		mav.addObject("masterid",masterid);
 		return mav;
 	}
 	//동호회모임 Insert

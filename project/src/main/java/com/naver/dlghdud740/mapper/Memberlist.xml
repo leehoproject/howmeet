@@ -42,4 +42,7 @@
 			insert into memberlist(m_id,m_name,m_level,m_joindate,m_societyname) 
 			values(#{sessionid},(select m_name from member where m_id=#{sessionid}),3,sysdate,#{societyname})
 		</insert>
+		<select id="selectmasterid" resultType="String">
+			select m_id from memberlist where m_societyname=#{societyname} and m_level='3'
+		</select>
 	</mapper>

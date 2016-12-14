@@ -72,7 +72,9 @@
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a href="calendar?societyname=${societyname}">Schedule</a></li>
 		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
-		    <li><a href="societyadmin?societyname=${societyname}">모임관리</a></li>
+		   		 <c:if test="${sessionid==masterid}">
+		    		<li><a href="societyadmin?societyname=${societyname}">모임관리</a></li>
+		    	</c:if>
 		    </c:if>
 		  </ul>
 		
