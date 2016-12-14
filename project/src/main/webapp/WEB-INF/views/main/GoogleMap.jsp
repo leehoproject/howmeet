@@ -11,7 +11,7 @@
 <body>
 <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=h8RJ2MpqVTzT6BR1xr6b&submodules=geocoder"></script>
 <div class="container">
-		<center><div id="map" style="border:1px solid #000;width:50%;height:400px;"></div></center>
+		<center><div id="map" style="border:1px solid #000;width:80%;height:400px;"></div></center>
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<form class="form-horizontal">
@@ -70,7 +70,7 @@ function searchAddressToCoordinate(address) {
 
         infoWindow.setContent([
                 '<div style="padding:10px;min-width:200px;line-height:150%;">',
-                '<h4>모임주소 : '+ response.result.userquery +'  ${juso.getC_spot2()} </h4><br />',
+                '<h4>모임주소 : '+ response.result.userquery +'  ${juso.getC_spot2()} </h4><br/>',
                 '</div>'
             ].join('\n'));
 
