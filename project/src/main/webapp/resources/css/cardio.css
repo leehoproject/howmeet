@@ -736,10 +736,11 @@ footer .social-footer li:hover a {
 }
 
 .form-control.form-white {
-	color: #000;
-	border: 1px solid #cccccc;
-	-webkit-transition: background-color 0.3s;
-	transition: background-color 0.3s;
+	color: #fff;
+    border: 2px solid white;
+    background: transparent;
+    -webkit-transition: background-color 0.3s;
+    transition: background-color 0.3s;
 }
 
 .form-control.form-white::-webkit-input-placeholder {
@@ -792,7 +793,7 @@ footer .social-footer li:hover a {
 	position: absolute;
 	top: 20px;
 	right: 30px;
-	color: #000;
+	color: #fff;
 }
 
 .popup-form {
@@ -910,8 +911,8 @@ footer .social-footer li:hover a {
 .btn.btn-submit {
 	width: 100%;
 	margin-top: 30px;
-	color: #333333;
-	border:1px solid #cccccc;
+	color: #ffffff;
+	border:1px solid #ffffff;
 	border-radius:5px;
 }
 
@@ -921,6 +922,7 @@ footer .social-footer li:hover a {
 
 .btn.btn-submit:hover {
 	color: #00a8ff;
+	background: #fff;
 }
 
 /* Mobile Nav */
@@ -994,7 +996,7 @@ footer .social-footer li:hover a {
 /* Colors */
 
 .white {
-	color: #333333;
+	color: #ffffff;
 }
 
 .light-white {

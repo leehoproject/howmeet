@@ -103,22 +103,17 @@
 	<!--  로그인창 -->
 	<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
-			<div class="modal-content modal-popup">
+			<div class="modal-content modal-popup" style="background-image: url(resources/images/popup.jpg);">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<h3 class="white">로그인</h3>
-				<form action="login" method="POST" class="popup-form">
-					<input type="text" class="form-control form-white" id="m_id" name="m_id" placeholder="아이디">
-					<input type="password" class="form-control form-white" id="m_pw" name="m_pw" placeholder="패스워드">
-					<!-- <div class="checkbox-holder text-left">
-						<div class="checkbox">
-							<input type="checkbox" value="None" id="squaredOne" name="check" />
-							<label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
-						</div>
-					</div> -->
+				<h3 class="white">Login</h3>
+				<form  action="login" method="POST" class="popup-form">
+					<input type="text" class="form-control form-white" id="m_id" name="m_id" placeholder="아이디" style="-webkit-input-placeholder { color: #fff; }" >
+					<input type="password" class="form-control form-white" id="m_pw" name="m_pw" placeholder="패스워드" style="margin-top: 20px">
 					<button type="submit" class="btn btn-submit">로그인</button>
 				</form>
 			</div>
 		</div>
 	</div>
+	
 	
 </body>
