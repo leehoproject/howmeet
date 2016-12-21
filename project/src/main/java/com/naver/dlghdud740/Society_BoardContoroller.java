@@ -374,14 +374,6 @@ public class Society_BoardContoroller{
 		public ModelAndView society_boarddeleteyn(@RequestParam int b_seq ) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			dao.deleteRow(b_seq);
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
-			System.out.println("---------->삭제완료");
 			ModelAndView mav = new ModelAndView("redirect:/society_board_list?");
 			return mav;
 		}

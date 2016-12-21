@@ -219,7 +219,16 @@ public class SocietyContoroller{
 	
 	//멤버확인
 	@RequestMapping(value = "selectMember", method = RequestMethod.GET)
-	public ModelAndView selectMember(@RequestParam("sessionid") String sessionid,@RequestParam("societyname") String societyname) {
+	public ModelAndView selectMember(@RequestParam("sessionid") String sessionid,
+									 @RequestParam("societyname") String societyname,
+									 @RequestParam("s_hobby") String s_hobby,
+									 @RequestParam("s_dept") int s_dept) {
+		System.out.println("--------------------"+s_hobby);
+		System.out.println("--------------------"+s_hobby);
+		System.out.println("--------------------"+s_hobby);
+		System.out.println("--------------------"+s_dept);
+		System.out.println("--------------------"+s_dept);
+		System.out.println("--------------------"+s_dept);
 		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
 		societylist list = new societylist();
 		list.setSessionid(sessionid);
@@ -229,19 +238,24 @@ public class SocietyContoroller{
 			ModelAndView mav = new ModelAndView("redirect:/societyJoin");
 			mav.addObject("sessionid",sessionid);
 			mav.addObject("societyname",societyname);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
 			return mav;
 		} else {
 			ModelAndView mav = new ModelAndView("redirect:/societymain");
 			mav.addObject("check","0");
 			mav.addObject("societyname",societyname);
 			mav.addObject("sessionid",sessionid);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
 			return mav;
 		}
 	}
 	
 	//모임가입
 	@RequestMapping(value = "/societyJoin", method = RequestMethod.GET)
-	public ModelAndView societyJoin(@RequestParam("sessionid") String sessionid,@RequestParam("societyname") String societyname) {
+	public ModelAndView societyJoin(@RequestParam("sessionid") String sessionid,@RequestParam("societyname") String societyname,
+									@RequestParam("s_hobby") String s_hobby,@RequestParam("s_dept") int s_dept) {
 		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
 		societylist list = new societylist();
 		list.setSessionid(sessionid);
@@ -257,6 +271,8 @@ public class SocietyContoroller{
 		mav.addObject("check","1");
 		mav.addObject("societyname",societyname);
 		mav.addObject("sessionid",sessionid);
+		mav.addObject("s_hobby",s_hobby);
+		mav.addObject("s_dept",s_dept);
 		return mav;
 	}
 	

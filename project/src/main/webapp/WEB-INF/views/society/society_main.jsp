@@ -47,7 +47,9 @@
 			}
 			var sessionid = $('#sessionid').val();
 			var societyname = $('#societyname').val();
-		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname);	
+			var s_hobby = $('#s_hobby').val();
+			var s_dept = $('#s_dept').val();			
+		    $(location).attr('href',"selectMember?sessionid="+sessionid+"&societyname="+societyname+"&s_hobby="+s_hobby+"&s_dept="+s_dept);	
 		});
 	});
 	</script>
@@ -122,7 +124,7 @@
 				             	  </button>
 								  <c:if test="${check==0}">
 									  <div class="alert alert-warning alert-dismissable fade in" style="margin-top: 5px">
-									    <a href="societymain?check=1&societyname=${societyname}&sessionid=${sessionid}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									    <a href="societymain?check=1&societyname=${societyname}&sessionid=${sessionid}&s_hobby=${s_hobby}&s_dept=${s_dept}" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 									    <strong>이미 가입하셨습니다</strong>
 									  </div>
 								  </c:if>
