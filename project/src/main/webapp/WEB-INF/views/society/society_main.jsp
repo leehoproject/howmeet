@@ -71,7 +71,7 @@
 		    <c:if test="${sessionid!=null&&count!=0}">
 		    <li><a data-toggle="tab" href="#menu3">Picture</a></li>
 		    <li><a href="calendar?societyname=${societyname}">Schedule</a></li>
-		    <li><a data-toggle="tab" href="#menu4">Board</a></li>
+		    <li><a  href="society_board_list?s_hobby=${s_hobby}&s_dept=${s_dept}">Board</a></li>
 		   		 <c:if test="${sessionid==masterid}">
 		    		<li><a href="societyadmin?societyname=${societyname}">모임관리</a></li>
 		    	</c:if>
@@ -114,6 +114,8 @@
 				              <p>${society.getS_content()}</p>
 				              <input type="hidden" id="sessionid" name="sessionid" value="${sessionid}">
 				              <input type="hidden" id="societyname" name="societyname" value="${societyname}">
+				              <input type="hidden" id=s_hobby name="s_hobby" value="${s_hobby}">
+				              <input type="hidden" id="s_dept" name="s_dept" value="${s_dept}">
 				              <c:if test="${sessionid!=null}">
 					              <button id="joinmember" name="joinmember" type="button" class="btn btn-default">
 					              <span class="glyphicon glyphicon-thumbs-up"></span> Join Member

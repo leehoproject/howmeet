@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -35,12 +36,15 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import com.naver.dlghdud740.entities.Board;
+import com.naver.dlghdud740.entities.BoardPaging;
 import com.naver.dlghdud740.entities.Calendar;
 import com.naver.dlghdud740.entities.ItemBean;
 import com.naver.dlghdud740.entities.Member;
 import com.naver.dlghdud740.entities.Memberlist;
 import com.naver.dlghdud740.entities.Photo;
 import com.naver.dlghdud740.entities.Society;
+import com.naver.dlghdud740.entities.Society_Board;
+import com.naver.dlghdud740.entities.Society_Reply;
 import com.naver.dlghdud740.entities.Societyphoto;
 import com.naver.dlghdud740.entities.deletelist;
 import com.naver.dlghdud740.entities.ids;
@@ -66,6 +70,21 @@ public class SocietyContoroller{
 	@Autowired
 	private SqlSession sqlSession;
 	
+	@Autowired
+	private Society_Board board;
+	
+	@Autowired
+	private BoardPaging boardpaging;
+	
+	@Autowired
+	private Society_Reply reply;
+	
+	@Autowired
+	private WebApplicationContext context =null;
+	private int selectedPage;
+	public static String selectbox;
+	public static String find;
+	
 	private static final Logger logger = LoggerFactory.getLogger(SocietyContoroller.class);
 	
 	/**
@@ -78,7 +97,10 @@ public class SocietyContoroller{
 	}
 	//동호회메인
 	@RequestMapping(value = "/societymain", method = RequestMethod.GET)
-	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,@RequestParam("sessionid") String sessionid) {	
+	public ModelAndView societymain(@RequestParam("check") String check,@RequestParam("societyname") String societyname,
+									@RequestParam("sessionid") String sessionid,
+									@RequestParam("s_hobby") String s_hobby,
+									@RequestParam("s_dept") int s_dept) {	
 		String msg ="";
 		MemberlistDao mldao = sqlSession.getMapper(MemberlistDao.class);
 		PhotoDao pdao = sqlSession.getMapper(PhotoDao.class);
@@ -108,6 +130,8 @@ public class SocietyContoroller{
 		mav.addObject("mastername",mastername);
 		mav.addObject("upcommings",upcommings);
 		mav.addObject("masterid",masterid);
+		mav.addObject("s_hobby",s_hobby);
+		mav.addObject("s_dept",s_dept);
 		return mav;
 	}
 	//동호회모임 Insert

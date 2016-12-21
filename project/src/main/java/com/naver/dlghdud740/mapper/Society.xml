@@ -12,16 +12,18 @@
 			<id property="s_createdate" column="s_createdate" />
 			<id property="s_joinpeople" column="s_joinpeople" />
 			<id property="s_photo" column="s_photo" />
+			<id property="s_dept" column="s_dept" />
 		</resultMap>
 		<insert id="insertRow" parameterType="hashMap">
-			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum,s_createdate,s_joinpeople) 
-			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum},sysdate,0)
+			insert into Society(s_hobby,s_name,s_content,s_area,s_peoplenum,s_createdate,s_joinpeople,s_dept) 
+			values(#{s_hobby},#{s_name},#{s_content},#{s_area},#{s_peoplenum},sysdate,
+			0,(select coalesce(max(s_dept)+1,1) from society))
 		</insert>		
 		<select id="selectAll" parameterType="hashMap" resultMap="SocietyMap">
 			select * from Society where s_hobby=#{category}
 		</select>
 		<select id="findGroup" parameterType="hashMap" resultMap="SocietyMap">
-			select * from Society where s_name like '%'||#{namefind}||'%' or s_hobby like '%'||#{namefind}||'%' or s_area like '%'||#{namefind}||'%'
+			select * from Society where s_name like '%'||#{namefind}||'%' or s_hobby like '%'||#{namefind}||'%' or s_area like '%'||#{namefind}||'%' 
 		</select>	
 		<select id="selectSociety" parameterType="hashMap" resultMap="SocietyMap">
 			select * from society where s_name=#{societyname}

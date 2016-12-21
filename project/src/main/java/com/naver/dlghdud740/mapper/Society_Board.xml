@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.naver.dlghdud740.service.Society_BoardDao">
+		<resultMap type="com.naver.dlghdud740.entities.Society_Board" id="Board_Map">
+			<id property="b_seq" column="b_seq" />
+			<id property="b_id" column="b_id" />
+			<id property="b_name" column="b_name" />
+			<id property="b_password" column="b_password" />
+			<id property="b_email" column="b_email" />
+			<id property="b_title" column="b_title" />
+			<id property="b_content" column="b_content" />
+			<id property="b_date" column="b_date" />
+			<id property="b_ip" column="b_ip" />
+			<id property="b_ref" column="b_ref" />
+			<id property="b_step" column="b_step" />
+			<id property="b_hit" column="b_hit" />
+			<id property="b_level" column="b_level" />
+			<id property="b_attach" column="b_attach" />
+			<id property="b_QAtype" column="b_QAtype" />
+			<id property="b_dept1" column="b_dept1" />
+			<id property="b_dept2" column="b_dept2" />
+		</resultMap>
+		<resultMap type="com.naver.dlghdud740.entities.Reply" id="replyMap">
+			<id property="r_seq" column="r_seq" />
+			<id property="r_id" column="r_id" />
+			<id property="r_name" column="r_name" />
+			<id property="r_date" column="r_date" />
+			<id property="r_content" column="r_content" />
+		</resultMap>	
+		
+		<insert id="insertcontent" parameterType="hashMap">
+			insert into society_board(b_seq,b_id,b_name,b_email,b_title,b_content,b_date,b_ip,b_ref,b_step,b_hit,b_level,b_attach,b_QAtype,b_dept1,b_dept2) 
+			values((select coalesce(max(b_seq)+1,1) from society_board),#{b_id},#{b_name},#{b_email},#{b_title},#{b_content},#{b_date},#{b_ip},(select coalesce(max(b_seq)+1,1) from society_board),#{b_step},#{b_hit},#{b_level},#{b_attach},#{b_QAtype}
+					,#{b_dept1},#{b_dept2})
+		</insert>
+		<select id="selectCount" parameterType="hashMap" resultType="int">
+			select count(*) from society_board where ${selectbox} like '%'||#{find}||'%' and b_dept1 LIKE #{b_dept1} and b_dept2=#{b_dept2}
+		</select>
+		<select id="selectCountAll" parameterType="hashMap" resultType="int">
+			select count(*) from society_board 
+			where b_dept1 LIKE #{b_dept1} and b_dept2=#{b_dept2} 
+		</select>
+		<select id="selectOne" parameterType="int" resultMap="Board_Map">
+			select * from society_board where b_seq=#{b_seq}
+		</select>
+		<select id="selectAll" parameterType="hashMap" resultMap="Board_Map">
+			select * from 
+			(select rownum numrow, A.* from
+			(select * from Society_Board order by b_ref desc,b_step asc ) A )
+			where numrow > 0 and numrow<![CDATA[<=]]> 10 
+			and b_dept1 LIKE #{b_dept1} and b_dept2=#{b_dept2}
+		</select>
+		<select id="selectPageList2" resultMap="Board_Map">
+			select * from 
+			(select rownum numrow, A.* from
+			(select * from society_board where ${selectbox} like '%'||#{find}||'%' order by b_ref desc , b_step asc) A )
+			where numrow > #{startrow} and numrow<![CDATA[<=]]> #{endrow}	
+			and b_dept1 LIKE #{b_dept1} and b_dept2=#{b_dept2}		
+		</select>
+		<update id="updateRow" parameterType="hashMap">
+			update society_board set b_id=#{b_id},b_name=#{b_name},b_title=#{b_title},b_content=#{b_content},b_ip=#{b_ip},b_date=#{b_date},b_QAtype=#{b_QAtype} 
+			where b_seq=#{b_seq}
+		</update>
+		<update id="updateHit" parameterType="int">
+			update society_board set b_hit=b_hit + 1 where b_seq=#{b_seq}
+		</update>
+		<delete id="deleteRow" parameterType="int">
+			delete from society_board where b_seq=#{b_seq}
+		</delete>
+		<delete id="reply_deleteRow" parameterType="int">
+			delete from society_reply where b_seq=#{b_seq}
+		</delete>
+		<insert id="insertReply" parameterType="hashMap">
+		insert into society_reply(r_seq,r_id,r_name,r_date,r_content,r_no) values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} 
+		                  ,(select coalesce(max(r_no)+1,1) from society_reply))
+		</insert>
+		<select id="replySelectAll" resultMap="replyMap">
+		select*from
+		(select rownum numrow, A.* from (select * from society_reply order by r_no desc)A) where r_seq=#{b_seq}
+		</select>
+		<delete id="delete_replyRow" parameterType="hashMap">
+			delete from society_reply 
+			where r_seq=#{r_seq} and r_no=#{r_no}
+		</delete>
+	</mapper>

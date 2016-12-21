@@ -16,7 +16,14 @@ public class Society {
 	private int s_joinpeople;
 	private String s_photo;
 	private String s_photoname;
+	private int s_dept;
 	
+	public int getS_dept() {
+		return s_dept;
+	}
+	public void setS_dept(int s_dept) {
+		this.s_dept = s_dept;
+	}
 	public String getS_area() {
 		return s_area;
 	}

@@ -8,6 +8,21 @@ public class BoardPaging {
 	private String selectbox;
 	private int startrow;
 	private int endrow;
+	private String b_dept1;
+	private int b_dept2;
+	
+	public String getB_dept1() {
+		return b_dept1;
+	}
+	public void setB_dept1(String b_dept1) {
+		this.b_dept1 = b_dept1;
+	}
+	public int getB_dept2() {
+		return b_dept2;
+	}
+	public void setB_dept2(int b_dept2) {
+		this.b_dept2 = b_dept2;
+	}
 	public String getFind() {
 		return find;
 	}
