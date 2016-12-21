@@ -25,6 +25,6 @@ public interface Society_BoardDao {
 	public int insertReply(Society_Reply reply);
 	public ArrayList<Society_Reply> replySelectAll(int b_seq);
 	public int delete_replyRow(Map params);
-	
+	public int society_deleteRow(Map params);
 	
 }

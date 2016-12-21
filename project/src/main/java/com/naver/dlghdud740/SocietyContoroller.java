@@ -223,12 +223,6 @@ public class SocietyContoroller{
 									 @RequestParam("societyname") String societyname,
 									 @RequestParam("s_hobby") String s_hobby,
 									 @RequestParam("s_dept") int s_dept) {
-		System.out.println("--------------------"+s_hobby);
-		System.out.println("--------------------"+s_hobby);
-		System.out.println("--------------------"+s_hobby);
-		System.out.println("--------------------"+s_dept);
-		System.out.println("--------------------"+s_dept);
-		System.out.println("--------------------"+s_dept);
 		MemberlistDao dao =sqlSession.getMapper(MemberlistDao.class);
 		societylist list = new societylist();
 		list.setSessionid(sessionid);
@@ -318,7 +312,6 @@ public class SocietyContoroller{
 		} else {
 			msg += "수정에 실패했습니다.";
 		}
-		
 		ModelAndView mav = new ModelAndView("member/member_result");
 		mav.addObject("msg",msg);
 		return mav;		

@@ -66,8 +66,8 @@
 		<update id="updateHit" parameterType="int">
 			update society_board set b_hit=b_hit + 1 where b_seq=#{b_seq}
 		</update>
-		<delete id="deleteRow" parameterType="int">
-			delete from society_board where b_seq=#{b_seq}
+		<delete id="society_deleteRow" parameterType="hashMap">
+			delete from society_board where b_seq=#{b_seq} and b_dept1 LIKE #{s_hobby} and b_dept2=#{s_dept}
 		</delete>
 		<delete id="reply_deleteRow" parameterType="int">
 			delete from society_reply where b_seq=#{b_seq}

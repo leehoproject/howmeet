@@ -51,7 +51,8 @@ $(function(){
 		<div class="col-md-12 mainframe">
 			<div class="form-group">
 				<input Type="hidden" id="b_seq" name="b_seq" value="${board.getB_seq()}"/>
-				<input Type="hidden" id="b_dept1" name="b_dept1" value="${board.getB_seq()}"/>
+				<input Type="hidden" id="s_hobby" name="s_hobby" value="${s_hobby}"/>
+				<input Type="hidden" id="s_dept" name="s_dept" value="${s_dept}"/>
 				<span class="title"  style="height: auto; width: 100%;  margin-right:10px; border-bottom:3px solid gray;">동호회 게시판</span>
 				<input type="text" class="form-control" id="b_email" name="b_email" value="${sessionemail}" placeholder="아이디" style="display:none" required>
 				<input type="text" class="form-control" id="b_name" name="b_name" value="${sessionname}" placeholder="아이디" style="display:none" required>
@@ -87,11 +88,11 @@ $(function(){
 						<button Type="button" id="update"  class="btn btn-default" style="width:100%;">수정</button>
 					</div>
 					<div class="col-sm-4">
-						<button Type="button" id="cancel" onclick="location.href='society_boarddeleteyn?b_seq='+${board.getB_seq()}" class="btn btn-default" style="width:100%;">삭제</button>
-					</div>
+						<button Type="button" id="delete" onclick="location.href='societyBoardDelete?b_seq=${board.getB_seq()}&s_hobby=${s_hobby}&s_dept=${s_dept}'" class="btn btn-default" style="width:100%;">삭제</button>
+					</div>								
 					</c:if>
 					<div class="col-sm-4">	
-						<button Type="submit" id="reply" onclick="location.href='society_replyInsert?b_seq='+${board.getB_seq()}" class="btn btn-default" style="width:100%;">댓글</button>
+						<button Type="submit" id="reply" onclick="location.href='society_replyInsert?b_seq='+${board.getB_seq()}'" class="btn btn-default" style="width:100%;">댓글</button>
 					</div>
 				</div>	
 			</div>		
@@ -100,11 +101,11 @@ $(function(){
 	                  <c:forEach var="replys" items="${replys}" >
 	                          <tr>
 	                          	 <td style="border:1x; border-style:solid; border-color:#000000; padding: 2em;" class="hidden-xs" width="50" align="left" >
-	                          	 ${sessionid} <br><br>
-	                          	 ${replys.r_content} 
-	                          	 <c:if test="${sessionid==board.getB_id() || sessionid == 'admin'}">
+	                          	 <id="reply_id">${replys.r_id}<br><br></id>
+	                          	 <id="reply_content">${replys.r_content}</id>
+<%-- 	                          	 <c:if test="${temp == replys.r_id || sessionid == 'admin'}"> --%>
 	                          	 <button Type="button" onclick="location.href='delete_replyRow?r_seq=+${replys.getR_seq()}&r_no=+${replys.getR_no()}'" id="replydelete" name="replydelete"  class="btn btn-default" style="width:10% align="right">삭제</button>
-	                          	 </c:if>
+<%-- 	                          	 </c:if> --%>
 	                          	 <br><br>
 	                          	 ${replys.r_date}
 	                          	  </td>

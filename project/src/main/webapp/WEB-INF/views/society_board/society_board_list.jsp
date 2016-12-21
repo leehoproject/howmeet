@@ -47,6 +47,8 @@ $(document).ready(function() {
     <div class="row">
      <input type="hidden" id="s_hobby" name="s_hobby" value="${s_hobby}">
 	 <input type="hidden" id="s_dept" name="s_dept" value="${s_dept}">
+	 <input type="hidden" id="b_dept1" name="b_dept1" value="${s_hobby}">
+	 <input type="hidden" id="b_dept2" name="b_dept2" value="${s_dept}">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default panel-table">
               <div class="panel-heading">
@@ -74,7 +76,7 @@ $(document).ready(function() {
                   <tbody>
                   <c:forEach var="board" items="${boards}" >
                           <tr>
-                            <td width="100" align="center"><a href="societyboardreadform?b_seq=${board.b_seq}">${board.b_title}</td></a>
+                            <td width="100" align="center"><a href="societyboardreadform?b_seq=${board.b_seq}&s_hobby=${s_hobby}&s_dept=${s_dept}">${board.b_title}</td></a>
                             <td width="80" align="center">${board.b_id}</td>
                             <td width="80" align="center">${board.b_date}</td>
                             <td width="80" align="center">${board.b_hit}</td>

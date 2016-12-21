@@ -182,7 +182,6 @@ public class Society_BoardContoroller{
 			mav.addObject("pages",pages);
 			return mav;
 		}				
-		
 		@RequestMapping(value = "/society_boardPageList", method = {RequestMethod.GET, RequestMethod.POST})
 		public ModelAndView society_boardPageList(@ModelAttribute("boardpaging") BoardPaging boardpaging,
 												  @RequestParam String s_hobby,@RequestParam int s_dept) {
@@ -225,15 +224,6 @@ public class Society_BoardContoroller{
 			boardpaging.setB_dept1(s_hobby);
 			boardpaging.setB_dept2(s_dept);
 			int rowcount = dao.selectCount(boardpaging);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			System.out.println(rowcount);
-			
 			int pageSize = 10;
 			int absPage = 0;
 			int startrow = (page - 1) * pageSize;
@@ -255,7 +245,8 @@ public class Society_BoardContoroller{
 			return mav;
 		}				
 		@RequestMapping(value = "/societyboardreadform", method = RequestMethod.GET)
-		public ModelAndView societyboardreadform(@RequestParam("b_seq") int b_seq ) {
+		public ModelAndView societyboardreadform(@RequestParam("b_seq") int b_seq,
+												 @RequestParam("s_hobby") String s_hobby,@RequestParam("s_dept") int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			dao.updateHit(b_seq);
 			Society_Board board = dao.selectOne(b_seq);
@@ -263,6 +254,9 @@ public class Society_BoardContoroller{
 			ModelAndView mav = new ModelAndView("society_board/society_board_read_form");
 			mav.addObject("board",board);
 			mav.addObject("replys",replys);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
+			
 			return mav;
 		}				
 		@RequestMapping(value = "/society_board_update_form", method = RequestMethod.GET)
@@ -343,7 +337,8 @@ public class Society_BoardContoroller{
 		}
 		
 		@RequestMapping(value = "/society_replyInsert", method = RequestMethod.GET)
-		public String society_replyInsert(@RequestParam int b_seq, @ModelAttribute("Society_reply") Society_Reply reply,HttpServletRequest request) {
+		public ModelAndView society_replyInsert(@RequestParam int b_seq, @ModelAttribute("Society_reply") Society_Reply reply,HttpServletRequest request,
+										  @RequestParam String s_hobby,@RequestParam int s_dept) {
 			HttpSession session = request.getSession();
 			String id = (String) session.getAttribute("sessionid");
 			String name = (String) session.getAttribute("sessionname");
@@ -357,8 +352,11 @@ public class Society_BoardContoroller{
 			reply.setR_content(reply.getR_content());
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			int result = dao.insertReply(reply);
-			
-			return "redirect:societyboardreadform?b_seq="+reply.getR_seq();
+			ModelAndView mav = new ModelAndView("redirect:societyboardreadform");
+			mav.addObject("b_seq",b_seq);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
+			return mav;
 		}			
 
 		@RequestMapping(value = "/delete_replyRow", method = RequestMethod.GET)
@@ -370,11 +368,31 @@ public class Society_BoardContoroller{
 	        dao.delete_replyRow(params);
 			return "redirect:societyboardreadform?b_seq="+reply.getR_seq();
 		}	
-		@RequestMapping(value = "/society_boarddeleteyn", method = RequestMethod.GET)
-		public ModelAndView society_boarddeleteyn(@RequestParam int b_seq ) {
+		@RequestMapping(value = "/societyBoardDelete", method = RequestMethod.GET)
+		public ModelAndView society_BoardDelete(@RequestParam int b_seq,@RequestParam String s_hobby,@RequestParam int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
-			dao.deleteRow(b_seq);
-			ModelAndView mav = new ModelAndView("redirect:/society_board_list?");
+			ModelAndView mav = new ModelAndView("society_board/society_delete_message");
+			mav.addObject("b_seq",b_seq);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
 			return mav;
 		}
+		
+		@RequestMapping(value = "/society_Board_Delete", method = RequestMethod.GET)
+		public ModelAndView society_Board_Delete(@RequestParam int b_seq,@RequestParam String s_hobby,@RequestParam int s_dept) {
+			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
+			//게시글삭제 부분
+			Map params = new HashMap();
+	        params.put("b_seq",b_seq);
+	        params.put("s_hobby",s_hobby);
+	        params.put("s_dept",s_dept);
+	        dao.society_deleteRow(params);
+	        //댓글삭제 부분
+	        
+			ModelAndView mav = new ModelAndView("redirect:society_board_list");
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
+			return mav;
+		}
+		
 }
