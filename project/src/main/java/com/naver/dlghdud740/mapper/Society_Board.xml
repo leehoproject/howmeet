@@ -86,4 +86,8 @@
 		<delete id="reply_deleteRow" parameterType="int">
 			delete from society_reply where r_no=#{r_no}
 		</delete>
+		<select id="select_replycount" parameterType="hashMap" resultType="int">
+			select count(*) from society_reply 
+			where r_dept LIKE #{s_hobby} and r_seq=#{s_dept} 
+		</select>
 	</mapper>

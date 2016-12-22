@@ -257,7 +257,9 @@ public class Society_BoardContoroller{
 	        params.put("s_hobby",s_hobby);
 	        params.put("s_dept",s_dept);
 			ArrayList<Society_Reply> replys = dao.replySelectAll(params);
+			int reply_countall = dao.select_replycount(params);
 			ModelAndView mav = new ModelAndView("society_board/society_board_read_form");
+			mav.addObject("count",reply_countall);
 			mav.addObject("board",board);
 			mav.addObject("replys",replys);
 			mav.addObject("s_hobby",s_hobby);
@@ -272,6 +274,7 @@ public class Society_BoardContoroller{
 			dao.updateHit(b_seq);
 			ModelAndView mav = new ModelAndView("society_board_update_form");
 			mav.addObject("board",board);
+			
 			return mav;
 		}
 		@RequestMapping(value = "/society_boardupdate", method = RequestMethod.POST)
@@ -297,6 +300,7 @@ public class Society_BoardContoroller{
 			ModelAndView mav = new ModelAndView("society_board/society_boardresult");
 			mav.addObject("msg",msg);
 			mav.addObject("result","ok");
+			
 			return mav;
 		}
 		
