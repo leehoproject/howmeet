@@ -67,16 +67,12 @@
 		<update id="updateHit" parameterType="int">
 			update society_board set b_hit=b_hit + 1 where b_seq=#{b_seq}
 		</update>
-		<delete id="society_deleteRow" parameterType="hashMap">
-			delete from society_board where b_seq=#{b_seq} and b_dept1 LIKE #{s_hobby} and b_dept2=#{s_dept}
-		</delete>
-		<delete id="reply_deleteRow" parameterType="int">
-			delete from society_reply where b_seq=#{b_seq}
+		<delete id="deleteRow" parameterType="int">
+			delete from society_board where b_seq=#{b_seq}
 		</delete>
 		<insert id="insertReply" parameterType="hashMap">
 		insert into society_reply(r_seq,r_id,r_name,r_date,r_content,r_no,r_dept) 
-						    values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} 
-		                		  ,(select coalesce(max(r_no)+1,1)from society_reply),#{r_dept})
+		values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} ,(select coalesce(max(r_no)+1,1)from society_reply),#{r_dept})
 		</insert>
 		<select id="replySelectAll" resultMap="replyMap">
 		select * from
@@ -85,6 +81,9 @@
 		</select>
 		<delete id="delete_replyRow" parameterType="hashMap">
 			delete from society_reply 
-			where r_seq=#{r_seq} and r_no=#{r_no}
+			where r_no=#{r_no}
+		</delete>
+		<delete id="reply_deleteRow" parameterType="int">
+			delete from society_reply where r_no=#{r_no}
 		</delete>
 	</mapper>

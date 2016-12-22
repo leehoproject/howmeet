@@ -73,10 +73,6 @@ $(function(){
 				<textarea class="form-control" id="b_content" disabled="disabled" name="b_content"  maxlength="140"  rows="80" >${board.getB_content()}</textarea>
 			</div>
 			<div class="form-group">
-				<label for="writrlabel"><div class="labeltext">아이디  </div></label>
-				<label for="writr"><span class="labeltext">${board.b_id} </span></label>
-			</div>				
-			<div class="form-group">
 				<label for="summernote"><span class="labeltext">댓글</span></label>
 				<textarea class="form-control" id="r_content"  name="r_content"  maxlength="140"  rows="5" ></textarea>
 			</div>	
@@ -88,11 +84,11 @@ $(function(){
 						<button Type="button" id="update"  class="btn btn-default" style="width:100%;">수정</button>
 					</div>
 					<div class="col-sm-4">
-						<button Type="button" id="delete" onclick="location.href='societyBoardDelete?b_seq=${board.getB_seq()}&s_hobby=${s_hobby}&s_dept=${s_dept}'" class="btn btn-default" style="width:100%;">삭제</button>
+						<button Type="button" id="delete" onclick="location.href='society_boarddeleterow?b_seq=${board.getB_seq()}&s_hobby=${s_hobby}&s_dept=${s_dept}'" class="btn btn-default" style="width:100%;">삭제</button>
 					</div>								
 					</c:if>
 					<div class="col-sm-4">	
-						<button Type="submit" id="reply" onclick="location.href='society_replyInsert?b_seq='+${board.getB_seq()}'" class="btn btn-default" style="width:100%;">댓글</button>
+						<button Type="submit" id="reply" onclick="location.href='society_replyInsert?b_seq='${board.getB_seq()}'" class="btn btn-default" style="width:100%;">댓글</button>
 					</div>
 				</div>	
 			</div>		
@@ -104,7 +100,7 @@ $(function(){
 	                          	 <id="reply_id">${replys.r_id}<br><br></id>
 	                          	 <id="reply_content">${replys.r_content}</id>
 <%-- 	                          	 <c:if test="${temp == replys.r_id || sessionid == 'admin'}"> --%>
-	                          	 <button Type="button" onclick="location.href='delete_replyRow?r_seq=+${replys.getR_seq()}&r_no=+${replys.getR_no()}'" id="replydelete" name="replydelete"  class="btn btn-default" style="width:10% align="right">삭제</button>
+	                          	 <button Type="button" onclick="location.href='delete_replyRow?b_seq=${board.getB_seq()}&r_no=${replys.getR_no()}&s_hobby=${s_hobby}&s_dept=${s_dept}'" id="replydelete" name="replydelete"  class="btn btn-default" style="width:10% align="right">삭제</button>
 <%-- 	                          	 </c:if> --%>
 	                          	 <br><br>
 	                          	 ${replys.r_date}

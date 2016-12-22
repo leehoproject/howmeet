@@ -61,18 +61,7 @@ $(function(){
 				<div class="col-md-12" style="padding:0;">
 					<input type="text" class="form-control" id="b_id" name="b_id" value="${sessionid}" placeholder="아이디"  required>
 				</div>
-			</div>
-			<div class="form-group">
-				<label for="QAtype"><span class="QAtype">문의종류 </span></label>
-				<div class="col-md-12" style="padding:0;">
-				<select class="form-control" name="b_QAtype" id="b_QAtype">
-					<option value="에러">에러</option>
-					<option value="기타">기타</option>
-				</select>
-				</div>
-			</div>			
-			<div class="col-md-2" style="padding:0; padding-top:20px; padding-bottom:20px;">
-			</div>	
+			</div>		
 			<div class="form-group">
 				<label for="title"><span class="labeltext" >제목</span></label>
 				<div class="col-md-12" style="padding:0;">

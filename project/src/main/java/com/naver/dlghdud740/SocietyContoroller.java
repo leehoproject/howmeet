@@ -144,7 +144,7 @@ public class SocietyContoroller{
 		String sessionid = (String) session.getAttribute("sessionid");
 		String msg = "";
 		if(result==1){
-			msg=society.getS_name()+"이름으로 동호회를 설립하였습니다.";
+			msg=society.getS_name()+" 동호회를 설립하였습니다.";
 			societylist list = new societylist();
 			list.setSessionid(sessionid);
 			list.setSocietyname(societyname);
@@ -153,7 +153,7 @@ public class SocietyContoroller{
 		} else {
 			msg="동호회 설립 실패";
 		}
-		ModelAndView mav = new ModelAndView("society/society_result");
+		ModelAndView mav = new ModelAndView("society/society_resultpage");
 		mav.addObject("msg",msg);
 		mav.addObject("result","ok");
 		
