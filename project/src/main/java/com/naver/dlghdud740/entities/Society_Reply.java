@@ -10,6 +10,14 @@ public class Society_Reply {
 	private String r_date;
 	private String r_content;
 	private int r_no;
+	private String r_dept;
+	
+	public String getR_dept() {
+		return r_dept;
+	}
+	public void setR_dept(String r_dept) {
+		this.r_dept = r_dept;
+	}
 	public int getR_no() {
 		return r_no;
 	}

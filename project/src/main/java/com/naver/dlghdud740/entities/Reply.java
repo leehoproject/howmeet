@@ -10,6 +10,7 @@ public class Reply {
 	private String r_date;
 	private String r_content;
 	private int r_no;
+
 	public int getR_no() {
 		return r_no;
 	}

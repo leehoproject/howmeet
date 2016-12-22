@@ -18,7 +18,6 @@ public interface BoardDao {
 	public int updateRow(Board board);
 	public int deleteRow(int b_seq);
 	public int updateHit(int b_seq);
-	
 	public int insertReply(Reply reply);
 	public ArrayList<Reply> replySelectAll(int b_seq);
 	

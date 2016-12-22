@@ -22,12 +22,13 @@
 			<id property="b_dept1" column="b_dept1" />
 			<id property="b_dept2" column="b_dept2" />
 		</resultMap>
-		<resultMap type="com.naver.dlghdud740.entities.Reply" id="replyMap">
+		<resultMap type="com.naver.dlghdud740.entities.Society_Reply" id="replyMap">
 			<id property="r_seq" column="r_seq" />
 			<id property="r_id" column="r_id" />
 			<id property="r_name" column="r_name" />
 			<id property="r_date" column="r_date" />
 			<id property="r_content" column="r_content" />
+			<id property="r_dept" column="r_dept" />
 		</resultMap>	
 		
 		<insert id="insertcontent" parameterType="hashMap">
@@ -73,12 +74,14 @@
 			delete from society_reply where b_seq=#{b_seq}
 		</delete>
 		<insert id="insertReply" parameterType="hashMap">
-		insert into society_reply(r_seq,r_id,r_name,r_date,r_content,r_no) values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} 
-		                  ,(select coalesce(max(r_no)+1,1) from society_reply))
+		insert into society_reply(r_seq,r_id,r_name,r_date,r_content,r_no,r_dept) 
+						    values (#{r_seq},#{r_id},#{r_name},#{r_date},#{r_content} 
+		                		  ,(select coalesce(max(r_no)+1,1)from society_reply),#{r_dept})
 		</insert>
 		<select id="replySelectAll" resultMap="replyMap">
-		select*from
-		(select rownum numrow, A.* from (select * from society_reply order by r_no desc)A) where r_seq=#{b_seq}
+		select * from
+		(select rownum numrow, A.* from (select * from society_reply order by r_no desc)A) 
+		where r_seq=#{b_seq} and r_dept LIKE #{s_hobby}
 		</select>
 		<delete id="delete_replyRow" parameterType="hashMap">
 			delete from society_reply 

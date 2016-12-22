@@ -23,7 +23,7 @@ public interface Society_BoardDao {
 	public int updateHit(int b_seq);
 	public int reply_deleteRow(int b_seq);
 	public int insertReply(Society_Reply reply);
-	public ArrayList<Society_Reply> replySelectAll(int b_seq);
+	public ArrayList<Society_Reply> replySelectAll(Map params);
 	public int delete_replyRow(Map params);
 	public int society_deleteRow(Map params);
 	

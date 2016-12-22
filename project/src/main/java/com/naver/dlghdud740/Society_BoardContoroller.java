@@ -248,9 +248,13 @@ public class Society_BoardContoroller{
 		public ModelAndView societyboardreadform(@RequestParam("b_seq") int b_seq,
 												 @RequestParam("s_hobby") String s_hobby,@RequestParam("s_dept") int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
-			dao.updateHit(b_seq);
+			dao.updateHit(b_seq);		
 			Society_Board board = dao.selectOne(b_seq);
-			ArrayList<Society_Reply> replys = dao.replySelectAll(b_seq);
+			Map params = new HashMap();
+	        params.put("b_seq",b_seq);
+	        params.put("s_hobby",s_hobby);
+	        params.put("s_dept",s_dept);
+			ArrayList<Society_Reply> replys = dao.replySelectAll(params);
 			ModelAndView mav = new ModelAndView("society_board/society_board_read_form");
 			mav.addObject("board",board);
 			mav.addObject("replys",replys);
@@ -312,11 +316,16 @@ public class Society_BoardContoroller{
 		}
 
 		@RequestMapping(value = "/society_boardreadform", method = RequestMethod.GET)
-		public ModelAndView society_boardreadform(@RequestParam("b_seq") int b_seq ) {
+		public ModelAndView society_boardreadform(@RequestParam("b_seq") int b_seq, 
+												  @RequestParam("s_hobby") String s_hobby,@RequestParam("s_dept") int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			dao.updateHit(b_seq);
 			Society_Board board = dao.selectOne(b_seq);
-			ArrayList<Society_Reply> replys = dao.replySelectAll(b_seq);
+			Map params = new HashMap();
+	        params.put("b_seq",b_seq);
+	        params.put("s_hobby",s_hobby);
+	        params.put("s_dept",s_dept);
+			ArrayList<Society_Reply> replys = dao.replySelectAll(params);
 			ModelAndView mav = new ModelAndView("society_board/society_board_read_form");
 			mav.addObject("board",board);
 			mav.addObject("replys",replys);
@@ -350,6 +359,7 @@ public class Society_BoardContoroller{
 			reply.setR_id(id);
 			reply.setR_name(name);
 			reply.setR_content(reply.getR_content());
+			reply.setR_dept(s_hobby);
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			int result = dao.insertReply(reply);
 			ModelAndView mav = new ModelAndView("redirect:societyboardreadform");
@@ -365,13 +375,22 @@ public class Society_BoardContoroller{
 			Map params = new HashMap();
 	        params.put("r_seq",reply.getR_seq());
 	        params.put("r_no",reply.getR_no());
+	        
 	        dao.delete_replyRow(params);
+	        
 			return "redirect:societyboardreadform?b_seq="+reply.getR_seq();
 		}	
 		@RequestMapping(value = "/societyBoardDelete", method = RequestMethod.GET)
 		public ModelAndView society_BoardDelete(@RequestParam int b_seq,@RequestParam String s_hobby,@RequestParam int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			ModelAndView mav = new ModelAndView("society_board/society_delete_message");
+			System.out.println("-------------->"+b_seq);
+			System.out.println("-------------->"+b_seq);
+			System.out.println("-------------->"+s_hobby);
+			System.out.println("-------------->"+s_hobby);
+			System.out.println("-------------->"+s_dept);
+			System.out.println("-------------->"+s_dept);
+			
 			mav.addObject("b_seq",b_seq);
 			mav.addObject("s_hobby",s_hobby);
 			mav.addObject("s_dept",s_dept);
@@ -380,6 +399,7 @@ public class Society_BoardContoroller{
 		
 		@RequestMapping(value = "/society_Board_Delete", method = RequestMethod.GET)
 		public ModelAndView society_Board_Delete(@RequestParam int b_seq,@RequestParam String s_hobby,@RequestParam int s_dept) {
+			
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			//게시글삭제 부분
 			Map params = new HashMap();
@@ -387,7 +407,7 @@ public class Society_BoardContoroller{
 	        params.put("s_hobby",s_hobby);
 	        params.put("s_dept",s_dept);
 	        dao.society_deleteRow(params);
-	        //댓글삭제 부분
+	        //댓글삭제 부분 수정
 	        
 			ModelAndView mav = new ModelAndView("redirect:society_board_list");
 			mav.addObject("s_hobby",s_hobby);
