@@ -65,8 +65,7 @@
                         <th style="text-align:center !important">User ID</th>
                         <th style="text-align:center !important">Name</th>
                         <th style="text-align:center !important">Email</th>
-                        <th style="text-align:center !important">hobby1</th>
-                        <th style="text-align:center !important">hobby2</th>
+                        <th style="text-align:center !important">phone</th>
                     </tr> 
                   </thead>
                   <tbody>
@@ -76,8 +75,7 @@
                             <td class="hidden-xs" align="center"><a href="memberUpdateForm?m_id=${member.m_id}">${member.m_id}</td></a>
                             <td align="center">${member.m_name}</td>
                             <td align="center">${member.m_email}</td>
-                            <td align="center">${member.m_hobby1}</td>
-                            <td align="center">${member.m_hobby2}</td>
+                            <td align="center">${member.m_phone1}-${member.m_phone2}-${member.m_phone3}</td>
                           </tr>
                   </c:forEach>      
 	    	 <tr>

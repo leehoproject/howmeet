@@ -83,7 +83,7 @@ $(function(){
 			</div>	
 			<div class="form-group">
 				<label for="summernote"><span class="labeltext">내용</span></label>
-				<textarea class="form-control" id="b_content" disabled="disabled" name="b_content"  maxlength="140"  rows="80" >${board.getB_content()}</textarea>
+				<textarea class="form-control" id="b_content" disabled="disabled" name="b_content"  maxlength="140"  rows="80" placeholder="내용을 입력해주세요" >${board.getB_content()}</textarea>
 			</div>
 			<div class="row">
 				<div class="col-sm-5"></div>
@@ -119,7 +119,7 @@ $(function(){
 				<div class="col-sm-5"></div>
 				<div class="col-sm-4" style="margin-top: 5px; margin-bottom: 3px">
 					<div class="col-sm-4">	
-						<button Type=button id="reply_insert" name="reply_insert" class="btn btn-default" style="width:100%;">댓글</button>
+						<button Type=button id="reply_insert" name="reply_insert" class="btn btn-default" style="width:100%; margin-bottom:50px">댓글</button>
 					</div>
 				</div>	
 				</div>		
@@ -128,7 +128,7 @@ $(function(){
 	                	  <c:forEach var="replys" items="${replys}" >
 	                         <input Type="hidden" id="r_no" name="r_no" value="${replys.r_no}"/>
 	                          <tr>
-	                          	 <td style="border:1x; border-style:solid; border-color:#000000; padding: 2em;" class="hidden-xs" width="50" align="left" >
+	                          	 <td style="border:1x; border-style:solid; border-color:#000000;" class="hidden-xs" width="50" align="left" >
 	                          	 <id="reply_id">${replys.r_id}<br><br></id>
 	                          	 <id="reply_content">${replys.r_content}</id>
 <%-- 	                          	 <c:if test="${temp == replys.r_id || sessionid == 'admin'}"> --%>
