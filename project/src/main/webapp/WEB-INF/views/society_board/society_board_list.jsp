@@ -31,7 +31,7 @@ $(document).ready(function() {
 		   $('#unitchk:checked').each(function(index){
 			   saveseq[index] = $(this).val();
 		   });
-		   var url = "society_boardSelectDelete?saveseqs="+saveseq+"&s_hobby="+$(s_hobby).val()+"&s_dept="+$(s_dept).val();
+		   var url = "society_boardSelectDelete?saveseq="+saveseq+"&s_hobby="+$(s_hobby).val()+"&s_dept="+$(s_dept).val();
 		   $(location).attr('href',url);
 	       }else{
 	    	   return;
