@@ -64,6 +64,11 @@
 			update society_board set b_id=#{b_id},b_name=#{b_name},b_title=#{b_title},b_content=#{b_content},b_ip=#{b_ip},b_date=#{b_date},b_QAtype=#{b_QAtype} 
 			where b_seq=#{b_seq}
 		</update>
+		<update id="society_board_updateRow" parameterType="hashMap">
+			update society_board set b_id=#{b_id},b_name=#{b_name},b_title=#{b_title},b_content=#{b_content},b_ip=#{b_ip},
+			b_date=#{b_date},b_QAtype=#{b_QAtype},b_dept1=#{b_dept1},b_dept2=#{b_dept2}
+			where b_seq=#{b_seq} and b_dept1=#{b_dept2} and b_dept2=#{b_dept2}
+		</update>
 		<update id="updateHit" parameterType="int">
 			update society_board set b_hit=b_hit + 1 where b_seq=#{b_seq}
 		</update>

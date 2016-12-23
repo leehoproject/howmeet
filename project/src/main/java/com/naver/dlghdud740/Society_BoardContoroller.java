@@ -272,32 +272,62 @@ public class Society_BoardContoroller{
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			Society_Board board = dao.selectOne(b_seq);
 			dao.updateHit(b_seq);
-			ModelAndView mav = new ModelAndView("society_board_update_form");
+			ModelAndView mav = new ModelAndView("society_board/society_board_update_form");
 			mav.addObject("board",board);
-			
+			mav.addObject("b_seq",board.getB_seq());
+			mav.addObject("s_hobby",board.getB_dept1());
+			mav.addObject("s_dept",board.getB_dept2());
 			return mav;
 		}
+		
+		//게시글 수정 부분
 		@RequestMapping(value = "/society_boardupdate", method = RequestMethod.POST)
-		public ModelAndView society_boardupdate(@ModelAttribute("Society_Board") Society_Board board,HttpServletRequest request ) {	
+		public ModelAndView society_boardupdate(@ModelAttribute("Society_Board") Society_Board board,HttpServletRequest request,
+												@RequestParam("b_seq") int b_seq, @RequestParam CommonsMultipartFile file,
+												@RequestParam("s_hobby") String s_hobby,
+												@RequestParam("s_dept") int s_dept) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			String b_ip = request.getRemoteAddr();
 			SimpleDateFormat simple = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss", Locale.KOREA);
 			Date currentdate = new Date();
 			String b_date = simple.format(currentdate);
-			board.setB_QAtype(board.getB_QAtype());
+			board.setB_QAtype("1");
 			board.setB_ip(b_ip);
 			board.setB_date(b_date);
 			board.setB_step(0);
 			board.setB_hit(0);
 			board.setB_level(0);
+			board.setB_dept1(s_hobby);
+			board.setB_dept2(s_dept);
+			String path="D:/KFMT/itschool/src/main/webapp/resources/uploadFolder/";
+			String filename=file.getOriginalFilename();
+			if(filename.equals("")){
+				board.setB_attach(filename);
+			} else {
+				board.setB_attach(path+filename);
+				try {
+					byte barr[]=file.getBytes();
+					
+					BufferedOutputStream bout = new BufferedOutputStream(
+							new FileOutputStream(path+filename));
+					bout.write(barr);
+					bout.flush();
+					bout.close();
+					} catch (Exception e) {
+						System.out.println(e);
+					}
+			}
 			String msg = "";
 			int result = dao.updateRow(board);
 			if(result==1){
-				msg="success! Update your Info.";
+				msg="수정 완료";
 			} else {
-				msg="fail! yout Info.";
+				msg="수정 실패";
 			}
-			ModelAndView mav = new ModelAndView("society_board/society_boardresult");
+			ModelAndView mav = new ModelAndView("society_board/boardupdatepage");
+			mav.addObject("b_seq",b_seq);
+			mav.addObject("s_hobby",s_hobby);
+			mav.addObject("s_dept",s_dept);
 			mav.addObject("msg",msg);
 			mav.addObject("result","ok");
 			
@@ -309,13 +339,13 @@ public class Society_BoardContoroller{
 											 @RequestParam("s_hobby") String s_hobby,
 											 @RequestParam("s_dept") int s_dept
 											 ){
-			
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
 			//게시글 삭제
 			int result = dao.deleteRow(b_seq);
 			
 			return "redirect:society_board_list?b_seq="+b_seq+"&s_hobby="+s_hobby+"&s_dept="+s_dept;
 		}
+		
 		@RequestMapping(value = "/society_boardreply", method = RequestMethod.GET)
 		public ModelAndView society_boardreply(@RequestParam int b_seq ) {
 			Society_BoardDao dao = sqlSession.getMapper(Society_BoardDao.class);
