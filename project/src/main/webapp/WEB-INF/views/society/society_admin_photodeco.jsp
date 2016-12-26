@@ -91,7 +91,7 @@
             <!-- /.navbar-static-side -->
 
         <div id="page-wrapper">
-          	대문사진넣기(권장 1170x300)
+          	<h2>대문사진넣기(권장 1170x300)</h2>
 	        <form method="POST" action="uploadFile" enctype="multipart/form-data">
 	        	<input type="hidden" id="societyname" name="societyname" value="${societyname}">
 	        	<img class="img-responsive" id="profile" name="profile" src="resources/images/profile.png">

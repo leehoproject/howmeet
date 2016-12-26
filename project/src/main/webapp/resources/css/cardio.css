@@ -159,32 +159,6 @@ a {
 }
 /* Navigation Bar ( Navbar ) */
 
-nav.navbar {
-	margin-top: 10px;
-	position: static;
-	z-index: 9500;
-	width: 100%;
-	width: 100vw;
-	-webkit-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-nav.navbar .navbar-nav li.active a:not(.btn) {
-	color: #00a8ff !important;
-}
-
-nav.navbar-fixed-top {
-	z-index: 9499;
-	top: 0;
-	padding: 25px 0;
-	opacity: 0;
-	background: white;
-	box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.05);
-}
-
-nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
-	color: #337ab7;
-}
 
 .icon-bar {
 	background: #bbb;
@@ -262,9 +236,6 @@ nav.navbar-fixed-top .navbar-nav > li > a:not(.btn) {
 	margin: 0 10px;
 }
 
-.navbar {
-	top: 50px;
-}
 
 .container {
 	position: relative;
@@ -745,24 +716,24 @@ footer .social-footer li:hover a {
 
 .form-control.form-white::-webkit-input-placeholder {
 	/* WebKit browsers */
-	color: #999999;
+	color: #ffffff;
 }
 
 .form-control.form-white:-moz-placeholder {
 	opacity: 1;
 	/* Mozilla Firefox 4 to 18 */
-	color: #999999;
+	color: #ffffff;
 }
 
 .form-control.form-white::-moz-placeholder {
 	opacity: 1;
 	/* Mozilla Firefox 19+ */
-	color: #999999;
+	color: #ffffff;
 }
 
 .form-control.form-white:-ms-input-placeholder {
 	/* Internet Explorer 10+ */
-	color: #999999;
+	color: #ffffff;
 }
 
 .form-control.form-white:focus {

@@ -153,6 +153,15 @@ public class HomeController {
 		
 	}
 	
+	//로그인실패
+	@RequestMapping(value = "/loginfail", method = RequestMethod.GET)
+	public ModelAndView loginfail() {	
+		String msg = "로그인에 실패했습니다.";
+		ModelAndView mav = new ModelAndView("member/member_result");
+		mav.addObject("msg",msg);
+		return mav;	
+	}
+	
 	//로그아웃 적용 By 이기범
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {	

@@ -21,7 +21,7 @@
 
 	<!-- 모임 만들기 창 디자인(차후 외부CSS로) -->
 	<style>
-	.mainframe{margin-top:50px; padding:50px; border:2px solid #f7f7f7;}
+	.mainframe{ padding:50px; border:2px solid #f7f7f7;}
 	</style>
 	
 </content>
@@ -30,6 +30,9 @@
 <div id="page-content" class="index-page">
 <div class="container">
 	<div class="row">
+		<div class="col-lg-12">
+			<h2>모임생성</h2>
+		</div>
 		<form class="form-horizontal" action="SocietyCreate" method="GET" role="form" data-parsley-validate="true">
 			<div class="col-md-12 mainframe">
 				<div class="form-group">

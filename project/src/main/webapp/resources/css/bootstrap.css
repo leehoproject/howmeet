@@ -2567,14 +2567,14 @@ output {
           box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
 .form-control::-moz-placeholder {
-  color: #999;
+  color: #fff;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: #999;
+  color: #fff;
 }
 .form-control::-webkit-input-placeholder {
-  color: #999;
+  color: #fff;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -4200,7 +4200,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4297,6 +4296,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  background-color: #e8f8ff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .navbar-fixed-bottom {
   bottom: 0;
@@ -4396,7 +4397,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav > li > a {
     padding:15px 25px;
     font-size: 16px;
-    color: #337ab7;
+    color: #00a8ff;
+  }
+   .navbar-nav > li > a:hover {
+    color: #ffffff;
   }
 }
 .navbar-form {

@@ -44,6 +44,13 @@
 <script src="resources/js/main.js"></script>
 <script src="resources/js/bootstrap-tag-cloud.js"></script>
 
+<style type="text/css">
+	.navbar-nav > li > a:hover{
+ 	border-radius: 2px;
+ 	color: #ffffff;
+    background-color: #bbdddd;
+}
+</style>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,7 +64,7 @@
 		<img src="resources/images/loader.gif" alt="Preloader image">
 	</div>
 	<!-- 상단 메뉴바 시작 -->
-	<nav class="navbar">
+	<nav class="navbar navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
@@ -67,7 +74,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="home">
-					<img src="resources/images/logo.jpg" data-active-url="resources/images/logo.jpg" alt="">
+					<img src="resources/images/logo.png" data-active-url="resources/images/logo.png" alt="">
 					</a>
 				</div>
 				<div class="collapse navbar-collapse" id="mynavbar">
@@ -79,9 +86,11 @@
 								<c:otherwise>
 									<li><a href="createmeeting">모임만들기</a></li>
 		                       		<li><a href="memberUpdateForm?m_id=${sessionid}">내 정보</a></li>
+		                       		<c:if test="${sessionid=='admin'}">
+		                       			<li><a href="member_list">회원목록</a></li>
+		                       		</c:if>
 		                       	</c:otherwise>
 			                </c:choose>
-						<li><a href="member_list">회원목록</a></li>
 						<li>
 							<c:choose>
 							 	<c:when test="${sessionid == null }">

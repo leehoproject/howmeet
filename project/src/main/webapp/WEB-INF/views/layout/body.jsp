@@ -57,7 +57,7 @@
 							<a href="member.html" class="video_carousel_colored_button" data-animation="animated fadeInLeft">회원가입</a>
 						</div>
 						
-						<!--========= 2비디오 =========-->
+<!-- 						========= 2비디오 ========= -->
 						<video class="video_carousel_video" autoplay loop>
 							<source src="resources/images/carousel_video_02.mp4" type="video/mp4">
 							현재 브라우저에서 지원되지 않는 기능입니다.
