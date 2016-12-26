@@ -515,7 +515,7 @@ xcustom form elements
 .cd-filter-block input[type='search'] {
   /* custom style for the search element */
   border-color: transparent;
-  background-color: #e6e6e6;
+  background-color: #ffffff;
   /* prevent jump - ios devices */
   font-size: 1.6rem !important;
 }
