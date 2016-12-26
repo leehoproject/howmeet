@@ -90,7 +90,7 @@
             </div>
             <!-- /.navbar-static-side -->
 
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="margin-top: 60px;">
           	<h2>대문사진넣기(권장 1170x300)</h2>
 	        <form method="POST" action="uploadFile" enctype="multipart/form-data">
 	        	<input type="hidden" id="societyname" name="societyname" value="${societyname}">

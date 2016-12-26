@@ -193,7 +193,7 @@ $(document).ready(function(){
 </style>
 </content>
 <body>
-<form id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form">
+<form id="insert_form" name="insert_form" class="form-horizontal" action="memberInsert" method="POST" role="form" style="margin-top: 80px;">
 	<div class="container">
 		<div class="row" style="padding-left:10px; padding-right:10px;">
 				<div class="col-md-offset-3 col-md-6 mainframe">

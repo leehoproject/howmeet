@@ -42,7 +42,7 @@ $(document).ready(function() {
 </script>
 </content>
 <body>
-<form class="form-horizontal" action="society_boardPageList" method="POST" enctype="multipart/form-data" role="form">
+<form class="form-horizontal" action="society_boardPageList" method="POST" enctype="multipart/form-data" role="form" style="margin-top: 80px;">
 <div class="container">
     <div class="row">
      <input type="hidden" id="s_hobby" name="s_hobby" value="${s_hobby}">

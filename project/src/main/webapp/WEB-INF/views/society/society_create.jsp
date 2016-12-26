@@ -27,7 +27,7 @@
 </content>
 <body>
 <!-- 모임생성 시작 -->
-<div id="page-content" class="index-page">
+<div id="page-content" class="index-page" style="margin-top: 80px;">
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">

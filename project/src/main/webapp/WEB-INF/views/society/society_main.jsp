@@ -55,7 +55,7 @@
 	</script>
 </content>
 <body>
-	<div class="container">
+	<div class="container" style="margin-top: 80px;">
 		<c:choose>
 			<c:when test="${society.getS_photo()==null}">
 			<div style="height: 300px; width: 1170px; background-image: url(resources/images/jelly.jpg);"></div>
@@ -241,6 +241,8 @@
 						<textarea class="form-control" rows="3" id="p_content" name="p_content" style="resize:none;"></textarea>
 						<input type="hidden" id="p_id" name="p_id" value="${sessionid}">
 						<input type="hidden" id="p_name" name="p_name" value="${societyname}">
+				        <input type="hidden" id=s_hobby name="s_hobby" value="${s_hobby}">
+				        <input type="hidden" id="s_dept" name="s_dept" value="${s_dept}">
 					</div>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-default">저장</button>

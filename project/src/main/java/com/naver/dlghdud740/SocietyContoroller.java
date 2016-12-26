@@ -183,7 +183,7 @@ public class SocietyContoroller{
 	//사진입력
 	@RequestMapping(value = "/insertPhoto", method = RequestMethod.POST)
 	public ModelAndView insertPhoto(@ModelAttribute("photo") Photo photo,HttpServletRequest request,
-            @RequestParam CommonsMultipartFile file,HttpSession session) {	
+            @RequestParam CommonsMultipartFile file,HttpSession session,@RequestParam String s_dept,@RequestParam String s_hobby) {	
 		PhotoDao dao = sqlSession.getMapper(PhotoDao.class);
 		String path = "C:/Users/IT/git/howmeet/project/src/main/webapp/resources/photogallery/";
 		String filename = file.getOriginalFilename();
@@ -210,10 +210,14 @@ public class SocietyContoroller{
 		} else {
 			System.out.println("nooooooooo");
 		}
+		System.out.println(s_dept);
+		System.out.println(s_hobby);
 		ModelAndView mav = new ModelAndView("redirect:/societymain");
 		mav.addObject("check","1");
 		mav.addObject("societyname",photo.getP_name());
 		mav.addObject("sessionid",photo.getP_id());
+		mav.addObject("s_dept",s_dept);
+		mav.addObject("s_hobby",s_hobby);
 		return mav;
 		}
 	

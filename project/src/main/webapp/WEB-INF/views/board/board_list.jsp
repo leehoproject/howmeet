@@ -44,7 +44,7 @@ $(document).ready(function() {
 </script>
 </content>
 <body>
-<form class="form-horizontal" action="boardPageList" method="POST" enctype="multipart/form-data" role="form">
+<form class="form-horizontal" action="boardPageList" method="POST" enctype="multipart/form-data" role="form" style="margin-top: 80px;">
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
